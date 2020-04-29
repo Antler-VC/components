@@ -1,8 +1,11 @@
 {
   "version": "0.0.0",
+  "name": "@antlerengineering/components",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "access": "public"
   },
+  "author": "Antler Engineering",
+  "module": "dist/components.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "UNLICENSED",
@@ -41,9 +44,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "components",
-  "author": "Sidney Alcantara",
-  "module": "dist/components.esm.js",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@material-ui/core": "^4.9.0",
