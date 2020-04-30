@@ -3,7 +3,7 @@ import EmptyState, { IEmptyStateProps } from './EmptyState';
 
 export interface IErrorBoundaryProps extends IEmptyStateProps {
   /** Called inside `componentDidCatch` */
-  handleError: (error: Error, errorInfo: object) => void;
+  handleError?: (error: Error, errorInfo: object) => void;
 }
 
 /**
