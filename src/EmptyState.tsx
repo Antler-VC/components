@@ -37,13 +37,23 @@ const useStyles = makeStyles(theme =>
 );
 
 export interface IEmptyStateProps extends Partial<GridProps> {
+  /** Primary message displayed under the icon */
   message?: React.ReactNode;
+  /** Description text displayed under primary message */
   description?: React.ReactNode;
+  /** Override icon component */
   Icon?: typeof ErrorIcon;
+  /** Set height to `100vh`. Default: `false` */
   fullScreen?: boolean;
+  /** Basic inline presentation without padding. Default: `false` */
   basic?: boolean;
 }
 
+/**
+ * Display an empty state message with sensible defaults.
+ * By default, height is `100%`.
+ * Override with props that are passed to the root MUI `Grid` component.
+ */
 export default function EmptyState({
   message = 'Nothing here',
   description,

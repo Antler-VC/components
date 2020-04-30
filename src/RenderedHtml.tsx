@@ -95,6 +95,10 @@ export interface IRenderedHtmlProps
   html: string;
 }
 
+/**
+ * Display user-inputted HTML content with styles.
+ * Sanitises the input with `dompurify` to protect from XSS attacks.
+ */
 export default function RenderedHtml({
   html,
   className,

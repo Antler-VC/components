@@ -28,16 +28,22 @@ const useStyles = makeStyles(theme =>
 );
 
 export interface ILoadingProps extends Partial<GridProps> {
+  /** Override the default “Loading” message */
   message?: string;
+  /** Set height to `100vh`. Default: `false` */
   fullScreen?: boolean;
 }
 
+/**
+ * Display a loading screen with a spinner
+ * Override with props that are passed to the root MUI `Grid` component.
+ */
 export default function Loading({
   message = 'Loading',
   fullScreen = false,
   ...props
 }: ILoadingProps) {
-  const classes = useStyles({});
+  const classes = useStyles();
 
   return (
     <Grid

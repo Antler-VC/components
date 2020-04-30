@@ -1,7 +1,19 @@
 import React from 'react';
 import EmptyState, { IEmptyStateProps } from './EmptyState';
 
-export default class ErrorBoundary extends React.Component<IEmptyStateProps> {
+export interface IErrorBoundaryProps extends IEmptyStateProps {
+  /** Called inside `componentDidCatch` */
+  handleError: (error: Error, errorInfo: object) => void;
+}
+
+/**
+ * Displays an `EmptyState` when an error is caught inside.
+ * Props will be passed to `EmptyState`.
+ * If it is a chunk loading issue due to a new update being pushed, reloads.
+ */
+export default class ErrorBoundary extends React.Component<
+  IErrorBoundaryProps
+> {
   state = { hasError: false, errorMessage: '' };
 
   static getDerivedStateFromError(error: Error) {
@@ -18,18 +30,20 @@ export default class ErrorBoundary extends React.Component<IEmptyStateProps> {
   componentDidCatch(error: Error, errorInfo: object) {
     console.log(error, errorInfo);
     // You can also log the error to an error reporting service
-    //logErrorToMyService(error, errorInfo);
+    if (this.props.handleError) this.props.handleError(error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
+      const { handleError, ...props } = this.props;
+
       // You can render any custom fallback UI
       return (
         <EmptyState
           message="Something Went Wrong"
           description={this.state.errorMessage}
           fullScreen
-          {...this.props}
+          {...props}
         />
       );
     }
