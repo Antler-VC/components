@@ -1,4 +1,3 @@
-/// <reference types="firebase" />
 import React from 'react';
 
 import { Button } from '@material-ui/core';
@@ -7,7 +6,8 @@ import EmptyState from './EmptyState';
 import SecurityIcon from '@material-ui/icons/Security';
 
 export interface IAccessDeniedProps {
-  auth: firebase.auth.Auth;
+  /** The Firebase Auth instance */
+  auth: any;
 }
 
 export default function AccessDenied({ auth }: IAccessDeniedProps) {
