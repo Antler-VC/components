@@ -1,12 +1,7 @@
 import React from 'react';
 import _merge from 'lodash/merge';
 
-import {
-  createMuiTheme,
-  responsiveFontSizes,
-  ThemeOptions,
-  fade,
-} from '@material-ui/core/styles';
+import { createMuiTheme, ThemeOptions, fade } from '@material-ui/core/styles';
 import ClearIcon from '@material-ui/icons/Clear';
 
 export const HEADING_FONT = 'Europa, sans-serif';
@@ -301,13 +296,9 @@ export const defaultOverrides: ThemeOptions = {
   },
 };
 
-export const defaultTheme = responsiveFontSizes(
-  createMuiTheme(_merge(themeBase, defaultOverrides))
-);
+export const defaultTheme = createMuiTheme(_merge(themeBase, defaultOverrides));
 
 export const generateTheme = (options: ThemeOptions, ...args: Object[]) =>
-  responsiveFontSizes(
-    createMuiTheme(_merge(themeBase, defaultOverrides, options), ...args)
-  );
+  createMuiTheme(_merge(themeBase, defaultOverrides, options), ...args);
 
 export default defaultTheme;
