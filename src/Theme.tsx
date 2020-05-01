@@ -17,82 +17,80 @@ export const ROOT_FONT_SIZE = 16;
 export const toRem = (px: number) => `${px / ROOT_FONT_SIZE}rem`;
 export const toEm = (px: number, root: number) => `${px / root}em`;
 
-export const themeBase = responsiveFontSizes(
-  createMuiTheme({
-    palette: {
-      primary: { main: ANTLER_RED, light: ANTLER_RED },
-      secondary: { main: SECONDARY_GREY },
-      text: { secondary: SECONDARY_TEXT },
-      error: { main: ERROR },
+export const themeBase = createMuiTheme({
+  palette: {
+    primary: { main: ANTLER_RED, light: ANTLER_RED },
+    secondary: { main: SECONDARY_GREY },
+    text: { secondary: SECONDARY_TEXT },
+    error: { main: ERROR },
+  },
+  typography: {
+    fontFamily: BODY_FONT,
+    h1: { fontFamily: HEADING_FONT },
+    h2: { fontFamily: HEADING_FONT },
+    h3: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(36),
+      fontWeight: 'bold',
     },
-    typography: {
-      fontFamily: BODY_FONT,
-      h1: { fontFamily: HEADING_FONT },
-      h2: { fontFamily: HEADING_FONT },
-      h3: {
-        fontFamily: HEADING_FONT,
-        fontSize: toRem(36),
-        fontWeight: 'bold',
-      },
-      h4: {
-        fontFamily: HEADING_FONT,
-        fontSize: toRem(32),
-        fontWeight: 'bold',
-      },
-      h5: {
-        fontFamily: HEADING_FONT,
-        fontSize: toRem(24),
-        fontWeight: 'bold',
-      },
-      h6: {
-        fontFamily: HEADING_FONT,
-        fontSize: toRem(18),
-        fontWeight: 'bold',
-      },
-      subtitle1: {
-        lineHeight: 1.5,
-      },
-      subtitle2: {
-        fontFamily: HEADING_FONT,
-        fontSize: toRem(16),
-        fontWeight: 'bold',
-        letterSpacing: toEm(0.4, 16),
-        lineHeight: 1.5,
-      },
-      body1: {
-        letterSpacing: toEm(0.5, 16),
-        lineHeight: 1.75,
-        maxWidth: '32em',
-      },
-      body2: {
-        fontSize: toRem(14),
-        letterSpacing: toEm(0.25, 14),
-      },
-      button: {
-        fontFamily: HEADING_FONT,
-        fontSize: toRem(16),
-        fontWeight: 'bold',
-        letterSpacing: toEm(0.75, 16),
-        lineHeight: 1,
-      },
-      caption: {
-        fontFamily: HEADING_FONT,
-        fontSize: toRem(13),
-        fontWeight: 'bold',
-        letterSpacing: toEm(0.4, 13),
-        lineHeight: 16 / 13,
-      },
-      overline: {
-        fontFamily: HEADING_FONT,
-        fontSize: toRem(13),
-        fontWeight: 'bold',
-        letterSpacing: toEm(2, 13),
-        lineHeight: 16 / 13,
-        color: SECONDARY_TEXT,
-      },
+    h4: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(32),
+      fontWeight: 'bold',
     },
-  })
-);
+    h5: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(24),
+      fontWeight: 'bold',
+    },
+    h6: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(18),
+      fontWeight: 'bold',
+    },
+    subtitle1: {
+      lineHeight: 1.5,
+    },
+    subtitle2: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(16),
+      fontWeight: 'bold',
+      letterSpacing: toEm(0.4, 16),
+      lineHeight: 1.5,
+    },
+    body1: {
+      letterSpacing: toEm(0.5, 16),
+      lineHeight: 1.75,
+      maxWidth: '32em',
+    },
+    body2: {
+      fontSize: toRem(14),
+      letterSpacing: toEm(0.25, 14),
+    },
+    button: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(16),
+      fontWeight: 'bold',
+      letterSpacing: toEm(0.75, 16),
+      lineHeight: 1,
+    },
+    caption: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(13),
+      fontWeight: 'bold',
+      letterSpacing: toEm(0.4, 13),
+      lineHeight: 16 / 13,
+    },
+    overline: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(13),
+      fontWeight: 'bold',
+      letterSpacing: toEm(2, 13),
+      lineHeight: 16 / 13,
+      color: SECONDARY_TEXT,
+    },
+  },
+});
 
 export const defaultOverrides: ThemeOptions = {
   overrides: {
