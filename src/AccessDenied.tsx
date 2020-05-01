@@ -1,12 +1,16 @@
+/// <reference types="firebase" />
 import React from 'react';
-import { auth } from '../firebase';
 
 import { Button } from '@material-ui/core';
 
 import EmptyState from './EmptyState';
 import SecurityIcon from '@material-ui/icons/Security';
 
-export default function AccessDenied() {
+export interface IAccessDeniedProps {
+  auth: firebase.auth.Auth;
+}
+
+export default function AccessDenied({ auth }: IAccessDeniedProps) {
   return (
     <EmptyState
       fullScreen

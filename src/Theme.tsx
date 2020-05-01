@@ -309,3 +309,5 @@ export const generateTheme = (options: ThemeOptions, ...args: Object[]) =>
   responsiveFontSizes(
     createMuiTheme(_merge(themeBase, defaultOverrides, options), ...args)
   );
+
+export default defaultTheme;

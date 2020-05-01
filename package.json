@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "tsdx build",
+    "build": "node generate-exports; tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
@@ -30,6 +30,7 @@
     "@material-ui/icons": "^4.9.0",
     "clsx": "^1.0.4",
     "dompurify": "^2.0.10",
+    "firebase": "^7.0.0",
     "react": "^16.8.0",
     "react-div-100vh": "^0.3.8"
   },
@@ -62,6 +63,7 @@
     "babel-loader": "^8.1.0",
     "clsx": "^1.0.4",
     "dompurify": "^2.0.10",
+    "firebase": "^7.14.2",
     "husky": "^4.2.5",
     "react": "^16.8.0",
     "react-div-100vh": "^0.3.8",
