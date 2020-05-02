@@ -179,7 +179,11 @@ export const defaultOverrides: ThemeOptions = {
         },
       },
       sizeSmall: { minHeight: 24 },
-      labelSmall: { padding: themeBase.spacing(0.5, 1.5) },
+      labelSmall: {
+        padding: themeBase.spacing(0.5, 1.5),
+        paddingRight: themeBase.spacing(1.25),
+        paddingLeft: themeBase.spacing(1.5),
+      },
 
       outlined: {
         backgroundColor: themeBase.palette.action.selected,
@@ -191,6 +195,8 @@ export const defaultOverrides: ThemeOptions = {
           themeBase.palette.action.selectedOpacity
         ),
       },
+
+      deleteIcon: { color: 'inherit' },
     },
     MuiBadge: {
       badge: {
