@@ -262,6 +262,10 @@ export const defaultOverrides: ThemeOptions = {
       colorPrimary: { backgroundColor: '#e7e7e7' },
       colorSecondary: { backgroundColor: '#e7e7e7' },
     },
+    // Fix text inputs set to max-width of body2 text style
+    MuiInputBase: {
+      root: { maxWidth: 'none' },
+    },
   },
   props: {
     MuiTypography: {
