@@ -61,7 +61,6 @@ export const themeBase = createMuiTheme({
     body1: {
       letterSpacing: toEm(0.5, 16),
       lineHeight: 1.75,
-      maxWidth: '32em',
     },
     body2: {
       fontSize: toRem(14),
@@ -261,10 +260,6 @@ export const defaultOverrides: ThemeOptions = {
     MuiLinearProgress: {
       colorPrimary: { backgroundColor: '#e7e7e7' },
       colorSecondary: { backgroundColor: '#e7e7e7' },
-    },
-    // Fix text inputs set to max-width of body2 text style
-    MuiInputBase: {
-      root: { maxWidth: 'none' },
     },
   },
   props: {
