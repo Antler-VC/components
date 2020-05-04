@@ -296,6 +296,7 @@ export const defaultOverrides: ThemeOptions = {
       underline: 'hover',
     },
     MuiChip: { deleteIcon: <ClearIcon /> },
+    MuiTextField: { variant: 'filled' },
   },
 };
 
