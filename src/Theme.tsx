@@ -130,6 +130,9 @@ export const defaultOverrides: ThemeOptions = {
         padding: themeBase.spacing(1, 4),
       },
 
+      outlined: {
+        '&:hover': { borderColor: 'currentColor' },
+      },
       outlinedPrimary: {
         // Same as outlined text field
         borderColor: 'rgba(0, 0, 0, 0.23)',
