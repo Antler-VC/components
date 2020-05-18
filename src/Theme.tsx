@@ -181,11 +181,20 @@ export const defaultOverrides: ThemeOptions = {
           paddingBottom: themeBase.spacing(0.875),
         },
       },
-      sizeSmall: { minHeight: 24 },
+      sizeSmall: {
+        height: 'auto',
+        minHeight: 24,
+      },
       labelSmall: {
         padding: themeBase.spacing(0.5, 1.5),
         paddingRight: themeBase.spacing(1.25),
         paddingLeft: themeBase.spacing(1.5),
+
+        '$outlined &': {
+          padding: themeBase.spacing(0.5, 1.5),
+          paddingRight: themeBase.spacing(1.25),
+          paddingLeft: themeBase.spacing(1.5),
+        },
       },
 
       outlined: {
