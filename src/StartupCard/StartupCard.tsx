@@ -3,7 +3,9 @@ import React from 'react';
 import { CardContent } from '@material-ui/core';
 
 import SquareCard, { ISquareCardProps } from '../SquareCard';
-import { IStartupCardContentsProps } from './StartupCardContents';
+import StartupCardContents, {
+  IStartupCardContentsProps,
+} from './StartupCardContents';
 
 export interface IStartupCardProps extends IStartupCardContentsProps {
   CardProps?: Partial<ISquareCardProps>;

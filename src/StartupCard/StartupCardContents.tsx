@@ -52,12 +52,12 @@ export default function StartupCardContents({
         {sector?.join(' · ')}
       </Typography>
 
-      {logo?.[0]?.downloadURL &&
-        (logo[0].downloadURL === 'ANTLER' ? (
-          <AntlerLogo className={classes.logo} />
-        ) : (
-          <CardMedia image={logo[0].downloadURL} className={classes.logo} />
-        ))}
+      {logo?.[0]?.downloadURL && (
+        <CardMedia
+          image={logo[0].downloadURL.replace('ANTLER', AntlerLogo)}
+          className={classes.logo}
+        />
+      )}
 
       <Typography
         variant="h6"
