@@ -1,17 +1,29 @@
 const fs = require('fs');
 
-const components = fs
-  .readdirSync('./src')
-  .filter(name => name.includes('.ts') && name !== 'index.ts')
-  .map(name => name.split('.ts')[0]);
+process.chdir('./src');
 
 const output = [];
 
-for (const component of components) {
-  output.push(
-    `export { default as ${component} } from './${component}';\n` +
-      `export * from './${component}';\n`
-  );
+function scanDir(dir) {
+  const items = fs.readdirSync(dir);
+
+  for (const item of items) {
+    // This is the generated file
+    if (item === 'index.ts') continue;
+
+    // Recursively scan this directory
+    if (!item.includes('.')) scanDir(dir + '/' + item);
+
+    // Export the file’s contents
+    if (!item.includes('.ts')) continue;
+    const component = item.split('.')[0];
+
+    output.push(
+      `export { default as ${component} } from '${dir}/${component}';\n` +
+        `export * from '${dir}/${component}';\n`
+    );
+  }
 }
 
-fs.writeFileSync('./src/index.ts', output.join('\n'));
+scanDir('.');
+fs.writeFileSync('index.ts', output.join('\n'));
