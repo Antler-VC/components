@@ -6,7 +6,6 @@ import {
   Typography,
   CardMedia,
 } from '@material-ui/core';
-import AntlerLogo from '../assets/antler-logo.svg';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -33,6 +32,7 @@ export interface IStartupCardContentsProps {
   companyName: string;
   sector: string[];
   logo?: { downloadURL: string }[];
+  LogoComponent?: React.ComponentType<{ className?: string }>;
   oneLineDescription: string;
   oneLine?: string;
 }
@@ -41,6 +41,7 @@ export default function StartupCardContents({
   companyName,
   sector,
   logo,
+  LogoComponent,
   oneLineDescription,
   oneLine,
 }: IStartupCardContentsProps) {
@@ -52,12 +53,12 @@ export default function StartupCardContents({
         {sector?.join(' · ')}
       </Typography>
 
-      {logo?.[0]?.downloadURL && (
-        <CardMedia
-          image={logo[0].downloadURL.replace('ANTLER', AntlerLogo)}
-          className={classes.logo}
-        />
-      )}
+      {logo?.[0]?.downloadURL &&
+        (LogoComponent ? (
+          <LogoComponent className={classes.logo} />
+        ) : (
+          <CardMedia image={logo[0].downloadURL} className={classes.logo} />
+        ))}
 
       <Typography
         variant="h6"
