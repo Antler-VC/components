@@ -129,6 +129,12 @@ export const defaultOverrides: ThemeOptions = {
       containedSizeLarge: {
         padding: themeBase.spacing(1, 4),
       },
+      containedPrimary: {
+        '&:hover': { backgroundColor: themeBase.palette.primary.main },
+      },
+      containedSecondary: {
+        '&:hover': { backgroundColor: themeBase.palette.secondary.main },
+      },
 
       outlined: {
         '&:hover': { borderColor: 'currentColor' },
