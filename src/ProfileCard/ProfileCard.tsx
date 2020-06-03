@@ -9,7 +9,7 @@ import {
   CardMedia,
 } from '@material-ui/core';
 
-import { SquareCard, ISquareCardProps } from '@antlerengineering/components';
+import SquareCard, { ISquareCardProps } from '../SquareCard';
 import EmployerLogos from './EmployerLogos';
 import SocialButtons from './SocialButtons';
 
@@ -58,7 +58,6 @@ const useStyles = makeStyles(theme =>
 );
 
 export interface IProfileCardProps extends ISquareCardProps {
-  objectID: string;
   title: string;
   firstName: string;
   lastName: string;

@@ -3,7 +3,7 @@ import React from 'react';
 import { makeStyles, createStyles, Grid, CardContent } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-import { SquareCard } from '@antlerengineering/components';
+import SquareCard from '../SquareCard';
 
 const useStyles = makeStyles(theme =>
   createStyles({
