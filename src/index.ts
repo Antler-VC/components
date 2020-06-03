@@ -13,11 +13,32 @@ export * from './GoIcon';
 export { default as Loading } from './Loading';
 export * from './Loading';
 
+export { default as EmployerLogos } from './ProfileCard/EmployerLogos';
+export * from './ProfileCard/EmployerLogos';
+
+export { default as ProfileCard } from './ProfileCard/ProfileCard';
+export * from './ProfileCard/ProfileCard';
+
+export { default as ProfileCardSkeleton } from './ProfileCard/ProfileCardSkeleton';
+export * from './ProfileCard/ProfileCardSkeleton';
+
+export { default as ProfileModal } from './ProfileCard/ProfileModal';
+export * from './ProfileCard/ProfileModal';
+
+export { default as SocialButtons } from './ProfileCard/SocialButtons';
+export * from './ProfileCard/SocialButtons';
+
 export { default as RenderedHtml } from './RenderedHtml';
 export * from './RenderedHtml';
 
+export { default as SlideTransition } from './SlideTransition';
+export * from './SlideTransition';
+
 export { default as SquareCard } from './SquareCard';
 export * from './SquareCard';
+
+export { default as SquareDialog } from './SquareDialog';
+export * from './SquareDialog';
 
 export { default as StartupCard } from './StartupCard/StartupCard';
 export * from './StartupCard/StartupCard';
