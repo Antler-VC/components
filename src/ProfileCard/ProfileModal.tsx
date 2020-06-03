@@ -133,7 +133,7 @@ export default function ProfileModal({
   };
 
   const handleKeyUp = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (!open) return;
+    if (!open || isSingle || !onNext || !onPrev) return;
     if (e.key === 'ArrowRight') onNext();
     else if (e.key === 'ArrowLeft') onPrev();
   };
