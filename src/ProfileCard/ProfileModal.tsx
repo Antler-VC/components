@@ -132,6 +132,12 @@ export default function ProfileModal({
     setTimeout(clearData, 400);
   };
 
+  const handleKeyUp = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (!open) return;
+    if (e.key === 'ArrowRight') onNext();
+    else if (e.key === 'ArrowLeft') onPrev();
+  };
+
   const bottomComponent = (
     <>
       {Array.isArray(employerLogos) && employerLogos.length > 0 && (
@@ -158,6 +164,7 @@ export default function ProfileModal({
       onClose={handleClose}
       fullScreen={isXs}
       overrideClasses={{ content: classes.content }}
+      onKeyUp={handleKeyUp}
     >
       <SwitchTransition>
         <Fade
