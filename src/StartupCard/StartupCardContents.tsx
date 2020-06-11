@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme =>
 );
 
 export interface IStartupCardContentsProps {
-  companyName: string;
+  teamName: string;
   sector: string[];
   logo?: { downloadURL: string }[];
   LogoComponent?: React.ComponentType<{ className?: string }>;
@@ -38,7 +38,7 @@ export interface IStartupCardContentsProps {
 }
 
 export default function StartupCardContents({
-  companyName,
+  teamName,
   sector,
   logo,
   LogoComponent,
@@ -66,7 +66,7 @@ export default function StartupCardContents({
         color="textSecondary"
         gutterBottom
       >
-        {companyName}
+        {teamName}
       </Typography>
 
       <Typography variant="body2" className={classes.oneLine}>

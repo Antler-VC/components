@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme =>
       margin: theme.spacing(2, 0),
     },
 
-    companyName: {
+    teamName: {
       width: '20%',
       height: '1.75rem',
       marginBottom: theme.spacing(1),
@@ -64,7 +64,7 @@ export default function StartupCardSkeleton({
 
         <Skeleton variant="rect" className={classes.logo} />
 
-        <Skeleton variant="text" className={classes.companyName} />
+        <Skeleton variant="text" className={classes.teamName} />
 
         <Skeleton variant="text" />
         <Skeleton variant="text" style={{ width: '80%' }} />
