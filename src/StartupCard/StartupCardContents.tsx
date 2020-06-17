@@ -7,6 +7,8 @@ import {
   CardMedia,
 } from '@material-ui/core';
 
+import { lineBreakToBr } from '../utils';
+
 const useStyles = makeStyles(theme =>
   createStyles({
     content: { flexGrow: 1 },
@@ -69,9 +71,13 @@ export default function StartupCardContents({
         {teamName}
       </Typography>
 
-      <Typography variant="body2" className={classes.oneLine}>
-        {oneLineDescription ?? oneLine}
-      </Typography>
+      <Typography
+        variant="body2"
+        className={classes.oneLine}
+        dangerouslySetInnerHTML={{
+          __html: lineBreakToBr(oneLineDescription ?? oneLine),
+        }}
+      />
     </>
   );
 }
