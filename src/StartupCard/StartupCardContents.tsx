@@ -26,7 +26,10 @@ const useStyles = makeStyles(theme =>
       display: 'block',
     },
 
-    oneLine: { minHeight: `${1.45 * 4}em` },
+    oneLine: {
+      minHeight: `${1.45 * 4}em`,
+      '& .spacer': { height: '0.5em' },
+    },
   })
 );
 
