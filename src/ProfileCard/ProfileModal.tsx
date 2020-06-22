@@ -142,7 +142,7 @@ export default function ProfileModal({
     <>
       {Array.isArray(employerLogos) && employerLogos.length > 0 && (
         <Grid item>
-          <EmployerLogos employerLogos={employerLogos} />
+          <EmployerLogos employerLogos={employerLogos} size={60} spacing={2} />
         </Grid>
       )}
 
