@@ -26,6 +26,8 @@ export const useDialogStyles = makeStyles(theme =>
 
     closeButton: {
       position: 'absolute',
+      zIndex: 1,
+
       top: theme.spacing(3),
       right: theme.spacing(3),
 
