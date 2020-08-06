@@ -61,6 +61,7 @@ export default function StartupCardContents({
           <Thumbnail
             imageUrl={logo[0].downloadURL}
             size="400x400"
+            square
             className={classes.logo}
           />
         ))}
