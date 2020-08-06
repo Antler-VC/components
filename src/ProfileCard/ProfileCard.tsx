@@ -135,12 +135,14 @@ export default function ProfileCard({
         </CardContent>
 
         <Grid item className={classes.photoContainer}>
-          <Thumbnail
-            imageUrl={profilePhoto?.[0]?.downloadURL}
-            size="200x200"
-            square
-            className={classes.photo}
-          />
+          {profilePhoto?.[0]?.downloadURL && (
+            <Thumbnail
+              imageUrl={profilePhoto?.[0]?.downloadURL}
+              size="200x200"
+              square
+              className={classes.photo}
+            />
+          )}
         </Grid>
       </Grid>
     </SquareCard>

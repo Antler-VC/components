@@ -187,12 +187,14 @@ export default function ProfileModal({
                 className={classes.leftColumn}
               >
                 <Grid item xs>
-                  <Thumbnail
-                    imageUrl={profilePhoto?.[0]?.downloadURL}
-                    size="640x640"
-                    alt={`${firstName} ${lastName}’s photo`}
-                    className={classes.photo}
-                  />
+                  {profilePhoto?.[0]?.downloadURL && (
+                    <Thumbnail
+                      imageUrl={profilePhoto?.[0]?.downloadURL}
+                      size="640x640"
+                      alt={`${firstName} ${lastName}’s photo`}
+                      className={classes.photo}
+                    />
+                  )}
                 </Grid>
 
                 {!isXs && bottomComponent}
