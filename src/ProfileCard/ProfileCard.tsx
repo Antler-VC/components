@@ -6,12 +6,12 @@ import {
   Grid,
   CardContent,
   Typography,
-  CardMedia,
 } from '@material-ui/core';
 
 import SquareCard, { ISquareCardProps } from '../SquareCard';
 import EmployerLogos from './EmployerLogos';
 import SocialButtons from './SocialButtons';
+import Thumbnail from '../Thumbnail';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -46,8 +46,6 @@ const useStyles = makeStyles(theme =>
       maxWidth: 128,
       width: '100%',
       height: 128,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
 
       [theme.breakpoints.down('sm')]: {
         maxWidth: 80,
@@ -137,8 +135,10 @@ export default function ProfileCard({
         </CardContent>
 
         <Grid item className={classes.photoContainer}>
-          <CardMedia
-            image={profilePhoto?.[0]?.downloadURL}
+          <Thumbnail
+            imageUrl={profilePhoto?.[0]?.downloadURL}
+            size="200x200"
+            square
             className={classes.photo}
           />
         </Grid>

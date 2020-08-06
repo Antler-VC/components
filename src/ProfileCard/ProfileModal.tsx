@@ -17,6 +17,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import SquareDialog from '../SquareDialog';
 import EmployerLogos from './EmployerLogos';
 import SocialButtons from './SocialButtons';
+import Thumbnail from '../Thumbnail';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -186,8 +187,9 @@ export default function ProfileModal({
                 className={classes.leftColumn}
               >
                 <Grid item xs>
-                  <img
-                    src={profilePhoto?.[0]?.downloadURL}
+                  <Thumbnail
+                    imageUrl={profilePhoto?.[0]?.downloadURL}
+                    size="640x640"
                     alt={`${firstName} ${lastName}’s photo`}
                     className={classes.photo}
                   />
