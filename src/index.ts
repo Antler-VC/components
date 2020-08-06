@@ -52,5 +52,8 @@ export * from './StartupCard/StartupCardSkeleton';
 export { default as Theme } from './Theme';
 export * from './Theme';
 
+export { default as Thumbnail } from './Thumbnail';
+export * from './Thumbnail';
+
 export { default as utils } from './utils';
 export * from './utils';

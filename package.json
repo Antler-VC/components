@@ -76,6 +76,7 @@
   "dependencies": {
     "dompurify": "^2.0.10",
     "lodash": "^4.17.15",
-    "lodash-es": "^4.17.15"
+    "lodash-es": "^4.17.15",
+    "react-image": "^4.0.3"
   }
 }
