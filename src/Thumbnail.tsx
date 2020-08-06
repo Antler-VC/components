@@ -11,11 +11,16 @@ const useStyles = makeStyles(theme =>
   createStyles({
     root: ({
       objectFit,
-      square,
+      shape,
       border,
-    }: Pick<IThubmnailProps, 'objectFit' | 'square' | 'border'>) => ({
+    }: Pick<IThubmnailProps, 'objectFit' | 'shape' | 'border'>) => ({
       objectFit: objectFit as any,
-      borderRadius: square ? 0 : theme.shape.borderRadius,
+      borderRadius:
+        shape === 'circle'
+          ? '50%'
+          : shape === 'square'
+          ? 0
+          : theme.shape.borderRadius,
       boxShadow: border ? `0 0 0 1px ${theme.palette.divider} inset` : 'none',
 
       display: 'block',
@@ -23,8 +28,13 @@ const useStyles = makeStyles(theme =>
       userSelect: 'none',
     }),
 
-    skeleton: ({ square }: Pick<IThubmnailProps, 'square'>) => ({
-      borderRadius: square ? 0 : theme.shape.borderRadius,
+    skeleton: ({ shape }: Pick<IThubmnailProps, 'shape'>) => ({
+      borderRadius:
+        shape === 'circle'
+          ? '50%'
+          : shape === 'square'
+          ? 0
+          : theme.shape.borderRadius,
       display: 'block',
     }),
   })
@@ -39,7 +49,7 @@ export interface IThubmnailProps
   size?: string;
 
   objectFit?: string;
-  square?: boolean;
+  shape?: 'roundedRectangle' | 'square' | 'circle';
   border?: boolean;
 }
 
@@ -54,12 +64,12 @@ export function Thubmnail_({
   size = '200x200',
 
   objectFit = 'cover',
-  square = false,
+  shape = 'roundedRectangle',
   border = false,
 
   ...props
 }: IThubmnailProps) {
-  const classes = useStyles({ objectFit, square, border });
+  const classes = useStyles({ objectFit, shape, border });
 
   // Add size suffix just before file name extension (e.g. .jpg)
   const thumbnailUrl = imageUrl.replace(
@@ -80,7 +90,7 @@ export function Thubmnail_({
  * Wrap thumbnail in an ErrorBoundary and Skeleton for loading
  */
 export default function Thumbnail(props: IThubmnailProps) {
-  const classes = useStyles({ square: props.square });
+  const classes = useStyles({ shape: props.shape });
 
   return (
     <ErrorBoundary

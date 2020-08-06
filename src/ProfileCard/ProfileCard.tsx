@@ -139,7 +139,7 @@ export default function ProfileCard({
             <Thumbnail
               imageUrl={profilePhoto?.[0]?.downloadURL}
               size="200x200"
-              square
+              shape="square"
               className={classes.photo}
             />
           )}

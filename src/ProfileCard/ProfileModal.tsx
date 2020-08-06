@@ -191,6 +191,7 @@ export default function ProfileModal({
                     <Thumbnail
                       imageUrl={profilePhoto?.[0]?.downloadURL}
                       size="640x640"
+                      shape="square"
                       alt={`${firstName} ${lastName}’s photo`}
                       className={classes.photo}
                     />
