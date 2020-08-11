@@ -22,6 +22,8 @@ const useStyles = makeStyles(theme =>
       display: 'block',
     },
 
+    teamName: { fontWeight: 'normal' },
+
     oneLine: {
       minHeight: `${1.45 * 4}em`,
       '& .spacer': { height: '0.5em' },
@@ -69,8 +71,8 @@ export default function StartupCardContents({
       <Typography
         variant="h6"
         component="h3"
-        color="textSecondary"
         gutterBottom
+        className={classes.teamName}
       >
         {teamName}
       </Typography>
