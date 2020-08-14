@@ -62,6 +62,7 @@ export interface IJobDialogProps {
     descriptionOffers?: string;
     externalJobAd?: boolean;
     externalJobAdLink?: string;
+    portfolioLink?: boolean;
   };
   FormProps: Partial<IFormProps>;
 

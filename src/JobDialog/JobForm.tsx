@@ -51,6 +51,71 @@ const jobApplicationForm = (id: string) => [
       .required('Required'),
   },
   {
+    name: 'cv',
+    type: 'file',
+    label: 'CV/Résumé',
+    docRef: `jobApplications/${id}`,
+    multiple: false,
+    mimeTypes: 'application/pdf',
+  },
+  {
+    name: 'coverLetter',
+    type: FIELDS.text,
+    fieldVariant: 'long',
+    label: 'Cover Letter (max. 1500 characters)',
+    validation: yup
+      .string()
+      .max(1500, 'Must be less than or equal to 1500 characters')
+      .required('Required'),
+  },
+  {
+    type: FIELDS.description,
+    description: (
+      <Typography variant="body2">
+        A copy of your responses will be emailed to the address you provided.
+      </Typography>
+    ),
+  },
+];
+const jobApplicationFormWithPortfolio = (id: string) => [
+  {
+    type: FIELDS.heading,
+    text: 'Personal Details',
+  },
+  {
+    name: 'email',
+    type: FIELDS.text,
+    fieldVariant: 'email',
+    label: 'Email Address',
+    validation: yup
+      .string()
+      .email('Must be a valid email')
+      .required('Required'),
+    autoFocus: true,
+  },
+  {
+    name: 'fullName',
+    type: FIELDS.text,
+    label: 'Full Name',
+    validation: yup.string().required('Required'),
+  },
+  {
+    name: 'location',
+    type: FIELDS.text,
+    label: 'Where are you based? (City, Country)',
+    validation: yup.string().required('Required'),
+  },
+  {
+    name: 'linkedin',
+    type: FIELDS.text,
+    fieldVariant: 'url',
+    label: 'LinkedIn URL',
+    validation: yup
+      .string()
+      .url('Must be a valid URL')
+      .required('Required'),
+  },
+  {
     name: 'portfolio',
     type: FIELDS.text,
     label: 'Portfolio link (e.g. GitHub link)',
@@ -137,7 +202,7 @@ export interface IJobFormProps {
 }
 
 export default function JobForm({
-  data: { externalJobAd, externalJobAdLink },
+  data: { externalJobAd, externalJobAdLink, portfolioLink },
   FormProps,
 }: IJobFormProps) {
   const isExternal = externalJobAd && externalJobAdLink;
@@ -153,6 +218,8 @@ export default function JobForm({
       fields={
         isExternal
           ? jobApplicationExternalForm
+          : portfolioLink
+          ? jobApplicationFormWithPortfolio(generateId(20))
           : jobApplicationForm(generateId(20))
       }
       onSubmit={handleSubmit}
