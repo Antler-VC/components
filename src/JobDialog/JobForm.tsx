@@ -209,7 +209,7 @@ export default function JobForm({
 
   const handleSubmit = async (data: Values) => {
     if (FormProps.onSubmit) await FormProps.onSubmit(data);
-    if (isExternal) window.location.href = externalJobAdLink as string;
+    if (isExternal) window.open(externalJobAdLink as string);
   };
 
   return (
