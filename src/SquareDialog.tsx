@@ -50,11 +50,13 @@ export const useDialogStyles = makeStyles(theme =>
 
 export interface ISquareDialogProps extends DialogProps {
   overrideClasses?: Partial<ReturnType<typeof useDialogStyles>>;
+  hideCloseButton?: boolean;
 }
 
 export default function SquareDialog({
   children,
   overrideClasses,
+  hideCloseButton,
   ...props
 }: ISquareDialogProps) {
   const classes = useDialogStyles();
@@ -76,14 +78,16 @@ export default function SquareDialog({
         ),
       }}
     >
-      <IconButton
-        color="secondary"
-        onClick={props.onClose as any}
-        className={clsx(classes.closeButton, overrideClasses?.closeButton)}
-        aria-label="Close"
-      >
-        <CloseIcon fontSize="large" />
-      </IconButton>
+      {!!props.onClose && !hideCloseButton && (
+        <IconButton
+          color="secondary"
+          onClick={props.onClose as any}
+          className={clsx(classes.closeButton, overrideClasses?.closeButton)}
+          aria-label="Close"
+        >
+          <CloseIcon fontSize="large" />
+        </IconButton>
+      )}
 
       <DialogContent
         className={clsx(classes.content, overrideClasses?.content)}
