@@ -90,6 +90,7 @@ export interface IProfileModalProps {
     name: string;
   }[];
   bio?: string;
+  founderBio?: string;
 
   employerLogos?: {
     downloadURL: string;
@@ -111,6 +112,7 @@ export default function ProfileModal({
   lastName,
   profilePhoto,
   bio,
+  founderBio,
   employerLogos,
   linkedin,
   twitter,
@@ -228,7 +230,7 @@ export default function ProfileModal({
                 color="textSecondary"
                 className={classes.bio}
               >
-                {bio}
+                {founderBio || bio}
               </Typography>
             </Grid>
 
