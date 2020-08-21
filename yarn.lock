@@ -106,20 +106,22 @@
     "@algolia/logger-common" "4.4.0"
     "@algolia/requester-common" "4.4.0"
 
-"@antlerengineering/form-builder@^0.1":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-0.1.3.tgz#8dd863816ee685fe6f866b6245342b3c22e09722"
-  integrity sha512-BOMdmXI0Jwxti5O10Rxo40q3UGrhz9kNDcWOVhljdu6sUqJ2JsBcUpAQ2UYSy4+PbDPKX6Rxe7EWFyj7jsWFbQ==
+"@antlerengineering/form-builder@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-0.3.0.tgz#16848346838de74c8eaf23eb70a4f44ed9f4b3de"
+  integrity sha512-qsLCk1/2GfROBiI/7brLBztdXkMj1Bc5s/EGFTuMX18BWOP/2GamR00/ht21a8PLTy9fkzHNFhCLf+um9GkYPg==
   dependencies:
     "@antlerengineering/multiselect" "^0.3.14"
     "@date-io/date-fns" "1.x"
     "@hookform/resolvers" "^0.1.0"
     "@material-ui/pickers" "^3.2.10"
+    "@tinymce/tinymce-react" "^3.6.0"
     date-fns "^2.15.0"
     lodash "^4.17.19"
     lodash-es "^4.17.15"
     react-color "^2.18.1"
     react-hook-form "^6.2.0"
+    tinymce "^5.4.1"
     use-debounce "^3.4.3"
     yup "^0.29.2"
 
@@ -2127,6 +2129,13 @@
     "@svgr/plugin-jsx" "^4.3.3"
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
+
+"@tinymce/tinymce-react@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-react/-/tinymce-react-3.6.0.tgz#6e33e89b7bb0240c4ffa892a8e1924688f479b4b"
+  integrity sha512-XSyAx9Md9+Ghl3UK0YtBQxaS2dCepqtOKTjYmBS4xTAzSu1UABd44WT84B8CUCd/bdT0fv1Pd51dSbpgJ8713w==
+  dependencies:
+    prop-types "^15.6.2"
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -11704,6 +11713,11 @@ tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
+
+tinymce@^5.4.1:
+  version "5.4.2"
+  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-5.4.2.tgz#a1df417ea7e85697c2932269f7f93fbef30d4502"
+  integrity sha512-MRquvKxI28AiSn2ikypgJFD7LH4mQZLtgFn+yROF1bTFp92MdlLeGBrI38/O5mej3cvz27g3Pgr+3MShepbJ+w==
 
 tmp@^0.0.33:
   version "0.0.33"

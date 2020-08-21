@@ -1,0 +1,24 @@
+{
+  "jobTitle": "C++ Embedded Engineer",
+  "jobFunction": "Technology",
+  "location": "Sydney",
+  "applicationDeadline": 598834040,
+  "portfolioLink": true,
+  "externalJobAd": false,
+  "externalJobAdLink": "",
+  "description": "The C++ Engineer will develop software to run on IP cameras. Our product includes Web Front-end, Cloud middleware, and “Edge” on Linux and embedded devices.",
+  "descriptionResponsibilities": "Responsibilities:\n- Design software that meets high level business requirements\n- Collaborate with teammates to identify engineering trade-offs\n- Understand customer environments through technical collaboration, - OEM/ODM specification review, hands-on experimentation, and delegation/direction to junior researchers/interns\n- Be/become the internal expert on customer’s Linux/Edge environment(s) relevant to our domain (e.g. IP cameras)\n- Code Linux executable software that can run on IoT devices (C/C++)\n- Estimate schedules and provide status within the team’s Agile methodology\n- Write clean code, apply quality best practices and test\n- Use source control, story/defect tracking tools, and apply software engineering best practices\n- Properly document your work (but don’t over-document)\n- Think systemically, design for the future \n- Deliver quality in depth, solve root causes not symptoms\n- Other tasks as assigned.  Innovate and bring creative ideas.\n\nRequirements:\n- Must have experience writing software code for Linux or Windows, or native code for Android.  Linux preferred.\n- Must have delivered to and maintained code in production (delivered at least one release plus one update lifecycle)\n- Must have experience working in a team to deliver software\n- Must understand design patterns and software design best practices\n- Experience designing from scratch preferred\n- Experience with TensorFlow a plus\n\nSkills:\n- Communication - Effective communication in written and spoken English\n- Communication - Speak up with questions or concerns, criticize constructively, know when to ask for help\n- Flexibility - Comfortable with changing priorities of a startup environment\n- Flexibility - Excited to learn new things and work outside of technical comfort zone\n- Teamwork - No brilliant jerks, but weirdo's welcome\n- Dependability - Deliver on promises, provide status proactively\n- Care for Quality - Care about your work and take pride in doing a good job\n- Customer Focus - Desire to serve customers with solutions that delight\n- Initiative - see a problem, solve a problem\n",
+  "descriptionOffers": "",
+  "teamId": "Z5bJAO7634NsEvuoFhfP",
+  "teamName": "Xailient",
+  "logo": [
+    {
+      "downloadURL": "https://firebasestorage.googleapis.com/v0/b/antler-vc.appspot.com/o/portfolio%2FZ5bJAO7634NsEvuoFhfP%2Flogo%2FB385E801-298F-476F-BCB4-E6DA7F06A60D.png?alt=media&token=cc33028b-a168-4ce0-a298-d04ad15bcc58",
+      "lastModifiedTS": 1572824616192,
+      "name": "B385E801-298F-476F-BCB4-E6DA7F06A60D.png",
+      "type": "image/png"
+    }
+  ],
+  "showOnWebsite": true,
+  "objectID": "SCUkzW6sJ9wDUN2L1UYy"
+}

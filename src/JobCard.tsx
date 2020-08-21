@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import { format, differenceInDays } from 'date-fns';
 
 import {
   makeStyles,
@@ -14,7 +15,13 @@ import Thumbnail from './Thumbnail';
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    content: { flexGrow: 1 },
+    content: {
+      display: 'flex',
+      flexDirection: 'column',
+      flexGrow: 1,
+      height: '100%',
+      paddingBottom: theme.spacing(2),
+    },
 
     overline: { color: theme.palette.text.disabled },
 
@@ -36,6 +43,13 @@ const useStyles = makeStyles(theme =>
     },
 
     oneLine: { whiteSpace: 'pre-line' },
+
+    deadline: {
+      display: 'block',
+      marginTop: 'auto',
+      color: theme.palette.text.disabled,
+    },
+    deadlineError: { color: theme.palette.error.main },
   })
 );
 
@@ -47,6 +61,7 @@ export interface IJobCardProps {
   logo?: { downloadURL: string }[];
   jobTitle: string;
   description: string;
+  applicationDeadline: number;
   actions?: React.ReactNode;
 }
 
@@ -58,13 +73,16 @@ export default function JobCard({
   logo,
   jobTitle,
   description,
+  applicationDeadline,
   actions,
 }: IJobCardProps) {
   const classes = useStyles();
 
+  const dateDiff = differenceInDays(applicationDeadline * 1000, new Date());
+
   return (
     <SquareCard {...((CardProps ?? {}) as any)}>
-      <CardContent style={{ flexGrow: 1 }}>
+      <CardContent className={classes.content}>
         <Grid container spacing={2} alignItems="flex-start">
           <Grid item xs>
             <Typography
@@ -115,6 +133,20 @@ export default function JobCard({
           className={classes.oneLine}
         >
           {description}
+        </Typography>
+
+        <Typography
+          variant="button"
+          className={clsx(
+            classes.deadline,
+            dateDiff <= 3 && classes.deadlineError
+          )}
+        >
+          {dateDiff <= 0
+            ? 'Last day to apply'
+            : dateDiff <= 3
+            ? `${dateDiff} days left`
+            : `Until ${format(applicationDeadline * 1000, 'd MMM yyyy')}`}
         </Typography>
       </CardContent>
 
