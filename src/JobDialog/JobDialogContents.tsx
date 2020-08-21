@@ -27,8 +27,7 @@ const useStyles = makeStyles(theme =>
 
     applyButton: {
       display: 'flex',
-      margin: '0 auto',
-      marginTop: theme.spacing(6),
+      margin: `${theme.spacing(6)}px auto ${theme.spacing(8)}px`,
 
       width: 240,
       maxWidth: '100%',
