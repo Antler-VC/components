@@ -47,6 +47,7 @@ const useStyles = makeStyles(theme =>
     deadline: {
       display: 'block',
       marginTop: 'auto',
+      paddingTop: theme.spacing(2),
       color: theme.palette.text.disabled,
     },
     deadlineError: { color: theme.palette.error.main },
