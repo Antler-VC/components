@@ -102,10 +102,10 @@ export default function JobCard({
               align="right"
               display="block"
             >
-              {jobFunction}
+              {jobFunction || '&nbsp;'}
             </Typography>
             <Typography variant="overline" align="right" display="block">
-              {location}
+              {location || '&nbsp;'}
             </Typography>
           </Grid>
         </Grid>
