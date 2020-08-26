@@ -39,10 +39,7 @@ export const useDialogStyles = makeStyles(theme =>
 
     content: {
       padding: theme.spacing(8),
-      [theme.breakpoints.down('sm')]: {
-        padding: theme.spacing(6),
-        maxWidth: 360 + theme.spacing(6 * 2),
-      },
+      [theme.breakpoints.down('sm')]: { padding: theme.spacing(6) },
       [theme.breakpoints.down('xs')]: { padding: theme.spacing(6, 4, 4) },
     },
   })

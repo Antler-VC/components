@@ -85,7 +85,7 @@ export default function JobCard({
     <SquareCard {...((CardProps ?? {}) as any)}>
       <CardContent className={classes.content}>
         <Grid container spacing={2} alignItems="flex-start">
-          <Grid item xs>
+          <Grid item>
             <Typography
               variant="overline"
               className={clsx(classes.overline, classes.teamName)}
@@ -95,7 +95,7 @@ export default function JobCard({
             </Typography>
           </Grid>
 
-          <Grid item>
+          <Grid item xs>
             <Typography
               variant="overline"
               className={classes.overline}
