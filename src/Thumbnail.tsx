@@ -4,8 +4,10 @@ import { useImage } from 'react-image';
 
 import { makeStyles, createStyles } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
+import BrokenImageIcon from '@material-ui/icons/BrokenImage';
 
 import ErrorBoundary, { IErrorBoundaryProps } from './ErrorBoundary';
+import EmptyState from './EmptyState';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -79,9 +81,24 @@ function Thubmnail_({
     `__${size}$1`
   );
 
-  const { src } = useImage({
-    srcList: [thumbnailUrl, imageUrl],
-  });
+  let src: string | undefined = '';
+
+  // Catch promise rejections from fetching image, usually from 403
+  try {
+    const { src: src_ } = useImage({
+      srcList: [thumbnailUrl, imageUrl],
+    });
+    src = src_;
+  } catch (e) {
+    return (
+      <EmptyState
+        Icon={BrokenImageIcon}
+        message=""
+        basic
+        className={props.className}
+      />
+    );
+  }
 
   return (
     <img {...props} src={src} className={clsx(classes.root, props.className)} />
@@ -93,6 +110,14 @@ function Thubmnail_({
  */
 function ThumbnailWithSuspense_(props: IThubmnailProps) {
   const classes = useStyles({ shape: props.shape });
+
+  if (!props.imageUrl)
+    return (
+      <Skeleton
+        variant="rect"
+        className={clsx(classes.skeleton, props.className)}
+      />
+    );
 
   return (
     <Suspense
@@ -118,7 +143,8 @@ export default function Thumbnail({
   return (
     <ErrorBoundary
       basic
-      message="Failed to load image"
+      message=""
+      Icon={BrokenImageIcon}
       className={props.className}
       {...(ErrorBoundaryProps as any)}
     >

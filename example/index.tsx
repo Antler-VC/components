@@ -2,18 +2,11 @@ import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { MuiThemeProvider, CssBaseline, Container } from '@material-ui/core';
-import { JobCard, defaultTheme } from '../.';
-import data from './example.json';
+import { Thumbnail } from '../.';
 
 const App = () => {
   return (
-    <MuiThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <Container maxWidth="xs">
-        <JobCard {...data} CardProps={{ style: { height: 400 } }} />
-      </Container>
-    </MuiThemeProvider>
+    <Thumbnail imageUrl="https://firebasestorage.googleapis.com/v0/b/antler-vc.appspot.com/o/myTeam%2FRz2Egm1xTaC7Kd9JxdUq%2Flogo%2FPew3.png?alt=media&token=5acff28d-7a09-4082-8112-1a5afdb72a99" />
   );
 };
 
