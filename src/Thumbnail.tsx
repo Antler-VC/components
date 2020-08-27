@@ -5,7 +5,7 @@ import { useImage } from 'react-image';
 import { makeStyles, createStyles } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 
-import ErrorBoundary from './ErrorBoundary';
+import ErrorBoundary, { IErrorBoundaryProps } from './ErrorBoundary';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -51,6 +51,8 @@ export interface IThubmnailProps
   objectFit?: string;
   shape?: 'roundedRectangle' | 'square' | 'circle';
   border?: boolean;
+
+  ErrorBoundaryProps?: Partial<IErrorBoundaryProps>;
 }
 
 /**
@@ -59,7 +61,7 @@ export interface IThubmnailProps
  *
  * Uses react-image: https://github.com/mbrevda/react-image
  */
-export function Thubmnail_({
+function Thubmnail_({
   imageUrl,
   size = '200x200',
 
@@ -87,27 +89,40 @@ export function Thubmnail_({
 }
 
 /**
- * Wrap thumbnail in an ErrorBoundary and Skeleton for loading
+ * Wrap thumbnail in Suspense
  */
-export default function Thumbnail(props: IThubmnailProps) {
+function ThumbnailWithSuspense_(props: IThubmnailProps) {
   const classes = useStyles({ shape: props.shape });
 
+  return (
+    <Suspense
+      fallback={
+        <Skeleton
+          variant="rect"
+          className={clsx(classes.skeleton, props.className)}
+        />
+      }
+    >
+      <Thubmnail_ {...props} />
+    </Suspense>
+  );
+}
+
+/**
+ * Wrap thumbnail in an ErrorBoundary
+ */
+export default function Thumbnail({
+  ErrorBoundaryProps,
+  ...props
+}: IThubmnailProps) {
   return (
     <ErrorBoundary
       basic
       message="Failed to load image"
       className={props.className}
+      {...(ErrorBoundaryProps as any)}
     >
-      <Suspense
-        fallback={
-          <Skeleton
-            variant="rect"
-            className={clsx(classes.skeleton, props.className)}
-          />
-        }
-      >
-        <Thubmnail_ {...props} />
-      </Suspense>
+      <ThumbnailWithSuspense_ {...props} />
     </ErrorBoundary>
   );
 }
