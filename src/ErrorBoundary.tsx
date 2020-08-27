@@ -19,6 +19,7 @@ export default class ErrorBoundary extends React.Component<
   static getDerivedStateFromError(error: Error) {
     // If it's a chunk issue, reload
     if (
+      error.message &&
       error.message.indexOf('Loading chunk') > -1 &&
       error.message.indexOf('failed') > -1
     )
