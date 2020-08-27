@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { useImage } from 'react-image';
 
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme =>
       objectFit,
       shape,
       border,
-    }: Pick<IThubmnailProps, 'objectFit' | 'shape' | 'border'>) => ({
+    }: Pick<IThumbnailProps, 'objectFit' | 'shape' | 'border'>) => ({
       objectFit: objectFit as any,
       borderRadius:
         shape === 'circle'
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme =>
       userSelect: 'none',
     }),
 
-    skeleton: ({ shape }: Pick<IThubmnailProps, 'shape'>) => ({
+    skeleton: ({ shape }: Pick<IThumbnailProps, 'shape'>) => ({
       borderRadius:
         shape === 'circle'
           ? '50%'
@@ -42,7 +42,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface IThubmnailProps
+export interface IThumbnailProps
   extends React.DetailedHTMLProps<
     React.ImgHTMLAttributes<HTMLImageElement>,
     HTMLImageElement
@@ -63,7 +63,7 @@ export interface IThubmnailProps
  *
  * Uses react-image: https://github.com/mbrevda/react-image
  */
-function Thubmnail_({
+function Thumbnail_({
   imageUrl,
   size = '200x200',
 
@@ -72,7 +72,7 @@ function Thubmnail_({
   border = false,
 
   ...props
-}: IThubmnailProps) {
+}: IThumbnailProps) {
   const classes = useStyles({ objectFit, shape, border });
 
   // Add size suffix just before file name extension (e.g. .jpg)
@@ -81,37 +81,12 @@ function Thubmnail_({
     `__${size}$1`
   );
 
-  let src: string | undefined = '';
+  const { src, isLoading, error } = useImage({
+    srcList: [thumbnailUrl, imageUrl],
+    useSuspense: false,
+  });
 
-  // Catch promise rejections from fetching image, usually from 403
-  try {
-    const { src: src_ } = useImage({
-      srcList: [thumbnailUrl, imageUrl],
-    });
-    src = src_;
-  } catch (e) {
-    return (
-      <EmptyState
-        Icon={BrokenImageIcon}
-        message=""
-        basic
-        className={props.className}
-      />
-    );
-  }
-
-  return (
-    <img {...props} src={src} className={clsx(classes.root, props.className)} />
-  );
-}
-
-/**
- * Wrap thumbnail in Suspense
- */
-function ThumbnailWithSuspense_(props: IThubmnailProps) {
-  const classes = useStyles({ shape: props.shape });
-
-  if (!props.imageUrl)
+  if (isLoading)
     return (
       <Skeleton
         variant="rect"
@@ -119,17 +94,18 @@ function ThumbnailWithSuspense_(props: IThubmnailProps) {
       />
     );
 
+  if (error)
+    return (
+      <EmptyState
+        basic
+        message=""
+        Icon={BrokenImageIcon}
+        className={props.className}
+      />
+    );
+
   return (
-    <Suspense
-      fallback={
-        <Skeleton
-          variant="rect"
-          className={clsx(classes.skeleton, props.className)}
-        />
-      }
-    >
-      <Thubmnail_ {...props} />
-    </Suspense>
+    <img {...props} src={src} className={clsx(classes.root, props.className)} />
   );
 }
 
@@ -139,7 +115,7 @@ function ThumbnailWithSuspense_(props: IThubmnailProps) {
 export default function Thumbnail({
   ErrorBoundaryProps,
   ...props
-}: IThubmnailProps) {
+}: IThumbnailProps) {
   return (
     <ErrorBoundary
       basic
@@ -148,7 +124,7 @@ export default function Thumbnail({
       className={props.className}
       {...(ErrorBoundaryProps as any)}
     >
-      <ThumbnailWithSuspense_ {...props} />
+      <Thumbnail_ {...props} />
     </ErrorBoundary>
   );
 }
