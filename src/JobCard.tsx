@@ -48,6 +48,7 @@ const useStyles = makeStyles(theme =>
       display: '-webkit-box',
       boxOrient: 'vertical',
       lineClamp: 3,
+      overflow: 'hidden',
     },
 
     deadline: {
