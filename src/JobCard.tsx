@@ -42,7 +42,13 @@ const useStyles = makeStyles(theme =>
       display: 'block',
     },
 
-    oneLine: { whiteSpace: 'pre-line' },
+    oneLine: {
+      whiteSpace: 'pre-line',
+
+      display: '-webkit-box',
+      boxOrient: 'vertical',
+      lineClamp: 3,
+    },
 
     deadline: {
       display: 'block',
