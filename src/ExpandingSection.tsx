@@ -6,10 +6,10 @@ import {
   createStyles,
   useTheme,
   useMediaQuery,
-  ExpansionPanel,
-  ExpansionPanelProps,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
+  Accordion,
+  AccordionProps,
+  AccordionSummary,
+  AccordionDetails,
   Grid,
   GridProps,
   Typography,
@@ -23,29 +23,29 @@ import CardGridContainer from './CardGrid/CardGridContainer';
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    expansionPanel: {
+    accordion: {
       backgroundColor: 'transparent',
       '&::before': { display: 'none' },
-      '&$expansionPanelExpanded': { margin: 0 },
+      '&$accordionExpanded': { margin: 0 },
       '& + &': { marginTop: theme.spacing(4) },
     },
-    expansionPanelExpanded: {},
+    accordionExpanded: {},
 
-    expansionPanelSummary: {
+    accordionSummary: {
       padding: 0,
       borderBottom: '1px solid ' + theme.palette.divider,
 
-      '&$expansionPanelSummaryExpanded': { minHeight: 48 },
+      '&$accordionSummaryExpanded': { minHeight: 48 },
     },
-    expansionPanelSummaryContent: {
+    accordionSummaryContent: {
       justifyContent: 'space-between',
       flexWrap: 'wrap',
       alignItems: 'baseline',
 
       margin: theme.spacing(1, 0),
-      '&$expansionPanelSummaryExpanded': { margin: theme.spacing(1, 0) },
+      '&$accordionSummaryExpanded': { margin: theme.spacing(1, 0) },
     },
-    expansionPanelSummaryExpanded: {},
+    accordionSummaryExpanded: {},
 
     title: {
       textTransform: 'uppercase',
@@ -76,7 +76,7 @@ const useStyles = makeStyles(theme =>
       transform: 'rotate(180deg)',
     },
 
-    expansionPanelDetails: {
+    accordionDetails: {
       padding: 0,
       paddingTop: theme.spacing(3),
     },
@@ -84,7 +84,7 @@ const useStyles = makeStyles(theme =>
 );
 
 interface IExpandingSectionProps
-  extends Partial<Omit<ExpansionPanelProps, 'title'>> {
+  extends Partial<Omit<AccordionProps, 'title'>> {
   initiallyExpanded?: boolean;
   title: React.ReactNode;
   chips?: string[];
@@ -105,23 +105,23 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
   const [expanded, setExpanded] = useState(initiallyExpanded);
 
   return (
-    <ExpansionPanel
+    <Accordion
       expanded={expanded}
       onChange={(_, v) => setExpanded(v)}
       elevation={0}
       square
       classes={{
-        root: classes.expansionPanel,
-        expanded: classes.expansionPanelExpanded,
+        root: classes.accordion,
+        expanded: classes.accordionExpanded,
       }}
       TransitionProps={{ unmountOnExit: true }}
       {...rootProps}
     >
-      <ExpansionPanelSummary
+      <AccordionSummary
         classes={{
-          root: classes.expansionPanelSummary,
-          content: classes.expansionPanelSummaryContent,
-          expanded: classes.expansionPanelSummaryExpanded,
+          root: classes.accordionSummary,
+          content: classes.accordionSummaryContent,
+          expanded: classes.accordionSummaryExpanded,
         }}
         disableRipple={false}
       >
@@ -164,9 +164,9 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
             />
           </Grid>
         </Grid>
-      </ExpansionPanelSummary>
+      </AccordionSummary>
 
-      <ExpansionPanelDetails classes={{ root: classes.expansionPanelDetails }}>
+      <AccordionDetails classes={{ root: classes.accordionDetails }}>
         <CardGridContainer>
           {cards.map((card, i) => (
             <CardGridItem key={i} {...cardContainerProps}>
@@ -174,8 +174,8 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
             </CardGridItem>
           ))}
         </CardGridContainer>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </Accordion>
   );
 };
 
@@ -187,19 +187,19 @@ export const ExpandingSectionSkeleton: React.FunctionComponent = () => {
   const isSm = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <ExpansionPanel
+    <Accordion
       expanded={false}
       elevation={0}
       square
       classes={{
-        root: classes.expansionPanel,
-        expanded: classes.expansionPanelExpanded,
+        root: classes.accordion,
+        expanded: classes.accordionExpanded,
       }}
     >
-      <ExpansionPanelSummary
+      <AccordionSummary
         classes={{
-          root: classes.expansionPanelSummary,
-          content: classes.expansionPanelSummaryContent,
+          root: classes.accordionSummary,
+          content: classes.accordionSummaryContent,
         }}
       >
         <Skeleton width={isSm ? '40%' : 220} height={isSm ? 28 : 32} />
@@ -208,7 +208,7 @@ export const ExpandingSectionSkeleton: React.FunctionComponent = () => {
           height={isSm ? 28 : 32}
           style={{ marginLeft: 'auto' }}
         />
-      </ExpansionPanelSummary>
-    </ExpansionPanel>
+      </AccordionSummary>
+    </Accordion>
   );
 };
