@@ -97,6 +97,8 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
   title,
   chips,
   cards,
+  children,
+  count,
   cardContainerProps,
   ...rootProps
 }) => {
@@ -154,7 +156,12 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
         <Grid item className={classes.showAllText}>
           <Grid container alignItems="center">
             <Typography variant="h6" component="span" className={classes.title}>
-              {expanded ? 'Collapse' : `Show all (${cards.length})`}
+              {expanded
+                ? 'Collapse'
+                : 'Show all' +
+                  (Array.isArray(cards) || count
+                    ? ` (${count ?? cards?.length})`
+                    : '')}
             </Typography>
             <ExpandMoreIcon
               className={clsx(
@@ -167,13 +174,16 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
       </AccordionSummary>
 
       <AccordionDetails classes={{ root: classes.accordionDetails }}>
-        <CardGridContainer>
-          {cards.map((card, i) => (
-            <CardGridItem key={i} {...cardContainerProps}>
-              {card}
-            </CardGridItem>
-          ))}
-        </CardGridContainer>
+        {Array.isArray(cards) && (
+          <CardGridContainer>
+            {cards.map((card, i) => (
+              <CardGridItem key={i} {...cardContainerProps}>
+                {card}
+              </CardGridItem>
+            ))}
+          </CardGridContainer>
+        )}
+        {children}
       </AccordionDetails>
     </Accordion>
   );
