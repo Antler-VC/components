@@ -84,11 +84,13 @@ const useStyles = makeStyles(theme =>
 );
 
 interface IExpandingSectionProps
-  extends Partial<Omit<AccordionProps, 'title'>> {
+  extends Partial<Omit<AccordionProps, 'title' | 'children'>> {
   initiallyExpanded?: boolean;
   title: React.ReactNode;
   chips?: string[];
-  cards: React.ReactNodeArray;
+  cards?: React.ReactNodeArray;
+  children?: React.ReactNode;
+  count?: React.ReactNode;
   cardContainerProps?: Partial<GridProps>;
 }
 
