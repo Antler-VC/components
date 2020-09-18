@@ -3,6 +3,7 @@ import { SearchIndex } from 'algoliasearch/lite';
 import { FacetHit } from '@algolia/client-search';
 import useAlgolia from 'use-algolia';
 import { useDebouncedCallback } from 'use-debounce';
+import createPersistedState from 'use-persisted-state';
 
 import InlineFilters from './InlineFilters';
 import DialogFilters from './DialogFilters';
@@ -53,6 +54,7 @@ export interface IAlgoliaFiltersProps extends IAlgoliaFiltersPassedProps {
   request: ReturnType<typeof useAlgolia>[0]['request'];
   requestDispatch: ReturnType<typeof useAlgolia>[1];
   requiredFilters?: string;
+  persistedStateId?: string;
 }
 
 export type ComponentProps = {
@@ -99,9 +101,15 @@ export default function AlgoliaFilters({
   label,
   filters,
   search = true,
+  persistedStateId,
 }: IAlgoliaFiltersProps) {
+  // Optionally persist state in localStorage
+  const useFilterState =
+    persistedStateId !== undefined && persistedStateId !== ''
+      ? createPersistedState(persistedStateId)
+      : useState;
   // Store filter values
-  const [filterValues, setFilterValues] = useState<
+  const [filterValues, setFilterValues] = useFilterState<
     IAlgoliaFiltersInternalProps['filterValues']
   >({});
   // Push filter values to dispatch
