@@ -57,7 +57,7 @@ export interface IAlgoliaFiltersProps extends IAlgoliaFiltersPassedProps {
   persistedStateId?: string;
 }
 
-export type ComponentProps = {
+export type AlgoliaFiltersComponentProps = {
   hits: readonly FacetHit[];
   value: string[];
   onChange: (value: string[]) => void;
@@ -70,7 +70,7 @@ export interface IAlgoliaFiltersPassedProps {
     facet: string;
     label: string;
     labelTransformer?: (value: string) => string;
-    Component?: React.ComponentType<ComponentProps>;
+    Component?: React.ComponentType<AlgoliaFiltersComponentProps>;
   }[];
   search?: boolean;
   setDefaultFilters?: (
