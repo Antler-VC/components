@@ -82,7 +82,7 @@ export default function DialogFilters({
         className={classes.filterGrid}
       >
         {search && (
-          <Grid item xs={12} md={4} lg={3}>
+          <Grid item xs={12} md={3}>
             <TextField
               value={query}
               onChange={e => {
@@ -106,41 +106,59 @@ export default function DialogFilters({
           </Grid>
         )}
 
-        {filters.map(filter => (
-          <Grid item key={filter.facet} xs={12} sm={6} md={4} lg={3}>
-            <MultiSelect
-              label={filter.label}
-              value={filterValues[filter.facet] ?? []}
-              onChange={(value: string[]) =>
-                setFilterValues(other => ({ ...other, [filter.facet]: value }))
-              }
-              options={
-                facetValues[filter.facet]?.map(item => ({
-                  value: item.value,
-                  label: filter.labelTransformer
-                    ? filter.labelTransformer(item.value)
-                    : item.value,
-                  count: item.count,
-                })) ?? []
-              }
-              itemRenderer={option => (
-                <React.Fragment key={option.value}>
-                  {option.label}
-                  <ListItemSecondaryAction className={classes.count}>
-                    <Typography
-                      variant="body2"
-                      color="inherit"
-                      component="span"
-                    >
-                      {(option as any).count}
-                    </Typography>
-                  </ListItemSecondaryAction>
-                </React.Fragment>
+        {filters.map(({ Component, ...filter }) => {
+          const hits = facetValues[filter.facet] ?? [];
+          const value = filterValues[filter.facet] ?? [];
+          const onChange = (value: string[]) =>
+            setFilterValues(other => ({ ...other, [filter.facet]: value }));
+
+          const MultiSelectProps = {
+            label: filter.label,
+            options:
+              hits.map(item => ({
+                value: item.value,
+                label: filter.labelTransformer
+                  ? filter.labelTransformer(item.value)
+                  : item.value,
+                count: item.count,
+              })) ?? [],
+            itemRenderer: (option: {
+              value: string;
+              label: string;
+              count?: number;
+            }) => (
+              <React.Fragment key={option.value}>
+                {option.label}
+                <ListItemSecondaryAction className={classes.count}>
+                  <Typography variant="body2" color="inherit" component="span">
+                    {option.count}
+                  </Typography>
+                </ListItemSecondaryAction>
+              </React.Fragment>
+            ),
+            searchable: facetValues[filter.facet]?.length > 10,
+            multiple: true,
+          } as const;
+
+          return (
+            <Grid item key={filter.facet} xs={12} sm={6} md={3}>
+              {Component ? (
+                <Component
+                  hits={hits}
+                  value={value}
+                  onChange={onChange}
+                  MultiSelectProps={MultiSelectProps}
+                />
+              ) : (
+                <MultiSelect
+                  {...MultiSelectProps}
+                  value={value}
+                  onChange={onChange}
+                />
               )}
-              searchable={facetValues[filter.facet]?.length > 10}
-            />
-          </Grid>
-        ))}
+            </Grid>
+          );
+        })}
       </Grid>
     </div>
   );

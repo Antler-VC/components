@@ -9,7 +9,9 @@ import DialogFilters from './DialogFilters';
 
 import { MOBILE_NAV } from '../constants';
 import { useMediaQuery } from '@material-ui/core';
+import { MultiSelectProps } from '@antlerengineering/multiselect';
 
+const NUMERIC_OPERATORS = ['<', '<=', '=', '!=', '>=', '>'];
 /**
  * Generates the string to dispatch as filters for the query
  * @param filterValues The user-selected filters
@@ -26,7 +28,13 @@ const generateFiltersString = (
     .map(
       ([facet, values]) =>
         `(${values
-          .map(value => `${facet}:"${value.replace(/"/g, '\\"')}"`)
+          .map(
+            value =>
+              facet +
+              (NUMERIC_OPERATORS.includes(value.charAt(0))
+                ? ' ' + value
+                : ':' + value.replace(/"/g, '\\"'))
+          )
           .join(' OR ')})`
     )
     .join(' AND ');
@@ -47,14 +55,25 @@ export interface IAlgoliaFiltersProps extends IAlgoliaFiltersPassedProps {
   requiredFilters?: string;
 }
 
+export type ComponentProps = {
+  hits: readonly FacetHit[];
+  value: string[];
+  onChange: (value: string[]) => void;
+  MultiSelectProps: Omit<MultiSelectProps<string>, 'value' | 'onChange'>;
+};
+
 export interface IAlgoliaFiltersPassedProps {
   label: string;
   filters: {
-    label: string;
     facet: string;
+    label: string;
     labelTransformer?: (value: string) => string;
+    Component?: React.ComponentType<ComponentProps>;
   }[];
   search?: boolean;
+  setDefaultFilters?: (
+    facetValues: Record<string, readonly FacetHit[]>
+  ) => Record<string, string[]>;
 }
 
 export interface IAlgoliaFiltersInternalProps {
@@ -63,6 +82,7 @@ export interface IAlgoliaFiltersInternalProps {
     React.SetStateAction<Record<string, string[]>>
   >;
   facetValues: Record<string, readonly FacetHit[]>;
+
   handleResetFilters: () => void;
   query: string;
   setQuery: React.Dispatch<React.SetStateAction<string>>;
@@ -74,6 +94,7 @@ export default function AlgoliaFilters({
   request,
   requestDispatch,
   requiredFilters,
+  setDefaultFilters,
 
   label,
   filters,
@@ -98,7 +119,9 @@ export default function AlgoliaFilters({
   useEffect(() => {
     if (!index) return;
 
-    filters.forEach(filter => {
+    const newFacetValues: typeof facetValues = {};
+
+    const allQueries = filters.map(filter => {
       const params = { ...request, maxFacetHits: 100 };
       // Ignore current user-selected value for these filters so all options
       // continue to show up
@@ -108,13 +131,29 @@ export default function AlgoliaFilters({
           requiredFilters
         ) ?? '';
 
-      index
+      return index
         .searchForFacetValues(filter.facet, '', params)
-        .then(({ facetHits }) =>
-          setFacetValues(other => ({ ...other, [filter.facet]: facetHits }))
-        );
+        .then(({ facetHits }) => (newFacetValues[filter.facet] = facetHits));
     });
+
+    Promise.all(allQueries).then(() =>
+      setFacetValues(other => ({ ...other, ...newFacetValues }))
+    );
   }, [filters, index, filterValues, requiredFilters]);
+
+  // Get default values
+  const [gotDefaultFilters, setGotDefaultFilters] = useState(false);
+  useEffect(() => {
+    if (
+      gotDefaultFilters ||
+      !setDefaultFilters ||
+      Object.keys(facetValues).length === 0
+    )
+      return;
+
+    setFilterValues(setDefaultFilters(facetValues));
+    setGotDefaultFilters(true);
+  }, [facetValues]);
 
   // Reset filters
   const handleResetFilters = () => {
