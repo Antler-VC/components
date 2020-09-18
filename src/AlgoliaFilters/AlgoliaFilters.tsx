@@ -106,7 +106,7 @@ export default function AlgoliaFilters({
   // Optionally persist state in localStorage
   const useFilterState =
     persistedStateId !== undefined && persistedStateId !== ''
-      ? createPersistedState(persistedStateId)
+      ? createPersistedState('algoliaFilters-' + persistedStateId)
       : useState;
   // Store filter values
   const [filterValues, setFilterValues] = useFilterState<
