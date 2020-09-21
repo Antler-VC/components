@@ -33,8 +33,8 @@ const generateFiltersString = (
             value =>
               facet +
               (NUMERIC_OPERATORS.includes(value.charAt(0))
-                ? ' ' + value
-                : ':' + value.replace(/"/g, '\\"'))
+                ? ` ${value}`
+                : `:"${value.replace(/"/g, '\\"')}"`)
           )
           .join(' OR ')})`
     )
