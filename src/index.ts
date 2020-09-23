@@ -10,6 +10,15 @@ export * from './AlgoliaFilters/DialogFilters';
 export { default as InlineFilters } from './AlgoliaFilters/InlineFilters';
 export * from './AlgoliaFilters/InlineFilters';
 
+export { default as CardSkeleton } from './Card/CardSkeleton';
+export * from './Card/CardSkeleton';
+
+export { default as index } from './Card/index';
+export * from './Card/index';
+
+export { default as styles } from './Card/styles';
+export * from './Card/styles';
+
 export { default as CardGridContainer } from './CardGrid/CardGridContainer';
 export * from './CardGrid/CardGridContainer';
 
@@ -99,6 +108,9 @@ export * from './Thumbnail';
 
 export { default as constants } from './constants';
 export * from './constants';
+
+export { default as AlgoliaCardLayout } from './layouts/AlgoliaCardLayout';
+export * from './layouts/AlgoliaCardLayout';
 
 export { default as utils } from './utils';
 export * from './utils';
