@@ -1,7 +1,7 @@
-import React from 'react'
-import _isFunction from 'lodash/isFunction'
+import React from 'react';
+import _isFunction from 'lodash/isFunction';
 
-import { makeStyles, createStyles, Grid, Paper } from '@material-ui/core'
+import { makeStyles, createStyles, Grid, Paper } from '@material-ui/core';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -24,22 +24,25 @@ const useStyles = makeStyles(theme =>
       },
     },
   })
-)
+);
 
 interface IFormWithPreviewProps {
-  children: React.ReactNode
-  previewContent?: React.ReactNode
+  paperHeader?: React.ReactNode;
+  children: React.ReactNode;
+  previewContent?: React.ReactNode;
 }
 
 export default function FormWithPreview({
+  paperHeader,
   children,
   previewContent,
 }: IFormWithPreviewProps) {
-  const classes = useStyles({})
+  const classes = useStyles({});
 
   return (
     <Grid container spacing={4}>
       <Grid item xs>
+        {paperHeader}
         <Paper className={classes.mainPaper}>{children}</Paper>
       </Grid>
 
@@ -47,5 +50,5 @@ export default function FormWithPreview({
         <div className={classes.previewContent}>{previewContent}</div>
       </Grid>
     </Grid>
-  )
+  );
 }
