@@ -34,9 +34,6 @@ export * from './ErrorBoundary';
 export { default as ExpandingSection } from './ExpandingSection';
 export * from './ExpandingSection';
 
-export { default as FormWithPreview } from './FormWithPreview';
-export * from './FormWithPreview';
-
 export { default as Friction } from './Friction';
 export * from './Friction';
 
@@ -111,6 +108,9 @@ export * from './constants';
 
 export { default as AlgoliaCardLayout } from './layouts/AlgoliaCardLayout';
 export * from './layouts/AlgoliaCardLayout';
+
+export { default as FormWithPreview } from './layouts/FormWithPreview';
+export * from './layouts/FormWithPreview';
 
 export { default as utils } from './utils';
 export * from './utils';
