@@ -316,6 +316,7 @@ export const defaultOverrides: ThemeOptions = {
     },
     MuiChip: { deleteIcon: <ClearIcon /> },
     MuiTextField: { variant: 'filled' },
+    MuiTooltip: { enterTouchDelay: 0 },
   },
 };
 
