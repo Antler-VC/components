@@ -25,6 +25,9 @@ export * from './CardGrid/CardGridContainer';
 export { default as CardGridItem } from './CardGrid/CardGridItem';
 export * from './CardGrid/CardGridItem';
 
+export { default as CtaButton } from './CtaButton';
+export * from './CtaButton';
+
 export { default as EmptyState } from './EmptyState';
 export * from './EmptyState';
 
