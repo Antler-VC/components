@@ -62,7 +62,7 @@ export const ShareDialog = React.forwardRef(
             gutterBottom
             id="dialog-title"
           >
-            {heading || 'Share Demo Day'}
+            {heading || 'Share'}
           </Typography>
 
           {typeof window !== 'undefined' && (
