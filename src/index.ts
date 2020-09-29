@@ -64,6 +64,9 @@ export * from './JobDialog/JobForm';
 export { default as Loading } from './Loading';
 export * from './Loading';
 
+export { default as PlainTextWithLinks } from './PlainTextWithLinks';
+export * from './PlainTextWithLinks';
+
 export { default as EmployerLogos } from './ProfileCard/EmployerLogos';
 export * from './ProfileCard/EmployerLogos';
 

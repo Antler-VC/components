@@ -18,6 +18,8 @@ import JobDialogContents from './JobDialogContents';
 
 const useStyles = makeStyles(theme =>
   createStyles({
+    paper: { maxWidth: 750 },
+
     navButtons: {
       margin: theme.spacing(3, -8, -8),
       marginLeft: 'auto',
@@ -63,6 +65,7 @@ export interface IJobDialogProps {
     externalJobAd?: boolean;
     externalJobAdLink?: string;
     portfolioLink?: boolean;
+    applicationDeadline: number;
   };
   FormProps: Partial<IFormProps>;
 
@@ -107,12 +110,12 @@ export default function JobDialog({
   return (
     <SquareDialog
       open={open}
-      maxWidth="sm"
       fullWidth
       aria-labelledby="modal-name"
       onClose={handleClose}
       fullScreen={isXs}
       onKeyUp={handleKeyUp}
+      classes={{ paperWidthSm: classes.paper }}
     >
       <SwitchTransition>
         <Fade key={data.id}>
