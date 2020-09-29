@@ -3,6 +3,7 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 
 import { IJobDialogProps } from './JobDialog';
+import PlainTextWithLinks from '../PlainTextWithLinks';
 
 export default function JobDetails({
   data: { description, descriptionResponsibilities, descriptionOffers },
@@ -15,7 +16,7 @@ export default function JobDetails({
         paragraph
         style={{ whiteSpace: 'pre-line' }}
       >
-        {description}
+        <PlainTextWithLinks>{description}</PlainTextWithLinks>
       </Typography>
 
       <Typography
@@ -24,7 +25,7 @@ export default function JobDetails({
         paragraph
         style={{ whiteSpace: 'pre-line' }}
       >
-        {descriptionResponsibilities}
+        <PlainTextWithLinks>{descriptionResponsibilities}</PlainTextWithLinks>
       </Typography>
 
       <Typography
@@ -33,7 +34,7 @@ export default function JobDetails({
         paragraph
         style={{ whiteSpace: 'pre-line' }}
       >
-        {descriptionOffers}
+        <PlainTextWithLinks>{descriptionOffers}</PlainTextWithLinks>
       </Typography>
     </>
   );
