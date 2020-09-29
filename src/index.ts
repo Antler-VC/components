@@ -85,6 +85,12 @@ export * from './ProfileCard/SocialButtons';
 export { default as RenderedHtml } from './RenderedHtml';
 export * from './RenderedHtml';
 
+export { default as ShareButtons } from './Share/ShareButtons';
+export * from './Share/ShareButtons';
+
+export { default as ShareDialog } from './Share/ShareDialog';
+export * from './Share/ShareDialog';
+
 export { default as SlideTransition } from './SlideTransition';
 export * from './SlideTransition';
 
