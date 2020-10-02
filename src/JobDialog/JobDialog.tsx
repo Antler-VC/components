@@ -18,7 +18,12 @@ import JobDialogContents from './JobDialogContents';
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    paper: { maxWidth: 750 },
+    paper: {
+      maxWidth: 750,
+      overflow: 'hidden',
+    },
+
+    content: { overflow: 'hidden' },
 
     navButtons: {
       margin: theme.spacing(3, -8, -8),
@@ -45,7 +50,7 @@ const useStyles = makeStyles(theme =>
       color: theme.palette.text.secondary,
     },
     nextButton: {
-      backgroundColor: theme.palette.primary.light,
+      backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.contrastText,
       '&:hover': { backgroundColor: theme.palette.primary.main },
     },
@@ -116,6 +121,7 @@ export default function JobDialog({
       fullScreen={isXs}
       onKeyUp={handleKeyUp}
       classes={{ paperWidthSm: classes.paper }}
+      overrideClasses={{ content: classes.content }}
     >
       <SwitchTransition>
         <Fade key={data.id}>
@@ -125,35 +131,38 @@ export default function JobDialog({
               page={page}
               setPage={setPage}
               FormProps={FormProps}
+              isSingle={isSingle}
             />
           </div>
         </Fade>
       </SwitchTransition>
 
-      <SwitchTransition>
-        <Fade key={page}>
-          <div className={classes.navButtons}>
-            {!isSingle && page !== 'form' && (
-              <>
-                <Button
-                  onClick={onPrev}
-                  aria-label="Previous profile"
-                  className={classes.prevButton}
-                >
-                  <ChevronLeftIcon fontSize="large" />
-                </Button>
-                <Button
-                  onClick={onNext}
-                  aria-label="Next profile"
-                  className={classes.nextButton}
-                >
-                  <ChevronRightIcon fontSize="large" />
-                </Button>
-              </>
-            )}
-          </div>
-        </Fade>
-      </SwitchTransition>
+      {!isSingle && (
+        <SwitchTransition>
+          <Fade key={page}>
+            <div className={classes.navButtons}>
+              {page !== 'form' && (
+                <>
+                  <Button
+                    onClick={onPrev}
+                    aria-label="Previous profile"
+                    className={classes.prevButton}
+                  >
+                    <ChevronLeftIcon fontSize="large" />
+                  </Button>
+                  <Button
+                    onClick={onNext}
+                    aria-label="Next profile"
+                    className={classes.nextButton}
+                  >
+                    <ChevronRightIcon fontSize="large" />
+                  </Button>
+                </>
+              )}
+            </div>
+          </Fade>
+        </SwitchTransition>
+      )}
     </SquareDialog>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { SwitchTransition } from 'react-transition-group';
+import clsx from 'clsx';
 
 import {
   makeStyles,
@@ -17,6 +18,42 @@ import JobForm from './JobForm';
 
 const useStyles = makeStyles(theme =>
   createStyles({
+    root: {
+      display: 'flex',
+      flexDirection: 'column',
+
+      maxHeight: `calc(100vh - ${theme.spacing(8)}px - ${theme.spacing(
+        8 * 2
+      )}px - ${theme.spacing(3)}px)`,
+
+      [theme.breakpoints.down('sm')]: {
+        maxHeight: `calc(100vh - ${theme.spacing(8)}px - ${theme.spacing(
+          6 * 2
+        )}px - ${theme.spacing(5)}px)`,
+      },
+
+      [theme.breakpoints.down('xs')]: {
+        maxHeight: `calc(100vh - ${theme.spacing(10)}px - ${theme.spacing(
+          1
+        )}px)`,
+      },
+    },
+    isSingle: {
+      maxHeight: `calc(100vh - ${theme.spacing(8)}px - ${theme.spacing(
+        8 * 2
+      )}px)`,
+
+      [theme.breakpoints.down('sm')]: {
+        maxHeight: `calc(100vh - ${theme.spacing(8)}px - ${theme.spacing(
+          6 * 2
+        )}px)`,
+      },
+
+      [theme.breakpoints.down('xs')]: {
+        maxHeight: `calc(100vh - ${theme.spacing(10)}px)`,
+      },
+    },
+
     backButton: {
       display: 'flex',
       margin: theme.spacing(-3.5, 0, 4, -1.5),
@@ -27,10 +64,56 @@ const useStyles = makeStyles(theme =>
 
     applyButton: {
       display: 'flex',
-      margin: `${theme.spacing(6)}px auto ${theme.spacing(8)}px`,
+      margin: '0 auto',
 
       width: 240,
       maxWidth: '100%',
+    },
+
+    scrollableContent: {
+      flex: 1,
+      overflowY: 'auto',
+
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
+
+      margin: theme.spacing(0, -8),
+      paddingLeft: theme.spacing(8),
+      paddingRight: theme.spacing(8),
+
+      [theme.breakpoints.down('sm')]: {
+        margin: theme.spacing(0, -6),
+        paddingLeft: theme.spacing(6),
+        paddingRight: theme.spacing(6),
+      },
+      [theme.breakpoints.down('xs')]: {
+        margin: theme.spacing(0, -4),
+        paddingLeft: theme.spacing(4),
+        paddingRight: theme.spacing(4),
+      },
+    },
+
+    scrollableFadeTop: {
+      pointerEvents: 'none',
+      position: 'relative',
+      zIndex: 1,
+
+      height: theme.spacing(4),
+      marginBottom: theme.spacing(-4),
+      flexShrink: 0,
+
+      backgroundImage: `linear-gradient(to bottom, ${theme.palette.background.paper}, transparent)`,
+    },
+    scrollableFadeBottom: {
+      pointerEvents: 'none',
+      position: 'relative',
+      zIndex: 1,
+
+      height: theme.spacing(4),
+      marginTop: theme.spacing(-4),
+      flexShrink: 0,
+
+      backgroundImage: `linear-gradient(to top, ${theme.palette.background.paper}, transparent)`,
     },
   })
 );
@@ -41,6 +124,8 @@ export interface IJobDialogContentsProps {
 
   page: 'details' | 'form';
   setPage: React.Dispatch<React.SetStateAction<'details' | 'form'>>;
+
+  isSingle?: boolean;
 }
 
 export default function JobDialogContents({
@@ -48,6 +133,7 @@ export default function JobDialogContents({
   FormProps,
   page,
   setPage,
+  isSingle,
 }: IJobDialogContentsProps) {
   const classes = useStyles();
 
@@ -58,15 +144,17 @@ export default function JobDialogContents({
         direction={page === 'details' ? 'right' : 'left'}
         appear={false}
       >
-        <div>
+        <div className={clsx(classes.root, isSingle && classes.isSingle)}>
           {page === 'form' && (
-            <Button
-              startIcon={<ChevronLeftIcon />}
-              onClick={() => setPage('details')}
-              className={classes.backButton}
-            >
-              Job Details
-            </Button>
+            <div>
+              <Button
+                startIcon={<ChevronLeftIcon />}
+                onClick={() => setPage('details')}
+                className={classes.backButton}
+              >
+                Job Details
+              </Button>
+            </div>
           )}
 
           <Typography
@@ -80,20 +168,19 @@ export default function JobDialogContents({
             {data.jobFunction}, {data.location}
           </Typography>
 
-          <Typography
-            variant="h6"
-            component="h1"
-            paragraph
-            className={classes.jobTitle}
-          >
+          <Typography variant="h6" component="h1" className={classes.jobTitle}>
             {data.jobTitle}
           </Typography>
 
-          {page === 'details' ? (
-            <JobDetails data={data} />
-          ) : (
-            <JobForm data={data} FormProps={FormProps} />
-          )}
+          <div className={classes.scrollableFadeTop} />
+          <div className={classes.scrollableContent}>
+            {page === 'details' ? (
+              <JobDetails data={data} />
+            ) : (
+              <JobForm data={data} FormProps={FormProps} />
+            )}
+          </div>
+          <div className={classes.scrollableFadeBottom} />
 
           {page === 'details' && (
             <Button

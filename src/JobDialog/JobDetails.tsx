@@ -12,13 +12,17 @@ const useStyles = makeStyles(theme =>
 
     subheading: {
       color: theme.palette.text.disabled,
-      margin: theme.spacing(4, 0, 1),
+      marginBottom: theme.spacing(1),
       display: 'block',
+
+      '* + &': { marginTop: theme.spacing(4) },
     },
 
     description: {
       whiteSpace: 'pre-line',
       marginBottom: theme.spacing(8),
+
+      '&:last-child': { marginBottom: 0 },
     },
   })
 );
@@ -81,9 +85,11 @@ export default function JobDetails({
         </Typography>
       )}
 
-      <Typography className={classes.description}>
-        <PlainTextWithLinks>{descriptionOffers}</PlainTextWithLinks>
-      </Typography>
+      {descriptionOffers && (
+        <Typography className={classes.description}>
+          <PlainTextWithLinks>{descriptionOffers}</PlainTextWithLinks>
+        </Typography>
+      )}
     </div>
   );
 }

@@ -213,16 +213,18 @@ export default function JobForm({
   };
 
   return (
-    <Form
-      {...FormProps}
-      fields={
-        isExternal
-          ? jobApplicationExternalForm
-          : portfolioLink
-          ? jobApplicationFormWithPortfolio(generateId(20))
-          : jobApplicationForm(generateId(20))
-      }
-      onSubmit={handleSubmit}
-    />
+    <div style={{ marginTop: -36 }}>
+      <Form
+        {...FormProps}
+        fields={
+          isExternal
+            ? jobApplicationExternalForm
+            : portfolioLink
+            ? jobApplicationFormWithPortfolio(generateId(20))
+            : jobApplicationForm(generateId(20))
+        }
+        onSubmit={handleSubmit}
+      />
+    </div>
   );
 }
