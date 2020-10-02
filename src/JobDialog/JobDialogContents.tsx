@@ -34,11 +34,11 @@ const useStyles = makeStyles(theme =>
 
       [theme.breakpoints.down('xs')]: {
         maxHeight: `calc(100vh - ${theme.spacing(10)}px - ${theme.spacing(
-          1
+          7
         )}px)`,
       },
     },
-    isSingle: {
+    hideNavButtons: {
       maxHeight: `calc(100vh - ${theme.spacing(8)}px - ${theme.spacing(
         8 * 2
       )}px)`,
@@ -125,7 +125,7 @@ export interface IJobDialogContentsProps {
   page: 'details' | 'form';
   setPage: React.Dispatch<React.SetStateAction<'details' | 'form'>>;
 
-  isSingle?: boolean;
+  hideNavButtons?: boolean;
 }
 
 export default function JobDialogContents({
@@ -133,7 +133,7 @@ export default function JobDialogContents({
   FormProps,
   page,
   setPage,
-  isSingle,
+  hideNavButtons,
 }: IJobDialogContentsProps) {
   const classes = useStyles();
 
@@ -144,7 +144,12 @@ export default function JobDialogContents({
         direction={page === 'details' ? 'right' : 'left'}
         appear={false}
       >
-        <div className={clsx(classes.root, isSingle && classes.isSingle)}>
+        <div
+          className={clsx(
+            classes.root,
+            hideNavButtons && classes.hideNavButtons
+          )}
+        >
           {page === 'form' && (
             <div>
               <Button

@@ -25,7 +25,7 @@ const App = () => {
         FormProps={{}}
         hasData
         clearData={() => {}}
-        isSingle
+        //isSingle
       />
     </MuiThemeProvider>
   );

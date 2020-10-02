@@ -131,7 +131,7 @@ export default function JobDialog({
               page={page}
               setPage={setPage}
               FormProps={FormProps}
-              isSingle={isSingle}
+              hideNavButtons={isSingle || page === 'form'}
             />
           </div>
         </Fade>
