@@ -56,17 +56,16 @@ export default function StartupCardContents({
         {sector?.join(' · ')}
       </Typography>
 
-      {logo?.[0]?.downloadURL &&
-        (LogoComponent ? (
-          <LogoComponent className={classes.logo} />
-        ) : (
-          <Thumbnail
-            imageUrl={logo[0].downloadURL}
-            size="400x400"
-            shape="square"
-            className={classes.logo}
-          />
-        ))}
+      {LogoComponent ? (
+        <LogoComponent className={classes.logo} />
+      ) : logo?.[0]?.downloadURL ? (
+        <Thumbnail
+          imageUrl={logo[0].downloadURL}
+          size="400x400"
+          shape="square"
+          className={classes.logo}
+        />
+      ) : null}
 
       <Typography
         variant="h6"
