@@ -79,6 +79,7 @@ export default function StartupCardContents({
 
       <Typography
         variant="body2"
+        color="textSecondary"
         className={classes.oneLine}
         dangerouslySetInnerHTML={{
           __html: lineBreakToBr(oneLineDescription ?? oneLine),
