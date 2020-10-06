@@ -167,7 +167,7 @@ export default function JobDialogContents({
             gutterBottom
             className={classes.teamName}
           >
-            {data.teamName}
+            {data.team?.[0]?.snapshot.teamName}
           </Typography>
           <Typography variant="overline" paragraph>
             {data.jobFunction}, {data.location}

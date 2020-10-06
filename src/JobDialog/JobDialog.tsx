@@ -60,7 +60,14 @@ const useStyles = makeStyles(theme =>
 export interface IJobDialogProps {
   data: {
     id: string;
-    teamName: string;
+    team: {
+      docPath: string;
+      snapshot: {
+        cohort: string;
+        teamName: string;
+        logo: { downloadURL: string }[];
+      };
+    }[];
     jobFunction: string;
     location: string;
     jobTitle: string;

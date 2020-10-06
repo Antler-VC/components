@@ -63,10 +63,16 @@ const useStyles = makeStyles(theme =>
 
 export interface IJobCardProps {
   CardProps: Partial<ISquareCardProps>;
-  teamName: string;
+  team: {
+    docPath: string;
+    snapshot: {
+      cohort: string;
+      teamName: string;
+      logo: { downloadURL: string }[];
+    };
+  }[];
   jobFunction: string;
   location: string;
-  logo?: { downloadURL: string }[];
   jobTitle: string;
   description: string;
   applicationDeadline: number;
@@ -75,10 +81,9 @@ export interface IJobCardProps {
 
 export default function JobCard({
   CardProps,
-  teamName,
+  team,
   jobFunction,
   location,
-  logo,
   jobTitle,
   description,
   applicationDeadline,
@@ -98,7 +103,7 @@ export default function JobCard({
               className={clsx(classes.overline, classes.teamName)}
               display="block"
             >
-              {teamName}
+              {team?.[0]?.snapshot.teamName}
             </Typography>
           </Grid>
 
@@ -117,9 +122,9 @@ export default function JobCard({
           </Grid>
         </Grid>
 
-        {logo?.[0]?.downloadURL && (
+        {team?.[0]?.snapshot.logo?.[0]?.downloadURL && (
           <Thumbnail
-            imageUrl={logo[0].downloadURL}
+            imageUrl={team[0].snapshot.logo[0].downloadURL}
             size="400x400"
             shape="square"
             className={classes.logo}
