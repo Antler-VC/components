@@ -158,7 +158,7 @@ export default function JobCard({
           {dateDiff <= 0
             ? 'Last day to apply'
             : dateDiff <= 3
-            ? `${dateDiff} days left`
+            ? `${dateDiff} day${dateDiff !== 1 && 's'} left`
             : `Until ${format(applicationDeadline * 1000, 'd MMM yyyy')}`}
         </Typography>
       </CardContent>
