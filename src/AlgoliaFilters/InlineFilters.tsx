@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import _isEqual from 'lodash/isEqual';
 
 import {
   makeStyles,
@@ -11,6 +12,7 @@ import {
   ListItemSecondaryAction,
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
+import FilterListIcon from '@material-ui/icons/FilterList';
 
 import MultiSelect from '@antlerengineering/multiselect';
 
@@ -21,12 +23,11 @@ import {
 
 const useStyles = makeStyles(theme =>
   createStyles({
+    root: { marginBottom: theme.spacing(3) },
+
     resetFilters: { marginRight: -theme.spacing(1) },
 
-    filterGrid: {
-      marginTop: 0,
-      marginBottom: theme.spacing(3),
-    },
+    filterGrid: { marginTop: 0 },
 
     listItemText: { whiteSpace: 'pre-line' },
     count: {
@@ -36,10 +37,12 @@ const useStyles = makeStyles(theme =>
       transform: 'none',
       color: theme.palette.text.disabled,
     },
+
+    filterSelectRow: { marginTop: theme.spacing(2) },
   })
 );
 
-export default function DialogFilters({
+export default function InlineFilters({
   label,
   filters,
   search = true,
@@ -54,8 +57,31 @@ export default function DialogFilters({
 }: IAlgoliaFiltersPassedProps & IAlgoliaFiltersInternalProps) {
   const classes = useStyles();
 
+  const setFilters = Object.keys(filterValues).filter(
+    key => filterValues[key].length > 0
+  );
+  const [displayedFilters, setDisplayedFilters] = useState(
+    filters.slice(0, 3).map(x => x.facet)
+  );
+  useEffect(() => {
+    if (setFilters.length > 0) {
+      const filtersToDisplay = Array.from(
+        new Set([...setFilters, ...displayedFilters])
+      );
+      if (!_isEqual(displayedFilters, filtersToDisplay)) {
+        console.log(filtersToDisplay);
+        setDisplayedFilters(filtersToDisplay);
+      }
+    }
+  }, [setFilters]);
+
+  const [filterSelectOpen, setFilterSelectOpen] = useState<EventTarget | null>(
+    null
+  );
+  const handleFilterSelectClose = () => setFilterSelectOpen(null);
+
   return (
-    <div>
+    <div className={classes.root}>
       <Grid container spacing={1} alignItems="center">
         <Grid item xs>
           <Typography variant="overline">
@@ -107,6 +133,8 @@ export default function DialogFilters({
         )}
 
         {filters.map(({ Component, ...filter }) => {
+          if (displayedFilters.indexOf(filter.facet) === -1) return null;
+
           const hits = facetValues[filter.facet] ?? [];
           const value = filterValues[filter.facet] ?? [];
           const onChange = (value: string[]) =>
@@ -160,6 +188,39 @@ export default function DialogFilters({
           );
         })}
       </Grid>
+
+      {filters.length > 3 && (
+        <div className={classes.filterSelectRow}>
+          <Button
+            variant="outlined"
+            startIcon={<FilterListIcon />}
+            onClick={e => setFilterSelectOpen(e.target)}
+          >
+            Filters: {displayedFilters.length}
+          </Button>
+
+          <MultiSelect
+            multiple
+            options={filters.map(x => ({
+              label: x.label,
+              value: x.facet,
+              disabled: setFilters.indexOf(x.facet) > -1,
+            }))}
+            value={displayedFilters}
+            onChange={setDisplayedFilters}
+            TextFieldProps={{
+              SelectProps: {
+                open: !!filterSelectOpen,
+                MenuProps: { anchorEl: filterSelectOpen as any },
+              },
+              style: { display: 'none' },
+            }}
+            onClose={handleFilterSelectClose}
+            label="Filters"
+            labelPlural="filters"
+          />
+        </div>
+      )}
     </div>
   );
 }
