@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { makeStyles, createStyles, Typography } from '@material-ui/core';
+import { makeStyles, createStyles, Typography, Grid } from '@material-ui/core';
 
 import Thumbnail from '../Thumbnail';
 import { lineBreakToBr } from '../utils';
@@ -38,6 +38,7 @@ export interface IStartupCardContentsProps {
   LogoComponent?: React.ComponentType<{ className?: string }>;
   oneLineDescription: string;
   oneLine?: string;
+  year: string;
 }
 
 export default function StartupCardContents({
@@ -47,6 +48,7 @@ export default function StartupCardContents({
   LogoComponent,
   oneLineDescription,
   oneLine,
+  year,
 }: IStartupCardContentsProps) {
   const classes = useStyles();
 
@@ -67,14 +69,25 @@ export default function StartupCardContents({
         />
       ) : null}
 
-      <Typography
-        variant="h6"
-        component="h3"
-        gutterBottom
-        className={classes.teamName}
-      >
-        {teamName}
-      </Typography>
+      <Grid container spacing={2} alignItems="baseline">
+        <Grid item xs>
+          <Typography
+            variant="h6"
+            component="h3"
+            gutterBottom
+            className={classes.teamName}
+          >
+            {teamName}
+          </Typography>
+        </Grid>
+        {year && (
+          <Grid item>
+            <Typography variant="overline" className={classes.overline}>
+              {year}
+            </Typography>
+          </Grid>
+        )}
+      </Grid>
 
       <Typography
         variant="body2"
