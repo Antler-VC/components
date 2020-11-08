@@ -53,7 +53,7 @@ const getInitiallyDisplayedFilters = (
 
   for (let i = 0; i < filters.length; i++) {
     const filter = filters[i];
-    if (filter.initiallyDisplayed || setFilters.indexOf(filter.facet))
+    if (filter.initiallyDisplayed || setFilters.indexOf(filter.facet) > -1)
       displayedFilters.push(filter.facet);
   }
 
