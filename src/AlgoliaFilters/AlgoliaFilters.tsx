@@ -54,7 +54,6 @@ export interface IAlgoliaFiltersProps extends IAlgoliaFiltersPassedProps {
   request: ReturnType<typeof useAlgolia>[0]['request'];
   requestDispatch: ReturnType<typeof useAlgolia>[1];
   requiredFilters?: string;
-  persistedStateId?: string;
 }
 
 export type AlgoliaFiltersComponentProps = {
@@ -71,11 +70,13 @@ export interface IAlgoliaFiltersPassedProps {
     label: string;
     labelTransformer?: (value: string) => string;
     Component?: React.ComponentType<AlgoliaFiltersComponentProps>;
+    initiallyDisplayed?: boolean;
   }[];
   search?: boolean;
   setDefaultFilters?: (
     facetValues: Record<string, readonly FacetHit[]>
   ) => Record<string, string[]>;
+  persistedStateId?: string;
 }
 
 export interface IAlgoliaFiltersInternalProps {
@@ -189,6 +190,8 @@ export default function AlgoliaFilters({
     query,
     setQuery,
     handleQueryChange,
+
+    persistedStateId,
   };
 
   const isMobile = useMediaQuery(MOBILE_NAV);

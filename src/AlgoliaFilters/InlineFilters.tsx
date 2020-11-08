@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import _isEqual from 'lodash/isEqual';
+import createPersistedState from 'use-persisted-state';
 
 import {
   makeStyles,
@@ -42,6 +43,30 @@ const useStyles = makeStyles(theme =>
   })
 );
 
+export const MIN_DISPLAYED_FILTERS = 3;
+
+const getInitiallyDisplayedFilters = (
+  filters: IAlgoliaFiltersPassedProps['filters'],
+  setFilters: string[]
+) => {
+  const displayedFilters: string[] = [];
+
+  for (let i = 0; i < filters.length; i++) {
+    const filter = filters[i];
+    if (filter.initiallyDisplayed || setFilters.indexOf(filter.facet))
+      displayedFilters.push(filter.facet);
+  }
+
+  let j = 0;
+  while (displayedFilters.length < 3 && j < filters.length) {
+    if (displayedFilters.indexOf(filters[j].facet) < 0)
+      displayedFilters.push(filters[j].facet);
+    j++;
+  }
+
+  return displayedFilters;
+};
+
 export default function InlineFilters({
   label,
   filters,
@@ -54,14 +79,21 @@ export default function InlineFilters({
   query,
   setQuery,
   handleQueryChange,
+  persistedStateId,
 }: IAlgoliaFiltersPassedProps & IAlgoliaFiltersInternalProps) {
   const classes = useStyles();
 
   const setFilters = Object.keys(filterValues).filter(
     key => filterValues[key].length > 0
   );
-  const [displayedFilters, setDisplayedFilters] = useState(
-    filters.slice(0, 3).map(x => x.facet)
+
+  // Store displayed filters in persisted state
+  const useDisplayedFiltersState =
+    persistedStateId !== undefined && persistedStateId !== ''
+      ? createPersistedState('algoliaFilters-displayed-' + persistedStateId)
+      : useState;
+  const [displayedFilters, setDisplayedFilters] = useDisplayedFiltersState(
+    getInitiallyDisplayedFilters(filters, setFilters)
   );
   useEffect(() => {
     if (setFilters.length > 0) {
