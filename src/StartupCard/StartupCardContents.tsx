@@ -38,7 +38,7 @@ export interface IStartupCardContentsProps {
   LogoComponent?: React.ComponentType<{ className?: string }>;
   oneLineDescription: string;
   oneLine?: string;
-  year: string;
+  year?: string;
 }
 
 export default function StartupCardContents({
