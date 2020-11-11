@@ -85,6 +85,12 @@ export * from './ProfileCard/SocialButtons';
 export { default as RenderedHtml } from './RenderedHtml';
 export * from './RenderedHtml';
 
+export { default as ResponsiveTable } from './ResponsiveTable';
+export * from './ResponsiveTable';
+
+export { default as ReviewsSummary } from './ReviewsSummary';
+export * from './ReviewsSummary';
+
 export { default as ShareButtons } from './Share/ShareButtons';
 export * from './Share/ShareButtons';
 
