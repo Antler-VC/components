@@ -33,7 +33,7 @@ export default function RatingResult({
   }
 
   return (
-    <div aria-label={`${value} stars`} style={{ height: 24 + 8 }} {...props}>
+    <div aria-label={`${value} stars`} style={{ height: 24 }} {...props}>
       {new Array(max)
         .fill(undefined)
         .map((_, i) =>
