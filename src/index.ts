@@ -82,6 +82,9 @@ export * from './ProfileCard/ProfileModal';
 export { default as SocialButtons } from './ProfileCard/SocialButtons';
 export * from './ProfileCard/SocialButtons';
 
+export { default as RatingResult } from './RatingResult';
+export * from './RatingResult';
+
 export { default as RenderedHtml } from './RenderedHtml';
 export * from './RenderedHtml';
 
