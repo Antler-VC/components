@@ -5,7 +5,6 @@ import {
   makeStyles,
   createStyles,
   useMediaQuery,
-  Paper,
   TableContainer,
   Table,
   TableHead,
@@ -18,8 +17,6 @@ import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    root: { width: '100%' },
-
     table: {
       tableLayout: 'fixed',
       '& thead th': theme.typography.overline,
@@ -91,7 +88,7 @@ export default function ResponsiveTable({
   );
 
   return (
-    <Paper className={classes.root}>
+    <>
       <TableContainer>
         <Table
           className={clsx(classes.table, isMobile && classes.mobile)}
@@ -186,6 +183,6 @@ export default function ResponsiveTable({
       </TableContainer>
 
       {pagination}
-    </Paper>
+    </>
   );
 }
