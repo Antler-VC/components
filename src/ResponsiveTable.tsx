@@ -19,7 +19,10 @@ const useStyles = makeStyles(theme =>
   createStyles({
     table: {
       tableLayout: 'fixed',
-      '& thead th': theme.typography.overline,
+      '& thead th': {
+        ...theme.typography.overline,
+        verticalAlign: 'bottom',
+      },
       '& tbody th, & tbody td': { padding: theme.spacing(1.5, 2) },
     },
     mobile: {
