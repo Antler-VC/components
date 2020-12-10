@@ -57,7 +57,10 @@ export interface IAlgoliaCardLayoutProps {
   minCardWidth?: number;
   maxColumns?: number;
   cardHeight?: number;
-  render: (hit: any) => React.ReactNode;
+  render: (
+    hit: any,
+    query: ReturnType<typeof useAlgolia>[4]
+  ) => React.ReactNode;
   skeleton?: React.ReactNode;
   EmptyStateIcon?: IEmptyStateProps['Icon'];
   emptyProps?: Partial<IEmptyStateProps>;
@@ -81,7 +84,7 @@ export default function AlgoliaCardLayout({
 }: IAlgoliaCardLayoutProps) {
   const classes = useStyles();
 
-  const [algoliaState, requestDispatch, getMore] = useAlgolia(
+  const [algoliaState, requestDispatch, getMore, , query] = useAlgolia(
     ...useAlgoliaProps
   );
 
@@ -202,7 +205,7 @@ export default function AlgoliaCardLayout({
                         return (
                           <div className={classes.gridItem} style={style}>
                             {!loading
-                              ? render(algoliaState.hits[index])
+                              ? render(algoliaState.hits[index], query)
                               : skeleton || <CardSkeleton />}
                           </div>
                         );
