@@ -4,25 +4,36 @@ import _merge from 'lodash/merge';
 import { createMuiTheme, ThemeOptions, fade } from '@material-ui/core/styles';
 import ClearIcon from '@material-ui/icons/Clear';
 
+import { antlerPalette, antlerPaletteToMui } from './antlerPalette';
+
 export const HEADING_FONT = 'Europa, sans-serif';
 export const BODY_FONT = '"Open Sans", sans-serif';
 
-export const ANTLER_RED = '#ed4747';
-export const ANTLER_RED_ACCESSIBLE = '#e22729';
-export const SECONDARY_GREY = '#282829';
 export const SECONDARY_TEXT = 'rgba(0, 0, 0, 0.6)';
-export const ERROR = '#b00020';
 
 export const ROOT_FONT_SIZE = 16;
 export const toRem = (px: number) => `${px / ROOT_FONT_SIZE}rem`;
 export const toEm = (px: number, root: number) => `${px / root}em`;
 
+declare module '@material-ui/core/styles/createPalette' {
+  interface Palette {
+    antler: typeof antlerPalette;
+  }
+  interface PaletteOptions {
+    antler: typeof antlerPalette;
+  }
+}
+
 export const themeBase = createMuiTheme({
   palette: {
-    primary: { main: ANTLER_RED, light: ANTLER_RED },
-    secondary: { main: SECONDARY_GREY },
+    primary: antlerPaletteToMui(antlerPalette.aRed),
+    secondary: { main: antlerPalette.aBlack },
     text: { secondary: SECONDARY_TEXT },
-    error: { main: ERROR },
+    error: antlerPaletteToMui(antlerPalette.errorRed),
+    warning: antlerPaletteToMui(antlerPalette.amber),
+    info: antlerPaletteToMui(antlerPalette.blue),
+    success: antlerPaletteToMui(antlerPalette.green),
+    antler: antlerPalette,
   },
   typography: {
     fontFamily: BODY_FONT,
@@ -148,7 +159,7 @@ export const defaultOverrides: ThemeOptions = {
         padding: themeBase.spacing(1, 4),
         borderRadius: 500,
 
-        '&$outlinedPrimary': { borderColor: ANTLER_RED },
+        '&$outlinedPrimary': { borderColor: antlerPalette.aRed.regular },
       },
     },
     MuiSvgIcon: {
@@ -210,7 +221,7 @@ export const defaultOverrides: ThemeOptions = {
       },
       outlinedPrimary: {
         backgroundColor: fade(
-          ANTLER_RED,
+          antlerPalette.aRed.regular,
           themeBase.palette.action.selectedOpacity
         ),
       },
