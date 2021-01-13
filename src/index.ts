@@ -124,6 +124,9 @@ export * from './Theme';
 export { default as Thumbnail } from './Thumbnail';
 export * from './Thumbnail';
 
+export { default as antlerPalette } from './antlerPalette';
+export * from './antlerPalette';
+
 export { default as constants } from './constants';
 export * from './constants';
 

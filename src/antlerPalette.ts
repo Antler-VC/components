@@ -136,3 +136,5 @@ export const antlerPaletteToMui = (
   light: color.light,
   dark: color.dark,
 });
+
+export default antlerPalette;
