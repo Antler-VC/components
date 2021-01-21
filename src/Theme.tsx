@@ -20,7 +20,7 @@ declare module '@material-ui/core/styles/createPalette' {
     antler: typeof antlerPalette;
   }
   interface PaletteOptions {
-    antler: typeof antlerPalette;
+    antler?: typeof antlerPalette;
   }
 }
 
@@ -216,8 +216,8 @@ export const defaultOverrides: ThemeOptions = {
       },
 
       outlined: {
-        backgroundColor: themeBase.palette.action.selected,
-        borderColor: themeBase.palette.action.selected,
+        backgroundColor: themeBase.palette.action.hover,
+        borderColor: themeBase.palette.divider,
       },
       outlinedPrimary: {
         backgroundColor: fade(
