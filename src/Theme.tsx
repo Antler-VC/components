@@ -2,6 +2,7 @@ import React from 'react';
 import _merge from 'lodash/merge';
 
 import { createMuiTheme, ThemeOptions, fade } from '@material-ui/core/styles';
+import { Shadows } from '@material-ui/core/styles/shadows';
 import ClearIcon from '@material-ui/icons/Clear';
 
 import { antlerPalette, antlerPaletteToMui } from './antlerPalette';
@@ -9,7 +10,9 @@ import { antlerPalette, antlerPaletteToMui } from './antlerPalette';
 export const HEADING_FONT = 'Europa, sans-serif';
 export const BODY_FONT = '"Open Sans", sans-serif';
 
-export const SECONDARY_TEXT = 'rgba(0, 0, 0, 0.6)';
+export const PRIMARY_TEXT = antlerPalette.aBlack[500];
+export const SECONDARY_TEXT = antlerPalette.aGray[700];
+export const DISABLED_TEXT = antlerPalette.aGray[500];
 
 export const ROOT_FONT_SIZE = 16;
 export const toRem = (px: number) => `${px / ROOT_FONT_SIZE}rem`;
@@ -20,85 +23,123 @@ declare module '@material-ui/core/styles/createPalette' {
     antler: typeof antlerPalette;
   }
   interface PaletteOptions {
-    antler?: typeof antlerPalette;
+    antler: typeof antlerPalette;
   }
 }
 
 export const themeBase = createMuiTheme({
   palette: {
     primary: antlerPaletteToMui(antlerPalette.aRed),
-    secondary: { main: antlerPalette.aBlack },
-    text: { secondary: SECONDARY_TEXT },
+    secondary: { main: antlerPalette.aBlack[500] },
+    text: {
+      primary: PRIMARY_TEXT,
+      secondary: SECONDARY_TEXT,
+      disabled: DISABLED_TEXT,
+    },
     error: antlerPaletteToMui(antlerPalette.errorRed),
     warning: antlerPaletteToMui(antlerPalette.amber),
     info: antlerPaletteToMui(antlerPalette.blue),
     success: antlerPaletteToMui(antlerPalette.green),
     antler: antlerPalette,
+
+    action: {
+      hover: 'rgba(0, 0, 0, 0.12)',
+      hoverOpacity: 0.12,
+    },
   },
+  // Single shadow for all levels
+  shadows: ['none'].concat(
+    new Array(24).fill(
+      `0 1px 1px 0 rgba(0, 0, 0, 0.04),
+       0 0 4px 0 rgba(0, 0, 0, 0.04),
+       0 6px 8px 0 rgba(0, 0, 0, 0.04),
+       0 8px 16px 0 rgba(0, 0, 0, 0.04)`
+    )
+  ) as Shadows,
   typography: {
     fontFamily: BODY_FONT,
-    h1: { fontFamily: HEADING_FONT },
-    h2: { fontFamily: HEADING_FONT },
+    h1: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(48),
+      fontWeight: 'normal',
+      letterSpacing: toEm(-0.67, 48),
+      lineHeight: 64 / 48,
+    },
+    h2: {
+      fontFamily: HEADING_FONT,
+      fontSize: toRem(40),
+      fontWeight: 'normal',
+      letterSpacing: toEm(-0.34, 40),
+      lineHeight: 56 / 40,
+    },
     h3: {
       fontFamily: HEADING_FONT,
       fontSize: toRem(36),
-      fontWeight: 'bold',
+      fontWeight: 'normal',
+      letterSpacing: toEm(0, 36),
+      lineHeight: 48 / 36,
     },
     h4: {
       fontFamily: HEADING_FONT,
       fontSize: toRem(32),
-      fontWeight: 'bold',
+      fontWeight: 'normal',
+      letterSpacing: toEm(0.21, 32),
+      lineHeight: 40 / 32,
     },
     h5: {
       fontFamily: HEADING_FONT,
       fontSize: toRem(24),
-      fontWeight: 'bold',
+      fontWeight: 'normal',
+      letterSpacing: toEm(0, 24),
+      lineHeight: 32 / 24,
     },
     h6: {
       fontFamily: HEADING_FONT,
       fontSize: toRem(18),
-      fontWeight: 'bold',
-      lineHeight: 'normal',
+      fontWeight: 'normal',
+      letterSpacing: toEm(0.2, 18),
+      lineHeight: 24 / 16,
     },
     subtitle1: {
-      lineHeight: 1.5,
+      fontSize: toRem(16),
+      letterSpacing: toEm(0.15, 16),
+      lineHeight: 24 / 16,
     },
     subtitle2: {
       fontFamily: HEADING_FONT,
       fontSize: toRem(16),
       fontWeight: 'bold',
-      letterSpacing: toEm(0.4, 16),
-      lineHeight: 1.5,
+      letterSpacing: toEm(0.1, 16),
+      lineHeight: 24 / 16,
     },
     body1: {
+      fontSize: toRem(16),
       letterSpacing: toEm(0.5, 16),
-      lineHeight: 1.75,
+      lineHeight: 24 / 16,
+      color: SECONDARY_TEXT,
     },
     body2: {
       fontSize: toRem(14),
       letterSpacing: toEm(0.25, 14),
+      lineHeight: 24 / 14,
+      color: SECONDARY_TEXT,
     },
     button: {
-      fontFamily: HEADING_FONT,
-      fontSize: toRem(16),
-      fontWeight: 'bold',
-      letterSpacing: toEm(0.75, 16),
-      lineHeight: 1,
-    },
-    caption: {
-      fontFamily: HEADING_FONT,
-      fontSize: toRem(13),
-      fontWeight: 'bold',
-      letterSpacing: toEm(0.4, 13),
-      lineHeight: 16 / 13,
+      fontSize: toRem(14),
+      fontWeight: 600,
+      letterSpacing: toEm(0.67, 14),
+      lineHeight: 16 / 14,
     },
     overline: {
-      fontFamily: HEADING_FONT,
-      fontSize: toRem(13),
-      fontWeight: 'bold',
-      letterSpacing: toEm(2, 13),
-      lineHeight: 16 / 13,
-      color: SECONDARY_TEXT,
+      fontSize: toRem(14),
+      letterSpacing: toEm(2.5, 14),
+      lineHeight: 16 / 14,
+      color: DISABLED_TEXT,
+    },
+    caption: {
+      fontSize: toRem(14),
+      letterSpacing: toEm(0.5, 14),
+      lineHeight: 16 / 14,
     },
   },
 });
@@ -129,49 +170,149 @@ export const defaultOverrides: ThemeOptions = {
     MuiTooltip: {
       tooltip: themeBase.typography.caption,
     },
+
     MuiButton: {
-      root: { minHeight: 36 },
-      sizeSmall: { minHeight: 30 },
-      sizeLarge: { minHeight: 48 },
-
-      contained: {
+      root: {
         borderRadius: 500,
-        boxShadow: 'none',
-      },
-      containedSizeLarge: {
-        padding: themeBase.spacing(1, 4),
-      },
-      containedPrimary: {
-        '&:hover': { backgroundColor: themeBase.palette.primary.main },
-      },
-      containedSecondary: {
-        '&:hover': { backgroundColor: themeBase.palette.secondary.main },
+        padding: '10px 16px',
       },
 
-      outlined: {
-        '&:hover': { borderColor: 'currentColor' },
-      },
-      outlinedPrimary: {
-        // Same as outlined text field
-        borderColor: 'rgba(0, 0, 0, 0.23)',
+      outlined: { padding: '9px 15px' },
+      text: { padding: '10px 8px' },
+
+      containedSizeLarge: {
+        fontSize: themeBase.typography.button.fontSize,
+        padding: '16px 32px',
       },
       outlinedSizeLarge: {
-        padding: themeBase.spacing(1, 4),
-        borderRadius: 500,
+        fontSize: themeBase.typography.button.fontSize,
+        padding: '15px 31px',
+      },
+      textSizeLarge: {
+        fontSize: themeBase.typography.button.fontSize,
+        padding: '16px 16px',
+      },
 
-        '&$outlinedPrimary': { borderColor: antlerPalette.aRed.regular },
+      containedSizeSmall: { padding: '8px 10px' },
+      outlinedSizeSmall: { padding: '7px 9px' },
+      textSizeSmall: { padding: '8px 5px' },
+
+      containedPrimary: {
+        '&:hover': { backgroundColor: themeBase.palette.primary.light },
+      },
+      containedSecondary: {
+        '&:hover': { backgroundColor: antlerPalette.aGray[700] },
+      },
+
+      outlinedPrimary: {
+        borderColor: 'rgba(0, 0, 0, 0.23)',
+        '&:hover, &$focusVisible': {
+          borderColor: themeBase.palette.primary.main,
+        },
+      },
+      outlinedSecondary: {
+        borderColor: 'rgba(0, 0, 0, 0.23)',
+        '&:hover, &$focusVisible': {
+          borderColor: themeBase.palette.secondary.main,
+        },
       },
     },
+
     MuiSvgIcon: {
       fontSizeLarge: { fontSize: toRem(36) },
     },
-    // Override text field label
-    MuiFormLabel: {
+
+    MuiFilledInput: {
       root: {
-        ...themeBase.typography.subtitle2,
-        lineHeight: 1,
+        '&&': { borderRadius: 0 },
+        backgroundColor: antlerPalette.aGray[100],
+        boxShadow: `0 0 0 1px ${antlerPalette.aGray[300]} inset`,
+
+        transition: themeBase.transitions.create(
+          ['background-color', 'box-shadow'],
+          {
+            duration: themeBase.transitions.duration.shorter,
+            easing: themeBase.transitions.easing.easeOut,
+          }
+        ),
+
+        '&:hover': {
+          backgroundColor: antlerPalette.aGray[100],
+          boxShadow: `0 0 0 1px ${antlerPalette.aGray[700]} inset`,
+        },
+        '&$focused': {
+          backgroundColor: antlerPalette.aGray[200],
+          boxShadow: `0 0 0 1px ${antlerPalette.aGray[700]} inset`,
+        },
+
+        '&$error': {
+          boxShadow: `0 0 0 2px ${antlerPalette.errorRed[100]} inset`,
+          '& button': { color: themeBase.palette.error.main },
+        },
+        '&$error:hover, &$error$focused': {
+          boxShadow: `0 0 0 2px ${antlerPalette.errorRed[500]} inset`,
+        },
+
+        '&$disabled, &$disabled$error': {
+          backgroundColor: antlerPalette.aWhite[500],
+          boxShadow: `0 0 0 1px rgba(25, 25, 25, 0.32) inset`,
+          '& button': { color: themeBase.palette.action.disabled },
+        },
+      },
+      input: { padding: '27px 16px 10px' },
+      multiline: { padding: '27px 16px 10px' },
+      adornedEnd: {
+        '& button': { marginRight: themeBase.spacing(-1) },
       },
     },
+    MuiInputLabel: {
+      filled: {
+        color: themeBase.palette.text.primary,
+
+        lineHeight: 1.2,
+        transform: 'translate(16px, 19px) scale(1)',
+        '&$marginDense': { transform: 'translate(16px, 19px) scale(1)' },
+
+        maxWidth: 'calc(100% - 16px - 48px)',
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+
+        '&$shrink': {
+          transform: 'translate(16px, 9.5px) scale(0.875)',
+          '&$marginDense': { transform: 'translate(16px, 9.5px) scale(0.875)' },
+          maxWidth: 'calc(100% - 24px)',
+        },
+      },
+    },
+    MuiFormLabel: {
+      root: {
+        '&$focused': { color: themeBase.palette.text.primary },
+        '&$disabled, &$disabled$error': {
+          color: themeBase.palette.text.disabled,
+        },
+      },
+    },
+    MuiInputBase: {
+      root: { color: themeBase.palette.text.secondary },
+    },
+    MuiSelect: {
+      iconFilled: { right: 12 },
+    },
+    MuiFormHelperText: {
+      root: {
+        color: themeBase.palette.text.primary,
+
+        '&$disabled, &$disabled$error': {
+          color: themeBase.palette.text.disabled,
+        },
+      },
+      contained: {
+        marginLeft: themeBase.spacing(2),
+        marginRight: themeBase.spacing(2),
+      },
+    },
+
     // Override radio & checkbox labels
     MuiFormControlLabel: {
       root: { display: 'flex' },
@@ -221,7 +362,7 @@ export const defaultOverrides: ThemeOptions = {
       },
       outlinedPrimary: {
         backgroundColor: fade(
-          antlerPalette.aRed.regular,
+          antlerPalette.aRed[500],
           themeBase.palette.action.selectedOpacity
         ),
       },
@@ -234,9 +375,19 @@ export const defaultOverrides: ThemeOptions = {
         fontFeatureSettings: '"tnum"',
       },
     },
+
     MuiPaper: {
-      rounded: { borderRadius: 8 },
+      rounded: { borderRadius: themeBase.shape.borderRadius * 2 },
+      // Default elevation - show shadow only on hover
+      elevation1: {
+        transition: themeBase.transitions.create('box-shadow', {
+          duration: themeBase.transitions.duration.short,
+        }),
+        boxShadow: 'none',
+        '&:hover': { boxShadow: themeBase.shadows[1] },
+      },
     },
+
     MuiSlider: {
       disabled: {},
       rail: {
@@ -307,7 +458,10 @@ export const defaultOverrides: ThemeOptions = {
     },
     MuiRadio: { color: 'primary' },
     MuiCheckbox: { color: 'primary' },
-    MuiButton: { color: 'primary' },
+    MuiButton: {
+      color: 'primary',
+      disableElevation: true,
+    },
     MuiTabs: {
       indicatorColor: 'primary',
       textColor: 'primary',
@@ -328,6 +482,8 @@ export const defaultOverrides: ThemeOptions = {
     MuiChip: { deleteIcon: <ClearIcon /> },
     MuiTextField: { variant: 'filled' },
     MuiTooltip: { enterTouchDelay: 0 },
+    MuiFilledInput: { disableUnderline: true },
+    MuiPaper: { square: true },
   },
 };
 
