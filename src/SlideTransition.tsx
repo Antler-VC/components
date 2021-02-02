@@ -4,7 +4,11 @@ import { useTheme } from '@material-ui/core';
 import { Transition } from 'react-transition-group';
 import { TransitionProps } from 'react-transition-group/Transition';
 
-export const SlideTransition = React.forwardRef(
+export const SlideTransition: React.ForwardRefExoticComponent<Pick<
+  TransitionProps,
+  React.ReactText
+> &
+  React.RefAttributes<any>> = React.forwardRef(
   ({ children, ...props }: TransitionProps, ref: React.Ref<any>) => {
     const theme = useTheme();
 
