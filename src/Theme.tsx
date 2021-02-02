@@ -318,57 +318,92 @@ export const defaultOverrides: ThemeOptions = {
       root: { display: 'flex' },
       label: themeBase.typography.body2,
     },
+
     MuiChip: {
-      root: {
-        borderRadius: 4,
-        maxWidth: '100%',
+      root: { color: themeBase.palette.text.secondary },
+      outlined: { borderColor: themeBase.palette.divider },
 
-        height: 'auto',
-        minHeight: 32,
-
-        color: themeBase.palette.text.secondary,
-      },
       label: {
         ...themeBase.typography.overline,
         color: 'inherit',
-        padding: themeBase.spacing(1, 1.5),
-        paddingRight: themeBase.spacing(1.25),
-        whiteSpace: 'normal',
 
-        '$outlined &': {
-          paddingTop: themeBase.spacing(0.875),
-          paddingBottom: themeBase.spacing(0.875),
+        paddingLeft: 24,
+        paddingRight: 24,
+
+        [themeBase.breakpoints.down('xs')]: {
+          paddingLeft: 16,
+          paddingRight: 16,
         },
-      },
-      sizeSmall: {
-        height: 'auto',
-        minHeight: 24,
       },
       labelSmall: {
-        padding: themeBase.spacing(0.5, 1.5),
-        paddingRight: themeBase.spacing(1.25),
-        paddingLeft: themeBase.spacing(1.5),
+        paddingLeft: 24,
+        paddingRight: 24,
 
-        '$outlined &': {
-          padding: themeBase.spacing(0.5, 1.5),
-          paddingRight: themeBase.spacing(1.25),
-          paddingLeft: themeBase.spacing(1.5),
+        [themeBase.breakpoints.down('xs')]: {
+          paddingLeft: 16,
+          paddingRight: 16,
         },
       },
 
-      outlined: {
-        backgroundColor: themeBase.palette.action.hover,
-        borderColor: themeBase.palette.divider,
+      icon: {
+        color: 'inherit',
+
+        marginLeft: 16,
+        '$outlined &': { marginLeft: 16 },
+        marginRight: 8 - 24,
+
+        [themeBase.breakpoints.down('xs')]: {
+          marginLeft: 8,
+          '$outlined &': { marginLeft: 8 },
+          marginRight: 8 - 16,
+        },
       },
-      outlinedPrimary: {
-        backgroundColor: fade(
-          antlerPalette.aRed[500],
-          themeBase.palette.action.selectedOpacity
-        ),
+      iconSmall: {
+        marginLeft: 16,
+        '$outlined &': { marginLeft: 16 },
+        marginRight: 8 - 24,
+
+        [themeBase.breakpoints.down('xs')]: {
+          marginLeft: 8,
+          '$outlined &': { marginLeft: 8 },
+          marginRight: 8 - 16,
+        },
       },
 
-      deleteIcon: { color: 'inherit' },
+      deleteIcon: {
+        color: 'inherit',
+
+        marginRight: 16,
+        '$outlined &': { marginRight: 16 },
+        marginLeft: 8 - 24,
+
+        [themeBase.breakpoints.down('xs')]: {
+          marginRight: 8,
+          '$outlined &': { marginRight: 8 },
+          marginLeft: 8 - 16,
+        },
+      },
+      deleteIconSmall: {
+        marginRight: 16,
+        '$outlined &': { marginRight: 16 },
+        marginLeft: 8 - 24,
+
+        [themeBase.breakpoints.down('xs')]: {
+          marginRight: 8,
+          '$outlined &': { marginRight: 8 },
+          marginLeft: 8 - 16,
+        },
+      },
+      deleteIconColorPrimary: { color: 'inherit' },
+      deleteIconColorSecondary: { color: 'inherit' },
+      deleteIconOutlinedColorPrimary: { color: 'inherit' },
+      deleteIconOutlinedColorSecondary: { color: 'inherit' },
+
+      clickable: {
+        '&:active': { boxShadow: 'none' },
+      },
     },
+
     MuiBadge: {
       badge: {
         ...themeBase.typography.caption,
@@ -479,7 +514,10 @@ export const defaultOverrides: ThemeOptions = {
       color: 'primary',
       underline: 'hover',
     },
-    MuiChip: { deleteIcon: <ClearIcon /> },
+    MuiChip: {
+      size: 'small',
+      deleteIcon: <ClearIcon />,
+    },
     MuiTextField: { variant: 'filled' },
     MuiTooltip: { enterTouchDelay: 0 },
     MuiFilledInput: { disableUnderline: true },

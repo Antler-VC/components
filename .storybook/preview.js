@@ -22,10 +22,17 @@ export const decorators = [
 export const parameters = {
   backgrounds: {
     values: [
-      { name: 'White', value: defaultTheme.palette.background.paper },
       {
-        name: `Gray (${defaultTheme.palette.background.default})`,
+        name: 'White',
+        value: defaultTheme.palette.background.paper,
+      },
+      {
+        name: `Light Gray (${defaultTheme.palette.background.default})`,
         value: defaultTheme.palette.background.default,
+      },
+      {
+        name: 'Dark Gray (#212121)',
+        value: '#212121',
       },
     ],
     grid: {
