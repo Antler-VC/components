@@ -74,7 +74,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export const Color = ({ value, wide }: { value: string; wide?: boolean }) => {
+const Color = ({ value, wide }: { value: string; wide?: boolean }) => {
   const classes = useStyles();
 
   return (
