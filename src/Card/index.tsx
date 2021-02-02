@@ -35,6 +35,7 @@ export interface ICardProps {
     disabled?: boolean;
   }[];
   bodyContent?: React.ReactNode;
+  actionRows?: React.ReactNode[];
 
   primaryButton?: { label: string } & Partial<ButtonProps>;
   primaryLink?: {
@@ -64,6 +65,7 @@ export default function BasicCard({
 
   tabs,
   bodyContent,
+  actionRows,
 
   primaryButton,
   primaryLink,
@@ -72,8 +74,8 @@ export default function BasicCard({
   const classes = useStyles();
 
   const [tab, setTab] = useState(0);
-
-  const handleChangeTab = (_: any, newValue: number) => setTab(newValue);
+  const handleChangeTab = (_: React.ChangeEvent<{}>, newValue: number) =>
+    setTab(newValue);
 
   return (
     <Card className={clsx(classes.root, className)} style={style}>
@@ -207,9 +209,20 @@ export default function BasicCard({
           </CardContent>
         </Grid>
 
+        {actionRows
+          ?.filter(x => !!x)
+          .map((children, i) => (
+            <Grid item key={i} className={classes.actionRow}>
+              <Divider className={classes.actionRowDivider} />
+              <CardActions className={classes.cardActions}>
+                {children}
+              </CardActions>
+            </Grid>
+          ))}
+
         {(primaryButton || primaryLink || secondaryAction) && (
-          <Grid item>
-            <Divider className={classes.divider} />
+          <Grid item className={classes.actionRow}>
+            <Divider className={classes.actionRowDivider} />
             <CardActions className={classes.cardActions}>
               <Grid item>
                 {primaryButton && (
@@ -224,6 +237,7 @@ export default function BasicCard({
                         primaryButton.endIcon
                       )
                     }
+                    className={classes.edgeLeft}
                   >
                     {primaryButton.label}
                   </Button>
@@ -241,6 +255,7 @@ export default function BasicCard({
                         primaryLink.endIcon
                       )
                     }
+                    className={classes.edgeLeft}
                   >
                     {primaryLink.label}
                   </Button>

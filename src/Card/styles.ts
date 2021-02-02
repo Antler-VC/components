@@ -1,4 +1,4 @@
-import { makeStyles, createStyles } from '@material-ui/core/styles'
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -46,18 +46,23 @@ const useStyles = makeStyles(theme =>
     tabSection: { paddingTop: theme.spacing(2), height: '100%' },
     tabContentGrid: { height: `calc(100% + ${theme.spacing(3)}px)` },
 
-    divider: {
-      margin: theme.spacing(2),
-      marginBottom: 0,
+    actionRow: {
+      '& $actionRowDivider': { margin: theme.spacing(2, 2, 0) },
+      '& + & $actionRowDivider': { marginTop: 0 },
     },
+    actionRowDivider: {},
     cardActions: {
-      padding: theme.spacing(0.75, 1),
+      padding: theme.spacing(0, 2),
       display: 'flex',
       justifyContent: 'space-between',
+      height: 48,
     },
+
+    edgeLeft: { marginLeft: theme.spacing(-1) },
+    edgeRight: { marginRight: theme.spacing(-1) },
 
     primaryLinkLabel: { whiteSpace: 'nowrap' },
   })
-)
+);
 
-export default useStyles
+export default useStyles;

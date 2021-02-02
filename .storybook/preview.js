@@ -11,8 +11,8 @@ import { defaultTheme } from '../src/Theme';
 export const decorators = [
   Story => (
     <StylesProvider injectFirst>
-      <CssBaseline />
       <MuiThemeProvider theme={defaultTheme}>
+        <CssBaseline />
         <Story />
       </MuiThemeProvider>
     </StylesProvider>
