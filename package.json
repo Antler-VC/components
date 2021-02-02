@@ -40,7 +40,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint",
-      "pre-push": "build-storybook -c .storybook -o docs && git add docs && git commit -m \"Update Storybook\""
+      "pre-push": "build-storybook -c .storybook -o docs && git add docs && git commit -m \"Pre-push hook: update Storybook\""
     }
   },
   "prettier": {

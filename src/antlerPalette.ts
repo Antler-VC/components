@@ -9,6 +9,7 @@ export const antlerPalette = {
     100: '#fae4e5',
     300: '#fb8c8c',
     500: '#ed4747',
+    600: '#e91c1c',
     700: '#c12929',
   },
   aGray: {
