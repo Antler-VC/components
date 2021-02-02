@@ -18,10 +18,10 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "node generate-exports; git add src/index.ts; tsdx build",
+    "build": "node generate-exports && git add src/index.ts && tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepublishOnly": "node generate-exports; git add src/index.ts; tsdx build",
+    "prepublishOnly": "node generate-exports && git add src/index.ts && tsdx build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -40,7 +40,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint",
-      "pre-push": "build-storybook -c .storybook -o docs; git add docs"
+      "pre-push": "build-storybook -c .storybook -o docs && git add docs && git commit -m \"Update Storybook\""
     }
   },
   "prettier": {
