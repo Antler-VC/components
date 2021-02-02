@@ -39,7 +39,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "tsdx lint",
+      "pre-push": "build-storybook -c .storybook -o docs; git add docs"
     }
   },
   "prettier": {
