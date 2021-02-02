@@ -1,6 +1,10 @@
 module.exports = {
   stories: ['../stories/**/*.stories.@(ts|tsx)'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-a11y',
+    'storybook-dark-mode',
+  ],
   webpackFinal: async config => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
