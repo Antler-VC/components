@@ -3,7 +3,7 @@ import React from 'react';
 import BasicCard from '../src/Card';
 
 export default {
-  title: 'Card',
+  title: 'Card WIP',
   component: BasicCard,
   argTypes: {
     overline: {
@@ -43,10 +43,59 @@ export default {
   },
 };
 
-export const WIP = args => (
+export const Basic = args => (
   <BasicCard
     {...args}
     primaryLink={{ href: args.buttonLink, label: args.buttonLabel }}
     style={{ width: args.width }}
   />
 );
+
+export const Tabbed = args => (
+  <div style={{ height: args.minHeight }}>
+    <BasicCard
+      {...args}
+      primaryLink={{ href: args.buttonLink, label: args.buttonLabel }}
+      style={{ width: args.width }}
+      bodyContent={null}
+      tabs={[
+        {
+          label: args.tab1Label,
+          content: args.bodyContent,
+        },
+        {
+          label: args.tab2Label,
+          content: args.tab2Content,
+        },
+        {
+          label: 'Disabled',
+          content: null,
+          disabled: true,
+        },
+      ]}
+    />
+  </div>
+);
+Tabbed.argTypes = {
+  minHeight: {
+    defaultValue: 540,
+    control: {
+      type: 'range',
+      min: 0,
+      max: 1000,
+    },
+  },
+  tab1Label: {
+    defaultValue: 'About',
+    control: { type: 'text' },
+  },
+  tab2Label: {
+    defaultValue: 'Info',
+    control: { type: 'text' },
+  },
+  tab2Content: {
+    defaultValue:
+      'Antler is a global early-stage VC that enables and invests in the defining companies of tomorrow.',
+    control: { type: 'text' },
+  },
+};
