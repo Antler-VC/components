@@ -146,6 +146,12 @@ export const themeBase = createMuiTheme({
 
 export const defaultOverrides: ThemeOptions = {
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        body: { color: themeBase.palette.text.primary },
+      },
+    },
+
     MuiContainer: {
       root: {
         '@supports (padding: max(0px))': {
