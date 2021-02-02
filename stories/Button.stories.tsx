@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 export default {
-  title: 'Button',
+  title: 'Antler Theme/Components/Button',
   component: Button,
   argTypes: {
     previewAllSizes: {

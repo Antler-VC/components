@@ -4,7 +4,7 @@ import { makeStyles, createStyles } from '@material-ui/core';
 import antlerPalette from '../src/antlerPalette';
 
 export default {
-  title: 'Colors',
+  title: 'Antler Theme/Design System/Colors',
 };
 
 const SWATCH_SIZE = 96;

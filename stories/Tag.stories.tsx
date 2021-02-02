@@ -4,7 +4,7 @@ import { Chip } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 
 export default {
-  title: 'Tag',
+  title: 'Antler Theme/Components/Tag',
   component: Chip,
   argTypes: {
     label: {

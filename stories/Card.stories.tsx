@@ -3,7 +3,7 @@ import React from 'react';
 import BasicCard from '../src/Card';
 
 export default {
-  title: 'Card WIP',
+  title: 'Antler Theme/Components/Card WIP',
   component: BasicCard,
   argTypes: {
     overline: {

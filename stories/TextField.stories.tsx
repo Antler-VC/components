@@ -9,7 +9,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 
 export default {
-  title: 'Text Field',
+  title: 'Antler Theme/Components/Text Field',
   component: MuiTextField,
   argTypes: {
     label: {

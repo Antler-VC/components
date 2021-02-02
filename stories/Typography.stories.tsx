@@ -3,7 +3,7 @@ import React from 'react';
 import { useTheme, Typography } from '@material-ui/core';
 
 export default {
-  title: 'Typography',
+  title: 'Antler Theme/Design System/Typography',
   component: Typography,
   argTypes: {
     text: {
