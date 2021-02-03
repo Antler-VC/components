@@ -7,4 +7,6 @@ export default {
   component: MuiSlider,
 };
 
-export const Slider = args => <MuiSlider {...args} />;
+export const Slider = args => (
+  <MuiSlider {...args} valueLabelDisplay="auto" min={0} max={10} />
+);

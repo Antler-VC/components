@@ -106,29 +106,29 @@
     "@algolia/logger-common" "4.4.0"
     "@algolia/requester-common" "4.4.0"
 
-"@antlerengineering/form-builder@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-0.3.0.tgz#16848346838de74c8eaf23eb70a4f44ed9f4b3de"
-  integrity sha512-qsLCk1/2GfROBiI/7brLBztdXkMj1Bc5s/EGFTuMX18BWOP/2GamR00/ht21a8PLTy9fkzHNFhCLf+um9GkYPg==
+"@antlerengineering/form-builder@^0.10.3":
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-0.10.3.tgz#97556688e76fc5805d032400b3c8b9975db2b4a4"
+  integrity sha512-Cn7jpHqn4ZXrqDkeNRKfVAL2kAdCs9nxBANmULSg/RxBqxW/81/ZAHBi8VPOO1Ouxx+MnGmH7h05da5hyVBW8A==
   dependencies:
-    "@antlerengineering/multiselect" "^0.3.14"
+    "@antlerengineering/multiselect" "^0.8.0"
     "@date-io/date-fns" "1.x"
-    "@hookform/resolvers" "^0.1.0"
+    "@hookform/resolvers" "^1.1.1"
     "@material-ui/pickers" "^3.2.10"
-    "@tinymce/tinymce-react" "^3.6.0"
-    date-fns "^2.15.0"
-    lodash "^4.17.19"
+    "@tinymce/tinymce-react" "^3.8.2"
+    date-fns "^2.16.1"
+    lodash "^4.17.20"
     lodash-es "^4.17.15"
-    react-color "^2.18.1"
-    react-hook-form "^6.2.0"
-    tinymce "^5.4.1"
+    react-color "^2.19.3"
+    react-hook-form "^6.12.2"
+    tinymce "^5.6.1"
     use-debounce "^3.4.3"
-    yup "^0.29.2"
+    yup "^0.32.8"
 
-"@antlerengineering/multiselect@^0.3.14":
-  version "0.3.14"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/multiselect/-/multiselect-0.3.14.tgz#d24c983913ba1a2272bfe4dd5afbb081aedc95dc"
-  integrity sha512-1AsBicZlna3hEG+J1tOgQEhgx/WNbuc7z9khDtkISjWs7hZxevMoLlTPuNZFafHikuGhk/Lr56KihBvz51+mxA==
+"@antlerengineering/multiselect@^0.8.0", "@antlerengineering/multiselect@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/multiselect/-/multiselect-0.8.1.tgz#c6f0449f92668663283fd97f9b53d409c62a3efc"
+  integrity sha512-ydl9T1vU62cIrhW/xm/mLWoYFLeokfvYdr77wOV9xYc5aWMHG7jUb5K2EngmF8noEMUMrgLleTzxElcEj86lwQ==
 
 "@babel/code-frame@7.8.3", "@babel/code-frame@^7.5.5":
   version "7.8.3"
@@ -2173,10 +2173,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@hookform/resolvers@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-0.1.0.tgz#30f5cf17a3a5590ca90dcfa834492e515e17d0a5"
-  integrity sha512-/6cnDycgWhmvUpRmYY7506qJlym+hirk4tbt2waY3C2rOjFn+4/Gt4CuVLzjrsNJvOJkN36bx+OSlccecBgsrg==
+"@hookform/resolvers@^1.1.1":
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-1.3.4.tgz#3129243180a5ecc4347b9e66ad693148215c2986"
+  integrity sha512-K56VLSInXNIT/r14pkzRn1FJclqzGOWqpe3Bf0kz2Hf98ZOmRRFh4fhB7F3ofqCQ03CEQQkV44CTg7ql6nEvEg==
 
 "@icons/material@^0.2.4":
   version "0.2.4"
@@ -3267,12 +3267,13 @@
     "@svgr/plugin-svgo" "^5.4.0"
     rollup-pluginutils "^2.8.2"
 
-"@tinymce/tinymce-react@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-react/-/tinymce-react-3.6.0.tgz#6e33e89b7bb0240c4ffa892a8e1924688f479b4b"
-  integrity sha512-XSyAx9Md9+Ghl3UK0YtBQxaS2dCepqtOKTjYmBS4xTAzSu1UABd44WT84B8CUCd/bdT0fv1Pd51dSbpgJ8713w==
+"@tinymce/tinymce-react@^3.8.2":
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-react/-/tinymce-react-3.10.1.tgz#8da49310957e53d06bdb9c00bacc1a72f1c7e54a"
+  integrity sha512-f+xu7kveYkkyc/NNUrCe1WB4l6rD9eRQ3t+HFSqyZ5B3j1LR1l7LIbBpp6B/ijCrSa+15xdo/uhfMu7hD1dA3w==
   dependencies:
     prop-types "^15.6.2"
+    tinymce "^5.6.2"
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -3424,6 +3425,11 @@
   version "4.14.150"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.150.tgz#649fe44684c3f1fcb6164d943c5a61977e8cf0bd"
   integrity sha512-kMNLM5JBcasgYscD9x/Gvr6lTAv2NVgsKtet/hm93qMyf/D1pt+7jeEZklKJKxMVmXjxbRVQQGfqDSfipYCO6w==
+
+"@types/lodash@^4.14.165":
+  version "4.14.168"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.168.tgz#fe24632e79b7ade3f132891afff86caa5e5ce008"
+  integrity sha512-oVfRvqHV/V6D1yifJbVRU3TMp8OT6o6BG+U9MkwuJ3U8/CsDHvalRpsxBqivn71ztOFZBTfJMvETbqHiaNSj7Q==
 
 "@types/markdown-to-jsx@^6.11.0":
   version "6.11.3"
@@ -6058,6 +6064,11 @@ date-fns@^2.15.0:
   version "2.15.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.15.0.tgz#424de6b3778e4e69d3ff27046ec136af58ae5d5f"
   integrity sha512-ZCPzAMJZn3rNUvvQIMlXhDr4A+Ar07eLeGsGREoWU19a3Pqf5oYa+ccd+B3F6XVtQY6HANMFdOQ8A+ipFnvJdQ==
+
+date-fns@^2.16.1:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
+  integrity sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
 
 debug@2.6.9, debug@^2.1.3, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
@@ -10194,6 +10205,11 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
+nanoclone@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/nanoclone/-/nanoclone-0.2.1.tgz#dd4090f8f1a110d26bb32c49ed2f5b9235209ed4"
+  integrity sha512-wynEP02LmIbLpcYw8uBKpcfF6dmg2vcpKqxeH5UcoKEYdExslsdUA4ugFauuaeYdTB76ez6gJW8XAZ6CgkXYxA==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -11227,6 +11243,11 @@ property-expr@^2.0.2:
   resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.2.tgz#fff2a43919135553a3bc2fdd94bdb841965b2330"
   integrity sha512-bc/5ggaYZxNkFKj374aLbEDqVADdYaLcFo8XBkishUWbaAdjlphaBFns9TvRA2pUseVL/wMFmui9X3IdNDU37g==
 
+property-expr@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/property-expr/-/property-expr-2.0.4.tgz#37b925478e58965031bb612ec5b3260f8241e910"
+  integrity sha512-sFPkHQjVKheDNnPvotjQmm3KD3uk1fWKUN7CrpdbwmUx3CrG3QiM8QpTSimvig5vTXmTvjz7+TDvXOI9+4rkcg==
+
 property-information@^5.0.0, property-information@^5.3.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/property-information/-/property-information-5.6.0.tgz#61675545fb23002f245c6540ec46077d4da3ed69"
@@ -11377,7 +11398,7 @@ raw-loader@^4.0.1:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-react-color@^2.17.0:
+react-color@^2.17.0, react-color@^2.19.3:
   version "2.19.3"
   resolved "https://registry.yarnpkg.com/react-color/-/react-color-2.19.3.tgz#ec6c6b4568312a3c6a18420ab0472e146aa5683d"
   integrity sha512-LEeGE/ZzNLIsFWa1TMe8y5VYqr7bibneWmvJwm1pCn/eNmrabWDh659JSPn9BuaMpEfU83WTOJfnCcjDZwNQTA==
@@ -11385,18 +11406,6 @@ react-color@^2.17.0:
     "@icons/material" "^0.2.4"
     lodash "^4.17.15"
     lodash-es "^4.17.15"
-    material-colors "^1.2.1"
-    prop-types "^15.5.10"
-    reactcss "^1.2.0"
-    tinycolor2 "^1.4.1"
-
-react-color@^2.18.1:
-  version "2.18.1"
-  resolved "https://registry.yarnpkg.com/react-color/-/react-color-2.18.1.tgz#2cda8cc8e06a9e2c52ad391a30ddad31972472f4"
-  integrity sha512-X5XpyJS6ncplZs74ak0JJoqPi+33Nzpv5RYWWxn17bslih+X7OlgmfpmGC1fNvdkK7/SGWYf1JJdn7D2n5gSuQ==
-  dependencies:
-    "@icons/material" "^0.2.4"
-    lodash "^4.17.11"
     material-colors "^1.2.1"
     prop-types "^15.5.10"
     reactcss "^1.2.0"
@@ -11536,10 +11545,10 @@ react-helmet-async@^1.0.2:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
-react-hook-form@^6.2.0:
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.3.2.tgz#3219fca2e1e9735be66c10e5106e653af2ed6059"
-  integrity sha512-wM02rGN25wCX7WLORFE2xj9DIzQiBqmoeIzLS7vrB3yt0xVfLAi502u4FFV2l2RAJDsry/87d8fvvx+kFPv+WA==
+react-hook-form@^6.12.2:
+  version "6.15.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.15.1.tgz#57d887ec4dac5a6c0099902171aa39cc893f7bca"
+  integrity sha512-bL0LQuQ3OlM3JYfbacKtBPLOHhmgYz8Lj6ivMrvu2M6e1wnt4sbGRtPEPYCc/8z3WDbjrMwfAfLX92OsB65pFA==
 
 react-hotkeys@2.0.0:
   version "2.0.0"
@@ -13196,10 +13205,10 @@ tinycolor2@^1.4.1:
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
 
-tinymce@^5.4.1:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-5.4.2.tgz#a1df417ea7e85697c2932269f7f93fbef30d4502"
-  integrity sha512-MRquvKxI28AiSn2ikypgJFD7LH4mQZLtgFn+yROF1bTFp92MdlLeGBrI38/O5mej3cvz27g3Pgr+3MShepbJ+w==
+tinymce@^5.6.1, tinymce@^5.6.2:
+  version "5.6.2"
+  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-5.6.2.tgz#4c20c22e328c5d0baab204928dbc2b0ecbed18b4"
+  integrity sha512-z7zvM5seOPiW86/vqf08kStwW5Zs5U9oQfuqh2rTj4jEcT2QzxT0v72i2zw3W6rbTLldkAej6edFZphj5ee5zg==
 
 tmp@^0.0.33:
   version "0.0.33"
@@ -14242,7 +14251,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-yup@^0.29.2, yup@^0.29.3:
+yup@^0.29.3:
   version "0.29.3"
   resolved "https://registry.yarnpkg.com/yup/-/yup-0.29.3.tgz#69a30fd3f1c19f5d9e31b1cf1c2b851ce8045fea"
   integrity sha512-RNUGiZ/sQ37CkhzKFoedkeMfJM0vNQyaz+wRZJzxdKE7VfDeVKH8bb4rr7XhRLbHJz5hSjoDNwMEIaKhuMZ8gQ==
@@ -14253,6 +14262,19 @@ yup@^0.29.2, yup@^0.29.3:
     lodash-es "^4.17.11"
     property-expr "^2.0.2"
     synchronous-promise "^2.0.13"
+    toposort "^2.0.2"
+
+yup@^0.32.8:
+  version "0.32.8"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.8.tgz#16e4a949a86a69505abf99fd0941305ac9adfc39"
+  integrity sha512-SZulv5FIZ9d5H99EN5tRCRPXL0eyoYxWIP1AacCrjC9d4DfP13J1dROdKGfpfRHT3eQB6/ikBl5jG21smAfCkA==
+  dependencies:
+    "@babel/runtime" "^7.10.5"
+    "@types/lodash" "^4.14.165"
+    lodash "^4.17.20"
+    lodash-es "^4.17.11"
+    nanoclone "^0.2.1"
+    property-expr "^2.0.4"
     toposort "^2.0.2"
 
 zwitch@^1.0.0:
