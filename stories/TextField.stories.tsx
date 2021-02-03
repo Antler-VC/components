@@ -26,7 +26,7 @@ export default {
       control: { type: 'text' },
     },
     width: {
-      defaultValue: 300,
+      defaultValue: 320,
       control: {
         type: 'range',
         min: 0,
