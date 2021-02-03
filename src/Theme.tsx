@@ -336,18 +336,38 @@ export const defaultOverrides: ThemeOptions = {
         paddingLeft: 24,
         paddingRight: 24,
 
+        '$outlined &': {
+          paddingLeft: 23,
+          paddingRight: 23,
+        },
+
         [themeBase.breakpoints.down('xs')]: {
           paddingLeft: 16,
           paddingRight: 16,
+
+          '$outlined &': {
+            paddingLeft: 15,
+            paddingRight: 15,
+          },
         },
       },
       labelSmall: {
         paddingLeft: 24,
         paddingRight: 24,
 
+        '$outlined &': {
+          paddingLeft: 23,
+          paddingRight: 23,
+        },
+
         [themeBase.breakpoints.down('xs')]: {
           paddingLeft: 16,
           paddingRight: 16,
+
+          '$outlined &': {
+            paddingLeft: 15,
+            paddingRight: 15,
+          },
         },
       },
 
@@ -355,24 +375,36 @@ export const defaultOverrides: ThemeOptions = {
         color: 'inherit',
 
         marginLeft: 16,
-        '$outlined &': { marginLeft: 16 },
         marginRight: 8 - 24,
+        '$outlined &': {
+          marginLeft: 15,
+          marginRight: 8 - 24 + 1,
+        },
 
         [themeBase.breakpoints.down('xs')]: {
           marginLeft: 8,
-          '$outlined &': { marginLeft: 8 },
           marginRight: 8 - 16,
+          '$outlined &': {
+            marginLeft: 7,
+            marginRight: 8 - 16 + 1,
+          },
         },
       },
       iconSmall: {
         marginLeft: 16,
-        '$outlined &': { marginLeft: 16 },
         marginRight: 8 - 24,
+        '$outlined &': {
+          marginLeft: 15,
+          marginRight: 8 - 24 + 1,
+        },
 
         [themeBase.breakpoints.down('xs')]: {
           marginLeft: 8,
-          '$outlined &': { marginLeft: 8 },
           marginRight: 8 - 16,
+          '$outlined &': {
+            marginLeft: 7,
+            marginRight: 8 - 16 + 1,
+          },
         },
       },
 
@@ -380,24 +412,36 @@ export const defaultOverrides: ThemeOptions = {
         color: 'inherit',
 
         marginRight: 16,
-        '$outlined &': { marginRight: 16 },
         marginLeft: 8 - 24,
+        '$outlined &': {
+          marginRight: 15,
+          marginLeft: 8 - 24 + 1,
+        },
 
         [themeBase.breakpoints.down('xs')]: {
           marginRight: 8,
-          '$outlined &': { marginRight: 8 },
           marginLeft: 8 - 16,
+          '$outlined &': {
+            marginRight: 7,
+            marginLeft: 8 - 16 + 1,
+          },
         },
       },
       deleteIconSmall: {
         marginRight: 16,
-        '$outlined &': { marginRight: 16 },
         marginLeft: 8 - 24,
+        '$outlined &': {
+          marginRight: 15,
+          marginLeft: 8 - 24 + 1,
+        },
 
         [themeBase.breakpoints.down('xs')]: {
           marginRight: 8,
-          '$outlined &': { marginRight: 8 },
           marginLeft: 8 - 16,
+          '$outlined &': {
+            marginRight: 7,
+            marginLeft: 8 - 16 + 1,
+          },
         },
       },
       deleteIconColorPrimary: { color: 'inherit' },
