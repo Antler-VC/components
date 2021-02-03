@@ -31,6 +31,10 @@ export const themeBase = createMuiTheme({
   palette: {
     primary: antlerPaletteToMui(antlerPalette.aRed),
     secondary: { main: antlerPalette.aBlack[500] },
+    background: {
+      default: antlerPalette.aGray[50],
+      paper: antlerPalette.aWhite[500],
+    },
     text: {
       primary: PRIMARY_TEXT,
       secondary: SECONDARY_TEXT,

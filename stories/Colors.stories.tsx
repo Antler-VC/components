@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { makeStyles, createStyles } from '@material-ui/core';
 import antlerPalette from '../src/antlerPalette';
@@ -8,7 +9,7 @@ export default {
 };
 
 const SWATCH_SIZE = 96;
-const SHADES = [100, 300, 500, 700, 200, 600];
+const SHADES = [100, 300, 500, 700, 50, 200, 600];
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -57,6 +58,8 @@ const useStyles = makeStyles(theme =>
 
       userSelect: 'all',
     },
+    colorWide: { width: SWATCH_SIZE * 2 },
+    colorBordered: { border: `1px solid ${theme.palette.divider}` },
 
     colorValue: {
       backgroundColor: 'rgba(0, 0, 0, 0.33)',
@@ -79,11 +82,13 @@ const Color = ({ value, wide }: { value: string; wide?: boolean }) => {
 
   return (
     <div
-      className={classes.color}
-      style={{
-        backgroundColor: value,
-        width: wide ? SWATCH_SIZE * 2 : 'undefined',
-      }}
+      className={clsx(
+        classes.color,
+        wide && classes.colorWide,
+        (value === '#ffffff' || value === '#fafafa' || value === '#f2f2f2') &&
+          classes.colorBordered
+      )}
+      style={{ backgroundColor: value }}
     >
       <span className={classes.colorValue}>{value}</span>
     </div>
