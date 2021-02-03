@@ -184,28 +184,31 @@ export const defaultOverrides: ThemeOptions = {
     MuiButton: {
       root: {
         borderRadius: 500,
-        padding: '10px 16px',
+        minHeight: 36,
       },
-
-      outlined: { padding: '9px 15px' },
-      text: { padding: '10px 8px' },
 
       containedSizeLarge: {
         fontSize: themeBase.typography.button.fontSize,
-        padding: '16px 32px',
+        minHeight: 48,
+        paddingLeft: 32,
+        paddingRight: 32,
       },
       outlinedSizeLarge: {
         fontSize: themeBase.typography.button.fontSize,
-        padding: '15px 31px',
+        minHeight: 48,
+        paddingLeft: 31,
+        paddingRight: 31,
       },
       textSizeLarge: {
         fontSize: themeBase.typography.button.fontSize,
-        padding: '16px 16px',
+        minHeight: 48,
+        paddingLeft: 16,
+        paddingRight: 16,
       },
 
-      containedSizeSmall: { padding: '8px 10px' },
-      outlinedSizeSmall: { padding: '7px 9px' },
-      textSizeSmall: { padding: '8px 5px' },
+      containedSizeSmall: { minHeight: 30 },
+      outlinedSizeSmall: { minHeight: 30 },
+      textSizeSmall: { minHeight: 30 },
 
       containedPrimary: {
         '&:hover': { backgroundColor: themeBase.palette.primary.light },
