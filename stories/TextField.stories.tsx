@@ -79,6 +79,7 @@ export const Password = args => {
             <IconButton
               disabled={args.disabled}
               onClick={() => setShow(x => !x)}
+              aria-label={show ? 'Hide Password' : 'Show Password'}
             >
               {show ? <VisibilityOffIcon /> : <VisibilityIcon />}
             </IconButton>
