@@ -6,7 +6,7 @@ import {
   MuiThemeProvider,
 } from '@material-ui/core';
 
-import { defaultTheme } from '../src/Theme';
+import { defaultTheme } from '../src/Theme/Theme';
 
 export const decorators = [
   Story => (

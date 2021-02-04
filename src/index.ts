@@ -118,14 +118,14 @@ export * from './StartupCard/StartupCardContents';
 export { default as StartupCardSkeleton } from './StartupCard/StartupCardSkeleton';
 export * from './StartupCard/StartupCardSkeleton';
 
-export { default as Theme } from './Theme';
-export * from './Theme';
+export { default as Theme } from './Theme/Theme';
+export * from './Theme/Theme';
+
+export { default as antlerPalette } from './Theme/antlerPalette';
+export * from './Theme/antlerPalette';
 
 export { default as Thumbnail } from './Thumbnail';
 export * from './Thumbnail';
-
-export { default as antlerPalette } from './antlerPalette';
-export * from './antlerPalette';
 
 export { default as constants } from './constants';
 export * from './constants';

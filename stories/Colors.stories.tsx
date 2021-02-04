@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { makeStyles, createStyles } from '@material-ui/core';
-import antlerPalette from '../src/antlerPalette';
+import antlerPalette from '../src/Theme/antlerPalette';
 
 export default {
   title: 'Antler Theme/Design System/Colors',
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme =>
       paddingBottom: 8,
       top: 0,
 
-      'th&': { fontWeight: 600 },
+      'th&': theme.typography.button,
     },
 
     colorName: {

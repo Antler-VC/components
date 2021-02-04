@@ -1,7 +1,7 @@
 import React from 'react';
 import _merge from 'lodash/merge';
 
-import { createMuiTheme, ThemeOptions, fade } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeOptions } from '@material-ui/core/styles';
 import { Shadows } from '@material-ui/core/styles/shadows';
 import ClearIcon from '@material-ui/icons/Clear';
 

@@ -106,29 +106,34 @@
     "@algolia/logger-common" "4.4.0"
     "@algolia/requester-common" "4.4.0"
 
-"@antlerengineering/form-builder@^0.10.3":
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-0.10.3.tgz#97556688e76fc5805d032400b3c8b9975db2b4a4"
-  integrity sha512-Cn7jpHqn4ZXrqDkeNRKfVAL2kAdCs9nxBANmULSg/RxBqxW/81/ZAHBi8VPOO1Ouxx+MnGmH7h05da5hyVBW8A==
+"@antlerengineering/form-builder@^0.10.4":
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-0.10.4.tgz#da176673003d8c1807c07ebf393b5bdd709522e3"
+  integrity sha512-NVggTPw5bfZ/SK3urCTieBSEHhwlwWU90L9rmSRIe4uevgLQhq83G2DZFuMI6nSEDKni2mgLkmg5Xc3AfdX5Qw==
   dependencies:
     "@antlerengineering/multiselect" "^0.8.0"
     "@date-io/date-fns" "1.x"
-    "@hookform/resolvers" "^1.1.1"
+    "@hookform/resolvers" "^1.3.4"
     "@material-ui/pickers" "^3.2.10"
     "@tinymce/tinymce-react" "^3.8.2"
     date-fns "^2.16.1"
     lodash "^4.17.20"
     lodash-es "^4.17.15"
     react-color "^2.19.3"
-    react-hook-form "^6.12.2"
+    react-hook-form "^6.15.1"
     tinymce "^5.6.1"
     use-debounce "^3.4.3"
     yup "^0.32.8"
 
-"@antlerengineering/multiselect@^0.8.0", "@antlerengineering/multiselect@^0.8.1":
+"@antlerengineering/multiselect@^0.8.0":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@antlerengineering/multiselect/-/multiselect-0.8.1.tgz#c6f0449f92668663283fd97f9b53d409c62a3efc"
   integrity sha512-ydl9T1vU62cIrhW/xm/mLWoYFLeokfvYdr77wOV9xYc5aWMHG7jUb5K2EngmF8noEMUMrgLleTzxElcEj86lwQ==
+
+"@antlerengineering/multiselect@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/multiselect/-/multiselect-0.8.2.tgz#160294f75a5772aa2ceecdff3dd837520f5b90c8"
+  integrity sha512-u/J59NkTBMU8voB3RuvVo6OCZLg4mG+gOQQ1vT/hrCw66oPE48+nDmPQEZDhrGwXWSrsqaYNNbt8zjF6sdkYMQ==
 
 "@babel/code-frame@7.8.3", "@babel/code-frame@^7.5.5":
   version "7.8.3"
@@ -2173,7 +2178,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@hookform/resolvers@^1.1.1":
+"@hookform/resolvers@^1.3.4":
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-1.3.4.tgz#3129243180a5ecc4347b9e66ad693148215c2986"
   integrity sha512-K56VLSInXNIT/r14pkzRn1FJclqzGOWqpe3Bf0kz2Hf98ZOmRRFh4fhB7F3ofqCQ03CEQQkV44CTg7ql6nEvEg==
@@ -11545,7 +11550,7 @@ react-helmet-async@^1.0.2:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
-react-hook-form@^6.12.2:
+react-hook-form@^6.15.1:
   version "6.15.1"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.15.1.tgz#57d887ec4dac5a6c0099902171aa39cc893f7bca"
   integrity sha512-bL0LQuQ3OlM3JYfbacKtBPLOHhmgYz8Lj6ivMrvu2M6e1wnt4sbGRtPEPYCc/8z3WDbjrMwfAfLX92OsB65pFA==
