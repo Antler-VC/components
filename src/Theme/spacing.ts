@@ -12,3 +12,33 @@ export const spacing = {
 };
 
 export default spacing;
+
+const transform = (arg: number | string) => {
+  if (typeof arg === 'number') return arg * SPACING_UNIT;
+  return spacing[arg as keyof typeof spacing] || arg;
+};
+
+export const spacingFn = (...args: (number | string)[]) => {
+  if (process.env.NODE_ENV !== 'production') {
+    if (!(args.length <= 4)) {
+      console.error(
+        `Material-UI: Too many arguments provided, expected between 0 and 4, got ${args.length}`
+      );
+    }
+  }
+
+  if (args.length === 0) {
+    return transform(1);
+  }
+
+  if (args.length === 1) {
+    return transform(args[0]);
+  }
+
+  return args
+    .map(argument => {
+      const output = transform(argument);
+      return typeof output === 'number' ? `${output}px` : output;
+    })
+    .join(' ');
+};

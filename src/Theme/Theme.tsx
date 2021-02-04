@@ -6,6 +6,7 @@ import { Shadows } from '@material-ui/core/styles/shadows';
 import ClearIcon from '@material-ui/icons/Clear';
 
 import { antlerPalette, antlerPaletteToMui } from './antlerPalette';
+import { spacingFn } from './spacing';
 
 export const HEADING_FONT = 'Europa, sans-serif';
 export const BODY_FONT = '"Open Sans", sans-serif';
@@ -146,6 +147,7 @@ export const themeBase = createMuiTheme({
       lineHeight: 16 / 14,
     },
   },
+  spacing: spacingFn,
 });
 
 export const defaultOverrides: ThemeOptions = {
