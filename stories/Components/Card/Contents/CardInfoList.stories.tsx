@@ -52,8 +52,8 @@ export default {
 export const CardInfoList = args => (
   <Component
     infoList={new Array(5).fill(undefined).map((_, i) => ({
-      name: args[`item${i}Name`],
-      value: args[`item${i}Value`],
+      name: args[`item${i + 1}Name`],
+      value: args[`item${i + 1}Value`],
     }))}
   />
 );
