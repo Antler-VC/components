@@ -47,6 +47,9 @@ export default {
         max: 1000,
       },
     },
+    actionRows: { table: { disable: true }, control: { disable: true } },
+    image: { table: { disable: true }, control: { disable: true } },
+    titleHeadingLevel: { table: { disable: true }, control: { disable: true } },
   },
 };
 
@@ -56,19 +59,19 @@ export const Profile = args => (
     primaryLink={{ href: args.buttonLink, label: args.buttonLabel }}
     style={{ width: args.width }}
     image={{ imageUrl: args.imageSource }}
-    body={
-      <>
-        <CardInfoList
-          infoList={[
-            { name: 'Primary', value: 'Consumer' },
-            { name: 'B. Model', value: 'Marketplace' },
-          ]}
-        />
-        <CardTagList
-          name="Focus Area"
-          tags={['Corporate Strategy', 'IoT Solutions', 'E-Commerce']}
-        />
-      </>
+    actionRows={
+      args.buttonLabel
+        ? [
+            {
+              primaryLink: {
+                label: args.buttonLabel,
+                href: args.buttonLink,
+                target: '_blank',
+                rel: 'noopener noreferer',
+              },
+            },
+          ]
+        : []
     }
   />
 );
@@ -80,8 +83,9 @@ export const ProfileTabbed = args => (
     style={{ width: args.width }}
     image={{ imageUrl: args.imageSource }}
     tabs={[
+      { label: args.tabLabel, body: args.body },
       {
-        label: 'About',
+        label: 'Info',
         body: (
           <>
             <CardInfoList
@@ -98,9 +102,25 @@ export const ProfileTabbed = args => (
         ),
       },
       {
-        label: 'Team',
-        body: 'Testing',
+        label: 'Disabled',
+        disabled: true,
+      },
+    ]}
+    actionRows={[
+      {
+        primaryLink: {
+          label: args.buttonLabel,
+          href: args.buttonLink,
+          target: '_blank',
+          rel: 'noopener noreferer',
+        },
       },
     ]}
   />
 );
+ProfileTabbed.argTypes = {
+  tabLabel: {
+    defaultValue: 'About',
+    control: { type: 'text' },
+  },
+};

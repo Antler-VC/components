@@ -38,7 +38,6 @@ export const spacingFn = (...args: (number | string)[]) => {
   return args
     .map(argument => {
       const output = transform(argument);
-      console.log(argument, output);
       return typeof output === 'number' ? `${output}px` : output;
     })
     .join(' ');

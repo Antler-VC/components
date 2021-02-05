@@ -6,6 +6,9 @@ import antlerPalette from '../../src/Theme/antlerPalette';
 
 export default {
   title: 'Antler Theme/Design System/Spacing',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 const useStyles = makeStyles(theme =>

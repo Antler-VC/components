@@ -6,6 +6,9 @@ import antlerPalette from '../../src/Theme/antlerPalette';
 
 export default {
   title: 'Antler Theme/Design System/Colors',
+  parameters: {
+    controls: { hideNoControlsWarning: true },
+  },
 };
 
 const SWATCH_SIZE = 96;

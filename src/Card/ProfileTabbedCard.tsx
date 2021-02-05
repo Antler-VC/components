@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
 
 import { makeStyles, createStyles, Tab, Divider } from '@material-ui/core';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
+import CardBody from './CardBody';
 
 import ProfileCard, { IProfileCardProps } from './ProfileCard';
 
@@ -83,7 +83,7 @@ export default function ProfileTabbedCard({
                 value={i.toString()}
                 className={classes.tabPanel}
               >
-                {tab.body}
+                <CardBody body={tab.body} />
               </TabPanel>
             ))}
           </TabContext>
