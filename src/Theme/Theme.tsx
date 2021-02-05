@@ -27,6 +27,11 @@ declare module '@material-ui/core/styles/createPalette' {
     antler: typeof antlerPalette;
   }
 }
+declare module '@material-ui/core/styles/createSpacing' {
+  interface Spacing {
+    (value: string | number): number;
+  }
+}
 
 export const themeBase = createMuiTheme({
   palette: {
@@ -147,7 +152,6 @@ export const themeBase = createMuiTheme({
       lineHeight: 16 / 14,
     },
   },
-  spacing: spacingFn,
 });
 
 export const defaultOverrides: ThemeOptions = {
@@ -584,11 +588,14 @@ export const defaultOverrides: ThemeOptions = {
   },
 };
 
-export const defaultTheme = createMuiTheme(
-  _merge({}, themeBase, defaultOverrides)
-);
+export const defaultTheme = {
+  ...createMuiTheme(_merge({}, themeBase, defaultOverrides)),
+  spacing: spacingFn,
+};
 
-export const generateTheme = (options: ThemeOptions, ...args: Object[]) =>
-  createMuiTheme(_merge({}, themeBase, defaultOverrides, options), ...args);
+export const generateTheme = (options: ThemeOptions, ...args: Object[]) => ({
+  ...createMuiTheme(_merge({}, themeBase, defaultOverrides, options), ...args),
+  spacing: spacingFn,
+});
 
 export default defaultTheme;
