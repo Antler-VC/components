@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { makeStyles, createStyles } from '@material-ui/core';
-import spacing from '../src/Theme/spacing';
-import antlerPalette from '../src/Theme/antlerPalette';
+import spacing from '../../src/Theme/spacing';
+import antlerPalette from '../../src/Theme/antlerPalette';
 
 export default {
   title: 'Antler Theme/Design System/Spacing',

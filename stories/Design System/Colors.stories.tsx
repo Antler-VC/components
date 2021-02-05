@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { makeStyles, createStyles } from '@material-ui/core';
-import antlerPalette from '../src/Theme/antlerPalette';
+import antlerPalette from '../../src/Theme/antlerPalette';
 
 export default {
   title: 'Antler Theme/Design System/Colors',
