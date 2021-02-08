@@ -56,7 +56,6 @@ export default {
 export const Profile = args => (
   <ProfileCard
     {...args}
-    primaryLink={{ href: args.buttonLink, label: args.buttonLabel }}
     style={{ width: args.width }}
     image={{ imageUrl: args.imageSource }}
     actionRows={
@@ -79,7 +78,6 @@ export const Profile = args => (
 export const ProfileTabbed = args => (
   <ProfileTabbedCard
     {...args}
-    primaryLink={{ href: args.buttonLink, label: args.buttonLabel }}
     style={{ width: args.width }}
     image={{ imageUrl: args.imageSource }}
     tabs={[

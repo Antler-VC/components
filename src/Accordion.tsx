@@ -6,7 +6,7 @@ import {
   createStyles,
   useTheme,
   useMediaQuery,
-  Accordion,
+  Accordion as MuiAccordion,
   AccordionProps,
   AccordionSummary,
   AccordionDetails,
@@ -27,13 +27,13 @@ const useStyles = makeStyles(theme =>
       backgroundColor: 'transparent',
       '&::before': { display: 'none' },
       '&$accordionExpanded': { margin: 0 },
-      '& + &': { marginTop: theme.spacing(4) },
+      '& + &': { marginTop: theme.spacing('l') },
     },
     accordionExpanded: {},
 
     accordionSummary: {
       padding: 0,
-      borderBottom: '1px solid ' + theme.palette.divider,
+      borderBottom: '1px solid ' + theme.palette.antler.gray[700],
 
       '&$accordionSummaryExpanded': { minHeight: 48 },
     },
@@ -48,8 +48,6 @@ const useStyles = makeStyles(theme =>
     accordionSummaryExpanded: {},
 
     title: {
-      textTransform: 'uppercase',
-      letterSpacing: 3,
       display: 'inline-block',
       marginRight: theme.spacing(2),
     },
@@ -60,7 +58,6 @@ const useStyles = makeStyles(theme =>
       marginRight: theme.spacing(2),
     },
     chip: {
-      backgroundColor: theme.palette.text.secondary,
       verticalAlign: 'baseline',
       cursor: 'inherit',
     },
@@ -78,7 +75,7 @@ const useStyles = makeStyles(theme =>
 
     accordionDetails: {
       padding: 0,
-      paddingTop: theme.spacing(3),
+      paddingTop: theme.spacing('m'),
     },
   })
 );
@@ -109,7 +106,7 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
   const [expanded, setExpanded] = useState(initiallyExpanded);
 
   return (
-    <Accordion
+    <MuiAccordion
       expanded={expanded}
       onChange={(_, v) => setExpanded(v)}
       elevation={0}
@@ -127,12 +124,12 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
           content: classes.accordionSummaryContent,
           expanded: classes.accordionSummaryExpanded,
         }}
-        disableRipple={false}
+        // disableRipple={false}
       >
         <Grid item xs>
           <Typography
-            variant="h6"
-            component="h4"
+            variant="h5"
+            component="h2"
             color="textSecondary"
             className={classes.title}
           >
@@ -142,13 +139,7 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
             <Grid container spacing={2} className={classes.chipGrid}>
               {chips?.map(chip => (
                 <Grid item key={chip}>
-                  <Chip
-                    label={chip}
-                    variant="default"
-                    color="secondary"
-                    className={classes.chip}
-                    size="small"
-                  />
+                  <Chip label={chip} className={classes.chip} />
                 </Grid>
               ))}
             </Grid>
@@ -157,10 +148,10 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
 
         <Grid item className={classes.showAllText}>
           <Grid container alignItems="center">
-            <Typography variant="h6" component="span" className={classes.title}>
+            <Typography variant="button" component="span">
               {expanded
                 ? 'Collapse'
-                : 'Show all' +
+                : 'Expand' +
                   (Array.isArray(cards) || count
                     ? ` (${count ?? cards?.length})`
                     : '')}
@@ -187,7 +178,7 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
         )}
         {children}
       </AccordionDetails>
-    </Accordion>
+    </MuiAccordion>
   );
 };
 
@@ -199,7 +190,7 @@ export const ExpandingSectionSkeleton: React.FunctionComponent = () => {
   const isSm = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Accordion
+    <MuiAccordion
       expanded={false}
       elevation={0}
       square
@@ -221,6 +212,6 @@ export const ExpandingSectionSkeleton: React.FunctionComponent = () => {
           style={{ marginLeft: 'auto' }}
         />
       </AccordionSummary>
-    </Accordion>
+    </MuiAccordion>
   );
 };
