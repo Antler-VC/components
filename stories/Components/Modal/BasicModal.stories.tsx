@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Component from '../../src/Modal';
+import Modal from '../../../src/Modal';
 
 export default {
-  title: 'Antler Theme/Components/Modal',
+  title: 'Antler Theme/Components/Modal/Basic Modal',
   argTypes: {
     title: {
       defaultValue: 'Update Review',
@@ -33,24 +33,8 @@ export default {
   },
 };
 
-// const argsToProps = args => ({
-//   ...args,
-//   helperText: args.helperText || args.error ? 'Error text here' : '',
-//   style: { width: args.width },
-// });
-
-// export const SingleSelect = args => (
-//   <TextField {...argsToProps(args)} select>
-//     {args.options?.map(option => (
-//       <MenuItem key={option} value={option}>
-//         {option}
-//       </MenuItem>
-//     ))}
-//   </TextField>
-// );
-
-export const Modal = args => (
-  <Component
+export const BasicModal = args => (
+  <Modal
     {...args}
     actions={{
       primary: { children: args.primaryButtonLabel },

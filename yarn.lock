@@ -106,12 +106,12 @@
     "@algolia/logger-common" "4.4.0"
     "@algolia/requester-common" "4.4.0"
 
-"@antlerengineering/form-builder@^0.10.4":
-  version "0.10.4"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-0.10.4.tgz#da176673003d8c1807c07ebf393b5bdd709522e3"
-  integrity sha512-NVggTPw5bfZ/SK3urCTieBSEHhwlwWU90L9rmSRIe4uevgLQhq83G2DZFuMI6nSEDKni2mgLkmg5Xc3AfdX5Qw==
+"@antlerengineering/form-builder@^0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-0.11.0.tgz#7d745cbbcde2277c94a9e50c2f6650dd0fef1a95"
+  integrity sha512-YBDqyVZL3gp2ngFUYrK9MZ0Yr5gPL6HZRqD5Dq1+wXnrE5GimHNvOxrpfhGuMgamyqsQkZCRL/bje0jD5WZyWg==
   dependencies:
-    "@antlerengineering/multiselect" "^0.8.0"
+    "@antlerengineering/multiselect" "^0.8.2"
     "@date-io/date-fns" "1.x"
     "@hookform/resolvers" "^1.3.4"
     "@material-ui/pickers" "^3.2.10"
@@ -124,11 +124,6 @@
     tinymce "^5.6.1"
     use-debounce "^3.4.3"
     yup "^0.32.8"
-
-"@antlerengineering/multiselect@^0.8.0":
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/multiselect/-/multiselect-0.8.1.tgz#c6f0449f92668663283fd97f9b53d409c62a3efc"
-  integrity sha512-ydl9T1vU62cIrhW/xm/mLWoYFLeokfvYdr77wOV9xYc5aWMHG7jUb5K2EngmF8noEMUMrgLleTzxElcEj86lwQ==
 
 "@antlerengineering/multiselect@^0.8.2":
   version "0.8.2"
