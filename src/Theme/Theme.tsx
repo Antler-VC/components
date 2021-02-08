@@ -1,7 +1,7 @@
 import React from 'react';
 import _merge from 'lodash/merge';
 
-import { createMuiTheme, ThemeOptions } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeOptions, fade } from '@material-ui/core/styles';
 import { Shadows } from '@material-ui/core/styles/shadows';
 import ClearIcon from '@material-ui/icons/Clear';
 
@@ -545,6 +545,31 @@ export const defaultOverrides: ThemeOptions = {
       colorPrimary: { backgroundColor: '#e7e7e7' },
       colorSecondary: { backgroundColor: '#e7e7e7' },
     },
+    MuiSwitch: {
+      root: { overflow: 'visible' },
+
+      checked: {},
+      switchBase: {
+        '$checked:not($disabled)&': {
+          color: antlerPalette.green[700],
+
+          '&:hover': { backgroundColor: fade(antlerPalette.green[700], 0.12) },
+        },
+      },
+
+      track: {
+        backgroundColor: antlerPalette.gray[700],
+
+        '$switchBase$checked:not($disabled) + &': {
+          backgroundColor: antlerPalette.green[300],
+          opacity: 0.38,
+        },
+      },
+
+      thumb: {
+        boxShadow: '0 4px 8px 4px rgba(0, 0, 0, 0.1)',
+      },
+    },
   },
   props: {
     MuiTypography: {
@@ -553,8 +578,9 @@ export const defaultOverrides: ThemeOptions = {
         subtitle2: 'div',
       },
     },
-    MuiRadio: { color: 'primary' },
-    MuiCheckbox: { color: 'primary' },
+    MuiRadio: { color: 'default' },
+    MuiCheckbox: { color: 'default' },
+    MuiSwitch: { color: 'default' },
     MuiButton: {
       color: 'primary',
       disableElevation: true,
