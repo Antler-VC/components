@@ -57,6 +57,7 @@ const useStyles = makeStyles(theme =>
 
     content: {
       padding: 0,
+      ...theme.typography.body1,
     },
 
     actions: {

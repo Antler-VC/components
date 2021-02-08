@@ -6,7 +6,7 @@ export default {
   title: 'Antler Theme/Components/Modal/Basic Modal',
   argTypes: {
     title: {
-      defaultValue: 'Update Review',
+      defaultValue: 'Lorem Ipsum',
       control: { type: 'text' },
     },
     body: {

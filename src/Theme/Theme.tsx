@@ -487,12 +487,11 @@ export const defaultOverrides: ThemeOptions = {
     },
 
     MuiSlider: {
-      disabled: {},
+      // disabled: {},
       rail: {
-        backgroundColor: '#e7e7e7',
+        backgroundColor: antlerPalette.aGray[200],
         opacity: 1,
       },
-
       mark: {
         width: 4,
         height: 4,
@@ -507,13 +506,11 @@ export const defaultOverrides: ThemeOptions = {
         backgroundColor: 'currentColor',
         '$disabled &': { backgroundColor: 'currentColor' },
       },
-
       thumb: {
         width: 16,
         height: 16,
         marginTop: -7,
         marginLeft: -8,
-
         '$disabled &': {
           width: 12,
           height: 12,
@@ -521,26 +518,28 @@ export const defaultOverrides: ThemeOptions = {
           marginLeft: -6,
         },
       },
-
       valueLabel: {
+        '& *': { transform: 'none' },
+
         top: -22,
-        ...themeBase.typography.caption,
-        color: themeBase.palette.primary.main,
+        left: 'auto',
+        right: 'auto',
+        color: 'inherit',
 
         '& > *': {
           width: 'auto',
           minWidth: 24,
           height: 24,
-
-          whiteSpace: 'nowrap',
           borderRadius: 500,
 
-          padding: themeBase.spacing(0, 1),
-          paddingRight: themeBase.spacing(0.875),
+          paddingLeft: 6,
+          paddingRight: `calc(6px - ${themeBase.typography.caption.letterSpacing})`,
+
+          ...themeBase.typography.caption,
+          whiteSpace: 'nowrap',
         },
-        '& *': { transform: 'none' },
       },
-      markLabel: themeBase.typography.caption,
+      markLabel: themeBase.typography.overline,
     },
     MuiLinearProgress: {
       colorPrimary: { backgroundColor: '#e7e7e7' },
@@ -585,6 +584,7 @@ export const defaultOverrides: ThemeOptions = {
     MuiTooltip: { enterTouchDelay: 0 },
     MuiFilledInput: { disableUnderline: true },
     MuiPaper: { square: true },
+    MuiSlider: { valueLabelDisplay: 'auto' },
   },
 };
 
