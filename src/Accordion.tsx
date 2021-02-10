@@ -18,8 +18,7 @@ import {
 import Skeleton from '@material-ui/lab/Skeleton';
 import ExpandMoreIcon from '@material-ui/icons/ArrowDropDown';
 
-import CardGridItem from './CardGrid/CardGridItem';
-import CardGridContainer from './CardGrid/CardGridContainer';
+import CardGrid from './CardGrid';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -167,15 +166,7 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
       </AccordionSummary>
 
       <AccordionDetails classes={{ root: classes.accordionDetails }}>
-        {Array.isArray(cards) && (
-          <CardGridContainer>
-            {cards.map((card, i) => (
-              <CardGridItem key={i} {...cardContainerProps}>
-                {card}
-              </CardGridItem>
-            ))}
-          </CardGridContainer>
-        )}
+        {Array.isArray(cards) && <CardGrid>{cards}</CardGrid>}
         {children}
       </AccordionDetails>
     </MuiAccordion>
