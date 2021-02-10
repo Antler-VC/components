@@ -152,6 +152,15 @@ export const themeBase = createMuiTheme({
       lineHeight: 16 / 14,
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 840,
+      lg: 1472,
+      xl: 1920,
+    },
+  },
 });
 
 export const defaultOverrides: ThemeOptions = {
@@ -165,19 +174,15 @@ export const defaultOverrides: ThemeOptions = {
     MuiContainer: {
       root: {
         '@supports (padding: max(0px))': {
-          paddingLeft: `max(${themeBase.spacing(
-            2
-          )}px, env(safe-area-inset-left))`,
-          paddingRight: `max(${themeBase.spacing(
-            2
-          )}px, env(safe-area-inset-right))`,
+          paddingLeft: `max(${spacingFn('m')}px, env(safe-area-inset-left))`,
+          paddingRight: `max(${spacingFn('m')}px, env(safe-area-inset-right))`,
 
-          '@media (min-width: 640px)': {
-            paddingLeft: `max(${themeBase.spacing(
-              3
+          [themeBase.breakpoints.down('sm')]: {
+            paddingLeft: `max(${spacingFn(
+              'xxs'
             )}px, env(safe-area-inset-left))`,
-            paddingRight: `max(${themeBase.spacing(
-              3
+            paddingRight: `max(${spacingFn(
+              'xxs'
             )}px, env(safe-area-inset-right))`,
           },
         },
