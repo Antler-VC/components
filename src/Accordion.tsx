@@ -79,7 +79,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-interface IExpandingSectionProps
+interface IAccordionProps
   extends Partial<Omit<AccordionProps, 'title' | 'children'>> {
   initiallyExpanded?: boolean;
   title: React.ReactNode;
@@ -90,7 +90,7 @@ interface IExpandingSectionProps
   cardContainerProps?: Partial<GridProps>;
 }
 
-const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
+const Accordion: React.FunctionComponent<IAccordionProps> = ({
   initiallyExpanded = true,
   title,
   chips,
@@ -173,9 +173,9 @@ const ExpandingSection: React.FunctionComponent<IExpandingSectionProps> = ({
   );
 };
 
-export default ExpandingSection;
+export default Accordion;
 
-export const ExpandingSectionSkeleton: React.FunctionComponent = () => {
+export const AccordionSkeleton: React.FunctionComponent = () => {
   const classes = useStyles();
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.down('sm'));
