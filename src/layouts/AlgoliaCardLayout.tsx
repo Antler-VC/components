@@ -13,7 +13,7 @@ import AlgoliaFilters, {
   IAlgoliaFiltersProps,
 } from '../AlgoliaFilters/AlgoliaFilters';
 import EmptyState, { IEmptyStateProps } from '../EmptyState';
-import CardSkeleton from '../Card/CardSkeleton';
+// import CardSkeleton from '../Card/CardSkeleton';
 
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { FixedSizeGrid } from 'react-window';
@@ -206,7 +206,9 @@ export default function AlgoliaCardLayout({
                           <div className={classes.gridItem} style={style}>
                             {!loading
                               ? render(algoliaState.hits[index], query)
-                              : skeleton || <CardSkeleton />}
+                              : skeleton || null
+                            // TODO:<CardSkeleton />
+                            }
                           </div>
                         );
                       }}
