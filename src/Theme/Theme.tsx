@@ -483,9 +483,7 @@ export const defaultOverrides: ThemeOptions = {
       rounded: { borderRadius: themeBase.shape.borderRadius * 2 },
       // Default elevation - show shadow only on hover
       elevation1: {
-        transition: themeBase.transitions.create('box-shadow', {
-          duration: themeBase.transitions.duration.short,
-        }),
+        transition: themeBase.transitions.create('box-shadow'),
         boxShadow: 'none',
         '&:hover': { boxShadow: themeBase.shadows[1] },
       },
@@ -601,6 +599,7 @@ export const defaultOverrides: ThemeOptions = {
         getContentAnchorEl: null,
         anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
         transformOrigin: { vertical: 'top', horizontal: 'center' },
+        PaperProps: { variant: 'outlined' },
       },
     },
     MuiLink: {
