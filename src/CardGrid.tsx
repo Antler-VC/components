@@ -2,19 +2,20 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { makeStyles, createStyles } from '@material-ui/core';
+import { spacingFn } from 'Theme/spacing';
 
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
-      columnGap: theme.spacing('m'),
-      rowGap: theme.spacing('m'),
+      columnGap: spacingFn('m'),
+      rowGap: spacingFn('m'),
 
       [theme.breakpoints.down('sm')]: {
         gridTemplateColumns: 'repeat(2, 1fr)',
-        columnGap: theme.spacing('xs'),
-        rowGap: theme.spacing('xs'),
+        columnGap: spacingFn('xs'),
+        rowGap: spacingFn('xs'),
       },
 
       [theme.breakpoints.down('xs')]: {

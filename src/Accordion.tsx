@@ -15,6 +15,7 @@ import {
   Typography,
   Chip,
 } from '@material-ui/core';
+import { spacingFn } from 'Theme/spacing';
 import Skeleton from '@material-ui/lab/Skeleton';
 import ExpandMoreIcon from '@material-ui/icons/ArrowDropDown';
 
@@ -26,7 +27,7 @@ const useStyles = makeStyles(theme =>
       backgroundColor: 'transparent',
       '&::before': { display: 'none' },
       '&$accordionExpanded': { margin: 0 },
-      '& + &': { marginTop: theme.spacing('l') },
+      '& + &': { marginTop: spacingFn('l') },
     },
     accordionExpanded: {},
 
@@ -74,7 +75,7 @@ const useStyles = makeStyles(theme =>
 
     accordionDetails: {
       padding: 0,
-      paddingTop: theme.spacing('m'),
+      paddingTop: spacingFn('m'),
     },
   })
 );

@@ -1,12 +1,13 @@
 import React from 'react';
 
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
+import { spacingFn } from 'Theme/spacing';
 
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       display: 'grid',
-      gap: theme.spacing('xxs', 'xs'),
+      gap: spacingFn('xxs', 'xs'),
       gridTemplateColumns: 'auto 1fr',
       alignItems: 'baseline',
 

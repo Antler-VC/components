@@ -9,6 +9,7 @@ import {
   Card,
   CardContent,
 } from '@material-ui/core';
+import { spacingFn } from 'Theme/spacing';
 
 import FounderCardHeading, {
   IFounderCardHeadingProps,
@@ -19,9 +20,9 @@ import CardActionRow, { ICardActionRowProps } from './CardActionRow';
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
-      '--spacing-card': theme.spacing('s') + 'px',
+      '--spacing-card': spacingFn('s') + 'px',
       [theme.breakpoints.down('xs')]: {
-        '--spacing-card': theme.spacing('xs') + 'px',
+        '--spacing-card': spacingFn('xs') + 'px',
       },
     },
 

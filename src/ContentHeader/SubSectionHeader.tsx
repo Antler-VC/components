@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
+import { spacingFn } from 'Theme/spacing';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -8,12 +9,12 @@ const useStyles = makeStyles(theme =>
       display: 'flex',
       alignItems: 'flex-end',
 
-      '* + &': { marginTop: theme.spacing('l') },
-      marginBottom: theme.spacing('m'),
+      '* + &': { marginTop: spacingFn('l') },
+      marginBottom: spacingFn('m'),
 
       [theme.breakpoints.down('xs')]: {
-        '* + &': { marginTop: theme.spacing('m') },
-        marginBottom: theme.spacing('xs'),
+        '* + &': { marginTop: spacingFn('m') },
+        marginBottom: spacingFn('xs'),
       },
 
       '&::before': {
@@ -25,11 +26,11 @@ const useStyles = makeStyles(theme =>
         flexShrink: 0,
         height: 1,
         width: 88,
-        marginRight: theme.spacing('m'),
+        marginRight: spacingFn('m'),
 
         [theme.breakpoints.down('xs')]: {
           width: 82,
-          marginRight: theme.spacing('xs'),
+          marginRight: spacingFn('xs'),
         },
       },
     },

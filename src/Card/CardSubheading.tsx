@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useTheme, Typography, TypographyProps } from '@material-ui/core';
+import { spacingFn } from 'Theme/spacing';
 
 export default function CardSubheading(props: TypographyProps) {
   const theme = useTheme();
@@ -10,7 +11,7 @@ export default function CardSubheading(props: TypographyProps) {
       variant="overline"
       component="h3"
       display="block"
-      style={{ marginBottom: theme.spacing('xxs') }}
+      style={{ marginBottom: spacingFn('xxs') }}
       {...(props as any)}
     />
   );

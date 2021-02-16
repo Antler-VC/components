@@ -1,21 +1,22 @@
 import React from 'react';
 
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
+import { spacingFn } from 'Theme/spacing';
 
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       display: 'flex',
 
-      paddingBottom: theme.spacing('xxs'),
+      paddingBottom: spacingFn('xxs'),
       borderBottom: `1px solid ${theme.palette.divider}`,
 
-      '* + &': { marginTop: theme.spacing('l') },
-      marginBottom: theme.spacing('m'),
+      '* + &': { marginTop: spacingFn('l') },
+      marginBottom: spacingFn('m'),
 
       [theme.breakpoints.down('xs')]: {
-        '* + &': { marginTop: theme.spacing('m') },
-        marginBottom: theme.spacing('xs'),
+        '* + &': { marginTop: spacingFn('m') },
+        marginBottom: spacingFn('xs'),
       },
     },
   })

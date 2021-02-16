@@ -15,6 +15,7 @@ import {
   Button,
   ButtonProps,
 } from '@material-ui/core';
+import { spacingFn } from 'Theme/spacing';
 import CloseIcon from '@material-ui/icons/Close';
 
 import { TransitionGrow, TransitionSlide } from './Transition';
@@ -22,11 +23,11 @@ import { TransitionGrow, TransitionSlide } from './Transition';
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
-      '--spacing-modal': theme.spacing('s') + 'px',
-      '--spacing-modal-contents': theme.spacing('s') + 'px',
+      '--spacing-modal': spacingFn('s') + 'px',
+      '--spacing-modal-contents': spacingFn('s') + 'px',
 
       [theme.breakpoints.down('xs')]: {
-        '--spacing-modal': theme.spacing('xs') + 'px',
+        '--spacing-modal': spacingFn('xs') + 'px',
       },
     },
 
