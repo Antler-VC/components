@@ -11,7 +11,7 @@ export default function CardSubheading(props: TypographyProps) {
       component="h3"
       display="block"
       style={{ marginBottom: theme.spacing('xxs') }}
-      {...props}
+      {...(props as any)}
     />
   );
 }
