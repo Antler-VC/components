@@ -6,7 +6,7 @@ import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
 import CardBody from './CardBody';
 
-import ProfileCard, { IProfileCardProps } from './ProfileCard';
+import FounderCard, { IFounderCardProps } from './FounderCard';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -30,8 +30,8 @@ const useStyles = makeStyles(() =>
   })
 );
 
-export interface IProfileTabbedCardProps
-  extends Omit<IProfileCardProps, 'body'> {
+export interface IFounderTabbedCardProps
+  extends Omit<IFounderCardProps, 'body'> {
   tabs: {
     label: React.ReactNode;
     body: React.ReactNode;
@@ -40,11 +40,11 @@ export interface IProfileTabbedCardProps
   initialTab?: string;
 }
 
-export default function ProfileTabbedCard({
+export default function FounderTabbedCard({
   tabs = [],
   initialTab = '0',
   ...props
-}: IProfileTabbedCardProps) {
+}: IFounderTabbedCardProps) {
   const classes = useStyles();
 
   const [tab, setTab] = useState(initialTab);
@@ -52,7 +52,7 @@ export default function ProfileTabbedCard({
     setTab(newValue);
 
   return (
-    <ProfileCard
+    <FounderCard
       {...props}
       body={
         <>

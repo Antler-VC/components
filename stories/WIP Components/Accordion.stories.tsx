@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AccordionComponent from '../../src/Accordion';
-import ProfileCard from '../../src/Card/ProfileCard';
+import FounderCard from '../../src/Card/FounderCard';
 
 export default {
   title: 'Antler Theme/WIP Components/Accordion',
@@ -45,7 +45,7 @@ export const Accordion = args => (
     <AccordionComponent
       {...args}
       cards={new Array(6).fill(undefined).map((_, i) => (
-        <ProfileCard
+        <FounderCard
           key={i}
           {...cardArgs}
           style={{ width: cardArgs.width }}
@@ -70,7 +70,7 @@ export const Accordion = args => (
     <AccordionComponent
       {...args}
       cards={new Array(6).fill(undefined).map((_, i) => (
-        <ProfileCard
+        <FounderCard
           key={i}
           {...cardArgs}
           style={{ width: cardArgs.width }}

@@ -28,14 +28,14 @@ export * from './Card/CardSubheading';
 export { default as CardTagList } from './Card/CardTagList';
 export * from './Card/CardTagList';
 
-export { default as ProfileCard } from './Card/ProfileCard';
-export * from './Card/ProfileCard';
+export { default as ProfileCard } from './Card/FounderCard';
+export * from './Card/FounderCard';
 
-export { default as ProfileCardHeading } from './Card/ProfileCardHeading';
-export * from './Card/ProfileCardHeading';
+export { default as ProfileCardHeading } from './Card/FounderCardHeading';
+export * from './Card/FounderCardHeading';
 
-export { default as ProfileTabbedCard } from './Card/ProfileTabbedCard';
-export * from './Card/ProfileTabbedCard';
+export { default as ProfileTabbedCard } from './Card/FounderTabbedCard';
+export * from './Card/FounderTabbedCard';
 
 export { default as CardGrid } from './CardGrid';
 export * from './CardGrid';

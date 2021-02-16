@@ -10,9 +10,9 @@ import {
   CardContent,
 } from '@material-ui/core';
 
-import ProfileCardHeading, {
-  IProfileCardHeadingProps,
-} from './ProfileCardHeading';
+import FounderCardHeading, {
+  IFounderCardHeadingProps,
+} from './FounderCardHeading';
 import CardBody, { ICardBodyProps } from './CardBody';
 import CardActionRow, { ICardActionRowProps } from './CardActionRow';
 
@@ -34,8 +34,8 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface IProfileCardProps
-  extends Omit<IProfileCardHeadingProps, 'isMobile'>,
+export interface IFounderCardProps
+  extends Omit<IFounderCardHeadingProps, 'isMobile'>,
     Partial<ICardBodyProps> {
   className?: string;
   style?: React.CSSProperties;
@@ -43,7 +43,7 @@ export interface IProfileCardProps
   actionRows?: ICardActionRowProps[];
 }
 
-export default function ProfileCard({
+export default function FounderCard({
   className,
   style,
 
@@ -55,7 +55,7 @@ export default function ProfileCard({
   body,
 
   actionRows = [],
-}: IProfileCardProps) {
+}: IFounderCardProps) {
   const classes = useStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
@@ -63,7 +63,7 @@ export default function ProfileCard({
   return (
     <Card className={clsx(classes.root, className)} style={style}>
       <CardContent className={classes.cardContent}>
-        <ProfileCardHeading
+        <FounderCardHeading
           isMobile={isMobile}
           overline={overline}
           overlineSecondary={overlineSecondary}

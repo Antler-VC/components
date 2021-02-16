@@ -25,7 +25,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-export interface IProfileCardHeadingProps {
+export interface IFounderCardHeadingProps {
   isMobile: boolean;
 
   overline?: React.ReactNode;
@@ -36,13 +36,13 @@ export interface IProfileCardHeadingProps {
   image?: IThumbnailProps & { elem?: React.ReactNode };
 }
 
-export default function ProfileCardHeading({
+export default function FounderCardHeading({
   isMobile,
   overline,
   overlineSecondary,
   title,
   image,
-}: IProfileCardHeadingProps) {
+}: IFounderCardHeadingProps) {
   const classes = useStyles();
 
   return (
