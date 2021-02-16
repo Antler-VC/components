@@ -9,7 +9,7 @@ import {
   Card,
   CardContent,
 } from '@material-ui/core';
-import { spacingFn } from 'Theme/spacing';
+import { spacingFn } from '../Theme/spacing';
 
 import FounderCardHeading, {
   IFounderCardHeadingProps,

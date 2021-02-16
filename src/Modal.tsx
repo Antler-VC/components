@@ -15,7 +15,7 @@ import {
   Button,
   ButtonProps,
 } from '@material-ui/core';
-import { spacingFn } from 'Theme/spacing';
+import { spacingFn } from './Theme/spacing';
 import CloseIcon from '@material-ui/icons/Close';
 
 import { TransitionGrow, TransitionSlide } from './Transition';

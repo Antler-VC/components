@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { makeStyles, createStyles } from '@material-ui/core';
-import { spacingFn } from 'Theme/spacing';
+import { spacingFn } from './Theme/spacing';
 
 const useStyles = makeStyles(theme =>
   createStyles({
