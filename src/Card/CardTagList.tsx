@@ -16,11 +16,13 @@ export default function CardTagList({ name, tags = [] }: ICardTagListProps) {
       {name && <CardSubheading>{name}</CardSubheading>}
 
       <Grid container spacing={1} style={{ fontSize: 0 }}>
-        {tags.map((tag, i) => (
-          <Grid item key={i}>
-            <Chip label={tag} />
-          </Grid>
-        ))}
+        {tags.map((tag, i) =>
+          tag ? (
+            <Grid item key={i}>
+              <Chip label={tag} />
+            </Grid>
+          ) : null
+        )}
       </Grid>
     </section>
   );
