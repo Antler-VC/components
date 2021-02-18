@@ -344,7 +344,10 @@ export const defaultOverrides: ThemeOptions = {
     },
 
     MuiChip: {
-      root: { color: themeBase.palette.text.secondary },
+      root: {
+        backgroundColor: antlerPalette.aGray[200],
+        color: themeBase.palette.text.secondary,
+      },
       outlined: { borderColor: themeBase.palette.divider },
 
       label: {
