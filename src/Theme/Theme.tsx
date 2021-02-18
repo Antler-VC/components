@@ -161,6 +161,15 @@ export const themeBase = createMuiTheme({
       xl: 1824, // lg + sidebar width + 48px
     },
   },
+  mixins: {
+    toolbar: {
+      minHeight: 56,
+
+      '@media (min-width: 840px)': {
+        minHeight: 64,
+      },
+    },
+  },
 });
 
 export const defaultOverrides: ThemeOptions = {
