@@ -24,9 +24,14 @@ const useStyles = makeStyles(theme =>
       [theme.breakpoints.down('xs')]: {
         '--spacing-card': spacingFn('xs') + 'px',
       },
+
+      display: 'flex',
+      flexDirection: 'column',
     },
 
     cardContent: {
+      flexGrow: 1,
+
       padding: 'var(--spacing-card)',
       '&:last-child': { paddingBottom: 'var(--spacing-card)' },
 
