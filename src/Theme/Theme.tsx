@@ -158,7 +158,7 @@ export const themeBase = createMuiTheme({
       sm: 600,
       md: 840,
       lg: 1472,
-      xl: 1920,
+      xl: 1824, // lg + sidebar width + 48px
     },
   },
 });
