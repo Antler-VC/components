@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import { makeStyles, createStyles, Grid, Typography } from '@material-ui/core';
 
@@ -82,11 +83,11 @@ export default function FounderCardHeading({
               {image.imageUrl && (
                 <Thumbnail
                   size="200x200"
-                  className={classes.image}
                   title={typeof title === 'string' ? title : ''}
                   alt={typeof title === 'string' ? title : ''}
                   shape="square"
                   {...image}
+                  className={clsx(classes.image, image.className)}
                 />
               )}
               {image.elem}
