@@ -27,7 +27,11 @@ const useStyles = makeStyles(theme =>
       backgroundColor: 'transparent',
       '&::before': { display: 'none' },
       '&$accordionExpanded': { margin: 0 },
-      '& + &': { marginTop: spacingFn('l') },
+
+      '& + &': {
+        marginTop: spacingFn('l'),
+        [theme.breakpoints.down('sm')]: { marginTop: spacingFn('m') },
+      },
     },
     accordionExpanded: {},
 
@@ -35,35 +39,43 @@ const useStyles = makeStyles(theme =>
       padding: 0,
       borderBottom: '1px solid ' + theme.palette.antler.gray[700],
 
-      '&$accordionSummaryExpanded': { minHeight: 48 },
+      '&, &$accordionSummaryExpanded': { minHeight: 0 },
     },
     accordionSummaryContent: {
       justifyContent: 'space-between',
       flexWrap: 'wrap',
-      alignItems: 'baseline',
+      alignItems: 'flex-end',
 
-      margin: theme.spacing(1, 0),
-      '&$accordionSummaryExpanded': { margin: theme.spacing(1, 0) },
+      '&, &$accordionSummaryExpanded': {
+        margin: 0,
+        marginBottom: theme.spacing('xxs'),
+      },
     },
     accordionSummaryExpanded: {},
 
     title: {
       display: 'inline-block',
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing('xs'),
+
+      [theme.breakpoints.down('sm')]: theme.typography.h6,
     },
     chipGrid: {
       display: 'inline-flex',
       width: 'auto',
       marginTop: 0,
-      marginRight: theme.spacing(2),
+      marginRight: theme.spacing('xs'),
     },
     chip: {
       verticalAlign: 'baseline',
       cursor: 'inherit',
     },
-    showAllText: {
+
+    expand: {
       marginLeft: 'auto',
       '& $title': { marginRight: theme.spacing(0.5) },
+    },
+    expandText: {
+      [theme.breakpoints.down('sm')]: { display: 'none' },
     },
     expandIcon: {
       color: theme.palette.text.primary,
@@ -76,6 +88,8 @@ const useStyles = makeStyles(theme =>
     accordionDetails: {
       padding: 0,
       paddingTop: spacingFn('m'),
+
+      [theme.breakpoints.down('sm')]: { paddingTop: spacingFn('xs') },
     },
   })
 );
@@ -135,7 +149,7 @@ const Accordion: React.FunctionComponent<IAccordionProps> = ({
           >
             {title}
           </Typography>
-          {chips && (
+          {Array.isArray(chips) && chips.length > 0 && (
             <Grid container spacing={2} className={classes.chipGrid}>
               {chips?.map(chip => (
                 <Grid item key={chip}>
@@ -146,9 +160,13 @@ const Accordion: React.FunctionComponent<IAccordionProps> = ({
           )}
         </Grid>
 
-        <Grid item className={classes.showAllText}>
+        <Grid item className={classes.expand}>
           <Grid container alignItems="center">
-            <Typography variant="button" component="span">
+            <Typography
+              variant="button"
+              component="span"
+              className={classes.expandText}
+            >
               {expanded
                 ? 'Collapse'
                 : 'Expand' +

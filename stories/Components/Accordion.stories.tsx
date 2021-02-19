@@ -4,7 +4,7 @@ import AccordionComponent from '../../src/Accordion';
 import FounderCard from '../../src/Card/FounderCard';
 
 export default {
-  title: 'Antler Theme/WIP Components/Accordion',
+  title: 'Antler Theme/Components/Accordion',
   component: AccordionComponent,
   argTypes: {
     initiallyExpanded: {
@@ -24,6 +24,12 @@ export default {
       defaultValue: [],
       control: { type: 'array' },
     },
+    cards: { table: { disable: true }, control: { disable: true } },
+    cardContainerProps: {
+      table: { disable: true },
+      control: { disable: true },
+    },
+    ref: { table: { disable: true }, control: { disable: true } },
   },
 };
 
@@ -37,7 +43,6 @@ const cardArgs = {
   buttonLink: 'https://google.com/',
   imageSource:
     'https://images.prismic.io/antlerco/f14c11d3-6c58-46d0-b22c-83bf8bfa9fe9_Antler+Appboxo+Team+picture.jpg?auto=compress,format&rect=0,313,6000,3375&w=1920&h=1080',
-  width: 320,
 };
 
 export const Accordion = args => (
@@ -48,7 +53,6 @@ export const Accordion = args => (
         <FounderCard
           key={i}
           {...cardArgs}
-          style={{ width: cardArgs.width }}
           image={{ imageUrl: cardArgs.imageSource }}
           actionRows={
             cardArgs.buttonLabel
@@ -73,7 +77,6 @@ export const Accordion = args => (
         <FounderCard
           key={i}
           {...cardArgs}
-          style={{ width: cardArgs.width }}
           image={{ imageUrl: cardArgs.imageSource }}
           actionRows={
             cardArgs.buttonLabel
