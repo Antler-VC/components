@@ -1,44 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import {
-  makeStyles,
-  createStyles,
-  useTheme,
-  useMediaQuery,
-  Card,
-  CardContent,
-} from '@material-ui/core';
-import { spacingFn } from '../Theme/spacing';
+import { useTheme, useMediaQuery, Card, CardContent } from '@material-ui/core';
 
+import { useBasicCardStyles } from './BasicCard';
 import FounderCardHeading, {
   IFounderCardHeadingProps,
 } from './FounderCardHeading';
 import CardBody, { ICardBodyProps } from './CardBody';
 import CardActionRow, { ICardActionRowProps } from './CardActionRow';
-
-const useStyles = makeStyles(theme =>
-  createStyles({
-    root: {
-      '--spacing-card': spacingFn('s') + 'px',
-      [theme.breakpoints.down('xs')]: {
-        '--spacing-card': spacingFn('xs') + 'px',
-      },
-
-      display: 'flex',
-      flexDirection: 'column',
-    },
-
-    cardContent: {
-      flexGrow: 1,
-
-      padding: 'var(--spacing-card)',
-      '&:last-child': { paddingBottom: 'var(--spacing-card)' },
-
-      '& > * + *': { marginTop: 'var(--spacing-card)' },
-    },
-  })
-);
 
 export interface IFounderCardProps
   extends Omit<IFounderCardHeadingProps, 'isMobile'>,
@@ -62,7 +32,7 @@ export default function FounderCard({
 
   actionRows = [],
 }: IFounderCardProps) {
-  const classes = useStyles();
+  const classes = useBasicCardStyles();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 
