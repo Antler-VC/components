@@ -25,6 +25,8 @@ export const useBasicCardStyles = makeStyles(theme =>
       padding: 'var(--spacing-card)',
       '&:last-child': { paddingBottom: 'var(--spacing-card)' },
 
+      display: 'flex',
+      flexDirection: 'column',
       '& > * + *': { marginTop: 'var(--spacing-card)' },
     },
   })
