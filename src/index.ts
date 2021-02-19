@@ -13,6 +13,9 @@ export * from './AlgoliaFilters/DialogFilters';
 export { default as InlineFilters } from './AlgoliaFilters/InlineFilters';
 export * from './AlgoliaFilters/InlineFilters';
 
+export { default as BasicCard } from './Card/BasicCard';
+export * from './Card/BasicCard';
+
 export { default as CardActionRow } from './Card/CardActionRow';
 export * from './Card/CardActionRow';
 
