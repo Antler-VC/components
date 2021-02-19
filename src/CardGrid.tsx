@@ -7,6 +7,8 @@ import { spacingFn } from './Theme/spacing';
 const useStyles = makeStyles(theme =>
   createStyles({
     root: {
+      width: '100%',
+
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
       columnGap: spacingFn('m'),
