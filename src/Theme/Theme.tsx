@@ -626,7 +626,7 @@ export const defaultOverrides: ThemeOptions = {
     MuiTooltip: { enterTouchDelay: 0 },
     MuiFilledInput: { disableUnderline: true },
     MuiPaper: { square: true },
-    MuiSlider: { valueLabelDisplay: 'auto' },
+    MuiSlider: { valueLabelDisplay: 'on' },
   },
 };
 
