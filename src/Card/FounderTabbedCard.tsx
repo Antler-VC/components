@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { makeStyles, createStyles, Tab, Divider } from '@material-ui/core';
 import TabContext from '@material-ui/lab/TabContext';
@@ -38,11 +38,13 @@ export interface IFounderTabbedCardProps
     disabled?: boolean;
   }[];
   initialTab?: string;
+  onTabChange?: (tab: string) => void;
 }
 
 export default function FounderTabbedCard({
   tabs = [],
   initialTab = '0',
+  onTabChange,
   ...props
 }: IFounderTabbedCardProps) {
   const classes = useStyles();
@@ -50,6 +52,9 @@ export default function FounderTabbedCard({
   const [tab, setTab] = useState(initialTab);
   const handleChangeTab = (_: React.ChangeEvent<{}>, newValue: string) =>
     setTab(newValue);
+  useEffect(() => {
+    if (onTabChange) onTabChange(tab);
+  }, [tab]);
 
   return (
     <FounderCard
