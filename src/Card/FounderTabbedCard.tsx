@@ -25,7 +25,12 @@ const useStyles = makeStyles(() =>
       marginTop: 'var(--spacing-card)',
       padding: 0,
 
+      flexGrow: 1,
+      display: 'flex',
+      flexDirection: 'column',
+
       '& > * + *': { marginTop: 'var(--spacing-card)' },
+      '& > *[hidden]': { display: 'none' },
     },
   })
 );
