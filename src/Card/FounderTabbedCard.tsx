@@ -30,7 +30,7 @@ const useStyles = makeStyles(() =>
       flexDirection: 'column',
 
       '& > * + *': { marginTop: 'var(--spacing-card)' },
-      '& > *[hidden]': { display: 'none' },
+      '&[hidden]': { display: 'none' },
     },
   })
 );
