@@ -7,14 +7,7 @@ import Thumbnail, { IThumbnailProps } from '../Thumbnail';
 
 const useStyles = makeStyles(() =>
   createStyles({
-    overline: {
-      display: 'flex',
-    },
-    overlineSecondary: {
-      marginLeft: 'auto',
-    },
-
-    title: {
+    multiline: {
       whiteSpace: 'pre-line',
       wordBreak: 'break-word',
     },
@@ -51,14 +44,22 @@ export default function FounderCardHeading({
       {(overline || overlineSecondary) && (
         <Grid container alignItems="flex-start">
           <Grid item xs>
-            <Typography variant="overline" display="block">
+            <Typography
+              variant="overline"
+              display="block"
+              className={classes.multiline}
+            >
               {overline}
             </Typography>
           </Grid>
 
           {overlineSecondary && (
             <Grid item>
-              <Typography variant="overline" display="block">
+              <Typography
+                variant="overline"
+                display="block"
+                className={classes.multiline}
+              >
                 {overlineSecondary}
               </Typography>
             </Grid>
@@ -71,7 +72,7 @@ export default function FounderCardHeading({
           <Grid item xs>
             <Typography
               variant={isMobile ? 'h6' : 'h5'}
-              className={classes.title}
+              className={classes.multiline}
               component="h2"
             >
               {title}
