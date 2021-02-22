@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme =>
       '* + &': { marginTop: spacingFn('l') },
       marginBottom: spacingFn('m'),
 
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         '* + &': { marginTop: spacingFn('m') },
         marginBottom: spacingFn('xs'),
       },
