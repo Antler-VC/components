@@ -44,12 +44,17 @@ export interface IFounderTabbedCardProps
   }[];
   initialTab?: string;
   onTabChange?: (tab: string) => void;
+
+  contentBeforeTabs?: React.ReactNode;
+  contentAfterTabs?: React.ReactNode;
 }
 
 export default function FounderTabbedCard({
   tabs = [],
   initialTab = '0',
   onTabChange,
+  contentBeforeTabs,
+  contentAfterTabs,
   ...props
 }: IFounderTabbedCardProps) {
   const classes = useStyles();
@@ -67,6 +72,8 @@ export default function FounderTabbedCard({
       body={
         <>
           <TabContext value={tab}>
+            {contentBeforeTabs}
+
             <TabList
               className={classes.tabs}
               onChange={handleChangeTab}
@@ -96,6 +103,8 @@ export default function FounderTabbedCard({
                 <CardBody body={tab.body} />
               </TabPanel>
             ))}
+
+            {contentAfterTabs}
           </TabContext>
         </>
       }
