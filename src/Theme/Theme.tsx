@@ -356,17 +356,24 @@ export const defaultOverrides: ThemeOptions = {
       root: {
         backgroundColor: antlerPalette.aGray[200],
         color: themeBase.palette.text.secondary,
+        height: 'auto',
       },
       outlined: { borderColor: themeBase.palette.divider },
+      sizeSmall: { height: 'auto' },
 
       label: {
         ...themeBase.typography.overline,
         color: 'inherit',
+        overflow: 'visible',
+        whiteSpace: 'normal',
 
+        paddingTop: 8,
+        paddingBottom: 8,
         paddingLeft: 24,
         paddingRight: 24,
-
         '$outlined &': {
+          paddingTop: 7,
+          paddingBottom: 7,
           paddingLeft: 23,
           paddingRight: 23,
         },
@@ -374,7 +381,6 @@ export const defaultOverrides: ThemeOptions = {
         [themeBase.breakpoints.down('xs')]: {
           paddingLeft: 16,
           paddingRight: 16,
-
           '$outlined &': {
             paddingLeft: 15,
             paddingRight: 15,
@@ -382,10 +388,13 @@ export const defaultOverrides: ThemeOptions = {
         },
       },
       labelSmall: {
+        paddingTop: 4,
+        paddingBottom: 4,
         paddingLeft: 24,
         paddingRight: 24,
-
         '$outlined &': {
+          paddingTop: 3,
+          paddingBottom: 3,
           paddingLeft: 23,
           paddingRight: 23,
         },
@@ -393,7 +402,6 @@ export const defaultOverrides: ThemeOptions = {
         [themeBase.breakpoints.down('xs')]: {
           paddingLeft: 16,
           paddingRight: 16,
-
           '$outlined &': {
             paddingLeft: 15,
             paddingRight: 15,
