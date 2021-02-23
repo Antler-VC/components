@@ -151,6 +151,9 @@ export * from './Theme/Theme';
 export { default as antlerPalette } from './Theme/antlerPalette';
 export * from './Theme/antlerPalette';
 
+export { default as layout } from './Theme/layout';
+export * from './Theme/layout';
+
 export { default as spacing } from './Theme/spacing';
 export * from './Theme/spacing';
 
