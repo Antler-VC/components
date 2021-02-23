@@ -10,9 +10,9 @@ const useStyles = makeStyles(theme =>
       width: '100%',
 
       display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      columnGap: spacingFn('m'),
-      rowGap: spacingFn('m'),
+      gridTemplateColumns: 'repeat(var(--card-columns), 1fr)',
+      columnGap: 'var(--grid-gutter)',
+      rowGap: 'var(--grid-gutter)',
 
       [theme.breakpoints.down('sm')]: {
         gridTemplateColumns: 'repeat(2, 1fr)',

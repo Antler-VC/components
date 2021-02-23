@@ -7,6 +7,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 
 import { antlerPalette, antlerPaletteToMui } from './antlerPalette';
 import { spacingFn } from './spacing';
+import { breakpoints, LAYOUT_CSS_VARS } from './layout';
 
 export const HEADING_FONT = 'Europa, sans-serif';
 export const BODY_FONT = '"Open Sans", sans-serif';
@@ -152,15 +153,7 @@ export const themeBase = createMuiTheme({
       lineHeight: 16 / 14,
     },
   },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 840,
-      lg: 1472,
-      xl: 1824, // lg + sidebar width + 48px
-    },
-  },
+  breakpoints: { values: breakpoints },
   mixins: {
     toolbar: {
       minHeight: 56,
@@ -176,24 +169,19 @@ export const defaultOverrides: ThemeOptions = {
   overrides: {
     MuiCssBaseline: {
       '@global': {
+        ':root': LAYOUT_CSS_VARS,
         body: { color: themeBase.palette.text.primary },
       },
     },
 
     MuiContainer: {
       root: {
-        '@supports (padding: max(0px))': {
-          paddingLeft: `max(${spacingFn('m')}px, env(safe-area-inset-left))`,
-          paddingRight: `max(${spacingFn('m')}px, env(safe-area-inset-right))`,
+        paddingLeft: 'var(--grid-margin)',
+        paddingRight: 'var(--grid-margin)',
 
-          [themeBase.breakpoints.down('sm')]: {
-            paddingLeft: `max(${spacingFn(
-              'xxs'
-            )}px, env(safe-area-inset-left))`,
-            paddingRight: `max(${spacingFn(
-              'xxs'
-            )}px, env(safe-area-inset-right))`,
-          },
+        '@supports (padding: max(0px))': {
+          paddingLeft: 'max(var(--grid-margin), env(safe-area-inset-left))',
+          paddingRight: 'max(var(--grid-margin), env(safe-area-inset-right))',
         },
       },
     },
