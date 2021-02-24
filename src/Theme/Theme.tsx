@@ -7,7 +7,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 
 import { antlerPalette, antlerPaletteToMui } from './antlerPalette';
 import { spacingFn } from './spacing';
-import { breakpoints, LAYOUT_CSS_VARS } from './layout';
+import { BREAKPOINT_VALUES, LAYOUT_CSS_VARS } from './layout';
 
 export const HEADING_FONT = 'Europa, sans-serif';
 export const BODY_FONT = '"Open Sans", sans-serif';
@@ -153,7 +153,7 @@ export const themeBase = createMuiTheme({
       lineHeight: 16 / 14,
     },
   },
-  breakpoints: { values: breakpoints },
+  breakpoints: { values: BREAKPOINT_VALUES },
   mixins: {
     toolbar: {
       minHeight: 56,
