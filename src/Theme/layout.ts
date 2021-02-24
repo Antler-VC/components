@@ -1,4 +1,6 @@
+import { BreakpointValues } from '@material-ui/core/styles/createBreakpoints';
 import _kebabCase from 'lodash/kebabCase';
+
 import { spacingFn } from './spacing';
 
 export const BREAKPOINTS = {
@@ -82,7 +84,7 @@ export default BREAKPOINTS;
 export const BREAKPOINT_VALUES = Object.entries(BREAKPOINTS).reduce(
   (a, [key, { minWidth }]) => ({ ...a, [key]: minWidth }),
   {}
-);
+) as BreakpointValues;
 
 // Max width of main grid content, excluding sidebar + margin
 export const CONTENT_MAX_WIDTH = BREAKPOINTS.lg.maxWidth;
