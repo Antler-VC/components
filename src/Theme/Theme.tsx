@@ -179,9 +179,17 @@ export const defaultOverrides: ThemeOptions = {
         paddingLeft: 'var(--grid-margin)',
         paddingRight: 'var(--grid-margin)',
 
+        maxWidth: 'var(--grid-max-width)',
+
         '@supports (padding: max(0px))': {
           paddingLeft: 'max(var(--grid-margin), env(safe-area-inset-left))',
           paddingRight: 'max(var(--grid-margin), env(safe-area-inset-right))',
+        },
+      },
+      maxWidthXl: {
+        maxWidth: 'var(--grid-max-width)',
+        [themeBase.breakpoints.up('xl')]: {
+          maxWidth: 'var(--content-max-width)',
         },
       },
     },
@@ -583,6 +591,7 @@ export const defaultOverrides: ThemeOptions = {
     },
   },
   props: {
+    MuiContainer: { maxWidth: 'xl' },
     MuiTypography: {
       variantMapping: {
         subtitle1: 'div',

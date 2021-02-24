@@ -2,27 +2,16 @@ import React from 'react';
 import clsx from 'clsx';
 
 import { makeStyles, createStyles } from '@material-ui/core';
-import { spacingFn } from './Theme/spacing';
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       width: '100%',
 
       display: 'grid',
-      gridTemplateColumns: 'repeat(var(--card-columns), 1fr)',
+      gridTemplateColumns: 'repeat(var(--num-cards), 1fr)',
       columnGap: 'var(--grid-gutter)',
       rowGap: 'var(--grid-gutter)',
-
-      [theme.breakpoints.down('sm')]: {
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        columnGap: spacingFn('xs'),
-        rowGap: spacingFn('xs'),
-      },
-
-      [theme.breakpoints.down('xs')]: {
-        gridTemplateColumns: '1fr',
-      },
     },
   })
 );
