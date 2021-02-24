@@ -11,8 +11,8 @@ export const BREAKPOINTS = {
     gridGutter: 16,
     gridColMinWidth: 64,
     gridColMaxWidth: 110,
-    minWidth: 0, // 320
-    maxWidth: 0, // 504
+    gridMinWidth: 0, // 320
+    gridMaxWidth: 0, // 504
   },
   sm: {
     numCards: 2,
@@ -21,8 +21,8 @@ export const BREAKPOINTS = {
     gridGutter: 16,
     gridColMinWidth: 64,
     gridColMaxWidth: 110,
-    minWidth: 0, // 640
-    maxWidth: 0, // 1008
+    gridMinWidth: 0, // 640
+    gridMaxWidth: 0, // 1008
   },
   md: {
     numCards: 3,
@@ -31,8 +31,8 @@ export const BREAKPOINTS = {
     gridGutter: 32,
     gridColMinWidth: 64,
     gridColMaxWidth: 80,
-    minWidth: 0, // 1152
-    maxWidth: 0, // 1344
+    gridMinWidth: 0, // 1152
+    gridMaxWidth: 0, // 1344
   },
   lg: {
     numCards: 4,
@@ -41,8 +41,8 @@ export const BREAKPOINTS = {
     gridGutter: 32,
     gridColMinWidth: 80,
     gridColMaxWidth: 92,
-    minWidth: 0, // 1344
-    maxWidth: 0, // 1488
+    gridMinWidth: 0, // 1344
+    gridMaxWidth: 0, // 1488
   },
   xl: {
     numCards: 4,
@@ -51,8 +51,8 @@ export const BREAKPOINTS = {
     gridGutter: 32,
     gridColMinWidth: 80,
     gridColMaxWidth: 92,
-    minWidth: 0, // 1680
-    maxWidth: 0, // 1824
+    gridMinWidth: 0, // 1680
+    gridMaxWidth: 0, // 1824
   },
 };
 
@@ -61,12 +61,12 @@ for (const [
   key,
   { gridColMinWidth, gridColMaxWidth, gridNumColumns, gridGutter, gridMargin },
 ] of Object.entries(BREAKPOINTS)) {
-  BREAKPOINTS[key as keyof typeof BREAKPOINTS].minWidth =
+  BREAKPOINTS[key as keyof typeof BREAKPOINTS].gridMinWidth =
     gridColMinWidth * gridNumColumns +
     gridGutter * (gridNumColumns - 1) +
     gridMargin * 2;
 
-  BREAKPOINTS[key as keyof typeof BREAKPOINTS].maxWidth =
+  BREAKPOINTS[key as keyof typeof BREAKPOINTS].gridMaxWidth =
     gridColMaxWidth * gridNumColumns +
     gridGutter * (gridNumColumns - 1) +
     gridMargin * 2;
@@ -75,19 +75,19 @@ for (const [
 // xl breakpoint is just lg breakpoint, including sidebar width + margin
 export const SIDEBAR_WIDTH = 304;
 export const SIDEBAR_MARGIN = spacingFn('m') as number;
-BREAKPOINTS.xl.minWidth += SIDEBAR_WIDTH + SIDEBAR_MARGIN;
-BREAKPOINTS.xl.maxWidth += SIDEBAR_WIDTH + SIDEBAR_MARGIN;
+BREAKPOINTS.xl.gridMinWidth += SIDEBAR_WIDTH + SIDEBAR_MARGIN;
+BREAKPOINTS.xl.gridMaxWidth += SIDEBAR_WIDTH + SIDEBAR_MARGIN;
 
 export default BREAKPOINTS;
 
 // Export just min widths for Material UI theme
 export const BREAKPOINT_VALUES = Object.entries(BREAKPOINTS).reduce(
-  (a, [key, { minWidth }]) => ({ ...a, [key]: minWidth }),
+  (a, [key, { gridMinWidth }]) => ({ ...a, [key]: gridMinWidth }),
   {}
 ) as BreakpointValues;
 
 // Max width of main grid content, excluding sidebar + margin
-export const CONTENT_MAX_WIDTH = BREAKPOINTS.lg.maxWidth;
+export const CONTENT_MAX_WIDTH = BREAKPOINTS.lg.gridMaxWidth;
 
 // CSS vars included in MUI CssBaseline
 export const LAYOUT_CSS_VARS: Record<string, any> = Object.values(
@@ -95,7 +95,7 @@ export const LAYOUT_CSS_VARS: Record<string, any> = Object.values(
 ).reduce(
   (a, vars) => ({
     ...a,
-    [`@media (min-width: ${vars.minWidth}px)`]: Object.entries(vars).reduce(
+    [`@media (min-width: ${vars.gridMinWidth}px)`]: Object.entries(vars).reduce(
       (a, [name, value]) => ({
         ...a,
         ['--' + _kebabCase(name)]:
