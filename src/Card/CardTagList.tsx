@@ -19,7 +19,11 @@ export default function CardTagList({ name, tags = [] }: ICardTagListProps) {
         {tags.map((tag, i) =>
           tag ? (
             <Grid item key={i}>
-              <Chip label={tag} />
+              <Chip
+                label={
+                  typeof tag === 'string' ? tag.replace(/\//g, ' / ') : tag
+                }
+              />
             </Grid>
           ) : null
         )}
