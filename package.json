@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0-15",
+  "version": "2.0.0-16",
   "name": "@antlerengineering/components",
   "publishConfig": {
     "access": "public"
