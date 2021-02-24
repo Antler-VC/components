@@ -21,7 +21,9 @@ const useStyles = makeStyles(theme =>
       padding: '0 var(--spacing-card)',
     },
 
-    primary: { marginLeft: -theme.spacing(1) },
+    primary: {
+      '& > button': { marginLeft: -theme.spacing(1) },
+    },
     secondary: { marginLeft: 'auto' },
   })
 );
