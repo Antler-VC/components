@@ -28,13 +28,13 @@ const useStyles = makeStyles(theme =>
 
 export interface ICardActionRowProps {
   primaryButton?: { label: string } & Partial<ButtonProps>;
-
   primaryLink?: {
     href?: string;
     target?: string;
     rel?: string;
     label: string;
   } & Partial<ButtonProps>;
+  primaryElement?: React.ReactNode;
 
   secondaryAction?: React.ReactNode;
 
@@ -44,6 +44,7 @@ export interface ICardActionRowProps {
 export default function CardActionRow({
   primaryButton,
   primaryLink,
+  primaryElement,
   secondaryAction,
   children,
 }: ICardActionRowProps) {
@@ -81,7 +82,8 @@ export default function CardActionRow({
       <Divider className={classes.divider} />
       <CardActions disableSpacing className={classes.row}>
         <div className={classes.primary}>
-          {primaryButtonProps && <Button {...primaryButtonProps} />}
+          {primaryElement ??
+            (primaryButtonProps && <Button {...primaryButtonProps} />)}
         </div>
 
         {secondaryAction && (
