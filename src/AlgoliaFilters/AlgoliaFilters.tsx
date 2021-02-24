@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { SearchIndex } from 'algoliasearch/lite';
-import { FacetHit } from '@algolia/client-search';
-import useAlgolia from 'use-algolia';
-import { useDebouncedCallback } from 'use-debounce';
-import createPersistedState from 'use-persisted-state';
+import React, { useState, useEffect } from 'react'
+import { SearchIndex } from 'algoliasearch/lite'
+import { FacetHit } from '@algolia/client-search'
+import useAlgolia from 'use-algolia'
+import { useDebouncedCallback } from 'use-debounce'
+import createPersistedState from 'use-persisted-state'
 
-import InlineFilters from './InlineFilters';
-import DialogFilters from './DialogFilters';
+import AlgoliaFiltersSearch from './AlgoliaFiltersSearch'
+import AlgoliaFiltersModal from './AlgoliaFiltersModal'
+import AlgoliaFiltersModalContents from './AlgoliaFiltersModalContents'
 
-import { MOBILE_NAV } from '../constants';
-import { useMediaQuery } from '@material-ui/core';
-import { MultiSelectProps } from '@antlerengineering/multiselect';
+import { useTheme, useMediaQuery, Paper } from '@material-ui/core'
+import { MultiSelectProps } from '@antlerengineering/multiselect'
 
-const NUMERIC_OPERATORS = ['<', '<=', '=', '!=', '>=', '>'];
+const NUMERIC_OPERATORS = ['<', '<=', '=', '!=', '>=', '>']
 /**
  * Generates the string to dispatch as filters for the query
  * @param filterValues The user-selected filters
  * @param requiredFilters Filters not selected by the user
  */
-const generateFiltersString = (
+export const generateFiltersString = (
   filterValues: Record<string, string[]>,
   requiredFilters?: string
 ) => {
-  if (Object.keys(filterValues).length === 0) return null;
+  if (Object.keys(filterValues).length === 0) return null
 
   let filtersString = Object.entries(filterValues)
     .filter(([, values]) => values.length > 0)
@@ -38,164 +38,172 @@ const generateFiltersString = (
           )
           .join(' OR ')})`
     )
-    .join(' AND ');
+    .join(' AND ')
 
   if (requiredFilters) {
-    if (filtersString)
-      filtersString = requiredFilters + ' AND ' + filtersString;
-    else filtersString = requiredFilters;
+    if (filtersString) filtersString = requiredFilters + ' AND ' + filtersString
+    else filtersString = requiredFilters
   }
 
-  return filtersString;
-};
+  return filtersString
+}
 
-export interface IAlgoliaFiltersProps extends IAlgoliaFiltersPassedProps {
-  index: SearchIndex | null;
-  request: ReturnType<typeof useAlgolia>[0]['request'];
-  requestDispatch: ReturnType<typeof useAlgolia>[1];
-  requiredFilters?: string;
+export interface IAlgoliaFiltersProps {
+  index: SearchIndex | null
+  request: ReturnType<typeof useAlgolia>[0]['request']
+  requestDispatch: ReturnType<typeof useAlgolia>[1]
+  requiredFilters?: string
+  defaultFilterValues?: Record<string, string[]>
+
+  label: string
+  filters: {
+    facet: string
+    label: string
+    labelTransformer?: (value: string) => string
+    Component?: React.ComponentType<AlgoliaFiltersComponentProps>
+    initiallyDisplayed?: boolean
+  }[]
+  search?: boolean
+  persistedStateId?: string
 }
 
 export type AlgoliaFiltersComponentProps = {
-  hits: readonly FacetHit[];
-  value: string[];
-  onChange: (value: string[]) => void;
-  MultiSelectProps: Omit<MultiSelectProps<string>, 'value' | 'onChange'>;
-};
-
-export interface IAlgoliaFiltersPassedProps {
-  label: string;
-  filters: {
-    facet: string;
-    label: string;
-    labelTransformer?: (value: string) => string;
-    Component?: React.ComponentType<AlgoliaFiltersComponentProps>;
-    initiallyDisplayed?: boolean;
-  }[];
-  search?: boolean;
-  setDefaultFilters?: (
-    facetValues: Record<string, readonly FacetHit[]>
-  ) => Record<string, string[]>;
-  persistedStateId?: string;
+  hits: readonly FacetHit[]
+  value: string[]
+  onChange: (value: string[]) => void
+  MultiSelectProps: Omit<MultiSelectProps<string>, 'value' | 'onChange'>
 }
-
-export interface IAlgoliaFiltersInternalProps {
-  filterValues: Record<string, string[]>;
-  setFilterValues: React.Dispatch<
-    React.SetStateAction<Record<string, string[]>>
-  >;
-  facetValues: Record<string, readonly FacetHit[]>;
-
-  handleResetFilters: () => void;
-  query: string;
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
-  handleQueryChange: (query: string) => void;
-}
+export type FilterValues = Record<string, string[]>
+export type FacetValues = Record<string, readonly FacetHit[]>
 
 export default function AlgoliaFilters({
   index,
   request,
   requestDispatch,
   requiredFilters,
-  setDefaultFilters,
+  defaultFilterValues,
 
   label,
   filters,
   search = true,
   persistedStateId,
 }: IAlgoliaFiltersProps) {
+  const theme = useTheme()
+  const isTablet = useMediaQuery(theme.breakpoints.down('sm'))
+
   // Optionally persist state in localStorage
   const useFilterState =
     persistedStateId !== undefined && persistedStateId !== ''
       ? createPersistedState('algoliaFilters-' + persistedStateId)
-      : useState;
+      : useState
+
   // Store filter values
-  const [filterValues, setFilterValues] = useFilterState<
-    IAlgoliaFiltersInternalProps['filterValues']
-  >({});
-  // Push filter values to dispatch
-  useEffect(() => {
-    const filtersString = generateFiltersString(filterValues, requiredFilters);
-    if (filtersString === null) return;
-    requestDispatch({ filters: filtersString, page: 0 });
-  }, [filterValues]);
+  const [filterValues, setFilterValues] = useFilterState<FilterValues>(
+    defaultFilterValues ?? {}
+  )
 
   // Store facet values
-  const [facetValues, setFacetValues] = useState<
-    IAlgoliaFiltersInternalProps['facetValues']
-  >({});
+  const [facetValues, setFacetValues] = useState<FacetValues>({})
   // Get facet values
   useEffect(() => {
-    if (!index) return;
+    if (!index) return
 
-    const newFacetValues: typeof facetValues = {};
+    const newFacetValues: typeof facetValues = {}
 
     const allQueries = filters.map(filter => {
-      const params = { ...request, maxFacetHits: 100 };
+      const params = { ...request, maxFacetHits: 100 }
       // Ignore current user-selected value for these filters so all options
       // continue to show up
       params.filters =
         generateFiltersString(
           { ...filterValues, [filter.facet]: [] },
           requiredFilters
-        ) ?? '';
+        ) ?? ''
 
       return index
         .searchForFacetValues(filter.facet, '', params)
-        .then(({ facetHits }) => (newFacetValues[filter.facet] = facetHits));
-    });
+        .then(({ facetHits }) => (newFacetValues[filter.facet] = facetHits))
+    })
 
     Promise.all(allQueries).then(() =>
       setFacetValues(other => ({ ...other, ...newFacetValues }))
-    );
-  }, [filters, index, filterValues, requiredFilters]);
-
-  // Get default values
-  const [gotDefaultFilters, setGotDefaultFilters] = useState(false);
-  useEffect(() => {
-    if (
-      gotDefaultFilters ||
-      !setDefaultFilters ||
-      Object.keys(facetValues).length === 0
     )
-      return;
+  }, [filters, index, filterValues, requiredFilters])
 
-    setFilterValues(setDefaultFilters(facetValues));
-    setGotDefaultFilters(true);
-  }, [facetValues]);
+  // Store modal state here so we can close the modal when user changes filters
+  const [openModal, setOpenModal] = useState(false)
+
+  // Push filter values to dispatch
+  const applyFilters = () => {
+    const filtersString = generateFiltersString(filterValues, requiredFilters)
+    if (filtersString === null) return
+    requestDispatch({ filters: filtersString, page: 0 })
+    if (openModal) setOpenModal(false)
+  }
+
+  // Request filterValues from persisted local storage state
+  useEffect(() => {
+    applyFilters()
+  }, [])
+
+  // Check for any unapplied filters
+  const hasUnappliedFilters =
+    (generateFiltersString(filterValues, requiredFilters) ?? '') !==
+    request.filters
 
   // Reset filters
-  const handleResetFilters = () => {
-    setFilterValues({});
-    setQuery('');
-    requestDispatch({ filters: requiredFilters ?? '', query: '', page: 0 });
-  };
+  const resetFilters = () => {
+    setFilterValues({})
+    requestDispatch({ filters: requiredFilters ?? '', page: 0 })
+    if (openModal) setOpenModal(false)
+  }
+
+  const filtersCount = Object.values(filterValues).reduce(
+    (a, c) => a + (Array.isArray(c) && c.length > 0 ? 1 : 0),
+    0
+  )
 
   // Store search query
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('')
   const [handleQueryChange] = useDebouncedCallback(
     (query: string) => requestDispatch({ query }),
     500
-  );
+  )
 
-  const props = {
-    label,
-    filters,
-    search,
+  const filtersComponent = (
+    <AlgoliaFiltersModalContents
+      filters={filters}
+      filterValues={filterValues}
+      setFilterValues={setFilterValues}
+      facetValues={facetValues}
+      applyFilters={applyFilters}
+      resetFilters={resetFilters}
+      hasUnappliedFilters={hasUnappliedFilters}
+    />
+  )
 
-    filterValues,
-    setFilterValues,
-    facetValues,
-    handleResetFilters,
-    query,
-    setQuery,
-    handleQueryChange,
+  return (
+    <>
+      {search && (
+        <AlgoliaFiltersSearch
+          query={query}
+          setQuery={setQuery}
+          handleQueryChange={handleQueryChange}
+          label={label}
+        />
+      )}
 
-    persistedStateId,
-  };
-
-  const isMobile = useMediaQuery(MOBILE_NAV);
-
-  if (isMobile) return <DialogFilters {...props} />;
-  return <InlineFilters {...props} />;
+      {isTablet ? (
+        <AlgoliaFiltersModal
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          filtersCount={filtersCount}
+        >
+          {filtersComponent}
+        </AlgoliaFiltersModal>
+      ) : (
+        <Paper elevation={2}>{filtersComponent}</Paper>
+      )}
+    </>
+  )
 }
