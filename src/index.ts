@@ -7,11 +7,14 @@ export * from './Accordion';
 export { default as AlgoliaFilters } from './AlgoliaFilters/AlgoliaFilters';
 export * from './AlgoliaFilters/AlgoliaFilters';
 
-export { default as DialogFilters } from './AlgoliaFilters/DialogFilters';
-export * from './AlgoliaFilters/DialogFilters';
+export { default as AlgoliaFiltersModal } from './AlgoliaFilters/AlgoliaFiltersModal';
+export * from './AlgoliaFilters/AlgoliaFiltersModal';
 
-export { default as InlineFilters } from './AlgoliaFilters/InlineFilters';
-export * from './AlgoliaFilters/InlineFilters';
+export { default as AlgoliaFiltersModalContents } from './AlgoliaFilters/AlgoliaFiltersModalContents';
+export * from './AlgoliaFilters/AlgoliaFiltersModalContents';
+
+export { default as AlgoliaFiltersSearch } from './AlgoliaFilters/AlgoliaFiltersSearch';
+export * from './AlgoliaFilters/AlgoliaFiltersSearch';
 
 export { default as BasicCard } from './Card/BasicCard';
 export * from './Card/BasicCard';
@@ -30,6 +33,9 @@ export * from './Card/CardSubheading';
 
 export { default as CardTagList } from './Card/CardTagList';
 export * from './Card/CardTagList';
+
+export { default as CardTitle } from './Card/CardTitle';
+export * from './Card/CardTitle';
 
 export { default as FounderCard } from './Card/FounderCard';
 export * from './Card/FounderCard';
