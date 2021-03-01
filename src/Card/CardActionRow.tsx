@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 import {
   makeStyles,
@@ -21,8 +22,8 @@ const useStyles = makeStyles(theme =>
       padding: '0 var(--spacing-card)',
     },
 
-    primary: {
-      '& > button': { marginLeft: -theme.spacing(1) },
+    primaryButton: {
+      marginLeft: -theme.spacing(1),
     },
     secondary: { marginLeft: 'auto' },
   })
@@ -83,10 +84,16 @@ export default function CardActionRow({
     <>
       <Divider className={classes.divider} />
       <CardActions disableSpacing className={classes.row}>
-        <div className={classes.primary}>
-          {primaryElement ??
-            (primaryButtonProps && <Button {...primaryButtonProps} />)}
-        </div>
+        {primaryElement ??
+          (primaryButtonProps && (
+            <Button
+              {...primaryButtonProps}
+              className={clsx(
+                classes.primaryButton,
+                primaryButtonProps.className
+              )}
+            />
+          ))}
 
         {secondaryAction && (
           <div className={classes.secondary}>{secondaryAction}</div>
