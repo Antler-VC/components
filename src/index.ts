@@ -58,6 +58,9 @@ export * from './Card/CardActionRow';
 export { default as CardBody } from './Card/CardBody';
 export * from './Card/CardBody';
 
+export { default as CardExpandButton } from './Card/CardExpandButton';
+export * from './Card/CardExpandButton';
+
 export { default as CardInfoList } from './Card/CardInfoList';
 export * from './Card/CardInfoList';
 
