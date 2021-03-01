@@ -13,6 +13,10 @@ const useStyles = makeStyles(() =>
       wordBreak: 'break-word',
     },
 
+    titleGrid: {
+      '& > *': { paddingTop: 0 },
+    },
+
     image: {
       width: 80,
       height: 80,
@@ -66,7 +70,13 @@ export default function ProfileCardHeading({
       )}
 
       {(title || image) && (
-        <Grid container alignItems="flex-start" wrap="nowrap">
+        <Grid
+          container
+          alignItems="flex-start"
+          wrap="nowrap"
+          spacing={2}
+          className={classes.titleGrid}
+        >
           <Grid item xs>
             <CardTitle>{title}</CardTitle>
           </Grid>
