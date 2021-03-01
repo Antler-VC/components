@@ -122,7 +122,7 @@ export default function Accordion({
   return (
     <MuiAccordion
       expanded={expanded}
-      onChange={(_, v) => setExpanded(v)}
+      onChange={(_: any, v) => setExpanded(v)}
       elevation={0}
       square
       classes={{

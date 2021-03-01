@@ -30,7 +30,7 @@ export default function AlgoliaTable({
 }: IAlgoliaTableProps) {
   const { algoliaState, requestDispatch } = useAlgoliaContext();
 
-  const handleChangePage = (_, newPage: number) => {
+  const handleChangePage = (_: any, newPage: number) => {
     requestDispatch({ page: newPage });
   };
   const handleChangeRowsPerPage = (

@@ -119,7 +119,7 @@ export default function ResponsiveTable({
 
           <TableBody>
             {loading &&
-              new Array(loadingCount).fill(undefined).map((_, i) => (
+              new Array(loadingCount).fill(undefined).map((_: any, i) => (
                 <TableRow key={i}>
                   {columns.map(
                     ({ key, className, mobileStyles, align, th, variant }) => (
