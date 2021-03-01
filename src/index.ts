@@ -16,6 +16,39 @@ export * from './AlgoliaFilters/AlgoliaFiltersModalContents';
 export { default as AlgoliaFiltersSearch } from './AlgoliaFilters/AlgoliaFiltersSearch';
 export * from './AlgoliaFilters/AlgoliaFiltersSearch';
 
+export { default as AlgoliaContext } from './AlgoliaLayout/AlgoliaContext';
+export * from './AlgoliaLayout/AlgoliaContext';
+
+export { default as AlgoliaLayout } from './AlgoliaLayout/AlgoliaLayout';
+export * from './AlgoliaLayout/AlgoliaLayout';
+
+export { default as AlgoliaLayoutModal } from './AlgoliaLayout/AlgoliaLayoutModal';
+export * from './AlgoliaLayout/AlgoliaLayoutModal';
+
+export { default as AlgoliaTable } from './AlgoliaLayout/AlgoliaTable';
+export * from './AlgoliaLayout/AlgoliaTable';
+
+export { default as InfiniteCardGrid } from './AlgoliaLayout/InfiniteCardGrid';
+export * from './AlgoliaLayout/InfiniteCardGrid';
+
+export { default as SectionedCardGrid } from './AlgoliaLayout/SectionedCardGrid';
+export * from './AlgoliaLayout/SectionedCardGrid';
+
+export { default as AntlerProfileCard } from './AntlerProfileCard/AntlerProfileCard';
+export * from './AntlerProfileCard/AntlerProfileCard';
+
+export { default as AntlerProfileCardSkeleton } from './AntlerProfileCard/AntlerProfileCardSkeleton';
+export * from './AntlerProfileCard/AntlerProfileCardSkeleton';
+
+export { default as EmployerLogos } from './AntlerProfileCard/EmployerLogos';
+export * from './AntlerProfileCard/EmployerLogos';
+
+export { default as ProfileModal } from './AntlerProfileCard/ProfileModal';
+export * from './AntlerProfileCard/ProfileModal';
+
+export { default as SocialButtons } from './AntlerProfileCard/SocialButtons';
+export * from './AntlerProfileCard/SocialButtons';
+
 export { default as BasicCard } from './Card/BasicCard';
 export * from './Card/BasicCard';
 
@@ -28,6 +61,9 @@ export * from './Card/CardBody';
 export { default as CardInfoList } from './Card/CardInfoList';
 export * from './Card/CardInfoList';
 
+export { default as CardSkeleton } from './Card/CardSkeleton';
+export * from './Card/CardSkeleton';
+
 export { default as CardSubheading } from './Card/CardSubheading';
 export * from './Card/CardSubheading';
 
@@ -37,14 +73,20 @@ export * from './Card/CardTagList';
 export { default as CardTitle } from './Card/CardTitle';
 export * from './Card/CardTitle';
 
-export { default as FounderCard } from './Card/FounderCard';
-export * from './Card/FounderCard';
+export { default as ProfileCard } from './Card/ProfileCard';
+export * from './Card/ProfileCard';
 
-export { default as FounderCardHeading } from './Card/FounderCardHeading';
-export * from './Card/FounderCardHeading';
+export { default as ProfileCardHeading } from './Card/ProfileCardHeading';
+export * from './Card/ProfileCardHeading';
 
-export { default as FounderTabbedCard } from './Card/FounderTabbedCard';
-export * from './Card/FounderTabbedCard';
+export { default as ProfileTabbedCard } from './Card/ProfileTabbedCard';
+export * from './Card/ProfileTabbedCard';
+
+export { default as TruncatedCardTagList } from './Card/TruncatedCardTagList';
+export * from './Card/TruncatedCardTagList';
+
+export { default as TruncatedDescription } from './Card/TruncatedDescription';
+export * from './Card/TruncatedDescription';
 
 export { default as CardGrid } from './CardGrid';
 export * from './CardGrid';
@@ -60,6 +102,9 @@ export * from './ContentHeader/SubSectionHeader';
 
 export { default as CtaButton } from './CtaButton';
 export * from './CtaButton';
+
+export { default as DetailsModal } from './DetailsModal';
+export * from './DetailsModal';
 
 export { default as EmptyState } from './EmptyState';
 export * from './EmptyState';
@@ -99,21 +144,6 @@ export * from './Modal';
 
 export { default as PlainTextWithLinks } from './PlainTextWithLinks';
 export * from './PlainTextWithLinks';
-
-export { default as EmployerLogos } from './ProfileCard/EmployerLogos';
-export * from './ProfileCard/EmployerLogos';
-
-export { default as ProfileCard } from './ProfileCard/ProfileCard';
-export * from './ProfileCard/ProfileCard';
-
-export { default as ProfileCardSkeleton } from './ProfileCard/ProfileCardSkeleton';
-export * from './ProfileCard/ProfileCardSkeleton';
-
-export { default as ProfileModal } from './ProfileCard/ProfileModal';
-export * from './ProfileCard/ProfileModal';
-
-export { default as SocialButtons } from './ProfileCard/SocialButtons';
-export * from './ProfileCard/SocialButtons';
 
 export { default as RatingResult } from './RatingResult';
 export * from './RatingResult';

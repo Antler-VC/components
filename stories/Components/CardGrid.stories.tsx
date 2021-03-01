@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 
 import Grid from '../../src/CardGrid';
-import FounderCard from '../../src/Card/FounderCard';
+import ProfileCard from '../../src/Card/ProfileCard';
 
 export default {
   title: 'Antler Theme/Components/Card Grid',
@@ -29,7 +29,7 @@ export const CardGrid = () => {
     <Container>
       <Grid>
         {new Array(6).fill(undefined).map((_, i) => (
-          <FounderCard
+          <ProfileCard
             key={i}
             {...cardArgs}
             image={{ imageUrl: cardArgs.imageSource }}

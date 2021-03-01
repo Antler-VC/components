@@ -1,13 +1,13 @@
 import React from 'react';
 
-import FounderCard from '../../../src/Card/FounderCard';
-import FounderTabbedCard from '../../../src/Card/FounderTabbedCard';
+import ProfileCard from '../../../src/Card/ProfileCard';
+import ProfileTabbedCard from '../../../src/Card/ProfileTabbedCard';
 import CardInfoList from '../../../src/Card/CardInfoList';
 import CardTagList from '../../../src/Card/CardTagList';
 
 export default {
   title: 'Antler Theme/Components/Card',
-  component: FounderCard,
+  component: ProfileCard,
   argTypes: {
     overline: {
       defaultValue: 'Portfolio',
@@ -53,8 +53,8 @@ export default {
   },
 };
 
-export const Founder = args => (
-  <FounderCard
+export const Profile = args => (
+  <ProfileCard
     {...args}
     style={{ width: args.width }}
     image={{ imageUrl: args.imageSource }}
@@ -75,8 +75,8 @@ export const Founder = args => (
   />
 );
 
-export const FounderTabbed = args => (
-  <FounderTabbedCard
+export const ProfileTabbed = args => (
+  <ProfileTabbedCard
     {...args}
     style={{ width: args.width }}
     image={{ imageUrl: args.imageSource }}
@@ -116,7 +116,7 @@ export const FounderTabbed = args => (
     ]}
   />
 );
-FounderTabbed.argTypes = {
+ProfileTabbed.argTypes = {
   tabLabel: {
     defaultValue: 'About',
     control: { type: 'text' },

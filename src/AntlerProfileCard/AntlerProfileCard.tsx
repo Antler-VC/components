@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface IProfileCardProps extends ISquareCardProps {
+export interface IAntlerProfileCardProps extends ISquareCardProps {
   title: string;
   firstName: string;
   lastName: string;
@@ -73,7 +73,7 @@ export interface IProfileCardProps extends ISquareCardProps {
   twitter?: string;
 }
 
-export default function ProfileCard({
+export default function AntlerProfileCard({
   title,
   firstName,
   lastName,
@@ -84,7 +84,7 @@ export default function ProfileCard({
   twitter,
 
   ...props
-}: IProfileCardProps) {
+}: IAntlerProfileCardProps) {
   const classes = useStyles();
 
   return (

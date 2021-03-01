@@ -4,14 +4,14 @@ import clsx from 'clsx';
 import { Card, CardContent } from '@material-ui/core';
 
 import { useBasicCardStyles } from './BasicCard';
-import FounderCardHeading, {
-  IFounderCardHeadingProps,
-} from './FounderCardHeading';
+import ProfileCardHeading, {
+  IProfileCardHeadingProps,
+} from './ProfileCardHeading';
 import CardBody, { ICardBodyProps } from './CardBody';
 import CardActionRow, { ICardActionRowProps } from './CardActionRow';
 
-export interface IFounderCardProps
-  extends Omit<IFounderCardHeadingProps, 'isMobile'>,
+export interface IProfileCardProps
+  extends Omit<IProfileCardHeadingProps, 'isMobile'>,
     Partial<ICardBodyProps> {
   className?: string;
   style?: React.CSSProperties;
@@ -19,7 +19,7 @@ export interface IFounderCardProps
   actionRows?: ICardActionRowProps[];
 }
 
-export default function FounderCard({
+export default function ProfileCard({
   className,
   style,
 
@@ -31,13 +31,13 @@ export default function FounderCard({
   body,
 
   actionRows = [],
-}: IFounderCardProps) {
+}: IProfileCardProps) {
   const classes = useBasicCardStyles();
 
   return (
     <Card className={clsx(classes.root, className)} style={style}>
       <CardContent className={classes.cardContent}>
-        <FounderCardHeading
+        <ProfileCardHeading
           overline={overline}
           overlineSecondary={overlineSecondary}
           title={title}

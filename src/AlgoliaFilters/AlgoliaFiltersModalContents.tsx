@@ -140,7 +140,10 @@ export default function AlgoliaFiltersModalContents({
               </Button>
             </Grid>
             <Grid item>
-              <Button onClick={applyFilters} disabled={!hasUnappliedFilters}>
+              <Button
+                onClick={() => applyFilters()}
+                disabled={!hasUnappliedFilters}
+              >
                 Apply Filter
               </Button>
             </Grid>

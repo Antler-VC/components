@@ -20,9 +20,9 @@ const NUMERIC_OPERATORS = ['<', '<=', '=', '!=', '>=', '>']
  */
 export const generateFiltersString = (
   filterValues: Record<string, string[]>,
-  requiredFilters?: string
+  requiredFilters: string = ''
 ) => {
-  if (Object.keys(filterValues).length === 0) return null
+  if (Object.keys(filterValues).length === 0) return requiredFilters
 
   let filtersString = Object.entries(filterValues)
     .filter(([, values]) => values.length > 0)
@@ -65,6 +65,7 @@ export interface IAlgoliaFiltersProps {
   }[]
   search?: boolean
   persistedStateId?: string
+  sideFilters: boolean
 }
 
 export type AlgoliaFiltersComponentProps = {
@@ -87,6 +88,7 @@ export default function AlgoliaFilters({
   filters,
   search = true,
   persistedStateId,
+  sideFilters,
 }: IAlgoliaFiltersProps) {
   const theme = useTheme()
   const isTablet = useMediaQuery(theme.breakpoints.down('sm'))
@@ -134,17 +136,34 @@ export default function AlgoliaFilters({
   const [openModal, setOpenModal] = useState(false)
 
   // Push filter values to dispatch
-  const applyFilters = () => {
-    const filtersString = generateFiltersString(filterValues, requiredFilters)
+  const applyFilters = (override?: typeof filterValues) => {
+    const filtersToApply = override ?? filterValues
+
+    const filtersString = generateFiltersString(filtersToApply, requiredFilters)
     if (filtersString === null) return
     requestDispatch({ filters: filtersString, page: 0 })
     if (openModal) setOpenModal(false)
   }
 
-  // Request filterValues from persisted local storage state
+  // On load, request filterValues from persisted local storage state
   useEffect(() => {
     applyFilters()
   }, [])
+
+  // When the user clears filterValues here, but AlgoliaLayout runs a
+  // getDefaultFilters function and applies defaultFilters, ensure this UI
+  // displays the defaultFilters
+  useEffect(() => {
+    if (Object.keys(filterValues).length > 0 || !defaultFilterValues) return
+
+    if (
+      generateFiltersString(defaultFilterValues, requiredFilters) ===
+      request.filters
+    ) {
+      setFilterValues(defaultFilterValues)
+      applyFilters(defaultFilterValues)
+    }
+  }, [defaultFilterValues, filterValues, request.filters])
 
   // Check for any unapplied filters
   const hasUnappliedFilters =
@@ -170,6 +189,17 @@ export default function AlgoliaFilters({
     500
   )
 
+  const searchComponent = search ? (
+    <AlgoliaFiltersSearch
+      query={query}
+      setQuery={setQuery}
+      handleQueryChange={handleQueryChange}
+      label={label}
+    />
+  ) : null
+
+  if (filters.length === 0) return searchComponent
+
   const filtersComponent = (
     <AlgoliaFiltersModalContents
       filters={filters}
@@ -184,16 +214,9 @@ export default function AlgoliaFilters({
 
   return (
     <>
-      {search && (
-        <AlgoliaFiltersSearch
-          query={query}
-          setQuery={setQuery}
-          handleQueryChange={handleQueryChange}
-          label={label}
-        />
-      )}
+      {searchComponent}
 
-      {isTablet ? (
+      {isTablet || !sideFilters ? (
         <AlgoliaFiltersModal
           openModal={openModal}
           setOpenModal={setOpenModal}

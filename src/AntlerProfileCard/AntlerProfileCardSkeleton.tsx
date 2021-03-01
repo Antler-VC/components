@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export default function ProfileCardSkeleton() {
+export default function AntlerProfileCardSkeleton() {
   const classes = useStyles();
 
   return (
