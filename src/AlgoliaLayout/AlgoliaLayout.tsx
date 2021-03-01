@@ -4,6 +4,7 @@ import { FacetHit } from '@algolia/client-search';
 
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 
+import { AlgoliaContext } from './AlgoliaContext';
 import AlgoliaFilters, {
   IAlgoliaFiltersProps,
   generateFiltersString,
