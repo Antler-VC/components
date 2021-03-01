@@ -590,6 +590,63 @@ export const defaultOverrides: ThemeOptions = {
         boxShadow: '0 4px 8px 4px rgba(0, 0, 0, 0.1)',
       },
     },
+
+    MuiTableContainer: {
+      root: {
+        padding: themeBase.spacing(0, 's'),
+        [themeBase.breakpoints.down('sm')]: {
+          padding: themeBase.spacing(0, 'xs'),
+        },
+
+        '.sticky &, &.sticky': { paddingRight: 0 },
+      },
+    },
+    MuiTable: {
+      root: {
+        tableLayout: 'fixed',
+        boxSizing: 'content-box',
+      },
+    },
+    MuiTableCell: {
+      root: {
+        padding: themeBase.spacing('xs'),
+
+        '&:first-child': { paddingLeft: 0 },
+        '&:last-child': { paddingRight: 0 },
+
+        '.sticky &:last-child': {
+          paddingRight: themeBase.spacing('xs'),
+
+          position: 'sticky',
+          right: 0,
+
+          background: themeBase.palette.background.paper,
+          boxShadow: '0 4px 8px 4px rgba(0, 0, 0, 0.1)',
+          clipPath: 'polygon(-12px 0%, 100% 0%, 100% 100%, -12px 100%)',
+        },
+      },
+
+      head: {
+        ...themeBase.typography.overline,
+        color: themeBase.palette.text.secondary,
+
+        padding: themeBase.spacing('s', 'xs'),
+      },
+    },
+    MuiTablePagination: {
+      caption: {
+        ...themeBase.typography.overline,
+        color: themeBase.palette.text.secondary,
+      },
+
+      select: {
+        ...themeBase.typography.overline,
+        color: themeBase.palette.primary.main,
+      },
+      selectIcon: {
+        color: themeBase.palette.primary.main,
+      },
+    },
   },
   props: {
     MuiContainer: { maxWidth: 'xl' },
