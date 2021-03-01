@@ -202,9 +202,6 @@ export * from './Transition';
 export { default as constants } from './constants';
 export * from './constants';
 
-export { default as AlgoliaCardLayout } from './layouts/AlgoliaCardLayout';
-export * from './layouts/AlgoliaCardLayout';
-
 export { default as FormWithPreview } from './layouts/FormWithPreview';
 export * from './layouts/FormWithPreview';
 
