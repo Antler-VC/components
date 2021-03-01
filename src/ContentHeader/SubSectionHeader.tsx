@@ -38,12 +38,14 @@ const useStyles = makeStyles(theme =>
 );
 
 export interface ISubSectionHeaderProps {
-  text: React.ReactNode;
+  text?: React.ReactNode;
+  children?: React.ReactNode;
   headingLevel?: string;
 }
 
 export default function SubSectionHeader({
   text,
+  children,
   headingLevel = 'h3',
 }: ISubSectionHeaderProps) {
   const classes = useStyles();
@@ -55,7 +57,7 @@ export default function SubSectionHeader({
         component={headingLevel as any}
         color="textSecondary"
       >
-        {text}
+        {children || text}
       </Typography>
     </header>
   );

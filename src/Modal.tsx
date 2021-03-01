@@ -90,6 +90,8 @@ const useStyles = makeStyles(theme =>
         marginBottom: 'calc(var(--spacing-modal-contents) * -1)',
         paddingBottom: 'var(--spacing-modal-contents)',
       },
+
+      '& > * + *': { marginTop: 'var(--spacing-modal-contents)' },
     },
 
     actions: {
