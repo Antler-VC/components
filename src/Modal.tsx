@@ -85,6 +85,11 @@ const useStyles = makeStyles(theme =>
       backgroundColor: 'white',
       backgroundSize: '100% 2px, 100% 3px, 100% 1px, 100% 1px',
       backgroundAttachment: 'local, local, scroll, scroll',
+
+      '&:last-child': {
+        marginBottom: 'calc(var(--spacing-modal-contents) * -1)',
+        paddingBottom: 'var(--spacing-modal-contents)',
+      },
     },
 
     actions: {
