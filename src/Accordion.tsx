@@ -94,7 +94,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-interface IAccordionProps
+export interface IAccordionProps
   extends Partial<Omit<AccordionProps, 'title' | 'children'>> {
   initiallyExpanded?: boolean;
   title: React.ReactNode;
@@ -105,7 +105,7 @@ interface IAccordionProps
   cardContainerProps?: Partial<GridProps>;
 }
 
-const Accordion: React.FunctionComponent<IAccordionProps> = ({
+export default function Accordion({
   initiallyExpanded = true,
   title,
   chips,
@@ -114,7 +114,7 @@ const Accordion: React.FunctionComponent<IAccordionProps> = ({
   count,
   cardContainerProps,
   ...rootProps
-}) => {
+}: IAccordionProps) {
   const classes = useStyles();
 
   const [expanded, setExpanded] = useState(initiallyExpanded);
@@ -190,11 +190,9 @@ const Accordion: React.FunctionComponent<IAccordionProps> = ({
       </AccordionDetails>
     </MuiAccordion>
   );
-};
+}
 
-export default Accordion;
-
-export const AccordionSkeleton: React.FunctionComponent = () => {
+export function AccordionSkeleton() {
   const classes = useStyles();
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.down('sm'));
@@ -224,4 +222,4 @@ export const AccordionSkeleton: React.FunctionComponent = () => {
       </AccordionSummary>
     </MuiAccordion>
   );
-};
+}
