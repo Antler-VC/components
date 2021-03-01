@@ -11,7 +11,7 @@ export const useBasicCardStyles = makeStyles(theme =>
   createStyles({
     root: {
       '--spacing-card': spacingFn('s') + 'px',
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         '--spacing-card': spacingFn('xs') + 'px',
       },
 
