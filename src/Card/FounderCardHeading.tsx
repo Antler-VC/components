@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 import { makeStyles, createStyles, Grid, Typography } from '@material-ui/core';
 
+import CardTitle from './CardTitle';
 import Thumbnail, { IThumbnailProps } from '../Thumbnail';
 
 const useStyles = makeStyles(() =>
@@ -20,8 +21,6 @@ const useStyles = makeStyles(() =>
 );
 
 export interface IFounderCardHeadingProps {
-  isMobile: boolean;
-
   overline?: React.ReactNode;
   overlineSecondary?: React.ReactNode;
   title?: React.ReactNode;
@@ -31,7 +30,6 @@ export interface IFounderCardHeadingProps {
 }
 
 export default function FounderCardHeading({
-  isMobile,
   overline,
   overlineSecondary,
   title,
@@ -70,13 +68,7 @@ export default function FounderCardHeading({
       {(title || image) && (
         <Grid container alignItems="flex-start" wrap="nowrap">
           <Grid item xs>
-            <Typography
-              variant={isMobile ? 'h6' : 'h5'}
-              className={classes.multiline}
-              component="h2"
-            >
-              {title}
-            </Typography>
+            <CardTitle>{title}</CardTitle>
           </Grid>
 
           {image && (
