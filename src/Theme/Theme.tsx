@@ -353,6 +353,7 @@ export const defaultOverrides: ThemeOptions = {
         backgroundColor: antlerPalette.aGray[200],
         color: themeBase.palette.text.secondary,
         height: 'auto',
+        borderRadius: 20,
       },
       outlined: { borderColor: themeBase.palette.divider },
       sizeSmall: { height: 'auto' },
