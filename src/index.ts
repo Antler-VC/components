@@ -1,11 +1,14 @@
 export { default as AlgoliaFilters } from './AlgoliaFilters/AlgoliaFilters';
 export * from './AlgoliaFilters/AlgoliaFilters';
 
+export { default as AlgoliaFiltersFields } from './AlgoliaFilters/AlgoliaFiltersFields';
+export * from './AlgoliaFilters/AlgoliaFiltersFields';
+
+export { default as AlgoliaFiltersInline } from './AlgoliaFilters/AlgoliaFiltersInline';
+export * from './AlgoliaFilters/AlgoliaFiltersInline';
+
 export { default as AlgoliaFiltersModal } from './AlgoliaFilters/AlgoliaFiltersModal';
 export * from './AlgoliaFilters/AlgoliaFiltersModal';
-
-export { default as AlgoliaFiltersModalContents } from './AlgoliaFilters/AlgoliaFiltersModalContents';
-export * from './AlgoliaFilters/AlgoliaFiltersModalContents';
 
 export { default as AlgoliaFiltersSearch } from './AlgoliaFilters/AlgoliaFiltersSearch';
 export * from './AlgoliaFilters/AlgoliaFiltersSearch';
