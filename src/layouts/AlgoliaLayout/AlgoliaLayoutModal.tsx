@@ -2,7 +2,7 @@ import React from 'react';
 import _findIndex from 'lodash/findIndex';
 
 import { useAlgoliaContext } from './AlgoliaContext';
-import { IDetailsModalProps } from '../DetailsModal';
+import { IDetailsModalProps } from '../../Modal/DetailsModal';
 
 export interface IAlgoliaLayoutModalProps extends Record<string, any> {
   objectID: string;
