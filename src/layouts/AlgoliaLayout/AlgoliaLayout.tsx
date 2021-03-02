@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme =>
           gridColumn: 'start',
           gridRow: 1,
 
-          gridTemplateColumns: '1fr',
+          gridTemplateColumns: '[start] 1fr [end]',
         },
       },
     },
