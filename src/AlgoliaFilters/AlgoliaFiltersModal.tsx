@@ -5,13 +5,15 @@ import {
   makeStyles,
   createStyles,
   Button,
-  Dialog,
-  IconButton,
+  Typography,
+  Grid,
 } from '@material-ui/core';
 import FilterListIcon from '@material-ui/icons/FilterList';
-import CloseIcon from '@material-ui/icons/Close';
 
-import { SlideTransitionMui } from '../Modal/SlideTransition';
+import Modal from '../Modal/Modal';
+import AlgoliaFiltersFields, {
+  IAlgoliaFiltersFieldsProps,
+} from './AlgoliaFiltersFields';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -29,29 +31,34 @@ const useStyles = makeStyles(theme =>
       backgroundColor: theme.palette.antler.aRed[100],
     },
 
-    closeButton: {
-      display: 'flex',
-      position: 'absolute',
-      top: 4,
-      right: 4,
-
-      color: theme.palette.text.primary,
+    actions: {
+      paddingTop: 'var(--spacing-modal-contents)',
     },
   })
 );
 
-export interface IAlgoliaFiltersModalProps {
-  children: React.ReactNode;
+export interface IAlgoliaFiltersModalProps extends IAlgoliaFiltersFieldsProps {
   openModal: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   filtersCount: number;
+
+  applyFilters: () => void;
+  clearFilters: () => void;
+  hasUnappliedFilters: boolean;
+  clearable: boolean;
 }
 
 export default function AlgoliaFiltersModal({
-  children,
   openModal,
   setOpenModal,
   filtersCount,
+
+  applyFilters,
+  clearFilters,
+  hasUnappliedFilters,
+  clearable,
+
+  ...fieldsProps
 }: IAlgoliaFiltersModalProps) {
   const classes = useStyles();
 
@@ -69,23 +76,36 @@ export default function AlgoliaFiltersModal({
         Filters {filtersCount > 0 && `(${filtersCount})`}
       </Button>
 
-      <Dialog
+      <Modal
         open={openModal}
         onClose={() => setOpenModal(false)}
-        TransitionComponent={SlideTransitionMui}
-        fullWidth
-        maxWidth="xs"
+        maxWidth="sm"
         disableBackdropClick
-      >
-        <IconButton
-          aria-label="Close"
-          onClick={() => setOpenModal(false)}
-          className={classes.closeButton}
-        >
-          <CloseIcon />
-        </IconButton>
-        {children}
-      </Dialog>
+        title={<Typography variant="overline">Filter</Typography>}
+        body={<AlgoliaFiltersFields {...fieldsProps} />}
+        footer={
+          <Grid
+            container
+            spacing={2}
+            justify="space-between"
+            className={classes.actions}
+          >
+            <Grid item>
+              <Button onClick={clearFilters} disabled={clearable}>
+                Clear
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                onClick={() => applyFilters()}
+                disabled={!hasUnappliedFilters}
+              >
+                Apply Filter
+              </Button>
+            </Grid>
+          </Grid>
+        }
+      />
     </>
   );
 }
