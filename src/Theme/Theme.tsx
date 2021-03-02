@@ -299,7 +299,7 @@ export const defaultOverrides: ThemeOptions = {
       input: { padding: '27px 16px 10px' },
       multiline: { padding: '27px 16px 10px' },
       adornedEnd: {
-        '& button': { marginRight: themeBase.spacing(-1) },
+        '& button': { marginRight: spacingFn(-1) },
       },
     },
     MuiInputLabel: {
@@ -346,8 +346,8 @@ export const defaultOverrides: ThemeOptions = {
         },
       },
       contained: {
-        marginLeft: themeBase.spacing(2),
-        marginRight: themeBase.spacing(2),
+        marginLeft: spacingFn(2),
+        marginRight: spacingFn(2),
       },
     },
 
@@ -602,9 +602,9 @@ export const defaultOverrides: ThemeOptions = {
 
     MuiTableContainer: {
       root: {
-        padding: themeBase.spacing(0, 's'),
+        padding: spacingFn(0, 's'),
         [themeBase.breakpoints.down('sm')]: {
-          padding: themeBase.spacing(0, 'xs'),
+          padding: spacingFn(0, 'xs'),
         },
 
         '.sticky &, &.sticky': { paddingRight: 0 },
@@ -618,13 +618,13 @@ export const defaultOverrides: ThemeOptions = {
     },
     MuiTableCell: {
       root: {
-        padding: themeBase.spacing('xs'),
+        padding: spacingFn('xs'),
 
         '&:first-child': { paddingLeft: 0 },
         '&:last-child': { paddingRight: 0 },
 
         '.sticky &:last-child': {
-          paddingRight: themeBase.spacing('xs'),
+          paddingRight: spacingFn('xs'),
 
           position: 'sticky',
           right: 0,
@@ -639,7 +639,7 @@ export const defaultOverrides: ThemeOptions = {
         ...themeBase.typography.overline,
         color: themeBase.palette.text.secondary,
 
-        padding: themeBase.spacing('s', 'xs'),
+        padding: spacingFn('s', 'xs'),
       },
     },
     MuiTablePagination: {
