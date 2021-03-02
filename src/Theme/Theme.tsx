@@ -175,7 +175,7 @@ export const defaultOverrides: ThemeOptions = {
         ':root': LAYOUT_CSS_VARS,
         body: { color: themeBase.palette.text.primary },
 
-        '.MultiSelect-Paper': {
+        '.MultiSelect-Paper.MultiSelect-Paper': {
           boxShadow: `0 0 0 1px ${themeBase.palette.divider}`,
           borderRadius: 0,
         },
