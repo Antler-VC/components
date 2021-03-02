@@ -65,6 +65,8 @@ export default function CardActionRow({
     ? {
         component: 'a',
         endIcon: <GoIcon />,
+        target: '_blank',
+        rel: 'noopener',
         ...primaryLink,
         label: undefined,
         children: primaryLink.label,
