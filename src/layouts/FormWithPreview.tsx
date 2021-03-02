@@ -1,23 +1,43 @@
 import React from 'react';
 import _isFunction from 'lodash/isFunction';
 
-import { makeStyles, createStyles, Grid, Paper } from '@material-ui/core';
+import { makeStyles, createStyles, Paper } from '@material-ui/core';
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    mainPaper: { width: '100%', padding: theme.spacing(4) },
+    root: {
+      width: '100%',
+
+      display: 'grid',
+      gridTemplateColumns: '[start] repeat(var(--grid-num-columns), 1fr) [end]',
+      columnGap: 'var(--grid-gutter)',
+      rowGap: 'var(--grid-gutter)',
+    },
+
+    paperContainer: {
+      gridColumn: 'start / end',
+      [theme.breakpoints.up('md')]: { gridColumn: 'span 6' },
+      [theme.breakpoints.up('lg')]: { gridColumn: 'span 5' },
+    },
+
+    mainPaper: {
+      width: '100%',
+      padding: theme.spacing('m'),
+    },
 
     previewContainer: {
-      maxWidth: 360,
-      width: '100%',
-      [theme.breakpoints.up('lg')]: { width: 360 },
+      gridColumn: 'start / end',
+      maxWidth: 420,
+      [theme.breakpoints.up('md')]: { gridColumn: 'span 4' },
+      [theme.breakpoints.up('lg')]: { gridColumn: 'span 3' },
     },
     previewContent: {
-      [theme.breakpoints.up('lg')]: {
+      [theme.breakpoints.up('md')]: {
         position: 'sticky',
         top: theme.spacing(8),
         height: `calc(100vh - ${theme.spacing(8)}px)`,
         overflowY: 'auto',
+
         padding: theme.spacing(2),
         margin: -theme.spacing(2),
         width: `calc(100% + ${theme.spacing(2 * 2)}px)`,
@@ -40,15 +60,15 @@ export default function FormWithPreview({
   const classes = useStyles({});
 
   return (
-    <Grid container spacing={4}>
-      <Grid item xs>
+    <div className={classes.root}>
+      <div className={classes.paperContainer}>
         {paperHeader}
         <Paper className={classes.mainPaper}>{children}</Paper>
-      </Grid>
+      </div>
 
-      <Grid item className={classes.previewContainer}>
+      <div className={classes.previewContainer}>
         <div className={classes.previewContent}>{previewContent}</div>
-      </Grid>
-    </Grid>
+      </div>
+    </div>
   );
 }
