@@ -316,6 +316,7 @@ export const defaultOverrides: ThemeOptions = {
     },
     MuiFormLabel: {
       root: {
+        color: themeBase.palette.text.primary,
         '&$focused': { color: themeBase.palette.text.primary },
         '&$disabled, &$disabled$error': {
           color: themeBase.palette.text.disabled,

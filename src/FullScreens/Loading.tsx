@@ -18,13 +18,9 @@ const useStyles = makeStyles(theme =>
       width: '100%',
       textAlign: 'center',
     },
-    progress: { color: theme.palette.text.secondary },
+    progress: { color: theme.palette.text.disabled },
     content: { maxWidth: '25em' },
-    message: {
-      textTransform: 'uppercase',
-      marginTop: theme.spacing(1),
-      letterSpacing: 1,
-    },
+    message: { marginTop: theme.spacing('xxs') },
   })
 );
 
@@ -60,9 +56,10 @@ export default function Loading({
       <Grid item className={classes.content}>
         <CircularProgress className={classes.progress} />
         <Typography
-          variant="h6"
+          variant="overline"
+          color="textPrimary"
+          component="h1"
           className={classes.message}
-          color="textSecondary"
         >
           {message}
         </Typography>

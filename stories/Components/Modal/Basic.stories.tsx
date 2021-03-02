@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Modal from '../../../src/Modal';
+import Modal from '../../../src/Modal/Modal';
 
 export default {
-  title: 'Antler Theme/Components/Modal/Basic Modal',
+  title: 'Antler Theme/Components/Modal/Basic',
   argTypes: {
     title: {
       defaultValue: 'Lorem Ipsum',
@@ -33,9 +33,10 @@ export default {
   },
 };
 
-export const BasicModal = args => (
+export const Basic = args => (
   <Modal
     {...args}
+    onClose={() => alert('CLOSE')}
     actions={{
       primary: { children: args.primaryButtonLabel },
       secondary: { children: args.secondaryButtonLabel },

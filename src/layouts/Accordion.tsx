@@ -15,7 +15,7 @@ import {
   Typography,
   Chip,
 } from '@material-ui/core';
-import { spacingFn } from './Theme/spacing';
+import { spacingFn } from '../Theme/spacing';
 import Skeleton from '@material-ui/lab/Skeleton';
 import ExpandMoreIcon from '@material-ui/icons/ArrowDropDown';
 

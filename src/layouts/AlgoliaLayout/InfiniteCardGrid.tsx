@@ -17,7 +17,7 @@ import {
 } from 'react-virtualized';
 
 import { useAlgoliaContext } from './AlgoliaContext';
-import CardSkeleton from '../Card/CardSkeleton';
+import CardSkeleton from '../../Card/CardSkeleton';
 
 const useStyles = makeStyles(() =>
   createStyles({

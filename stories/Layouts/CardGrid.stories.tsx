@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Container } from '@material-ui/core';
 
-import Grid from '../../src/CardGrid';
+import Grid from '../../src/layouts/CardGrid';
 import ProfileCard from '../../src/Card/ProfileCard';
 
 export default {
-  title: 'Antler Theme/Components/Card Grid',
+  title: 'Antler Theme/Layouts/Card Grid',
   parameters: {
     layout: 'fullscreen',
   },

@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Component from '../../../../src/Card/CardTagList';
+import CardTagList from '../../../../src/Card/CardTagList';
 
 export default {
-  title: 'Antler Theme/Components/Card/Contents/Card Tag List',
-  component: Component,
+  title: 'Antler Theme/Components/Card/Contents/Tag List',
+  component: CardTagList,
   argTypes: {
     name: {
       defaultValue: 'Focus Areas',
@@ -17,4 +17,4 @@ export default {
   },
 };
 
-export const CardTagList = args => <Component {...args} />;
+export const TagList = args => <CardTagList {...args} />;

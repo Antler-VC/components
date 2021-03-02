@@ -24,7 +24,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-import { TransitionGrow, TransitionSlide } from './Transition';
+import { SlideTransitionMui } from './SlideTransition';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -195,7 +195,7 @@ export default function DetailsModal({
   return (
     <Dialog
       open={open}
-      TransitionComponent={isMobile ? TransitionSlide : TransitionGrow}
+      TransitionComponent={SlideTransitionMui}
       onClose={handleClose}
       fullWidth
       keepMounted

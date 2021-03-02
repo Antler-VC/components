@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Component from '../../../../src/Card/CardInfoList';
+import CardInfoList from '../../../../src/Card/CardInfoList';
 
 export default {
-  title: 'Antler Theme/Components/Card/Contents/Card Info List',
-  component: Component,
+  title: 'Antler Theme/Components/Card/Contents/Info List',
+  component: CardInfoList,
   argTypes: {
     item1Name: {
       defaultValue: 'Primary',
@@ -49,8 +49,8 @@ export default {
   },
 };
 
-export const CardInfoList = args => (
-  <Component
+export const InfoList = args => (
+  <CardInfoList
     infoList={new Array(5).fill(undefined).map((_, i) => ({
       name: args[`item${i + 1}Name`],
       value: args[`item${i + 1}Value`],

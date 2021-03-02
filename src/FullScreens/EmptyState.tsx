@@ -27,9 +27,7 @@ const useStyles = makeStyles(theme =>
     },
 
     message: {
-      textTransform: 'uppercase',
-      marginTop: theme.spacing(1),
-      letterSpacing: 1,
+      marginTop: theme.spacing('xxs'),
     },
 
     basicIcon: { display: 'block' },
@@ -94,10 +92,11 @@ export default function EmptyState({
         <Icon className={classes.icon} />
 
         <Typography
-          variant="h6"
+          variant="overline"
+          color="textPrimary"
+          component="h1"
           className={classes.message}
-          color="textSecondary"
-          gutterBottom
+          paragraph
         >
           {message}
         </Typography>

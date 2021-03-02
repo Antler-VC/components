@@ -8,10 +8,10 @@ import { AlgoliaContext } from './AlgoliaContext';
 import AlgoliaFilters, {
   IAlgoliaFiltersProps,
   generateFiltersString,
-} from '../AlgoliaFilters/AlgoliaFilters';
-import Loading from '../Loading';
-import EmptyState, { IEmptyStateProps } from '../EmptyState';
-import ResultsHeader from '../ContentHeader/ResultsHeader';
+} from '../../AlgoliaFilters/AlgoliaFilters';
+import Loading from '../../FullScreens/Loading';
+import EmptyState, { IEmptyStateProps } from '../../FullScreens/EmptyState';
+import ResultsHeader from '../../ContentHeader/ResultsHeader';
 
 const useStyles = makeStyles(theme =>
   createStyles({

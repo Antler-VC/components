@@ -1,9 +1,3 @@
-export { default as AccessDenied } from './AccessDenied';
-export * from './AccessDenied';
-
-export { default as Accordion } from './Accordion';
-export * from './Accordion';
-
 export { default as AlgoliaFilters } from './AlgoliaFilters/AlgoliaFilters';
 export * from './AlgoliaFilters/AlgoliaFilters';
 
@@ -15,24 +9,6 @@ export * from './AlgoliaFilters/AlgoliaFiltersModalContents';
 
 export { default as AlgoliaFiltersSearch } from './AlgoliaFilters/AlgoliaFiltersSearch';
 export * from './AlgoliaFilters/AlgoliaFiltersSearch';
-
-export { default as AlgoliaContext } from './AlgoliaLayout/AlgoliaContext';
-export * from './AlgoliaLayout/AlgoliaContext';
-
-export { default as AlgoliaLayout } from './AlgoliaLayout/AlgoliaLayout';
-export * from './AlgoliaLayout/AlgoliaLayout';
-
-export { default as AlgoliaLayoutModal } from './AlgoliaLayout/AlgoliaLayoutModal';
-export * from './AlgoliaLayout/AlgoliaLayoutModal';
-
-export { default as AlgoliaTable } from './AlgoliaLayout/AlgoliaTable';
-export * from './AlgoliaLayout/AlgoliaTable';
-
-export { default as InfiniteCardGrid } from './AlgoliaLayout/InfiniteCardGrid';
-export * from './AlgoliaLayout/InfiniteCardGrid';
-
-export { default as SectionedCardGrid } from './AlgoliaLayout/SectionedCardGrid';
-export * from './AlgoliaLayout/SectionedCardGrid';
 
 export { default as AntlerProfileCard } from './AntlerProfileCard/AntlerProfileCard';
 export * from './AntlerProfileCard/AntlerProfileCard';
@@ -91,9 +67,6 @@ export * from './Card/TruncatedCardTagList';
 export { default as TruncatedDescription } from './Card/TruncatedDescription';
 export * from './Card/TruncatedDescription';
 
-export { default as CardGrid } from './CardGrid';
-export * from './CardGrid';
-
 export { default as ResultsHeader } from './ContentHeader/ResultsHeader';
 export * from './ContentHeader/ResultsHeader';
 
@@ -106,17 +79,20 @@ export * from './ContentHeader/SubSectionHeader';
 export { default as CtaButton } from './CtaButton';
 export * from './CtaButton';
 
-export { default as DetailsModal } from './DetailsModal';
-export * from './DetailsModal';
-
-export { default as EmptyState } from './EmptyState';
-export * from './EmptyState';
-
-export { default as ErrorBoundary } from './ErrorBoundary';
-export * from './ErrorBoundary';
-
 export { default as Friction } from './Friction';
 export * from './Friction';
+
+export { default as AccessDenied } from './FullScreens/AccessDenied';
+export * from './FullScreens/AccessDenied';
+
+export { default as EmptyState } from './FullScreens/EmptyState';
+export * from './FullScreens/EmptyState';
+
+export { default as ErrorBoundary } from './FullScreens/ErrorBoundary';
+export * from './FullScreens/ErrorBoundary';
+
+export { default as Loading } from './FullScreens/Loading';
+export * from './FullScreens/Loading';
 
 export { default as GoIcon } from './GoIcon';
 export * from './GoIcon';
@@ -139,11 +115,14 @@ export * from './JobDialog/JobDialogContents';
 export { default as JobForm } from './JobDialog/JobForm';
 export * from './JobDialog/JobForm';
 
-export { default as Loading } from './Loading';
-export * from './Loading';
+export { default as DetailsModal } from './Modal/DetailsModal';
+export * from './Modal/DetailsModal';
 
-export { default as Modal } from './Modal';
-export * from './Modal';
+export { default as Modal } from './Modal/Modal';
+export * from './Modal/Modal';
+
+export { default as SlideTransition } from './Modal/SlideTransition';
+export * from './Modal/SlideTransition';
 
 export { default as PlainTextWithLinks } from './PlainTextWithLinks';
 export * from './PlainTextWithLinks';
@@ -165,9 +144,6 @@ export * from './Share/ShareButtons';
 
 export { default as ShareDialog } from './Share/ShareDialog';
 export * from './Share/ShareDialog';
-
-export { default as SlideTransition } from './SlideTransition';
-export * from './SlideTransition';
 
 export { default as SquareCard } from './SquareCard';
 export * from './SquareCard';
@@ -199,11 +175,32 @@ export * from './Theme/spacing';
 export { default as Thumbnail } from './Thumbnail';
 export * from './Thumbnail';
 
-export { default as Transition } from './Transition';
-export * from './Transition';
-
 export { default as constants } from './constants';
 export * from './constants';
+
+export { default as Accordion } from './layouts/Accordion';
+export * from './layouts/Accordion';
+
+export { default as AlgoliaContext } from './layouts/AlgoliaLayout/AlgoliaContext';
+export * from './layouts/AlgoliaLayout/AlgoliaContext';
+
+export { default as AlgoliaLayout } from './layouts/AlgoliaLayout/AlgoliaLayout';
+export * from './layouts/AlgoliaLayout/AlgoliaLayout';
+
+export { default as AlgoliaLayoutModal } from './layouts/AlgoliaLayout/AlgoliaLayoutModal';
+export * from './layouts/AlgoliaLayout/AlgoliaLayoutModal';
+
+export { default as AlgoliaTable } from './layouts/AlgoliaLayout/AlgoliaTable';
+export * from './layouts/AlgoliaLayout/AlgoliaTable';
+
+export { default as InfiniteCardGrid } from './layouts/AlgoliaLayout/InfiniteCardGrid';
+export * from './layouts/AlgoliaLayout/InfiniteCardGrid';
+
+export { default as SectionedCardGrid } from './layouts/AlgoliaLayout/SectionedCardGrid';
+export * from './layouts/AlgoliaLayout/SectionedCardGrid';
+
+export { default as CardGrid } from './layouts/CardGrid';
+export * from './layouts/CardGrid';
 
 export { default as FormWithPreview } from './layouts/FormWithPreview';
 export * from './layouts/FormWithPreview';

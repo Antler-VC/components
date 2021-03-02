@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 
 import { SIDEBAR_WIDTH, SIDEBAR_MARGIN } from '../../src/Theme/layout';
-import CardGrid from '../../src/CardGrid';
+import CardGrid from '../../src/layouts/CardGrid';
 import BasicCard from '../../src/Card/BasicCard';
 
 export default {

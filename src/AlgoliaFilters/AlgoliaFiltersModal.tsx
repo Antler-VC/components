@@ -11,7 +11,7 @@ import {
 import FilterListIcon from '@material-ui/icons/FilterList';
 import CloseIcon from '@material-ui/icons/Close';
 
-import { TransitionSlide } from '../Transition';
+import { SlideTransitionMui } from '../Modal/SlideTransition';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -72,7 +72,7 @@ export default function AlgoliaFiltersModal({
       <Dialog
         open={openModal}
         onClose={() => setOpenModal(false)}
-        TransitionComponent={TransitionSlide}
+        TransitionComponent={SlideTransitionMui}
         fullWidth
         maxWidth="xs"
         disableBackdropClick

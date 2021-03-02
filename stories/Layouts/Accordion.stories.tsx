@@ -1,10 +1,10 @@
 import React from 'react';
 
-import AccordionComponent from '../../src/Accordion';
+import AccordionComponent from '../../src/layouts/Accordion';
 import ProfileCard from '../../src/Card/ProfileCard';
 
 export default {
-  title: 'Antler Theme/Components/Accordion',
+  title: 'Antler Theme/Layouts/Accordion',
   component: AccordionComponent,
   argTypes: {
     initiallyExpanded: {

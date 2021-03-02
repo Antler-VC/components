@@ -1,5 +1,6 @@
 import React from 'react';
 
+import BasicCard from '../../../src/Card/BasicCard';
 import ProfileCard from '../../../src/Card/ProfileCard';
 import ProfileTabbedCard from '../../../src/Card/ProfileTabbedCard';
 import CardInfoList from '../../../src/Card/CardInfoList';
@@ -9,18 +10,6 @@ export default {
   title: 'Antler Theme/Components/Card',
   component: ProfileCard,
   argTypes: {
-    overline: {
-      defaultValue: 'Portfolio',
-      control: { type: 'text' },
-    },
-    overlineSecondary: {
-      defaultValue: 'May 2020',
-      control: { type: 'text' },
-    },
-    title: {
-      defaultValue: 'AppBoxo',
-      control: { type: 'text' },
-    },
     body: {
       defaultValue:
         'Appboxo is a super app infrastructure platform that allows companies to launch and integrate mini-apps within their software. They recently completed a US$1.1m seed funding round led by Founders Fund, with participation from 500 Startups, Plug and Play Tech Center and Antler. They plan to use the fresh funds to scale the platform and add new mini-apps in travel, e-commerce, finance, and lifestyle industries.',
@@ -34,11 +23,6 @@ export default {
       defaultValue: 'https://google.com/',
       control: { type: 'text' },
     },
-    imageSource: {
-      defaultValue:
-        'https://images.prismic.io/antlerco/f14c11d3-6c58-46d0-b22c-83bf8bfa9fe9_Antler+Appboxo+Team+picture.jpg?auto=compress,format&rect=0,313,6000,3375&w=1920&h=1080',
-      control: { type: 'text' },
-    },
     width: {
       defaultValue: 320,
       control: {
@@ -47,10 +31,38 @@ export default {
         max: 1000,
       },
     },
+    className: { table: { disable: true }, control: { disable: true } },
+    style: { table: { disable: true }, control: { disable: true } },
     actionRows: { table: { disable: true }, control: { disable: true } },
     image: { table: { disable: true }, control: { disable: true } },
     titleHeadingLevel: { table: { disable: true }, control: { disable: true } },
   },
+};
+
+export const Basic = args => (
+  <BasicCard
+    {...args}
+    style={{ width: args.width }}
+    actionRows={
+      args.buttonLabel
+        ? [
+            {
+              primaryLink: {
+                label: args.buttonLabel,
+                href: args.buttonLink,
+                target: '_blank',
+                rel: 'noopener noreferer',
+              },
+            },
+          ]
+        : []
+    }
+  />
+);
+Basic.argTypes = {
+  title: { table: { disable: true }, control: { disable: true } },
+  overline: { table: { disable: true }, control: { disable: true } },
+  overlineSecondary: { table: { disable: true }, control: { disable: true } },
 };
 
 export const Profile = args => (
@@ -74,6 +86,25 @@ export const Profile = args => (
     }
   />
 );
+Profile.argTypes = {
+  overline: {
+    defaultValue: 'Portfolio',
+    control: { type: 'text' },
+  },
+  overlineSecondary: {
+    defaultValue: 'May 2020',
+    control: { type: 'text' },
+  },
+  title: {
+    defaultValue: 'AppBoxo',
+    control: { type: 'text' },
+  },
+  imageSource: {
+    defaultValue:
+      'https://images.prismic.io/antlerco/f14c11d3-6c58-46d0-b22c-83bf8bfa9fe9_Antler+Appboxo+Team+picture.jpg?auto=compress,format&rect=0,313,6000,3375&w=1920&h=1080',
+    control: { type: 'text' },
+  },
+};
 
 export const ProfileTabbed = args => (
   <ProfileTabbedCard
@@ -117,6 +148,7 @@ export const ProfileTabbed = args => (
   />
 );
 ProfileTabbed.argTypes = {
+  ...Profile.argTypes,
   tabLabel: {
     defaultValue: 'About',
     control: { type: 'text' },

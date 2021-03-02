@@ -9,10 +9,9 @@ import {
   IconButton,
   DialogContent,
 } from '@material-ui/core';
-import { TransitionProps } from '@material-ui/core/transitions';
 import CloseIcon from '@material-ui/icons/Close';
 
-import SlideTransition from './SlideTransition';
+import { SlideTransitionMui } from './Modal/SlideTransition';
 
 export const useDialogStyles = makeStyles(theme =>
   createStyles({
@@ -64,7 +63,7 @@ export default function SquareDialog({
       aria-labelledby="dialog-title"
       aria-describedby="dialog-description"
       scroll="body"
-      TransitionComponent={Transition}
+      TransitionComponent={SlideTransitionMui}
       {...props}
       classes={{
         ...props.classes,
@@ -94,10 +93,3 @@ export default function SquareDialog({
     </Dialog>
   );
 }
-
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & { children?: React.ReactElement<any, any> },
-  ref: React.Ref<unknown>
-) {
-  return <SlideTransition ref={ref} {...props} />;
-});
