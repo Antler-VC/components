@@ -39,6 +39,7 @@ export default function AlgoliaLayoutModal({
       hasPrev={index > 0}
       hasNext={index < algoliaState.hits.length - 1}
       onClose={onClose}
+      id={objectID}
       data={data}
       {...props}
     />
