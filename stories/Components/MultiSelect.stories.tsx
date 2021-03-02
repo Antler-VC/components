@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import MultiSelect from '@antlerengineering/multiselect';
 
 export default {
-  title: 'Antler Theme/WIP Components/Multi Select',
+  title: 'Antler Theme/Components/Multi Select',
   component: MultiSelect,
   argTypes: {
     label: {

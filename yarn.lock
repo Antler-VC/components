@@ -130,6 +130,11 @@
   resolved "https://registry.yarnpkg.com/@antlerengineering/multiselect/-/multiselect-0.8.2.tgz#160294f75a5772aa2ceecdff3dd837520f5b90c8"
   integrity sha512-u/J59NkTBMU8voB3RuvVo6OCZLg4mG+gOQQ1vT/hrCw66oPE48+nDmPQEZDhrGwXWSrsqaYNNbt8zjF6sdkYMQ==
 
+"@antlerengineering/multiselect@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/multiselect/-/multiselect-0.9.0.tgz#8310112e073759482a0c07360f30bdc9b4e6d501"
+  integrity sha512-0KaUh6M+yn+G51o5qT8IYXYF5t5R0e9j7LUKXvvu606sqCQxj+E2hpqZ6Eruljsa7fQiGRyCOBhecpPwwrgfsw==
+
 "@babel/code-frame@7.8.3", "@babel/code-frame@^7.5.5":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
