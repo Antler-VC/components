@@ -3,7 +3,10 @@ import _merge from 'lodash/merge';
 
 import { createMuiTheme, ThemeOptions, fade } from '@material-ui/core/styles';
 import { Shadows } from '@material-ui/core/styles/shadows';
+
 import ClearIcon from '@material-ui/icons/Clear';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlankSharp';
+import CheckBoxIcon from '@material-ui/icons/CheckBoxSharp';
 
 import { antlerPalette, antlerPaletteToMui } from './antlerPalette';
 import { spacingFn } from './spacing';
@@ -658,7 +661,11 @@ export const defaultOverrides: ThemeOptions = {
       },
     },
     MuiRadio: { color: 'default' },
-    MuiCheckbox: { color: 'default' },
+    MuiCheckbox: {
+      color: 'default',
+      icon: <CheckBoxOutlineBlankIcon />,
+      checkedIcon: <CheckBoxIcon />,
+    },
     MuiSwitch: { color: 'default' },
     MuiButton: {
       color: 'primary',
