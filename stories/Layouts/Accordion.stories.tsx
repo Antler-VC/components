@@ -1,11 +1,15 @@
 import React from 'react';
 
+import { Container } from '@material-ui/core';
 import AccordionComponent from '../../src/layouts/Accordion';
 import ProfileCard from '../../src/Card/ProfileCard';
 
 export default {
   title: 'Antler Theme/Layouts/Accordion',
   component: AccordionComponent,
+  parameters: {
+    layout: 'fullscreen',
+  },
   argTypes: {
     initiallyExpanded: {
       name: 'Expanded',
@@ -46,7 +50,7 @@ const cardArgs = {
 };
 
 export const Accordion = args => (
-  <>
+  <Container>
     <AccordionComponent
       {...args}
       cards={new Array(6).fill(undefined).map((_, i) => (
@@ -95,5 +99,5 @@ export const Accordion = args => (
         />
       ))}
     />
-  </>
+  </Container>
 );
