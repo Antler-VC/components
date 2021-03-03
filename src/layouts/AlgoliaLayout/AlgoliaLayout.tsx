@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useAlgolia from 'use-algolia';
 import { FacetHit } from '@algolia/client-search';
 
-import { makeStyles, createStyles, Typography } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core';
 
 import { AlgoliaContext } from './AlgoliaContext';
 import AlgoliaFilters, {
