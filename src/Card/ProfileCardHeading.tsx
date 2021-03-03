@@ -14,7 +14,7 @@ const useStyles = makeStyles(() =>
     },
 
     titleGrid: {
-      '& > *': { paddingTop: 0 },
+      '& > *': { paddingTop: '0 !important' },
     },
 
     image: {
