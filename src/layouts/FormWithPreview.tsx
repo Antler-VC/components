@@ -23,24 +23,32 @@ const useStyles = makeStyles(theme =>
     mainPaper: {
       width: '100%',
       padding: theme.spacing('m'),
+
+      maxWidth: 545 + 64, // Width of contents at SM min (640px)
+      margin: '0 auto',
     },
 
     previewContainer: {
       gridColumn: 'start / end',
       maxWidth: 420,
+      margin: '0 auto',
+
       [theme.breakpoints.up('md')]: { gridColumn: 'span 4' },
       [theme.breakpoints.up('lg')]: { gridColumn: 'span 3' },
     },
     previewContent: {
       [theme.breakpoints.up('md')]: {
         position: 'sticky',
-        top: theme.spacing(8),
-        height: `calc(100vh - ${theme.spacing(8)}px)`,
+        top: 64,
+        height: `calc(100vh - 64px)`,
         overflowY: 'auto',
 
-        padding: theme.spacing(2),
-        margin: -theme.spacing(2),
-        width: `calc(100% + ${theme.spacing(2 * 2)}px)`,
+        padding: theme.spacing('xs'),
+        margin: -theme.spacing('xs'),
+        width: `calc(100% + ${theme.spacing('xs') * 2}px)`,
+
+        marginTop: -theme.spacing('l'),
+        paddingTop: theme.spacing('l'),
       },
     },
   })
