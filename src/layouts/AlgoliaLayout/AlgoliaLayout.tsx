@@ -36,6 +36,19 @@ const useStyles = makeStyles(theme =>
           gridRow: 1,
 
           gridTemplateColumns: '[start] 1fr [end]',
+          alignContent: 'start',
+
+          position: 'sticky',
+          top: 64,
+          height: `calc(100vh - 64px)`,
+          overflowY: 'auto',
+
+          padding: theme.spacing('xs'),
+          margin: -theme.spacing('xs'),
+          width: `calc(100% + ${theme.spacing('xs') * 2}px)`,
+
+          marginTop: -theme.spacing('l'),
+          paddingTop: theme.spacing('l'),
         },
       },
     },

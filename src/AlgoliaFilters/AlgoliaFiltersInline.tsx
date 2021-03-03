@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme =>
     actionRow: {
       position: 'sticky',
       zIndex: 1,
-      bottom: 0,
+      bottom: -theme.spacing('xs'),
 
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(1.5, 0),
