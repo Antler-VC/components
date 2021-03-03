@@ -66,7 +66,11 @@ export default function InfiniteCardGrid({
   useEffect(() => {
     setExpandedRows({});
     cache.clearAll();
-  }, [algoliaState.request.filters, algoliaState.request.query]);
+  }, [
+    algoliaState.request.filters,
+    algoliaState.request.query,
+    algoliaState.response?.params,
+  ]);
 
   return (
     <div className={classes.gridContainer}>
