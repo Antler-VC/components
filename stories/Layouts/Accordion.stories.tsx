@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Container } from '@material-ui/core';
+import TopBar from './TopBar';
 import AccordionComponent from '../../src/layouts/Accordion';
 import ProfileCard from '../../src/Card/ProfileCard';
 
@@ -50,54 +51,57 @@ const cardArgs = {
 };
 
 export const Accordion = args => (
-  <Container>
-    <AccordionComponent
-      {...args}
-      cards={new Array(6).fill(undefined).map((_, i) => (
-        <ProfileCard
-          key={i}
-          {...cardArgs}
-          image={{ imageUrl: cardArgs.imageSource }}
-          actionRows={
-            cardArgs.buttonLabel
-              ? [
-                  {
-                    primaryLink: {
-                      label: cardArgs.buttonLabel,
-                      href: cardArgs.buttonLink,
-                      target: '_blank',
-                      rel: 'noopener noreferer',
+  <>
+    <TopBar />
+    <Container>
+      <AccordionComponent
+        {...args}
+        cards={new Array(6).fill(undefined).map((_, i) => (
+          <ProfileCard
+            key={i}
+            {...cardArgs}
+            image={{ imageUrl: cardArgs.imageSource }}
+            actionRows={
+              cardArgs.buttonLabel
+                ? [
+                    {
+                      primaryLink: {
+                        label: cardArgs.buttonLabel,
+                        href: cardArgs.buttonLink,
+                        target: '_blank',
+                        rel: 'noopener noreferer',
+                      },
                     },
-                  },
-                ]
-              : []
-          }
-        />
-      ))}
-    />
-    <AccordionComponent
-      {...args}
-      cards={new Array(6).fill(undefined).map((_, i) => (
-        <ProfileCard
-          key={i}
-          {...cardArgs}
-          image={{ imageUrl: cardArgs.imageSource }}
-          actionRows={
-            cardArgs.buttonLabel
-              ? [
-                  {
-                    primaryLink: {
-                      label: cardArgs.buttonLabel,
-                      href: cardArgs.buttonLink,
-                      target: '_blank',
-                      rel: 'noopener noreferer',
+                  ]
+                : []
+            }
+          />
+        ))}
+      />
+      <AccordionComponent
+        {...args}
+        cards={new Array(6).fill(undefined).map((_, i) => (
+          <ProfileCard
+            key={i}
+            {...cardArgs}
+            image={{ imageUrl: cardArgs.imageSource }}
+            actionRows={
+              cardArgs.buttonLabel
+                ? [
+                    {
+                      primaryLink: {
+                        label: cardArgs.buttonLabel,
+                        href: cardArgs.buttonLink,
+                        target: '_blank',
+                        rel: 'noopener noreferer',
+                      },
                     },
-                  },
-                ]
-              : []
-          }
-        />
-      ))}
-    />
-  </Container>
+                  ]
+                : []
+            }
+          />
+        ))}
+      />
+    </Container>
+  </>
 );

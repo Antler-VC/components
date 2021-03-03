@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container } from '@material-ui/core';
-
+import TopBar from './TopBar';
 import LayoutComponent from '../../src/layouts/FormWithPreview';
 import Form, { FIELDS } from '@antlerengineering/form-builder';
 import ProfileCard from '../../src/Card/ProfileCard';
@@ -33,44 +33,77 @@ const cardArgs = {
 
 export const FormWithPreview = args => {
   return (
-    <Container>
-      <LayoutComponent
-        paperHeader={args.paperHeader}
-        children={
-          <Form
-            fields={[
-              {
-                type: FIELDS.text,
-                name: 'desc',
-                label: 'Description',
-                defaultValue: 'something',
-              },
-            ]}
-            onSubmit={() => {}}
-            autoSave
-          />
-        }
-        previewContent={
-          <ProfileCard
-            {...cardArgs}
-            image={{ imageUrl: cardArgs.imageSource }}
-            actionRows={
-              cardArgs.buttonLabel
-                ? [
-                    {
-                      primaryLink: {
-                        label: cardArgs.buttonLabel,
-                        href: cardArgs.buttonLink,
-                        target: '_blank',
-                        rel: 'noopener noreferer',
+    <>
+      <TopBar />
+
+      <Container>
+        <LayoutComponent
+          paperHeader={args.paperHeader}
+          children={
+            <Form
+              fields={[
+                {
+                  type: FIELDS.text,
+                  fieldVariant: 'long',
+                  name: 'desc',
+                  label: 'Description',
+                  defaultValue: 'something',
+                },
+                {
+                  type: FIELDS.text,
+                  fieldVariant: 'long',
+                  name: 'desc',
+                  label: 'Description',
+                  defaultValue: 'something',
+                },
+                {
+                  type: FIELDS.text,
+                  fieldVariant: 'long',
+                  name: 'desc',
+                  label: 'Description',
+                  defaultValue: 'something',
+                },
+                {
+                  type: FIELDS.text,
+                  fieldVariant: 'long',
+                  name: 'desc',
+                  label: 'Description',
+                  defaultValue: 'something',
+                },
+                {
+                  type: FIELDS.text,
+                  fieldVariant: 'long',
+                  name: 'desc',
+                  label: 'Description',
+                  defaultValue: 'something',
+                },
+              ]}
+              onSubmit={() => {}}
+              autoSave
+            />
+          }
+          previewContent={
+            <ProfileCard
+              {...cardArgs}
+              image={{ imageUrl: cardArgs.imageSource }}
+              actionRows={
+                cardArgs.buttonLabel
+                  ? [
+                      {
+                        primaryLink: {
+                          label: cardArgs.buttonLabel,
+                          href: cardArgs.buttonLink,
+                          target: '_blank',
+                          rel: 'noopener noreferer',
+                        },
                       },
-                    },
-                  ]
-                : []
-            }
-          />
-        }
-      ></LayoutComponent>
-    </Container>
+                    ]
+                  : []
+              }
+            />
+          }
+        ></LayoutComponent>
+      </Container>
+    </>
   );
 };

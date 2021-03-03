@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container } from '@material-ui/core';
-
+import TopBar from './TopBar';
 import Grid from '../../src/layouts/CardGrid';
 import ProfileCard from '../../src/Card/ProfileCard';
 
@@ -26,30 +26,33 @@ const cardArgs = {
 
 export const CardGrid = () => {
   return (
-    <Container>
-      <Grid>
-        {new Array(6).fill(undefined).map((_, i) => (
-          <ProfileCard
-            key={i}
-            {...cardArgs}
-            image={{ imageUrl: cardArgs.imageSource }}
-            actionRows={
-              cardArgs.buttonLabel
-                ? [
-                    {
-                      primaryLink: {
-                        label: cardArgs.buttonLabel,
-                        href: cardArgs.buttonLink,
-                        target: '_blank',
-                        rel: 'noopener noreferer',
+    <>
+      <TopBar />
+      <Container>
+        <Grid>
+          {new Array(6).fill(undefined).map((_, i) => (
+            <ProfileCard
+              key={i}
+              {...cardArgs}
+              image={{ imageUrl: cardArgs.imageSource }}
+              actionRows={
+                cardArgs.buttonLabel
+                  ? [
+                      {
+                        primaryLink: {
+                          label: cardArgs.buttonLabel,
+                          href: cardArgs.buttonLink,
+                          target: '_blank',
+                          rel: 'noopener noreferer',
+                        },
                       },
-                    },
-                  ]
-                : []
-            }
-          />
-        ))}
-      </Grid>
-    </Container>
+                    ]
+                  : []
+              }
+            />
+          ))}
+        </Grid>
+      </Container>
+    </>
   );
 };
