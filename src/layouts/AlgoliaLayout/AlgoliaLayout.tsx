@@ -79,6 +79,7 @@ export interface IAlgoliaLayoutProps {
   noResultsProps?: Partial<IEmptyStateProps>;
   sideFilters?: boolean;
   contentAfterFilters?: React.ReactNode;
+  resultsHeaderSecondary?: React.ReactNode;
 }
 
 export default function AlgoliaLayout({
@@ -101,6 +102,7 @@ export default function AlgoliaLayout({
   noResultsProps,
   sideFilters = true,
   contentAfterFilters,
+  resultsHeaderSecondary,
 }: IAlgoliaLayoutProps) {
   const classes = useStyles();
 
@@ -195,16 +197,13 @@ export default function AlgoliaLayout({
       <div className={classes.content}>
         {!isEmpty && (
           <ResultsHeader
-            text={!isFiltered ? `All ${label}` : 'Results for all filters'}
-          >
-            <Typography
-              variant="overline"
-              color="textSecondary"
-              style={{ marginLeft: 'auto' }}
-            >
-              {algoliaState.response?.nbHits}
-            </Typography>
-          </ResultsHeader>
+            text={`${algoliaState.response?.nbHits} results ${
+              algoliaState.request.query
+                ? `for “${algoliaState.request.query}”`
+                : ''
+            }`}
+            children={resultsHeaderSecondary}
+          />
         )}
 
         {isLoading ? (
