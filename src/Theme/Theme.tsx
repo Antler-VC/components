@@ -161,7 +161,7 @@ export const themeBase = createMuiTheme({
     toolbar: {
       minHeight: 56,
 
-      '@media (min-width: 840px)': {
+      [`@media (min-width: ${BREAKPOINT_VALUES.md}px)`]: {
         minHeight: 64,
       },
     },
