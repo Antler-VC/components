@@ -50,7 +50,7 @@ export default function ReviewsSummary({
         </Grid>
 
         <Grid item>
-          <Typography variant="subtitle2" color="textSecondary">
+          <Typography variant="button" color="textSecondary">
             ({count})
           </Typography>
         </Grid>
