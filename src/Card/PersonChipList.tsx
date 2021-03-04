@@ -12,6 +12,7 @@ const useStyles = makeStyles(theme =>
       margin: 0,
     },
     li: {
+      listStyleType: 'none',
       marginTop: theme.spacing('xxs'),
       marginLeft: theme.spacing(-0.5),
     },
