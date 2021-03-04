@@ -15,7 +15,12 @@ export default function CardTagList({ name, tags = [] }: ICardTagListProps) {
     <section>
       {name && <CardSubheading>{name}</CardSubheading>}
 
-      <Grid container spacing={1} style={{ fontSize: 0 }}>
+      <Grid
+        container
+        spacing={1}
+        style={{ fontSize: 0, padding: 0 }}
+        component="ul"
+      >
         {tags.map((tag, i) =>
           tag ? (
             <Grid item key={i}>
@@ -23,6 +28,7 @@ export default function CardTagList({ name, tags = [] }: ICardTagListProps) {
                 label={
                   typeof tag === 'string' ? tag.replace(/\//g, ' / ') : tag
                 }
+                component="li"
               />
             </Grid>
           ) : null

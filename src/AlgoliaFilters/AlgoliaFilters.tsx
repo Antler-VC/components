@@ -65,6 +65,7 @@ export interface IAlgoliaFiltersProps {
     initiallyDisplayed?: boolean;
   }[];
   search?: boolean;
+
   persistedStateId?: string;
   sideFilters: boolean;
 }
