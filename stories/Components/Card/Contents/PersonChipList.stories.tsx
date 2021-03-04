@@ -25,6 +25,7 @@ export const PersonChipList = args => (
         label: 'Jason Chen',
         avatar:
           'https://images.generated.photos/ZJyswL6FR5ftLAi2aIDB3NnzjhKXLgt0KAKGB4hUwog/rs:fit:512:512/wm:0.95:sowe:18:18:0.33/Z3M6Ly9nZW5lcmF0/ZWQtcGhvdG9zL3Yz/XzA2NTQwMzguanBn.jpg',
+        color: 'primary',
       },
       {
         label: 'Libby Smith',

@@ -11,12 +11,9 @@ const useStyles = makeStyles(theme =>
       padding: 0,
       margin: 0,
     },
-    chip: {
+    li: {
       marginTop: theme.spacing('xxs'),
       marginLeft: theme.spacing(-0.5),
-
-      display: 'flex',
-      justifyContent: 'flex-start',
     },
   })
 );
@@ -41,12 +38,9 @@ export default function PersonChipList({
       <ul className={classes.ul}>
         {chips.map((chip, i) =>
           chip ? (
-            <PersonChip
-              key={i}
-              component="li"
-              className={classes.chip}
-              {...chip}
-            />
+            <li key={i} className={classes.li}>
+              <PersonChip {...chip} />
+            </li>
           ) : null
         )}
       </ul>

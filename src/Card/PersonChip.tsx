@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme =>
 
     label: {
       ...theme.typography.body2,
+      color: undefined,
       textTransform: 'none',
 
       '$outlined &': { padding: theme.spacing(0, 'xxs') },
