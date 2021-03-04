@@ -55,6 +55,12 @@ export * from './Card/CardTagList';
 export { default as CardTitle } from './Card/CardTitle';
 export * from './Card/CardTitle';
 
+export { default as PersonChip } from './Card/PersonChip';
+export * from './Card/PersonChip';
+
+export { default as PersonChipList } from './Card/PersonChipList';
+export * from './Card/PersonChipList';
+
 export { default as ProfileCard } from './Card/ProfileCard';
 export * from './Card/ProfileCard';
 
