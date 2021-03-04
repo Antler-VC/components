@@ -93,6 +93,7 @@ function Thumbnail_({
       <Skeleton
         variant="rect"
         className={clsx(classes.skeleton, props.className)}
+        style={props.style}
       />
     );
 
