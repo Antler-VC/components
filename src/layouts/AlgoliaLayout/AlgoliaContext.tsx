@@ -35,4 +35,4 @@ export const AlgoliaContext = React.createContext<IAlgoliaContextProps>(
 
 export const useAlgoliaContext = () => useContext(AlgoliaContext);
 
-export default useAlgoliaContext;
+export default AlgoliaContext;
