@@ -115,6 +115,8 @@ export interface IModalProps extends Partial<Omit<DialogProps, 'title'>> {
     primary?: Partial<ButtonProps>;
     secondary?: Partial<ButtonProps>;
   };
+
+  hideCloseButton?: boolean;
 }
 
 export default function Modal({
@@ -125,6 +127,7 @@ export default function Modal({
   children,
   body,
   actions,
+  hideCloseButton,
   ...props
 }: IModalProps) {
   const classes = useStyles();
@@ -161,14 +164,16 @@ export default function Modal({
           {title}
         </Typography>
 
-        <IconButton
-          onClick={handleClose}
-          className={classes.closeButton}
-          aria-label="Close"
-          color="secondary"
-        >
-          <CloseIcon />
-        </IconButton>
+        {!hideCloseButton && (
+          <IconButton
+            onClick={handleClose}
+            className={classes.closeButton}
+            aria-label="Close"
+            color="secondary"
+          >
+            <CloseIcon />
+          </IconButton>
+        )}
       </DialogTitle>
 
       {header}
