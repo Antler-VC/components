@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
 
 import {
   makeStyles,
@@ -148,8 +149,12 @@ export default function Modal({
       fullWidth
       fullScreen={isMobile}
       aria-labelledby="modal-title"
-      classes={{ root: classes.root, paper: classes.paper }}
       {...props}
+      classes={{
+        root: clsx(classes.root, props.classes?.root),
+        paper: clsx(classes.paper, props.classes?.paper),
+        ...props.classes,
+      }}
     >
       <DialogTitle
         id="modal-title"
