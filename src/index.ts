@@ -70,6 +70,9 @@ export * from './Card/ProfileCardHeading';
 export { default as ProfileTabbedCard } from './Card/ProfileTabbedCard';
 export * from './Card/ProfileTabbedCard';
 
+export { default as SocialButton } from './Card/SocialButton';
+export * from './Card/SocialButton';
+
 export { default as TruncatedCardTagList } from './Card/TruncatedCardTagList';
 export * from './Card/TruncatedCardTagList';
 
@@ -127,11 +130,17 @@ export * from './JobDialog/JobForm';
 export { default as DetailsModal } from './Modal/DetailsModal';
 export * from './Modal/DetailsModal';
 
+export { default as InfoSection } from './Modal/InfoSection';
+export * from './Modal/InfoSection';
+
 export { default as Modal } from './Modal/Modal';
 export * from './Modal/Modal';
 
 export { default as SlideTransition } from './Modal/SlideTransition';
 export * from './Modal/SlideTransition';
+
+export { default as VideoModal } from './Modal/VideoModal';
+export * from './Modal/VideoModal';
 
 export { default as PlainTextWithLinks } from './PlainTextWithLinks';
 export * from './PlainTextWithLinks';
