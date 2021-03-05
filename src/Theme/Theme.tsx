@@ -255,6 +255,15 @@ export const defaultOverrides: ThemeOptions = {
       },
     },
 
+    MuiIconButton: {
+      edgeEnd: {
+        '& + &': { marginLeft: 12 },
+      },
+      edgeStart: {
+        '& + &': { marginRight: 12 },
+      },
+    },
+
     MuiSvgIcon: {
       fontSizeLarge: { fontSize: toRem(36) },
     },
