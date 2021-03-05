@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player';
 
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 
-import Modal from '.';
+import Modal from './Modal';
 
 const useStyles = makeStyles(() =>
   createStyles({
