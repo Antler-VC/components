@@ -689,7 +689,12 @@ export const defaultOverrides: ThemeOptions = {
       indicatorColor: 'primary',
       textColor: 'primary',
     },
-    MuiCircularProgress: { size: 44 },
+
+    MuiCircularProgress: {
+      size: 48,
+      thickness: 1.6,
+    },
+
     // Select: show dropdown below text field to follow new Material spec
     MuiSelect: {
       MenuProps: {

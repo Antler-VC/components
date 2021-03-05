@@ -18,7 +18,13 @@ const useStyles = makeStyles(theme =>
       width: '100%',
       textAlign: 'center',
     },
-    progress: { color: theme.palette.text.disabled },
+
+    progress: {
+      color: theme.palette.text.disabled,
+      padding: theme.spacing(0.5),
+      boxSizing: 'content-box',
+    },
+
     content: { maxWidth: '25em' },
     message: { marginTop: theme.spacing('xxs') },
   })
@@ -60,6 +66,7 @@ export default function Loading({
           color="textPrimary"
           component="h1"
           className={classes.message}
+          paragraph
         >
           {message}
         </Typography>
