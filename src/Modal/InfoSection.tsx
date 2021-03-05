@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from '@material-ui/core';
 
-import EmptyState from '../EmptyState';
+import EmptyState from '../FullScreens/EmptyState';
 import CardSubheading from '../Card/CardSubheading';
 import GoIcon from '../GoIcon';
 
