@@ -94,6 +94,7 @@
     "lodash-es": "^4.17.15",
     "react-copy-to-clipboard": "^5.0.2",
     "react-image": "^4.0.3",
+    "react-player": "^2.9.0",
     "react-share": "^4.3.0",
     "react-virtualized": "^9.22.3",
     "use-persisted-state": "^0.3.0",
