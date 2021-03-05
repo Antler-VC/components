@@ -1,16 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 import {
   makeStyles,
   createStyles,
   IconButton,
   IconButtonProps,
-} from '@material-ui/core'
-import { fade } from '@material-ui/core/styles'
+} from '@material-ui/core';
+import { fade } from '@material-ui/core/styles';
 
-import LinkedInIcon from '@material-ui/icons/LinkedIn'
-import TwitterIcon from '@material-ui/icons/Twitter'
-import VideoIcon from '@material-ui/icons/PlayCircleFilled'
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import VideoIcon from '@material-ui/icons/PlayCircleFilled';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import SlackIcon from '../assets/Slack';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -20,18 +22,41 @@ const useStyles = makeStyles(theme =>
         backgroundColor: fade(color, theme.palette.action.hoverOpacity),
       },
     }),
+
+    disabled: {
+      '$root &': { fill: theme.palette.action.disabled },
+    },
   })
-)
+);
+
+const getColor = (icon: ISocialButtonProps['icon']) => {
+  switch (icon) {
+    case 'linkedin':
+      return '#0B66C2';
+
+    case 'twitter':
+      return '#1DA1F2';
+
+    case 'whatsapp':
+      return '#495963';
+
+    case 'slack':
+      return '#4A154B';
+
+    default:
+      return '#282829';
+  }
+};
 
 export interface ISocialButtonProps extends Partial<IconButtonProps> {
   /** Optional style overrides */
-  className?: string
+  className?: string;
   /** URL to open in new tab */
-  url?: string
+  url?: string;
   /** Icon to display */
-  icon?: 'linkedin' | 'twitter' | 'video'
+  icon?: 'linkedin' | 'twitter' | 'video' | 'whatsapp' | 'slack';
   /** Optionally show a disabled button if no URL provided */
-  showDisabled?: boolean
+  showDisabled?: boolean;
 }
 
 export default function SocialButton({
@@ -42,15 +67,10 @@ export default function SocialButton({
   ...props
 }: ISocialButtonProps) {
   const classes = useStyles({
-    color:
-      icon === 'linkedin'
-        ? '#0B66C2'
-        : icon === 'twitter'
-        ? '#1DA1F2'
-        : '#303030',
-  })
+    color: getColor(icon),
+  });
 
-  if (!url && !showDisabled) return null
+  if (!url && !showDisabled) return null;
 
   return (
     <IconButton
@@ -67,6 +87,8 @@ export default function SocialButton({
       {icon === 'linkedin' && <LinkedInIcon color="inherit" />}
       {icon === 'twitter' && <TwitterIcon color="inherit" />}
       {icon === 'video' && <VideoIcon color="inherit" />}
+      {icon === 'whatsapp' && <WhatsAppIcon color="inherit" />}
+      {icon === 'slack' && <SlackIcon color="inherit" />}
     </IconButton>
-  )
+  );
 }
