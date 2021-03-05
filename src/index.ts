@@ -193,6 +193,9 @@ export * from './Theme/spacing';
 export { default as Thumbnail } from './Thumbnail';
 export * from './Thumbnail';
 
+export { default as Slack } from './assets/Slack';
+export * from './assets/Slack';
+
 export { default as constants } from './constants';
 export * from './constants';
 
