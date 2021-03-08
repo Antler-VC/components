@@ -6,8 +6,10 @@ import { makeStyles, createStyles } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 import BrokenImageIcon from '@material-ui/icons/BrokenImage';
 
-import ErrorBoundary, { IErrorBoundaryProps } from './ErrorBoundary';
-import EmptyState from './EmptyState';
+import ErrorBoundary, {
+  IErrorBoundaryProps,
+} from './FullScreens/ErrorBoundary';
+import EmptyState from './FullScreens/EmptyState';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -91,6 +93,7 @@ function Thumbnail_({
       <Skeleton
         variant="rect"
         className={clsx(classes.skeleton, props.className)}
+        style={props.style}
       />
     );
 

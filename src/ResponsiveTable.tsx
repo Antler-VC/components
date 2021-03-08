@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import {
   makeStyles,
   createStyles,
+  useTheme,
   useMediaQuery,
   TableContainer,
   Table,
@@ -17,15 +18,10 @@ import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles(theme =>
   createStyles({
-    table: {
-      tableLayout: 'fixed',
-      '& thead th': {
-        ...theme.typography.overline,
-        verticalAlign: 'bottom',
-      },
-      '& tbody th, & tbody td': { padding: theme.spacing(1.5, 2) },
-    },
     mobile: {
+      padding: theme.spacing(0, 'xs'),
+      overflow: 'visible',
+
       '& thead': { display: 'none' },
 
       '& tr': {
@@ -35,17 +31,21 @@ const useStyles = makeStyles(theme =>
         alignItems: 'center',
 
         borderBottom: `1px solid ${theme.palette.divider}`,
-        padding: theme.spacing(1.5, 0),
+        padding: theme.spacing('xxs', 0),
       },
 
-      '& tbody td': {
-        padding: theme.spacing(0.5, 2),
+      '& tbody th, & tbody td': {
+        padding: theme.spacing('xxs', 0),
         borderBottom: 'none',
       },
     },
 
-    iconCell: {
-      '$table tbody td&': { padding: 0 },
+    variantButton: {
+      // marginBottom: theme.spacing(-1),
+    },
+    variantIcon: {
+      // marginBottom: theme.spacing(-1.5),
+      marginLeft: theme.spacing(1.5),
     },
   })
 );
@@ -59,13 +59,13 @@ export interface IResponsiveTableProps {
     render: (
       value: any,
       row: Record<string, any>,
-      isMobile: boolean
+      isTablet: boolean
     ) => React.ReactNode;
     mobileStyles?: React.CSSProperties;
     className?: string;
     align?: TableCellProps['align'];
     th?: boolean;
-    variant?: 'icon' | '';
+    variant?: 'icon' | 'button' | '';
   }[];
   data?: Record<string, any>[];
   mobileWidth?: number;
@@ -84,19 +84,17 @@ export default function ResponsiveTable({
   pagination,
 }: IResponsiveTableProps) {
   const classes = useStyles();
-
-  const calcMobileWidth = columns.reduce((a, c) => a + c.width, 0);
-  const isMobile = useMediaQuery(
-    `(max-width: ${(mobileWidth ?? calcMobileWidth + 48) - 0.05}px)`
+  const theme = useTheme();
+  const isTablet = useMediaQuery(
+    mobileWidth
+      ? `(max-width: ${mobileWidth - 0.05}px)`
+      : theme.breakpoints.down('sm')
   );
 
   return (
     <>
-      <TableContainer>
-        <Table
-          className={clsx(classes.table, isMobile && classes.mobile)}
-          aria-label={label}
-        >
+      <TableContainer className={clsx(isTablet && classes.mobile)}>
+        <Table aria-label={label}>
           <TableHead>
             <TableRow>
               {columns.map(
@@ -105,7 +103,10 @@ export default function ResponsiveTable({
                     key={key}
                     className={clsx(
                       className,
-                      variant === 'icon' && classes.iconCell
+                      variant === 'icon' && isTablet
+                        ? classes.variantIcon
+                        : 'iconCell',
+                      variant === 'button' && isTablet && classes.variantButton
                     )}
                     style={{ width }}
                     align={align}
@@ -119,7 +120,7 @@ export default function ResponsiveTable({
 
           <TableBody>
             {loading &&
-              new Array(loadingCount).fill(undefined).map((_, i) => (
+              new Array(loadingCount).fill(undefined).map((_: any, i) => (
                 <TableRow key={i}>
                   {columns.map(
                     ({ key, className, mobileStyles, align, th, variant }) => (
@@ -129,9 +130,14 @@ export default function ResponsiveTable({
                         scope={th ? 'row' : undefined}
                         className={clsx(
                           className,
-                          variant === 'icon' && classes.iconCell
+                          variant === 'icon' && isTablet
+                            ? classes.variantIcon
+                            : 'iconCell',
+                          variant === 'button' &&
+                            isTablet &&
+                            classes.variantButton
                         )}
-                        style={isMobile ? mobileStyles : undefined}
+                        style={isTablet ? mobileStyles : undefined}
                         align={align}
                       >
                         {variant === 'icon' ? (
@@ -170,12 +176,17 @@ export default function ResponsiveTable({
                         scope={th ? 'row' : undefined}
                         className={clsx(
                           className,
-                          variant === 'icon' && classes.iconCell
+                          variant === 'icon' && isTablet
+                            ? classes.variantIcon
+                            : 'iconCell',
+                          variant === 'button' &&
+                            isTablet &&
+                            classes.variantButton
                         )}
-                        style={isMobile ? mobileStyles : undefined}
+                        style={isTablet ? mobileStyles : undefined}
                         align={align}
                       >
-                        {render(row[key], row, isMobile)}
+                        {render(row[key], row, isTablet)}
                       </TableCell>
                     )
                   )}

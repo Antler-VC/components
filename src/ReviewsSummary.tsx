@@ -36,7 +36,7 @@ export default function ReviewsSummary({
         <Grid item aria-label={`${value} stars`} style={{ height: 24 + 8 }}>
           {new Array(max)
             .fill(undefined)
-            .map((_, i) =>
+            .map((_: any, i) =>
               i < value ? (
                 i === Math.floor(value) ? (
                   <StarHalfIcon key={i} color="action" />
@@ -50,7 +50,7 @@ export default function ReviewsSummary({
         </Grid>
 
         <Grid item>
-          <Typography variant="subtitle2" color="textSecondary">
+          <Typography variant="button" color="textSecondary">
             ({count})
           </Typography>
         </Grid>

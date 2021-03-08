@@ -5,11 +5,11 @@ import useAlgolia from 'use-algolia';
 import { useDebouncedCallback } from 'use-debounce';
 import createPersistedState from 'use-persisted-state';
 
-import InlineFilters from './InlineFilters';
-import DialogFilters from './DialogFilters';
+import AlgoliaFiltersSearch from './AlgoliaFiltersSearch';
+import AlgoliaFiltersModal from './AlgoliaFiltersModal';
+import AlgoliaFiltersInline from './AlgoliaFiltersInline';
 
-import { MOBILE_NAV } from '../constants';
-import { useMediaQuery } from '@material-ui/core';
+import { useTheme, useMediaQuery } from '@material-ui/core';
 import { MultiSelectProps } from '@antlerengineering/multiselect';
 
 const NUMERIC_OPERATORS = ['<', '<=', '=', '!=', '>=', '>'];
@@ -18,11 +18,11 @@ const NUMERIC_OPERATORS = ['<', '<=', '=', '!=', '>=', '>'];
  * @param filterValues The user-selected filters
  * @param requiredFilters Filters not selected by the user
  */
-const generateFiltersString = (
+export const generateFiltersString = (
   filterValues: Record<string, string[]>,
-  requiredFilters?: string
+  requiredFilters: string = ''
 ) => {
-  if (Object.keys(filterValues).length === 0) return null;
+  if (Object.keys(filterValues).length === 0) return requiredFilters;
 
   let filtersString = Object.entries(filterValues)
     .filter(([, values]) => values.length > 0)
@@ -49,21 +49,13 @@ const generateFiltersString = (
   return filtersString;
 };
 
-export interface IAlgoliaFiltersProps extends IAlgoliaFiltersPassedProps {
+export interface IAlgoliaFiltersProps {
   index: SearchIndex | null;
   request: ReturnType<typeof useAlgolia>[0]['request'];
   requestDispatch: ReturnType<typeof useAlgolia>[1];
   requiredFilters?: string;
-}
+  defaultFilterValues?: Record<string, string[]>;
 
-export type AlgoliaFiltersComponentProps = {
-  hits: readonly FacetHit[];
-  value: string[];
-  onChange: (value: string[]) => void;
-  MultiSelectProps: Omit<MultiSelectProps<string>, 'value' | 'onChange'>;
-};
-
-export interface IAlgoliaFiltersPassedProps {
   label: string;
   filters: {
     facet: string;
@@ -73,57 +65,49 @@ export interface IAlgoliaFiltersPassedProps {
     initiallyDisplayed?: boolean;
   }[];
   search?: boolean;
-  setDefaultFilters?: (
-    facetValues: Record<string, readonly FacetHit[]>
-  ) => Record<string, string[]>;
+
   persistedStateId?: string;
+  sideFilters: boolean;
 }
 
-export interface IAlgoliaFiltersInternalProps {
-  filterValues: Record<string, string[]>;
-  setFilterValues: React.Dispatch<
-    React.SetStateAction<Record<string, string[]>>
-  >;
-  facetValues: Record<string, readonly FacetHit[]>;
-
-  handleResetFilters: () => void;
-  query: string;
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
-  handleQueryChange: (query: string) => void;
-}
+export type AlgoliaFiltersComponentProps = {
+  hits: readonly FacetHit[];
+  value: string[];
+  onChange: (value: string[]) => void;
+  MultiSelectProps: Omit<MultiSelectProps<string>, 'value' | 'onChange'>;
+};
+export type FilterValues = Record<string, string[]>;
+export type FacetValues = Record<string, readonly FacetHit[]>;
 
 export default function AlgoliaFilters({
   index,
   request,
   requestDispatch,
   requiredFilters,
-  setDefaultFilters,
+  defaultFilterValues,
 
   label,
   filters,
   search = true,
   persistedStateId,
+  sideFilters,
 }: IAlgoliaFiltersProps) {
+  const theme = useTheme();
+  const isTablet = useMediaQuery(theme.breakpoints.down('sm'));
+
   // Optionally persist state in localStorage
   const useFilterState =
     persistedStateId !== undefined && persistedStateId !== ''
       ? createPersistedState('algoliaFilters-' + persistedStateId)
       : useState;
+
   // Store filter values
-  const [filterValues, setFilterValues] = useFilterState<
-    IAlgoliaFiltersInternalProps['filterValues']
-  >({});
-  // Push filter values to dispatch
-  useEffect(() => {
-    const filtersString = generateFiltersString(filterValues, requiredFilters);
-    if (filtersString === null) return;
-    requestDispatch({ filters: filtersString, page: 0 });
-  }, [filterValues]);
+  const [filterValues, setFilterValues] = useFilterState<FilterValues>(
+    defaultFilterValues ?? {}
+  );
 
   // Store facet values
-  const [facetValues, setFacetValues] = useState<
-    IAlgoliaFiltersInternalProps['facetValues']
-  >({});
+  const [facetValues, setFacetValues] = useState<FacetValues>({});
   // Get facet values
   useEffect(() => {
     if (!index) return;
@@ -150,26 +134,65 @@ export default function AlgoliaFilters({
     );
   }, [filters, index, filterValues, requiredFilters]);
 
-  // Get default values
-  const [gotDefaultFilters, setGotDefaultFilters] = useState(false);
-  useEffect(() => {
-    if (
-      gotDefaultFilters ||
-      !setDefaultFilters ||
-      Object.keys(facetValues).length === 0
-    )
-      return;
+  // Store modal state here so we can close the modal when user changes filters
+  const [openModal, setOpenModal] = useState(false);
 
-    setFilterValues(setDefaultFilters(facetValues));
-    setGotDefaultFilters(true);
-  }, [facetValues]);
+  // Push filter values to dispatch
+  const applyFilters = (override?: typeof filterValues) => {
+    const filtersToApply = override ?? filterValues;
+
+    const filtersString = generateFiltersString(
+      filtersToApply,
+      requiredFilters
+    );
+    if (filtersString === null) return;
+    requestDispatch({ filters: filtersString, page: 0 });
+    if (openModal) setOpenModal(false);
+  };
+
+  // On load, request filterValues from persisted local storage state
+  useEffect(() => {
+    applyFilters();
+  }, []);
+
+  // When the user clears filterValues here, but AlgoliaLayout runs a
+  // getDefaultFilters function and applies defaultFilters, ensure this UI
+  // displays the defaultFilters
+  useEffect(() => {
+    if (Object.keys(filterValues).length > 0 || !defaultFilterValues) return;
+
+    if (
+      generateFiltersString(defaultFilterValues, requiredFilters) ===
+      request.filters
+    ) {
+      setFilterValues(defaultFilterValues);
+      applyFilters(defaultFilterValues);
+    }
+  }, [defaultFilterValues, filterValues, request.filters]);
+
+  // Check for any unapplied filters
+  const hasUnappliedFilters =
+    (generateFiltersString(filterValues, requiredFilters) ?? '') !==
+    request.filters;
 
   // Reset filters
-  const handleResetFilters = () => {
+  const clearFilters = () => {
     setFilterValues({});
-    setQuery('');
-    requestDispatch({ filters: requiredFilters ?? '', query: '', page: 0 });
+    requestDispatch({ filters: requiredFilters ?? '', page: 0 });
+    if (openModal) setOpenModal(false);
   };
+  const clearable = Object.keys(filterValues).length === 0;
+
+  const [filtersCount, setFiltersCount] = useState(0);
+  useEffect(() => {
+    if (hasUnappliedFilters) return;
+
+    const newCount = Object.values(filterValues).reduce(
+      (a, c) => a + (Array.isArray(c) && c.length > 0 ? 1 : 0),
+      0
+    );
+    if (filtersCount !== newCount) setFiltersCount(newCount);
+  }, [hasUnappliedFilters, filterValues, filtersCount]);
 
   // Store search query
   const [query, setQuery] = useState('');
@@ -178,24 +201,47 @@ export default function AlgoliaFilters({
     500
   );
 
-  const props = {
-    label,
-    filters,
-    search,
+  const searchComponent = search ? (
+    <AlgoliaFiltersSearch
+      query={query}
+      setQuery={setQuery}
+      handleQueryChange={handleQueryChange}
+      label={label}
+    />
+  ) : null;
 
-    filterValues,
-    setFilterValues,
-    facetValues,
-    handleResetFilters,
-    query,
-    setQuery,
-    handleQueryChange,
+  if (filters.length === 0) return searchComponent;
 
-    persistedStateId,
-  };
+  return (
+    <>
+      {searchComponent}
 
-  const isMobile = useMediaQuery(MOBILE_NAV);
-
-  if (isMobile) return <DialogFilters {...props} />;
-  return <InlineFilters {...props} />;
+      {isTablet || !sideFilters ? (
+        <AlgoliaFiltersModal
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+          filtersCount={filtersCount}
+          applyFilters={applyFilters}
+          clearFilters={clearFilters}
+          hasUnappliedFilters={hasUnappliedFilters}
+          clearable={clearable}
+          filters={filters}
+          filterValues={filterValues}
+          setFilterValues={setFilterValues}
+          facetValues={facetValues}
+        />
+      ) : (
+        <AlgoliaFiltersInline
+          applyFilters={applyFilters}
+          clearFilters={clearFilters}
+          hasUnappliedFilters={hasUnappliedFilters}
+          clearable={clearable}
+          filters={filters}
+          filterValues={filterValues}
+          setFilterValues={setFilterValues}
+          facetValues={facetValues}
+        />
+      )}
+    </>
+  );
 }

@@ -1,5 +1,5 @@
 {
-  "version": "0.18.1",
+  "version": "2.0.0-36",
   "name": "@antlerengineering/components",
   "publishConfig": {
     "access": "public"
@@ -18,16 +18,15 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "node generate-exports; git add src/index.ts; tsdx build",
-    "test": "tsdx test --passWithNoTests",
+    "build": "node generate-exports && git add src/index.ts && tsdx build",
     "lint": "tsdx lint",
-    "prepare": "node generate-exports; git add src/index.ts; tsdx build",
+    "prepublishOnly": "node generate-exports && git add src/index.ts && tsdx build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "@antlerengineering/form-builder": "^0.1",
-    "@antlerengineering/multiselect": "^0.3.14",
+    "@antlerengineering/form-builder": "^0.11.9",
+    "@antlerengineering/multiselect": "^0.9.0",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.0",
     "@material-ui/lab": "^4.0.0-alpha.54",
@@ -39,7 +38,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "tsdx lint",
+      "pre-push": "build-storybook -c .storybook -o docs && git add docs && git commit -m \"Pre-push hook update Storybook\""
     }
   },
   "prettier": {
@@ -49,26 +49,23 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@antlerengineering/form-builder": "^0.3.0",
-    "@antlerengineering/multiselect": "^0.3.14",
+    "@antlerengineering/form-builder": "^0.11.9",
+    "@antlerengineering/multiselect": "^0.9.0",
     "@babel/core": "^7.9.0",
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.56",
-    "@storybook/addon-actions": "^5.3.18",
-    "@storybook/addon-docs": "^5.3.18",
-    "@storybook/addon-info": "^5.3.18",
-    "@storybook/addon-links": "^5.3.18",
-    "@storybook/addons": "^5.3.18",
-    "@storybook/react": "^5.3.18",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@storybook/addon-a11y": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addons": "^6.1.17",
+    "@storybook/react": "^6.1.17",
+    "@storybook/theming": "^6.1.17",
     "@types/dompurify": "^2.0.1",
     "@types/lodash": "^4.14.150",
     "@types/react": "^16.9.34",
     "@types/react-div-100vh": "^0.3.0",
     "@types/react-dom": "^16.9.7",
-    "@types/react-virtualized-auto-sizer": "^1.0.0",
-    "@types/react-window": "^1.8.2",
-    "@types/react-window-infinite-loader": "^1.0.3",
+    "@types/react-virtualized": "^9.21.11",
     "@types/use-persisted-state": "^0.3.0",
     "@types/yup": "^0.29.4",
     "algoliasearch": "^4.4.0",
@@ -80,6 +77,7 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
+    "storybook-dark-mode": "^1.0.4",
     "ts-loader": "^7.0.1",
     "tsdx": "^0.13.2",
     "tslib": "^1.11.1",
@@ -87,6 +85,8 @@
     "use-algolia": "^1.5.0"
   },
   "dependencies": {
+    "@mdi/js": "^5.9.55",
+    "@react-hook/window-size": "^3.0.7",
     "@svgr/rollup": "^5.4.0",
     "date-fns": "^2.15.0",
     "dompurify": "^2.0.10",
@@ -94,10 +94,9 @@
     "lodash-es": "^4.17.15",
     "react-copy-to-clipboard": "^5.0.2",
     "react-image": "^4.0.3",
+    "react-player": "^2.9.0",
     "react-share": "^4.3.0",
-    "react-virtualized-auto-sizer": "^1.0.2",
-    "react-window": "^1.8.5",
-    "react-window-infinite-loader": "^1.0.5",
+    "react-virtualized": "^9.22.3",
     "use-persisted-state": "^0.3.0",
     "yup": "^0.29.3"
   }
