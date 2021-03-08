@@ -151,9 +151,9 @@ export default function Modal({
       aria-labelledby="modal-title"
       {...props}
       classes={{
+        ...props.classes,
         root: clsx(classes.root, props.classes?.root),
         paper: clsx(classes.paper, props.classes?.paper),
-        ...props.classes,
       }}
     >
       <DialogTitle
