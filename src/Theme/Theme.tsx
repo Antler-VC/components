@@ -14,6 +14,8 @@ import { BREAKPOINT_VALUES, LAYOUT_CSS_VARS } from './layout';
 
 export const HEADING_FONT = 'Europa, sans-serif';
 export const BODY_FONT = '"Open Sans", sans-serif';
+export const MONO_FONT =
+  'SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace';
 
 export const PRIMARY_TEXT = antlerPalette.aBlack[500];
 export const SECONDARY_TEXT = antlerPalette.aGray[700];
@@ -29,6 +31,11 @@ declare module '@material-ui/core/styles/createPalette' {
   }
   interface PaletteOptions {
     antler: typeof antlerPalette;
+  }
+}
+declare module '@material-ui/core/styles/createTypography' {
+  interface FontStyle {
+    fontFamilyMono: string;
   }
 }
 declare module '@material-ui/core/styles/createSpacing' {
@@ -72,6 +79,7 @@ export const themeBase = createMuiTheme({
   ) as Shadows,
   typography: {
     fontFamily: BODY_FONT,
+    fontFamilyMono: MONO_FONT,
     h1: {
       fontFamily: HEADING_FONT,
       fontSize: toRem(48),
