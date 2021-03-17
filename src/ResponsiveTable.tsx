@@ -59,7 +59,8 @@ export interface IResponsiveTableProps {
     render: (
       value: any,
       row: Record<string, any>,
-      isTablet: boolean
+      isTablet: boolean,
+      index: number
     ) => React.ReactNode;
     mobileStyles?: React.CSSProperties;
     className?: string;
@@ -190,7 +191,7 @@ export default function ResponsiveTable({
                         style={isTablet ? mobileStyles : undefined}
                         align={align}
                       >
-                        {render(row[key], row, isTablet)}
+                        {render(row[key], row, isTablet, i)}
                       </TableCell>
                     )
                   )}

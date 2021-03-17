@@ -63,7 +63,11 @@ export interface IDataTableProps {
     key: string;
     header: React.ReactNode;
     width?: number;
-    render: (value: any, row: Record<string, any>) => React.ReactNode;
+    render: (
+      value: any,
+      row: Record<string, any>,
+      index: number
+    ) => React.ReactNode;
     className?: string;
     align?: TableCellProps['align'];
     th?: boolean;
@@ -162,7 +166,7 @@ export default function DataTable({
                         )}
                         align={align}
                       >
-                        {render(row[key], row)}
+                        {render(row[key], row, i)}
                       </TableCell>
                     )
                   )}
