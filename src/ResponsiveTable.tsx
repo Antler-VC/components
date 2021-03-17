@@ -72,6 +72,7 @@ export interface IResponsiveTableProps {
   loading?: boolean;
   loadingCount?: number;
   pagination?: React.ReactNode;
+  sticky?: boolean;
 }
 
 export default function ResponsiveTable({
@@ -82,6 +83,7 @@ export default function ResponsiveTable({
   loading = false,
   loadingCount = 10,
   pagination,
+  sticky = false,
 }: IResponsiveTableProps) {
   const classes = useStyles();
   const theme = useTheme();
@@ -93,7 +95,9 @@ export default function ResponsiveTable({
 
   return (
     <>
-      <TableContainer className={clsx(isTablet && classes.mobile)}>
+      <TableContainer
+        className={clsx(isTablet && classes.mobile, sticky && 'sticky')}
+      >
         <Table aria-label={label}>
           <TableHead>
             <TableRow>
