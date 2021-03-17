@@ -91,6 +91,9 @@ export * from './ContentHeader/SubSectionHeader';
 export { default as CtaButton } from './CtaButton';
 export * from './CtaButton';
 
+export { default as DataTable } from './DataTable';
+export * from './DataTable';
+
 export { default as Friction } from './Friction';
 export * from './Friction';
 
