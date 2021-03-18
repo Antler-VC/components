@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme =>
       maxWidth: 420,
       margin: '0 auto',
 
-      [theme.breakpoints.up('md')]: { gridColumn: 'span 4' },
+      [theme.breakpoints.up('md')]: { gridColumn: 'span 4', margin: 0 },
       [theme.breakpoints.up('lg')]: { gridColumn: 'span 3' },
     },
     previewContent: {
