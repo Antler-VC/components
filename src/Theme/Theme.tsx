@@ -371,7 +371,6 @@ export const defaultOverrides: ThemeOptions = {
     // Override radio & checkbox labels
     MuiFormControlLabel: {
       root: { display: 'flex' },
-      label: themeBase.typography.body2,
     },
 
     MuiChip: {
