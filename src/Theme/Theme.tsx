@@ -50,6 +50,7 @@ declare module '@material-ui/core/styles/overrides' {
     MuiPickersToolbarText: any;
     MuiPickersToolbarButton: any;
     MuiPickerDTTabs: any;
+    MuiAutocomplete: any;
   }
 }
 
@@ -699,6 +700,16 @@ export const defaultOverrides: ThemeOptions = {
         '& .MuiTabs-indicator': {
           backgroundColor: themeBase.palette.primary.main,
         },
+      },
+    },
+
+    MuiAutocomplete: {
+      groupLabel: {
+        ...themeBase.typography.overline,
+
+        minHeight: 48,
+        display: 'flex',
+        alignItems: 'center',
       },
     },
   },
