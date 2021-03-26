@@ -44,6 +44,15 @@ declare module '@material-ui/core/styles/createSpacing' {
   }
 }
 
+declare module '@material-ui/core/styles/overrides' {
+  interface ComponentNameToClassKey {
+    MuiPickersToolbar: any;
+    MuiPickersToolbarText: any;
+    MuiPickersToolbarButton: any;
+    MuiPickerDTTabs: any;
+  }
+}
+
 export const themeBase = createMuiTheme({
   palette: {
     primary: antlerPaletteToMui(antlerPalette.aRed),
@@ -670,6 +679,26 @@ export const defaultOverrides: ThemeOptions = {
       },
       selectIcon: {
         color: themeBase.palette.primary.main,
+      },
+    },
+
+    MuiPickersToolbar: {
+      toolbar: { backgroundColor: themeBase.palette.background.default },
+    },
+    MuiPickersToolbarText: {
+      toolbarTxt: { color: themeBase.palette.text.secondary },
+      toolbarBtnSelected: { color: themeBase.palette.primary.main },
+    },
+    MuiPickersToolbarButton: {
+      toolbarBtn: { borderRadius: themeBase.shape.borderRadius },
+    },
+    MuiPickerDTTabs: {
+      tabs: {
+        backgroundColor: themeBase.palette.background.default,
+
+        '& .MuiTabs-indicator': {
+          backgroundColor: themeBase.palette.primary.main,
+        },
       },
     },
   },
