@@ -1,54 +1,49 @@
 import React from 'react';
 
-import { Typography } from '@material-ui/core';
-
-import Form, {
+import {
+  Form,
   IFormProps,
-  FIELDS,
+  FieldType,
   Values,
 } from '@antlerengineering/form-builder';
-import * as yup from 'yup';
+
 import { generateId } from '../utils';
 
 import { IJobDialogProps } from './JobDialog';
 
 const jobApplicationForm = (id: string) => [
   {
-    type: FIELDS.heading,
-    text: 'Personal Details',
+    type: FieldType.contentHeader,
+    label: 'Personal Details',
   },
   {
     name: 'email',
-    type: FIELDS.text,
-    fieldVariant: 'email',
+    type: FieldType.shortText,
+    format: 'email',
     label: 'Email Address',
-    validation: yup
-      .string()
-      .email('Must be a valid email')
-      .required('Required'),
+    required: true,
     autoFocus: true,
   },
   {
     name: 'fullName',
-    type: FIELDS.text,
+    type: FieldType.shortText,
     label: 'Full Name',
-    validation: yup.string().required('Required'),
+    required: true,
+    autoComplete: 'name',
   },
   {
     name: 'location',
-    type: FIELDS.text,
+    type: FieldType.shortText,
     label: 'Where are you based? (City, Country)',
-    validation: yup.string().required('Required'),
+    required: true,
+    autoComplete: 'country-name',
   },
   {
     name: 'linkedin',
-    type: FIELDS.text,
-    fieldVariant: 'url',
+    type: FieldType.shortText,
+    format: 'linkedin',
     label: 'LinkedIn URL',
-    validation: yup
-      .string()
-      .url('Must be a valid URL')
-      .required('Required'),
+    required: true,
   },
   {
     name: 'cv',
@@ -60,66 +55,57 @@ const jobApplicationForm = (id: string) => [
   },
   {
     name: 'coverLetter',
-    type: FIELDS.text,
-    fieldVariant: 'long',
-    label: 'Cover Letter (max. 1500 characters)',
-    validation: yup
-      .string()
-      .max(1500, 'Must be less than or equal to 1500 characters')
-      .required('Required'),
+    type: FieldType.paragraph,
+    label: 'Cover Letter',
+    maxCharacters: 1500,
+    required: true,
   },
   {
-    type: FIELDS.description,
-    description: (
-      <Typography variant="body2">
-        A copy of your responses will be emailed to the address you provided.
-      </Typography>
-    ),
+    type: FieldType.contentParagraph,
+    label:
+      'A copy of your responses will be emailed to the address you provided.',
   },
 ];
+
 const jobApplicationFormWithPortfolio = (id: string) => [
   {
-    type: FIELDS.heading,
-    text: 'Personal Details',
+    type: FieldType.contentHeader,
+    label: 'Personal Details',
   },
   {
     name: 'email',
-    type: FIELDS.text,
-    fieldVariant: 'email',
+    type: FieldType.shortText,
+    format: 'email',
     label: 'Email Address',
-    validation: yup
-      .string()
-      .email('Must be a valid email')
-      .required('Required'),
+    required: true,
     autoFocus: true,
   },
   {
     name: 'fullName',
-    type: FIELDS.text,
+    type: FieldType.shortText,
     label: 'Full Name',
-    validation: yup.string().required('Required'),
+    required: true,
+    autoComplete: 'name',
   },
   {
     name: 'location',
-    type: FIELDS.text,
+    type: FieldType.shortText,
     label: 'Where are you based? (City, Country)',
-    validation: yup.string().required('Required'),
+    required: true,
+    autoComplete: 'country-name',
   },
   {
     name: 'linkedin',
-    type: FIELDS.text,
-    fieldVariant: 'url',
+    type: FieldType.shortText,
+    format: 'linkedin',
     label: 'LinkedIn URL',
-    validation: yup
-      .string()
-      .url('Must be a valid URL')
-      .required('Required'),
+    required: true,
   },
   {
     name: 'portfolio',
-    type: FIELDS.text,
+    type: FieldType.shortText,
     label: 'Portfolio link (e.g. GitHub link)',
-    validation: yup.string().url('Must be a valid URL'),
+    format: 'url',
   },
   {
     name: 'cv',
@@ -131,68 +117,52 @@ const jobApplicationFormWithPortfolio = (id: string) => [
   },
   {
     name: 'coverLetter',
-    type: FIELDS.text,
-    fieldVariant: 'long',
-    label: 'Cover Letter (max. 1500 characters)',
-    validation: yup
-      .string()
-      .max(1500, 'Must be less than or equal to 1500 characters')
-      .required('Required'),
+    type: FieldType.paragraph,
+    label: 'Cover Letter',
+    maxCharacters: 1500,
+    required: true,
   },
   {
-    type: FIELDS.description,
-    description: (
-      <Typography variant="body2">
-        A copy of your responses will be emailed to the address you provided.
-      </Typography>
-    ),
+    type: FieldType.paragraph,
+    label:
+      'A copy of your responses will be emailed to the address you provided.',
   },
 ];
 const jobApplicationExternalForm = [
   {
-    type: FIELDS.heading,
+    type: FieldType.contentHeader,
     text: 'Personal Details',
   },
   {
     name: 'email',
-    type: FIELDS.text,
-    fieldVariant: 'email',
+    type: FieldType.shortText,
+    format: 'email',
     label: 'Email Address',
-    validation: yup
-      .string()
-      .email('Must be a valid email')
-      .required('Required'),
+    required: true,
     autoFocus: true,
   },
   {
     name: 'fullName',
-    type: FIELDS.text,
+    type: FieldType.shortText,
     label: 'Full Name',
-    validation: yup.string().required('Required'),
+    required: true,
+    autoComplete: 'name',
   },
   {
     name: 'linkedin',
-    type: FIELDS.text,
-    fieldVariant: 'url',
+    type: FieldType.shortText,
+    format: 'linkedin',
     label: 'LinkedIn URL',
-    validation: yup
-      .string()
-      .url('Must be a valid URL')
-      .required('Required'),
+    required: true,
   },
   {
     name: 'antlerNetwork',
-    type: FIELDS.checkbox,
+    type: FieldType.checkbox,
     label: 'Connect me with Antler Network',
-    validation: yup.boolean(),
   },
   {
-    type: FIELDS.description,
-    description: (
-      <Typography variant="body2">
-        You will be redirected to an external site where you can apply.
-      </Typography>
-    ),
+    type: FieldType.paragraph,
+    label: 'You will be redirected to an external site where you can apply.',
   },
 ];
 

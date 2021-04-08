@@ -1,9 +1,8 @@
 import React from 'react';
-import * as yup from 'yup';
 
 import {
   FormDialog as FormBuilderDialog,
-  FIELDS,
+  FieldType,
 } from '@antlerengineering/form-builder';
 
 export default {
@@ -16,108 +15,140 @@ export default {
   },
 };
 
+const fields = [
+  {
+    type: FieldType.richText,
+    name: 'desc',
+    label: 'Description',
+    required: true,
+    maxCharacters: 20,
+  },
+  {
+    type: FieldType.shortText,
+    format: 'url',
+    name: 'link',
+    label: 'Link',
+    defaultValue: 'https://',
+    required: true,
+    displayCondition: 'return values.desc.length > 0',
+  },
+  {
+    type: FieldType.shortText,
+    format: 'email',
+    name: 'email',
+    label: 'Email',
+    gridCols: 6,
+  },
+  {
+    type: FieldType.shortText,
+    format: 'emailWithName',
+    name: 'emailWithName',
+    label: 'Email with Name',
+    gridCols: 6,
+  },
+  {
+    type: FieldType.shortText,
+    format: 'phone',
+    name: 'phone',
+    label: 'Phone Number',
+    gridCols: 6,
+  },
+  {
+    type: FieldType.shortText,
+    format: 'twitter',
+    name: 'twitter',
+    label: 'Twitter',
+    gridCols: 6,
+  },
+  {
+    type: FieldType.shortText,
+    format: 'linkedin',
+    name: 'linkedin',
+    label: 'LinkedIn',
+  },
+  {
+    type: FieldType.shortText,
+    format: 'number',
+    name: 'number',
+    label: 'Number',
+  },
+  // : null,
+  {
+    type: FieldType.shortText,
+    name: 'header',
+    label: 'Unique page header',
+    placeholder: 'Selected startups for...',
+    maxCharacters: 100,
+    required: true,
+  },
+  {
+    type: FieldType.paragraph,
+    name: 'textarea',
+    label: 'Tell me more',
+  },
+  {
+    type: FieldType.singleSelect,
+    name: 'singleSelect',
+    label: 'Who is the CEO of Antler?',
+    options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+  },
+  {
+    type: FieldType.multiSelect,
+    name: 'multiSelect',
+    label: 'Who are Antler Engineering team members?',
+    options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+  },
+  {
+    type: FieldType.multiSelect,
+    name: 'multiSelect single',
+    label: 'Who is CEO of Facebook?',
+    options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    multiple: false,
+  },
+  {
+    type: FieldType.checkbox,
+    name: 'checkbox',
+    label: 'I am not a robot',
+  },
+  {
+    type: FieldType.radio,
+    name: 'radio',
+    label: 'Highest education level?',
+    options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+  },
+  {
+    type: FieldType.slider,
+    name: 'slider',
+    label: 'Your age',
+  },
+  {
+    type: FieldType.list,
+    name: 'textMulti',
+    label: 'Previous employers',
+  },
+  {
+    type: FieldType.color,
+    name: 'color',
+    label: 'Preferred color for your Antler shirt?',
+  },
+  {
+    type: FieldType.date,
+    name: 'date',
+    label: 'Your birthday',
+  },
+  {
+    type: FieldType.dateTime,
+    name: 'dateTime',
+    label: 'Book a time',
+  },
+];
+
 export const FormDialog = args => (
   <FormBuilderDialog
     {...args}
     open
-    onClose={() => alert('CLOSE')}
-    fields={[
-      {
-        type: 'richText',
-        name: 'desc',
-        label: 'Description',
-        // disabled: true,
-        defaultValue: 'something',
-      },
-      (values: any) =>
-        values.desc !== 'something'
-          ? {
-              type: 'text',
-              fieldVariant: 'url',
-              name: 'link',
-              label: 'Link',
-              defaultValue: 'https://',
-              validation: yup
-                .string()
-                .url('Must be a valid URL')
-                .matches(/^https?:\/\/.*/, 'Must begin with https://')
-                .required('Required'),
-            }
-          : null,
-
-      {
-        type: FIELDS.text,
-        name: 'header',
-        label: 'Unique page header (max. 100 characters)',
-        placeholder: 'Selected startups for...',
-        // inputProps: { maxLength: 100 },
-        validation: yup
-          .string()
-          .max(100)
-          .required('Required'),
-      },
-      {
-        type: FIELDS.text,
-        name: 'textarea',
-        fieldVariant: 'long',
-        label: 'Tell me more',
-      },
-      {
-        type: FIELDS.singleSelect,
-        name: 'singleSelect',
-        label: 'Who is the CEO of Antler?',
-        options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-      },
-      {
-        type: FIELDS.multiSelect,
-        name: 'multiSelect',
-        label: 'Who are Antler Engineering team members?',
-        options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-      },
-      {
-        type: FIELDS.multiSelect,
-        name: 'multiSelect single',
-        label: 'Who is CEO of Facebook?',
-        options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-        multiple: false,
-      },
-      {
-        type: FIELDS.checkbox,
-        name: 'checkbox',
-        label: 'I am not a robot',
-      },
-      {
-        type: FIELDS.radio,
-        name: 'radio',
-        label: 'Highest education level?',
-        options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-      },
-      {
-        type: FIELDS.slider,
-        name: 'slider',
-        label: 'Your age',
-      },
-      {
-        type: FIELDS.textMulti,
-        name: 'textMulti',
-        label: 'Previous employers',
-      },
-      {
-        type: FIELDS.color,
-        name: 'color',
-        label: 'Preferred color for your Antler shirt?',
-      },
-      {
-        type: FIELDS.date,
-        name: 'date',
-        label: 'Your birthday',
-      },
-      {
-        type: FIELDS.dateTime,
-        name: 'dateTime',
-        label: 'Book a time',
-      },
-    ]}
+    onClose={() => alert('Check console for values')}
+    fields={fields}
     onSubmit={data => console.log(data)}
   />
 );
