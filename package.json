@@ -1,5 +1,5 @@
 {
-  "version": "2.2.1",
+  "version": "2.2.2-0",
   "name": "@antlerengineering/components",
   "publishConfig": {
     "access": "public"
@@ -25,7 +25,7 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "@antlerengineering/form-builder": "^0.11.9",
+    "@antlerengineering/form-builder": "^1.0.0",
     "@antlerengineering/multiselect": "^0.9.0",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.0",
@@ -49,17 +49,17 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@antlerengineering/form-builder": "^0.11.9",
-    "@antlerengineering/multiselect": "^0.9.0",
-    "@babel/core": "^7.9.0",
+    "@antlerengineering/form-builder": "^1.0.0",
+    "@antlerengineering/multiselect": "^0.9.6",
+    "@babel/core": "^7.13.14",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@material-ui/lab": "^4.0.0-alpha.57",
-    "@storybook/addon-a11y": "^6.1.17",
-    "@storybook/addon-essentials": "^6.1.17",
-    "@storybook/addons": "^6.1.17",
-    "@storybook/react": "^6.1.17",
-    "@storybook/theming": "^6.1.17",
+    "@storybook/addon-a11y": "^6.2.5",
+    "@storybook/addon-essentials": "^6.2.5",
+    "@storybook/addons": "^6.2.5",
+    "@storybook/react": "^6.2.5",
+    "@storybook/theming": "^6.2.5",
     "@types/dompurify": "^2.0.1",
     "@types/lodash": "^4.14.150",
     "@types/react": "^16.9.34",
@@ -69,19 +69,20 @@
     "@types/use-persisted-state": "^0.3.0",
     "@types/yup": "^0.29.4",
     "algoliasearch": "^4.4.0",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-polyfill-corejs2": "^0.2.0",
     "clsx": "^1.0.4",
     "husky": "^4.2.5",
-    "react": "^16.8.0",
+    "react": "^17.0.2",
     "react-div-100vh": "^0.3.8",
     "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
-    "storybook-dark-mode": "^1.0.4",
+    "react-dom": "^17.0.2",
+    "react-is": "^17.0.2",
+    "storybook-dark-mode": "^1.0.7",
     "ts-loader": "^7.0.1",
-    "tsdx": "^0.13.2",
-    "tslib": "^1.11.1",
-    "typescript": "^3.8.3",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.4",
     "use-algolia": "^1.5.0"
   },
   "dependencies": {
@@ -97,7 +98,6 @@
     "react-player": "^2.9.0",
     "react-share": "^4.3.0",
     "react-virtualized": "^9.22.3",
-    "use-persisted-state": "^0.3.0",
-    "yup": "^0.29.3"
+    "use-persisted-state": "^0.3.0"
   }
 }

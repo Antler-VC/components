@@ -3,7 +3,7 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 import TopBar from './TopBar';
 import LayoutComponent from '../../src/layouts/FormWithPreview';
-import Form, { FIELDS } from '@antlerengineering/form-builder';
+import Form, { FieldType } from '@antlerengineering/form-builder';
 import ProfileCard from '../../src/Card/ProfileCard';
 
 export default {
@@ -43,35 +43,35 @@ export const FormWithPreview = args => {
             <Form
               fields={[
                 {
-                  type: FIELDS.text,
+                  type: FieldType.text,
                   fieldVariant: 'long',
                   name: 'desc',
                   label: 'Description',
                   defaultValue: 'something',
                 },
                 {
-                  type: FIELDS.text,
+                  type: FieldType.text,
                   fieldVariant: 'long',
                   name: 'desc',
                   label: 'Description',
                   defaultValue: 'something',
                 },
                 {
-                  type: FIELDS.text,
+                  type: FieldType.text,
                   fieldVariant: 'long',
                   name: 'desc',
                   label: 'Description',
                   defaultValue: 'something',
                 },
                 {
-                  type: FIELDS.text,
+                  type: FieldType.text,
                   fieldVariant: 'long',
                   name: 'desc',
                   label: 'Description',
                   defaultValue: 'something',
                 },
                 {
-                  type: FIELDS.text,
+                  type: FieldType.text,
                   fieldVariant: 'long',
                   name: 'desc',
                   label: 'Description',
