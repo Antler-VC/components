@@ -106,10 +106,10 @@
     "@algolia/logger-common" "4.4.0"
     "@algolia/requester-common" "4.4.0"
 
-"@antlerengineering/form-builder@^1.0.0-2":
-  version "1.0.0-2"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-1.0.0-2.tgz#5d99908d4b5d8f0980a4cd4bd0561998ee487c3b"
-  integrity sha512-2rwWKPZd+tMfSqasK9gT5Pg2Yib3/9WNUJzt85anZjJg37EqQJRbk4Ldq7hgxLdUhe0LM/Jn2x4nO8JRY260Xw==
+"@antlerengineering/form-builder@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-1.0.0.tgz#7b4400afbe8f6b99b11e6ab7d2121848ab97fb83"
+  integrity sha512-u79j5ShCLbcir/gTYSZHHmScYt9wwD6l6CJeQWsfEu+nQ4e5EP/JEWlzVKLQspE2IqlJRkA/CN95PI4fh/2jmA==
   dependencies:
     "@antlerengineering/multiselect" "^0.9.2"
     "@date-io/date-fns" "1.x"
