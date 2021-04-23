@@ -93,6 +93,7 @@
     "dompurify": "^2.0.10",
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
+    "react-anchorme": "^2.2.0",
     "react-copy-to-clipboard": "^5.0.2",
     "react-image": "^4.0.3",
     "react-player": "^2.9.0",

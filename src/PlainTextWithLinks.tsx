@@ -1,4 +1,5 @@
 import React from 'react';
+import { Anchorme } from 'react-anchorme';
 
 import { Link, LinkProps } from '@material-ui/core';
 
@@ -11,21 +12,16 @@ export default function PlainTextWithLinks({
   children,
   LinkProps,
 }: IPlainTextWithLinksProps) {
-  const re = /(https?\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]+\S*)/;
-
-  const split = children?.split(re) ?? [];
+  if (!children) return null;
 
   return (
-    <>
-      {split.map(item =>
-        re.test(item) ? (
-          <Link href={item} target="_blank" rel="noopener" {...LinkProps}>
-            {item}
-          </Link>
-        ) : (
-          item
-        )
-      )}
-    </>
+    <Anchorme
+      linkComponent={Link as any}
+      target="_blank"
+      rel="noopener"
+      {...LinkProps}
+    >
+      {children}
+    </Anchorme>
   );
 }
