@@ -106,17 +106,37 @@
     "@algolia/logger-common" "4.4.0"
     "@algolia/requester-common" "4.4.0"
 
-"@antlerengineering/form-builder@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-1.0.0.tgz#7b4400afbe8f6b99b11e6ab7d2121848ab97fb83"
-  integrity sha512-u79j5ShCLbcir/gTYSZHHmScYt9wwD6l6CJeQWsfEu+nQ4e5EP/JEWlzVKLQspE2IqlJRkA/CN95PI4fh/2jmA==
+"@antlerengineering/components@^2.4.1":
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/components/-/components-2.4.1.tgz#be00d91a8f42d6f19db26b1a3c8e44502f38a152"
+  integrity sha512-ftW/60xNn0q1zGw1d0bUzqbXoULtQSH5x408E7KcJszutGjyA3lKq+3JTm/C5sgfIkKNjnO0vO06+hYBecJNfg==
   dependencies:
-    "@antlerengineering/multiselect" "^0.9.2"
+    "@mdi/js" "^5.9.55"
+    "@react-hook/window-size" "^3.0.7"
+    "@svgr/rollup" "^5.4.0"
+    date-fns "^2.15.0"
+    dompurify "^2.0.10"
+    lodash "^4.17.15"
+    lodash-es "^4.17.15"
+    react-anchorme "^2.2.0"
+    react-copy-to-clipboard "^5.0.2"
+    react-image "^4.0.3"
+    react-player "^2.9.0"
+    react-share "^4.3.0"
+    react-virtualized "^9.22.3"
+    use-persisted-state "^0.3.0"
+
+"@antlerengineering/form-builder@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-2.2.0.tgz#d3600fe747797e78ef85a8d88899ec0e2cfd7d78"
+  integrity sha512-y2ujh/NNFcEHnk1uaIiNIwYi0zwdMFEXRdWzk/RKfX9VfZvRDnwQFWl30EJ8GF3gop45klDcCIijb9qyI4JeAA==
+  dependencies:
+    "@antlerengineering/components" "^2.4.1"
+    "@antlerengineering/multiselect" "^0.9.6"
     "@date-io/date-fns" "1.x"
-    "@hookform/resolvers" "^1.3.5"
+    "@hookform/resolvers" "^2.3.1"
     "@material-ui/pickers" "^3.2.10"
     "@mdi/js" "^5.9.55"
-    "@tinymce/tinymce-react" "^3.8.2"
     array-move "^3.0.1"
     date-fns "^2.16.1"
     lodash "^4.17.20"
@@ -124,13 +144,11 @@
     react-color "^2.19.3"
     react-dnd "^14.0.2"
     react-dnd-html5-backend "^14.0.0"
-    react-hook-form "^6.15.5"
-    string-strip-html "^8.2.6"
-    tinymce "^5.6.1"
+    react-hook-form "^7.1.1"
     use-debounce "^3.4.3"
     yup "^0.32.9"
 
-"@antlerengineering/multiselect@^0.9.2", "@antlerengineering/multiselect@^0.9.6":
+"@antlerengineering/multiselect@^0.9.6":
   version "0.9.6"
   resolved "https://registry.yarnpkg.com/@antlerengineering/multiselect/-/multiselect-0.9.6.tgz#229a18c4a2aea3dd0b98070760439c9dfc03a6f3"
   integrity sha512-pRcX385UiDDtQ7TrzbyTQWHDXs/ZP7dZ8vS7IRAfklxoGwSMwURfmWGvcI5CVwEhUO6gGPq4IzY8a9iQc04DyA==
@@ -2524,10 +2542,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@hookform/resolvers@^1.3.5":
-  version "1.3.7"
-  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-1.3.7.tgz#7c164d438b788cc625e46c22885ca6edc254350b"
-  integrity sha512-gC06h1hky7gM31UO4Y7DrUQjgZyNIKA3s0/TxXbdeurwhOj07l8Zx8Pomjt93ANOKoZOU2rcHKaZtrEJx1w7tg==
+"@hookform/resolvers@^2.3.1":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.4.0.tgz#3b454463fbb5e7a0de4da029fa34e677f32d8d8d"
+  integrity sha512-KiHc7Uwd2IJMvPTMQ9vQxfss2ulq2gRYL/HYZ90qiTs+07UgGWCikiIvE2pKjjGVltEYjq5eR8x0ITmoyEjGxQ==
 
 "@icons/material@^0.2.4":
   version "0.2.4"
@@ -3866,14 +3884,6 @@
     "@svgr/plugin-jsx" "^5.4.0"
     "@svgr/plugin-svgo" "^5.4.0"
     rollup-pluginutils "^2.8.2"
-
-"@tinymce/tinymce-react@^3.8.2":
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-react/-/tinymce-react-3.10.1.tgz#8da49310957e53d06bdb9c00bacc1a72f1c7e54a"
-  integrity sha512-f+xu7kveYkkyc/NNUrCe1WB4l6rD9eRQ3t+HFSqyZ5B3j1LR1l7LIbBpp6B/ijCrSa+15xdo/uhfMu7hD1dA3w==
-  dependencies:
-    prop-types "^15.6.2"
-    tinymce "^5.6.2"
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -8403,11 +8413,6 @@ html-entities@^1.2.0, html-entities@^1.2.1:
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.4.0.tgz#cfbd1b01d2afaf9adca1b10ae7dffab98c71d2dc"
   integrity sha512-8nxjcBcd8wovbeKx7h3wTji4e6+rhaVuPNpMqwWgnHh+N9ToqsCs6XztWRBPQ+UtzsoMAdKZtUENoVzU/EMtZA==
 
-html-entities@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.2.tgz#760b404685cb1d794e4f4b744332e3b00dcfe488"
-  integrity sha512-c3Ab/url5ksaT0WyleslpBEthOzWhrjQbg75y7XUsfSzi3Dgzt0l8w5e7DylRn15MTlMMD58dTfzddNS2kcAjQ==
-
 html-escaper@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/html-escaper/-/html-escaper-2.0.2.tgz#dfd60027da36a36dfcbe236262c00a5822681453"
@@ -10016,20 +10021,10 @@ lodash-es@^4.17.15:
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
   integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
 
-lodash.clonedeep@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
-  integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
-
 lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
-
-lodash.isplainobject@^4.0.6:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
-  integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
 
 lodash.memoize@4.x:
   version "4.1.2"
@@ -10046,20 +10041,10 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash.trim@^4.5.1:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/lodash.trim/-/lodash.trim-4.5.1.tgz#36425e7ee90be4aa5e27bcebb85b7d11ea47aa57"
-  integrity sha1-NkJefukL5KpeJ7zruFt9EepHqlc=
-
 lodash.uniq@4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
-
-lodash.without@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
-  integrity sha1-PNRXSgC2e643OpS3SHcmQFB7eqw=
 
 lodash@^4.0.1, lodash@^4.17.19:
   version "4.17.19"
@@ -11772,40 +11757,6 @@ range-parser@^1.2.1, range-parser@~1.2.1:
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
   integrity sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==
 
-ranges-apply@^5.0.14:
-  version "5.0.14"
-  resolved "https://registry.yarnpkg.com/ranges-apply/-/ranges-apply-5.0.14.tgz#86531f5a2eb5771de78d2b4e0abd40686ecee8ae"
-  integrity sha512-L8JqoncbDa0I/Nf7qfC51zX4v5eORMaI9FNUE/Fb4IRET5uEZ3oIS9HVNuRmfKaUb8T9BYRVPiJpqTaatBzwcQ==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    ranges-merge "^7.0.14"
-
-ranges-merge@^7.0.14:
-  version "7.0.14"
-  resolved "https://registry.yarnpkg.com/ranges-merge/-/ranges-merge-7.0.14.tgz#8c9e5d156c588c5d3be5afed1cd11b0c0a42e23f"
-  integrity sha512-ZDSESp3RcdOknY4jb89KZA1eIyqeF6bXij6Q+oQF9DZlKIUrAYMA9fGlpWxS+DQmwYlxIzKoDEdf58+8YqY99g==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    ranges-push "^5.0.14"
-    ranges-sort "^4.0.14"
-
-ranges-push@^5.0.14:
-  version "5.0.14"
-  resolved "https://registry.yarnpkg.com/ranges-push/-/ranges-push-5.0.14.tgz#b218556b07f6f4ac3d21f7502de1daebfebf0538"
-  integrity sha512-J3BKlZnbtGsuC0Y+uUL/6QcWLWegcOySVvIafOi3aYYSV2DGAQ4kCORdgOck+ISFqeF7JcHgFGRHdIum4ILcQQ==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    ranges-merge "^7.0.14"
-    string-collapse-leading-whitespace "^5.0.14"
-    string-trim-spaces-only "^3.0.14"
-
-ranges-sort@^4.0.14:
-  version "4.0.14"
-  resolved "https://registry.yarnpkg.com/ranges-sort/-/ranges-sort-4.0.14.tgz#7274cb40add7e8d45c879b09eebabc5d55d7aebc"
-  integrity sha512-uEzHleRB2WXacKR7wsrJc4/iXWa4oCB+oaV9BfGaulakE35I8q9IltCawFt+xVmA9Wgr6N2uHBBmwbUguj2rAw==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-
 raw-body@2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/raw-body/-/raw-body-2.4.0.tgz#a1ce6fb9c9bc356ca52e89256ab59059e13d0332"
@@ -12000,10 +11951,10 @@ react-helmet-async@^1.0.7:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
-react-hook-form@^6.15.5:
-  version "6.15.5"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-6.15.5.tgz#c2578f9ce6a6df7b33015587d40cd880dc13e2db"
-  integrity sha512-so2jEPYKdVk1olMo+HQ9D9n1hVzaPPFO4wsjgSeZ964R7q7CHsYRbVF0PGBi83FcycA5482WHflasdwLIUVENg==
+react-hook-form@^7.1.1:
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.3.4.tgz#6a246cea3ff8669168a56dd166b462d28aa2f076"
+  integrity sha512-xreG3NHFlbKFrN1Fs+rZUT5RN9zkx4qn0vyY+6tO1xNfhOkfgwkTYU1/PkktYsWw6GerMw16vX5CPdIZVfyB1A==
 
 react-image@^4.0.3:
   version "4.0.3"
@@ -13251,22 +13202,6 @@ stream-shift@^1.0.0:
   resolved "https://registry.yarnpkg.com/stream-shift/-/stream-shift-1.0.1.tgz#d7088281559ab2778424279b0877da3c392d5a3d"
   integrity sha512-AiisoFqQ0vbGcZgQPY1cdP2I76glaVA/RauYR4G4thNFgkTqr90yXTo4LYX60Jl+sIlPNHHdGSwo01AvbKUSVQ==
 
-string-collapse-leading-whitespace@^5.0.14:
-  version "5.0.14"
-  resolved "https://registry.yarnpkg.com/string-collapse-leading-whitespace/-/string-collapse-leading-whitespace-5.0.14.tgz#d48ec756ab67a35fba3c12220217b89daa9e48ab"
-  integrity sha512-hRMJP/VKbJhYGHZeGsfF6nAgccKARoMfIyqmSnHgYL8YroyWW5YsSRxpZnc8Y0XXUXQLPBWH+88CGS6hWN3siQ==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-
-string-left-right@^4.0.14:
-  version "4.0.14"
-  resolved "https://registry.yarnpkg.com/string-left-right/-/string-left-right-4.0.14.tgz#2b12ddca5bdc74db2d20fcc80caea81666af512f"
-  integrity sha512-LMmE5uX3pV+V+NVRhi9M4WuauRsVzXj4qg9XNpSoa16cLK8qwezMLpmt4tbCdNrZouLrNVVnuDG5YSZV9EwMDg==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    lodash.clonedeep "^4.5.0"
-    lodash.isplainobject "^4.0.6"
-
 string-length@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/string-length/-/string-length-3.1.0.tgz#107ef8c23456e187a8abd4a61162ff4ac6e25837"
@@ -13274,27 +13209,6 @@ string-length@^3.1.0:
   dependencies:
     astral-regex "^1.0.0"
     strip-ansi "^5.2.0"
-
-string-strip-html@^8.2.6:
-  version "8.2.11"
-  resolved "https://registry.yarnpkg.com/string-strip-html/-/string-strip-html-8.2.11.tgz#06ecc5c281e4f22f00501cfabfa70201e90c753c"
-  integrity sha512-+OdaF5wixgqUNlAaye4cHOcT3Qcn1bAmJZkATfOkxwspfuYU9GJMKsE6ItC7ggo7RPMcBGFH01oZq/+SeBUZQw==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    html-entities "^2.3.2"
-    lodash.isplainobject "^4.0.6"
-    lodash.trim "^4.5.1"
-    lodash.without "^4.4.0"
-    ranges-apply "^5.0.14"
-    ranges-push "^5.0.14"
-    string-left-right "^4.0.14"
-
-string-trim-spaces-only@^3.0.14:
-  version "3.0.14"
-  resolved "https://registry.yarnpkg.com/string-trim-spaces-only/-/string-trim-spaces-only-3.0.14.tgz#d6e5d478a7b085b9b4f974911142ffe4c559df43"
-  integrity sha512-YRluIDmTvYRM3SKFDZLoUzI9pnQotC4IIIY9REdBkdBPScamwfobNVD9/YThdiNbMJVF3ssVB6kIMSokRXtETQ==
-  dependencies:
-    "@babel/runtime" "^7.13.10"
 
 string-width@^1.0.1:
   version "1.0.2"
@@ -13720,11 +13634,6 @@ tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
   integrity sha1-9PrTM0R7wLB9TcjpIJ2POaisd+g=
-
-tinymce@^5.6.1, tinymce@^5.6.2:
-  version "5.6.2"
-  resolved "https://registry.yarnpkg.com/tinymce/-/tinymce-5.6.2.tgz#4c20c22e328c5d0baab204928dbc2b0ecbed18b4"
-  integrity sha512-z7zvM5seOPiW86/vqf08kStwW5Zs5U9oQfuqh2rTj4jEcT2QzxT0v72i2zw3W6rbTLldkAej6edFZphj5ee5zg==
 
 tmp@^0.0.33:
   version "0.0.33"
