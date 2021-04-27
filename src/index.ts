@@ -139,6 +139,9 @@ export * from './Modal/InfoSection';
 export { default as Modal } from './Modal/Modal';
 export * from './Modal/Modal';
 
+export { default as ScrollableDialogContent } from './Modal/ScrollableDialogContent';
+export * from './Modal/ScrollableDialogContent';
+
 export { default as SlideTransition } from './Modal/SlideTransition';
 export * from './Modal/SlideTransition';
 

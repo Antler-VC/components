@@ -15,7 +15,6 @@ import {
   Divider,
   DialogContent,
 } from '@material-ui/core';
-import { fade } from '@material-ui/core/styles';
 import TabContext from '@material-ui/lab/TabContext';
 import TabList from '@material-ui/lab/TabList';
 import TabPanel from '@material-ui/lab/TabPanel';
@@ -25,6 +24,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import { SlideTransitionMui } from './SlideTransition';
+import ScrollableDialogContent from './ScrollableDialogContent';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -108,28 +108,13 @@ const useStyles = makeStyles(theme =>
     bodyOnly: {
       marginTop: 'var(--spacing-modal-contents)',
       '& > * + *': { marginTop: 'var(--spacing-modal-contents)' },
-
-      // https://codepen.io/evank/pen/wWbRNO
-      background: `
-        linear-gradient(${theme.palette.background.paper} 50%, ${fade(
-        theme.palette.background.paper,
-        0
-      )}),
-        linear-gradient(${fade(theme.palette.background.paper, 0)}, ${
-        theme.palette.background.paper
-      } 50%) 0 100%,
-        linear-gradient(to top, ${theme.palette.divider} 1px, ${fade(
-        theme.palette.divider,
-        0
-      )}),
-        linear-gradient(to top, ${theme.palette.divider} 1px, ${fade(
-        theme.palette.divider,
-        0
-      )}) 0 calc(100% - 0.5px)`,
-      backgroundRepeat: 'no-repeat',
-      backgroundColor: 'white',
-      backgroundSize: '100% 2px, 100% 3px, 100% 1px, 100% 1px',
-      backgroundAttachment: 'local, local, scroll, scroll',
+    },
+    bodyOnlyDividers: {
+      margin: '0 calc(var(--spacing-modal) * -1)',
+    },
+    bodyOnlyTopDivider: {
+      marginTop: 'var(--spacing-modal-contents)',
+      marginBottom: 'calc(var(--spacing-modal-contents) * -1)',
     },
   })
 );
@@ -244,12 +229,17 @@ export default function DetailsModal({
       {header}
 
       {body ? (
-        <DialogContent
+        <ScrollableDialogContent
           key={bodyKey}
           className={clsx(classes.content, classes.bodyOnly)}
+          dividersClasses={{
+            root: classes.bodyOnlyDividers,
+            top: classes.bodyOnlyTopDivider,
+          }}
+          disableBottomDivider
         >
           {body}
-        </DialogContent>
+        </ScrollableDialogContent>
       ) : (
         <TabContext value={tab}>
           <TabList

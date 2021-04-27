@@ -1,11 +1,6 @@
 import React from 'react';
 
-import {
-  Form,
-  IFormProps,
-  FieldType,
-  Values,
-} from '@antlerengineering/form-builder';
+import { Form, IFormProps, FieldType } from '@antlerengineering/form-builder';
 
 import { generateId } from '../utils';
 
@@ -177,7 +172,7 @@ export default function JobForm({
 }: IJobFormProps) {
   const isExternal = externalJobAd && externalJobAdLink;
 
-  const handleSubmit = async (data: Values) => {
+  const handleSubmit = async (data: Record<string, any>) => {
     if (FormProps.onSubmit) await FormProps.onSubmit(data);
     if (isExternal) window.open(externalJobAdLink as string);
   };

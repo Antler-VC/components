@@ -11,16 +11,15 @@ import {
   DialogTitle,
   Typography,
   IconButton,
-  DialogContent,
   Grid,
   Button,
   ButtonProps,
 } from '@material-ui/core';
-import { fade } from '@material-ui/core/styles';
 import { spacingFn } from '../Theme/spacing';
 import CloseIcon from '@material-ui/icons/Close';
 
 import { SlideTransitionMui } from './SlideTransition';
+import ScrollableDialogContent from './ScrollableDialogContent';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -64,34 +63,15 @@ const useStyles = makeStyles(theme =>
 
       ...theme.typography.body1,
 
-      // https://codepen.io/evank/pen/wWbRNO
-      background: `
-        linear-gradient(${theme.palette.background.paper} 50%, ${fade(
-        theme.palette.background.paper,
-        0
-      )}),
-        linear-gradient(${fade(theme.palette.background.paper, 0)}, ${
-        theme.palette.background.paper
-      } 50%) 0 100%,
-        linear-gradient(to top, ${theme.palette.divider} 1px, ${fade(
-        theme.palette.divider,
-        0
-      )}),
-        linear-gradient(to top, ${theme.palette.divider} 1px, ${fade(
-        theme.palette.divider,
-        0
-      )}) 0 calc(100% - 0.5px)`,
-      backgroundRepeat: 'no-repeat',
-      backgroundColor: 'white',
-      backgroundSize: '100% 2px, 100% 3px, 100% 1px, 100% 1px',
-      backgroundAttachment: 'local, local, scroll, scroll',
-
       '&:last-child': {
         marginBottom: 'calc(var(--spacing-modal-contents) * -1)',
         paddingBottom: 'var(--spacing-modal-contents)',
       },
 
       '& > * + *': { marginTop: 'var(--spacing-modal-contents)' },
+    },
+    contentDividers: {
+      margin: '0 calc(var(--spacing-modal) * -1)',
     },
 
     actions: {
@@ -182,9 +162,12 @@ export default function Modal({
 
       {header}
 
-      <DialogContent className={classes.content}>
+      <ScrollableDialogContent
+        className={classes.content}
+        dividersClasses={{ root: classes.contentDividers }}
+      >
         {children || body}
-      </DialogContent>
+      </ScrollableDialogContent>
 
       {footer}
 
