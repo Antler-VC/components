@@ -192,11 +192,6 @@ export const defaultOverrides: ThemeOptions = {
       '@global': {
         ':root': LAYOUT_CSS_VARS,
         body: { color: themeBase.palette.text.primary },
-
-        '.MultiSelect-Paper.MultiSelect-Paper': {
-          boxShadow: `0 0 0 1px ${themeBase.palette.divider}`,
-          borderRadius: 0,
-        },
       },
     },
 
@@ -748,7 +743,6 @@ export const defaultOverrides: ThemeOptions = {
         getContentAnchorEl: null,
         anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
         transformOrigin: { vertical: 'top', horizontal: 'center' },
-        PaperProps: { variant: 'outlined' },
       },
     },
     MuiLink: {
