@@ -165,6 +165,7 @@ export default function Modal({
       <ScrollableDialogContent
         className={classes.content}
         dividersClasses={{ root: classes.contentDividers }}
+        disableBottomDivider={!footer && !actions}
       >
         {children || body}
       </ScrollableDialogContent>
