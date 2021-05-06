@@ -25,7 +25,6 @@ const useStyles = makeStyles(theme =>
       },
 
       '& a': {
-        fontWeight: 'bold',
         color: theme.palette.primary.main,
         textDecoration: 'underline',
 
