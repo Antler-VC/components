@@ -191,6 +191,12 @@ export const defaultOverrides: ThemeOptions = {
     MuiCssBaseline: {
       '@global': {
         ':root': LAYOUT_CSS_VARS,
+
+        html: {
+          // Fix iPhone text zoom in horizontal orientation
+          '-webkit-text-size-adjust': 'none',
+        },
+
         body: { color: themeBase.palette.text.primary },
       },
     },
