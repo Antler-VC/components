@@ -198,6 +198,7 @@ export const defaultOverrides: ThemeOptions = {
         },
 
         body: { color: themeBase.palette.text.primary },
+        a: { color: themeBase.palette.primary.main },
       },
     },
 
