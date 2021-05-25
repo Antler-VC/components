@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       display: 'flex',
-      alignItems: 'flex-end',
+      alignItems: 'center',
 
       '* + &': { marginTop: spacingFn('l') },
       marginBottom: spacingFn('m'),
