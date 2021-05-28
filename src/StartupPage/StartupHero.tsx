@@ -88,7 +88,7 @@ export default function StartupHero({
             imageUrl={logo[0].downloadURL}
             size="400x400"
             shape="square"
-            style={{ maxWidth: 200, height: 32 }}
+            style={{ width: 200, height: 32 }}
           />
         )}
 
