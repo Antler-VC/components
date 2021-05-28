@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-interface IStartupUpdateModal extends Omit<IModalProps, 'title'> {
+export interface IStartupUpdateModalProps extends Omit<IModalProps, 'title'> {
   data: {
     logo?: { downloadURL: string }[];
     featuredImage?: { downloadURL: string }[];
@@ -61,7 +61,7 @@ interface IStartupUpdateModal extends Omit<IModalProps, 'title'> {
 export default function StartupUpdateModal({
   data,
   ...props
-}: IStartupUpdateModal) {
+}: IStartupUpdateModalProps) {
   const classes = useStyles();
   const theme = useTheme();
   const isLg = useMediaQuery(theme.breakpoints.up('lg'));
