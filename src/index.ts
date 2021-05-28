@@ -184,6 +184,30 @@ export * from './StartupCard/StartupCardContents';
 export { default as StartupCardSkeleton } from './StartupCard/StartupCardSkeleton';
 export * from './StartupCard/StartupCardSkeleton';
 
+export { default as StartupFounderCard } from './StartupPage/StartupFounderCard';
+export * from './StartupPage/StartupFounderCard';
+
+export { default as StartupFounders } from './StartupPage/StartupFounders';
+export * from './StartupPage/StartupFounders';
+
+export { default as StartupHero } from './StartupPage/StartupHero';
+export * from './StartupPage/StartupHero';
+
+export { default as StartupInfo } from './StartupPage/StartupInfo';
+export * from './StartupPage/StartupInfo';
+
+export { default as StartupJobCard } from './StartupPage/StartupJobCard';
+export * from './StartupPage/StartupJobCard';
+
+export { default as StartupMedia } from './StartupPage/StartupMedia';
+export * from './StartupPage/StartupMedia';
+
+export { default as StartupUpdateCard } from './StartupPage/StartupUpdateCard';
+export * from './StartupPage/StartupUpdateCard';
+
+export { default as StartupUpdateModal } from './StartupPage/StartupUpdateModal';
+export * from './StartupPage/StartupUpdateModal';
+
 export { default as Theme } from './Theme/Theme';
 export * from './Theme/Theme';
 
