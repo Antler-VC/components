@@ -46,8 +46,7 @@ const useStyles = makeStyles(theme =>
     socialButtons: { margin: theme.spacing(0, 0, -1, -1.75) },
 
     title: { color: theme.palette.text.disabled },
-    name: { fontWeight: 'normal' },
-    bio: { whiteSpace: 'pre-line' },
+    bio: { whiteSpace: 'pre-line', marginTop: theme.spacing(3) },
 
     navButtons: {
       margin: theme.spacing(3, -8, -8),
@@ -82,8 +81,9 @@ const useStyles = makeStyles(theme =>
 );
 
 export interface IProfileModalProps {
-  title: string;
+  title?: string;
   firstName: string;
+  preferredName?: string;
   lastName: string;
   profilePhoto?: {
     downloadURL: string;
@@ -109,6 +109,7 @@ export interface IProfileModalProps {
 export default function ProfileModal({
   title,
   firstName,
+  preferredName,
   lastName,
   profilePhoto,
   bio,
@@ -145,7 +146,7 @@ export default function ProfileModal({
     <>
       {Array.isArray(employerLogos) && employerLogos.length > 0 && (
         <Grid item>
-          <EmployerLogos employerLogos={employerLogos} size={60} spacing={2} />
+          <EmployerLogos employerLogos={employerLogos} size={40} spacing={2} />
         </Grid>
       )}
 
@@ -205,24 +206,17 @@ export default function ProfileModal({
             </Grid>
 
             <Grid item xs>
+              <Typography variant="h5" component="h1" id="modal-name" paragraph>
+                {preferredName || firstName} {lastName}
+              </Typography>
               <Typography
-                variant="subtitle2"
+                variant="overline"
                 component="p"
-                gutterBottom
+                color="textSecondary"
+                paragraph
                 className={classes.title}
               >
                 {title}
-              </Typography>
-              <Typography
-                variant="h5"
-                component="h1"
-                id="modal-name"
-                className={classes.name}
-                paragraph
-              >
-                {firstName}
-                <br />
-                {lastName}
               </Typography>
 
               <Typography

@@ -98,6 +98,7 @@
     "react-element-scroll-hook": "^1.1.0",
     "react-image": "^4.0.3",
     "react-player": "^2.9.0",
+    "react-responsive-carousel": "^3.2.18",
     "react-share": "^4.3.0",
     "react-virtualized": "^9.22.3",
     "use-persisted-state": "^0.3.0"

@@ -5,6 +5,14 @@ export const lineBreakToBr = (str?: string) =>
     ? DOMPurify.sanitize(str.replace(/\n\s*\n/g, '<div class="spacer"></div>'))
     : '';
 
+export const getDomain = (url: string) =>
+  typeof url === 'string'
+    ? url
+        .replace(/https?:\/\//, '')
+        .replace('www.', '')
+        .split('/')[0]
+    : '';
+
 const idCharacters =
   '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 export function generateId(length: number) {
