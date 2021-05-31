@@ -21,6 +21,10 @@ import Thumbnail from '../Thumbnail';
 
 const useStyles = makeStyles(theme =>
   createStyles({
+    paperWidthMd: {
+      maxWidth: 1000, // match antler.co
+    },
+
     content: {
       [theme.breakpoints.down('sm')]: { maxWidth: 'none' },
     },
@@ -167,6 +171,7 @@ export default function ProfileModal({
       aria-labelledby="modal-name"
       onClose={handleClose}
       fullScreen={isXs}
+      classes={{ paperWidthMd: classes.paperWidthMd }}
       overrideClasses={{ content: classes.content }}
       onKeyUp={handleKeyUp}
     >
