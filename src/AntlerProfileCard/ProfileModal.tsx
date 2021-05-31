@@ -240,14 +240,14 @@ export default function ProfileModal({
             aria-label="Previous profile"
             className={classes.prevButton}
           >
-            <ChevronLeftIcon fontSize="large" />
+            <ChevronLeftIcon />
           </Button>
           <Button
             onClick={onNext}
             aria-label="Next profile"
             className={classes.nextButton}
           >
-            <ChevronRightIcon fontSize="large" />
+            <ChevronRightIcon />
           </Button>
         </div>
       )}

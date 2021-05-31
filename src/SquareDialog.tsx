@@ -81,7 +81,7 @@ export default function SquareDialog({
           className={clsx(classes.closeButton, overrideClasses?.closeButton)}
           aria-label="Close"
         >
-          <CloseIcon fontSize="large" />
+          <CloseIcon />
         </IconButton>
       )}
 
