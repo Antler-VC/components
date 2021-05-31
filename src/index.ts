@@ -208,6 +208,9 @@ export * from './StartupPage/StartupUpdateCard';
 export { default as StartupUpdateModal } from './StartupPage/StartupUpdateModal';
 export * from './StartupPage/StartupUpdateModal';
 
+export { default as startupTheme } from './StartupPage/startupTheme';
+export * from './StartupPage/startupTheme';
+
 export { default as Theme } from './Theme/Theme';
 export * from './Theme/Theme';
 
