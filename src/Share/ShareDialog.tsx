@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import ShareIcon from '@material-ui/icons/Share';
 
-import SquareDialog from '../SquareDialog';
+import Modal from '../Modal/Modal';
 import ShareButtons from './ShareButtons';
 
 const useStyles = makeStyles(theme =>
@@ -54,33 +54,21 @@ export const ShareDialog = React.forwardRef(
           <ShareIcon />
         </IconButton>
 
-        <SquareDialog open={open} onClose={handleClose}>
-          <Typography
-            variant="subtitle2"
-            component="h1"
-            className={classes.subtitle}
-            gutterBottom
-            id="dialog-title"
-          >
-            {heading || 'Share'}
-          </Typography>
+        {open && (
+          <Modal onClose={handleClose} title={heading || 'Share'}>
+            {typeof window !== 'undefined' && (
+              <Typography variant="body1" className={classes.link}>
+                {url || window.location.origin + window.location.pathname}
+              </Typography>
+            )}
 
-          {typeof window !== 'undefined' && (
-            <Typography
-              variant="subtitle2"
-              component="h2"
-              className={classes.link}
-            >
-              {url || window.location.origin + window.location.pathname}
-            </Typography>
-          )}
-
-          <ShareButtons
-            size={isXs ? 24 : 36}
-            spacing={isXs ? 1 : 2}
-            url={url}
-          />
-        </SquareDialog>
+            <ShareButtons
+              size={isXs ? 24 : 36}
+              spacing={isXs ? 1 : 2}
+              url={url}
+            />
+          </Modal>
+        )}
       </>
     );
   }
