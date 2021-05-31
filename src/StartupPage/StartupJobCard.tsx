@@ -1,6 +1,7 @@
 import React from 'react';
+import { format, differenceInDays } from 'date-fns';
 
-import { Typography } from '@material-ui/core';
+import { useTheme, Typography } from '@material-ui/core';
 
 import ProfileCard, { IProfileCardProps } from '../Card/ProfileCard';
 import Thumbnail from '../Thumbnail';
@@ -29,6 +30,13 @@ export default function StartupJobCard({
 
   actionRows,
 }: IStartupJobCardProps) {
+  const theme = useTheme();
+
+  const dateDiff = differenceInDays(
+    data.applicationDeadline * 1000,
+    new Date()
+  );
+
   return (
     <ProfileCard
       overline={teamName}
@@ -63,6 +71,25 @@ export default function StartupJobCard({
             children={data.description}
             style={{ marginTop: 0 }}
           />
+
+          <Typography
+            variant="button"
+            style={{
+              color:
+                dateDiff <= 3
+                  ? theme.palette.error.main
+                  : theme.palette.text.disabled,
+            }}
+          >
+            {dateDiff <= 0
+              ? 'Last day to apply'
+              : dateDiff <= 3
+              ? `${dateDiff} day${dateDiff !== 1 ? 's' : ''} left`
+              : `Until ${format(
+                  data.applicationDeadline * 1000,
+                  'd MMM yyyy'
+                )}`}
+          </Typography>
         </>
       }
       actionRows={actionRows}

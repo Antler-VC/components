@@ -27,7 +27,7 @@ export default {
       control: { type: 'text' },
     },
     applicationDeadline: {
-      defaultValue: new Date().getTime(),
+      defaultValue: new Date().getTime() / 1000,
       control: { type: 'number' },
     },
   },
