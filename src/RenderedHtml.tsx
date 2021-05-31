@@ -15,9 +15,9 @@ const useStyles = makeStyles(theme =>
 
       '& h1, & h2, & h3, & h4, & h5, & h6': {
         fontFamily: '"Europa", "Open Sans", sans-serif',
+        fontWeight: 'normal',
         margin: 0,
         lineHeight: 1.2,
-        fontWeight: 'bold',
       },
       '& p': {
         margin: 0,
@@ -108,7 +108,12 @@ export default function RenderedHtml({
   return (
     <div
       className={clsx(classes.root, className)}
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(html) }}
+      dangerouslySetInnerHTML={{
+        __html: DOMPurify.sanitize(html, {
+          FORBID_TAGS: ['style'],
+          FORBID_ATTR: ['style'],
+        }),
+      }}
       {...props}
     />
   );
