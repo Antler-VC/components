@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme =>
       maxWidth: '100%',
       color: theme.palette.text.primary,
 
-      [theme.breakpoints.up('lg')]: {
+      [theme.breakpoints.up('md')]: {
         fontSize: 21,
         lineHeight: '32px',
         // See https://app.zeplin.io/project/5df8c01a6049c216fb49a5e9/screen/608fc33a86ddb95bb09f1f98?did=6098ed3c35d0e010d3b00107&cmid=6098ed3c35d0e010d3b00108
@@ -70,7 +70,7 @@ export default function StartupUpdateModal({
 }: IStartupUpdateModalProps) {
   const classes = useStyles();
   const theme = useTheme();
-  const isLg = useMediaQuery(theme.breakpoints.up('lg'));
+  const isMd = useMediaQuery(theme.breakpoints.up('md'));
 
   if (_isEmpty(data)) return null;
 
@@ -90,7 +90,7 @@ export default function StartupUpdateModal({
       body={
         <>
           <Typography
-            variant="h5"
+            variant={isMd ? 'h4' : 'h5'}
             component="h1"
             color="textPrimary"
             gutterBottom
@@ -129,7 +129,7 @@ export default function StartupUpdateModal({
           />
         </>
       }
-      maxWidth={isLg ? 'md' : 'sm'}
+      maxWidth={isMd ? 'md' : 'sm'}
       classes={{ paperWidthMd: classes.paperWidthMd }}
       {...props}
     />
