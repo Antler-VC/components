@@ -9,7 +9,7 @@ import {
   Chip,
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(theme =>
   createStyles({
     grid: {
       display: 'grid',
@@ -52,46 +52,48 @@ export default function StartupInfo({
 
   return (
     <section className={clsx(classes.grid, className)}>
-      {fields.map((column, i) => (
-        <dl key={i}>
-          {column.map((field) => {
-            const value = data[field.key];
-            if (!value || (Array.isArray(value) && value.length === 0))
-              return null;
+      {fields.map((column, i) => {
+        const columnContent = column.map(field => {
+          const value = data[field.key];
+          if (!value || (Array.isArray(value) && value.length === 0))
+            return null;
 
-            let renderedValue: React.ReactNode = null;
+          let renderedValue: React.ReactNode = null;
 
-            if (field.variant === 'chip' && Array.isArray(value))
-              renderedValue = (
-                <Grid
-                  container
-                  spacing={1}
-                  component="ul"
-                  className={classes.chipList}
-                >
-                  {value.map((item) => (
-                    <Grid item component="li">
-                      <Chip label={item} />
-                    </Grid>
-                  ))}
-                </Grid>
-              );
-            else if (Array.isArray(value)) renderedValue = value.join(', ');
-            else renderedValue = value;
-
-            return (
-              <React.Fragment key={field.key}>
-                <Typography component="dt" variant="overline">
-                  {field.label}
-                </Typography>
-                <Typography component="dd" variant="body2">
-                  {renderedValue}
-                </Typography>
-              </React.Fragment>
+          if (field.variant === 'chip' && Array.isArray(value))
+            renderedValue = (
+              <Grid
+                container
+                spacing={1}
+                component="ul"
+                className={classes.chipList}
+              >
+                {value.map(item => (
+                  <Grid item component="li">
+                    <Chip label={item} />
+                  </Grid>
+                ))}
+              </Grid>
             );
-          })}
-        </dl>
-      ))}
+          else if (Array.isArray(value)) renderedValue = value.join(', ');
+          else renderedValue = value;
+
+          return (
+            <React.Fragment key={field.key}>
+              <Typography component="dt" variant="overline">
+                {field.label}
+              </Typography>
+              <Typography component="dd" variant="body2">
+                {renderedValue}
+              </Typography>
+            </React.Fragment>
+          );
+        });
+
+        if (columnContent.every(el => el === null)) return null;
+
+        return <dl key={i}>{columnContent}</dl>;
+      })}
     </section>
   );
 }
