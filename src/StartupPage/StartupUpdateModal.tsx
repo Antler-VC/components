@@ -40,6 +40,12 @@ const useStyles = makeStyles(theme =>
       ...theme.typography.body1,
       maxWidth: '100%',
       color: theme.palette.text.primary,
+
+      [theme.breakpoints.up('lg')]: {
+        fontSize: 21,
+        lineHeight: '32px',
+        // See https://app.zeplin.io/project/5df8c01a6049c216fb49a5e9/screen/608fc33a86ddb95bb09f1f98?did=6098ed3c35d0e010d3b00107&cmid=6098ed3c35d0e010d3b00108
+      },
     },
   })
 );
