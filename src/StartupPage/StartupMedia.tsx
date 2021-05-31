@@ -9,7 +9,7 @@ import { makeStyles, createStyles, Fab } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       position: 'relative',
@@ -73,7 +73,7 @@ export default function StartupMedia({
       />
     ) : null,
     ...(Array.isArray(additionalImages) && additionalImages[0]?.downloadURL
-      ? additionalImages.map((img) => (
+      ? additionalImages.map(img => (
           <img
             key={img?.downloadURL}
             src={img?.downloadURL}
@@ -82,7 +82,7 @@ export default function StartupMedia({
           />
         ))
       : []),
-  ].filter((x) => x !== null) as React.ReactChild[];
+  ].filter(x => x !== null) as React.ReactChild[];
 
   if (slides.length === 0) return null;
 
@@ -91,7 +91,9 @@ export default function StartupMedia({
       {slides.length > 1 && (
         <Fab
           aria-label="Previous Slide"
-          onClick={() => setSelected((i) => Math.abs((i - 1) % slides.length))}
+          onClick={() =>
+            setSelected(i => (i === 0 ? slides.length - 1 : i - 1))
+          }
           size="small"
           className={clsx(classes.fab, classes.fabPrev)}
         >
@@ -101,7 +103,7 @@ export default function StartupMedia({
       {slides.length > 1 && (
         <Fab
           aria-label="Next Slide"
-          onClick={() => setSelected((i) => Math.abs((i + 1) % slides.length))}
+          onClick={() => setSelected(i => Math.abs((i + 1) % slides.length))}
           size="small"
           className={clsx(classes.fab, classes.fabNext)}
         >
