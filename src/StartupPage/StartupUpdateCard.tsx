@@ -1,4 +1,5 @@
 import React from 'react';
+import { stripHtml } from 'string-strip-html';
 
 import {
   makeStyles,
@@ -10,7 +11,7 @@ import {
 } from '@material-ui/core';
 
 import BasicCard, { IBasicCardProps } from '../Card/BasicCard';
-import RenderedHtml from '../RenderedHtml';
+import PlainTextWithLinks from '../PlainTextWithLinks';
 import Thumbnail from '../Thumbnail';
 import GoIcon from '../GoIcon';
 
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme =>
       lineClamp: 5,
       boxOrient: 'vertical',
       overflow: 'hidden',
-      maxHeight: 24 * 5,
+      flexGrow: 1,
 
       marginTop: 0,
       '& > *:first-child': {
@@ -127,10 +128,11 @@ export default function StartupUpdateCard({
             {data.updateHeader}
           </Typography>
 
-          <RenderedHtml
-            html={data.updateIntroduction}
-            className={classes.description}
-          />
+          <div className={classes.description}>
+            <PlainTextWithLinks>
+              {stripHtml(data.updateIntroduction).result}
+            </PlainTextWithLinks>
+          </div>
         </>
       }
       {...props}
