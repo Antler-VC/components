@@ -56,6 +56,7 @@ const jobApplicationForm = (id: string) => [
   },
   {
     type: FieldType.contentParagraph,
+    name: '_contentParagraph_copyToBeEmailed',
     label:
       'A copy of your responses will be emailed to the address you provided.',
   },
@@ -117,7 +118,8 @@ const jobApplicationFormWithPortfolio = (id: string) => [
     required: true,
   },
   {
-    type: FieldType.paragraph,
+    type: FieldType.contentParagraph,
+    name: '_contentParagraph_copyToBeEmailed',
     label:
       'A copy of your responses will be emailed to the address you provided.',
   },
