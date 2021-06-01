@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { Props } from 'react-responsive-carousel/lib/ts/components/Carousel';
 import ReactPlayer from 'react-player';
 
 import { makeStyles, createStyles, Fab } from '@material-ui/core';
@@ -49,12 +50,14 @@ export interface IStartupMediaProps {
   pitchVideo?: string;
   headerImage?: { downloadURL: string }[];
   additionalImages?: { downloadURL: string }[];
+  CarouselProps?: Partial<Props>;
 }
 
 export default function StartupMedia({
   pitchVideo,
   headerImage,
   additionalImages,
+  CarouselProps,
 }: IStartupMediaProps) {
   const classes = useStyles();
 
@@ -119,6 +122,8 @@ export default function StartupMedia({
         showStatus={false}
         showThumbs={false}
         interval={5000}
+        dynamicHeight
+        {...CarouselProps}
       >
         {slides}
       </Carousel>
