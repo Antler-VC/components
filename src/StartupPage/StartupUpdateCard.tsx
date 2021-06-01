@@ -95,7 +95,11 @@ export default function StartupUpdateCard({
               <Button
                 color="secondary"
                 component="a"
-                href={data.website}
+                href={
+                  data.website.startsWith('http')
+                    ? data.website
+                    : `https://${data.website}`
+                }
                 target="_blank"
                 rel="noopener"
                 endIcon={<GoIcon />}
