@@ -94,7 +94,7 @@ export default function StartupHero({
         )}
 
         <Typography variant="overline" align="right" display="block">
-          {[location, year].join(', ')}
+          {[location, year].filter(x => !!x).join(', ')}
         </Typography>
       </div>
 

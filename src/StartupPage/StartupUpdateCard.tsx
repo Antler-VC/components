@@ -60,11 +60,13 @@ interface IStartupUpdateCardProps extends Partial<IBasicCardProps> {
     updateIntroduction: string;
   };
   showLogo?: boolean;
+  startupPageButton?: React.ReactNode;
 }
 
 export default function StartupUpdateCard({
   data,
   showLogo,
+  startupPageButton,
   ...props
 }: IStartupUpdateCardProps) {
   const classes = useStyles();
@@ -92,7 +94,9 @@ export default function StartupUpdateCard({
                 <div />
               )}
 
-              {data.website && (
+              {startupPageButton}
+
+              {data.website && !startupPageButton && (
                 <Button
                   color="secondary"
                   component="a"
