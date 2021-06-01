@@ -92,21 +92,23 @@ export default function StartupUpdateCard({
                 <div />
               )}
 
-              <Button
-                color="secondary"
-                component="a"
-                href={
-                  data.website.startsWith('http')
-                    ? data.website
-                    : `https://${data.website}`
-                }
-                target="_blank"
-                rel="noopener"
-                endIcon={<GoIcon />}
-                className={classes.companyUrl}
-              >
-                {data.teamName}
-              </Button>
+              {data.website && (
+                <Button
+                  color="secondary"
+                  component="a"
+                  href={
+                    data.website.startsWith('http')
+                      ? data.website
+                      : `https://${data.website}`
+                  }
+                  target="_blank"
+                  rel="noopener"
+                  endIcon={<GoIcon />}
+                  className={classes.companyUrl}
+                >
+                  {data.teamName}
+                </Button>
+              )}
             </Box>
           )}
 
