@@ -3,8 +3,7 @@ import React from 'react';
 import { Form, IFormProps, FieldType } from '@antlerengineering/form-builder';
 
 import { generateId } from '../utils';
-
-import { IJobDialogProps } from './JobDialog';
+import { IStartupJobModalProps } from './StartupJobModal';
 
 const jobApplicationForm = (id: string) => [
   {
@@ -161,15 +160,15 @@ const jobApplicationExternalForm = [
   },
 ];
 
-export interface IJobFormProps {
-  data: IJobDialogProps['data'];
+export interface IStartupJobFormProps {
+  data: IStartupJobModalProps['data'];
   FormProps: Partial<IFormProps>;
 }
 
-export default function JobForm({
+export default function StartupJobForm({
   data: { externalJobAd, externalJobAdLink, portfolioLink },
   FormProps,
-}: IJobFormProps) {
+}: IStartupJobFormProps) {
   const isExternal = externalJobAd && externalJobAdLink;
 
   const handleSubmit = async (data: Record<string, any>) => {
@@ -178,18 +177,16 @@ export default function JobForm({
   };
 
   return (
-    <div style={{ marginTop: -36 }}>
-      <Form
-        {...FormProps}
-        fields={
-          isExternal
-            ? jobApplicationExternalForm
-            : portfolioLink
-            ? jobApplicationFormWithPortfolio(generateId(20))
-            : jobApplicationForm(generateId(20))
-        }
-        onSubmit={handleSubmit}
-      />
-    </div>
+    <Form
+      {...FormProps}
+      fields={
+        isExternal
+          ? jobApplicationExternalForm
+          : portfolioLink
+          ? jobApplicationFormWithPortfolio(generateId(20))
+          : jobApplicationForm(generateId(20))
+      }
+      onSubmit={handleSubmit}
+    />
   );
 }

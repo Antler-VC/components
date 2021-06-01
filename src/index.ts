@@ -118,18 +118,6 @@ export * from './HelpPopup';
 export { default as JobCard } from './JobCard';
 export * from './JobCard';
 
-export { default as JobDetails } from './JobDialog/JobDetails';
-export * from './JobDialog/JobDetails';
-
-export { default as JobDialog } from './JobDialog/JobDialog';
-export * from './JobDialog/JobDialog';
-
-export { default as JobDialogContents } from './JobDialog/JobDialogContents';
-export * from './JobDialog/JobDialogContents';
-
-export { default as JobForm } from './JobDialog/JobForm';
-export * from './JobDialog/JobForm';
-
 export { default as DetailsModal } from './Modal/DetailsModal';
 export * from './Modal/DetailsModal';
 
@@ -183,6 +171,15 @@ export * from './StartupCard/StartupCardContents';
 
 export { default as StartupCardSkeleton } from './StartupCard/StartupCardSkeleton';
 export * from './StartupCard/StartupCardSkeleton';
+
+export { default as StartupJobDetails } from './StartupJobModal/StartupJobDetails';
+export * from './StartupJobModal/StartupJobDetails';
+
+export { default as StartupJobForm } from './StartupJobModal/StartupJobForm';
+export * from './StartupJobModal/StartupJobForm';
+
+export { default as StartupJobModal } from './StartupJobModal/StartupJobModal';
+export * from './StartupJobModal/StartupJobModal';
 
 export { default as StartupFounderCard } from './StartupPage/StartupFounderCard';
 export * from './StartupPage/StartupFounderCard';

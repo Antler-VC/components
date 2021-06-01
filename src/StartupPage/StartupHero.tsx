@@ -94,7 +94,7 @@ export default function StartupHero({
         )}
 
         <Typography variant="overline" align="right" display="block">
-          {location}, {year}
+          {[location, year].join(', ')}
         </Typography>
       </div>
 

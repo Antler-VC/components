@@ -116,6 +116,9 @@ const useStyles = makeStyles(theme =>
       marginTop: 'var(--spacing-modal-contents)',
       marginBottom: 'calc(var(--spacing-modal-contents) * -1)',
     },
+    bodyWithFooter: {
+      paddingBottom: 0,
+    },
   })
 );
 
@@ -205,9 +208,10 @@ export default function DetailsModal({
       {!!onPrev && !isTablet && (
         <Zoom in={hasPrev}>
           <Fab
-            onClick={onPrev}
+            onClick={hasPrev ? onPrev : undefined}
             color="secondary"
             className={clsx(classes.navButton, classes.navButtonPrev)}
+            aria-label="Previous"
           >
             <ChevronLeftIcon />
           </Fab>
@@ -217,9 +221,10 @@ export default function DetailsModal({
       {!!onNext && !isTablet && (
         <Zoom in={hasNext}>
           <Fab
-            onClick={onNext}
+            onClick={hasNext ? onNext : undefined}
             color="secondary"
             className={clsx(classes.navButton, classes.navButtonNext)}
+            aria-label="Next"
           >
             <ChevronRightIcon />
           </Fab>
@@ -231,12 +236,16 @@ export default function DetailsModal({
       {body ? (
         <ScrollableDialogContent
           key={bodyKey}
-          className={clsx(classes.content, classes.bodyOnly)}
+          className={clsx(
+            classes.content,
+            classes.bodyOnly,
+            !!footer && classes.bodyWithFooter
+          )}
           dividersClasses={{
             root: classes.bodyOnlyDividers,
             top: classes.bodyOnlyTopDivider,
           }}
-          disableBottomDivider
+          disableBottomDivider={!footer}
         >
           {body}
         </ScrollableDialogContent>

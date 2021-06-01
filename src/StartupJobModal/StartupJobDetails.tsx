@@ -3,59 +3,41 @@ import { format } from 'date-fns';
 
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 
-import { IJobDialogProps } from './JobDialog';
+import { IStartupJobModalProps } from './StartupJobModal';
 import PlainTextWithLinks from '../PlainTextWithLinks';
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles(() =>
   createStyles({
-    root: {},
-
-    subheading: {
-      color: theme.palette.text.disabled,
-      marginBottom: theme.spacing(1),
-      display: 'block',
-
-      '* + &': { marginTop: theme.spacing(4) },
-    },
-
     description: {
       whiteSpace: 'pre-line',
-      marginBottom: theme.spacing(8),
 
+      marginBottom: 'var(--spacing-modal-contents)',
       '&:last-child': { marginBottom: 0 },
     },
   })
 );
 
-export default function JobDetails({
+export default function StartupJobDetails({
   data: {
     description,
     descriptionResponsibilities,
     descriptionOffers,
     applicationDeadline,
   },
-}: Pick<IJobDialogProps, 'data'>) {
+}: Pick<IStartupJobModalProps, 'data'>) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Typography
-        variant="button"
-        component="h2"
-        className={classes.subheading}
-      >
+    <>
+      <Typography variant="overline" component="h3" gutterBottom>
         Application Deadline
       </Typography>
 
-      <Typography variant="overline">
-        {format(applicationDeadline * 1000, 'd MMM yyyy')}
+      <Typography className={classes.description}>
+        {format(applicationDeadline * 1000, 'd MMMM yyyy')}
       </Typography>
 
-      <Typography
-        variant="button"
-        component="h2"
-        className={classes.subheading}
-      >
+      <Typography variant="overline" component="h3" gutterBottom>
         Job Description
       </Typography>
 
@@ -63,11 +45,7 @@ export default function JobDetails({
         <PlainTextWithLinks>{description}</PlainTextWithLinks>
       </Typography>
 
-      <Typography
-        variant="button"
-        component="h2"
-        className={classes.subheading}
-      >
+      <Typography variant="overline" component="h3" gutterBottom>
         Responsibilities
       </Typography>
 
@@ -76,11 +54,7 @@ export default function JobDetails({
       </Typography>
 
       {descriptionOffers && (
-        <Typography
-          variant="button"
-          component="h2"
-          className={classes.subheading}
-        >
+        <Typography variant="overline" component="h3" gutterBottom>
           What We Offer
         </Typography>
       )}
@@ -90,6 +64,6 @@ export default function JobDetails({
           <PlainTextWithLinks>{descriptionOffers}</PlainTextWithLinks>
         </Typography>
       )}
-    </div>
+    </>
   );
 }
