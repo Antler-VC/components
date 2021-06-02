@@ -28,7 +28,7 @@ export default function StartupJobCard({
   teamName,
   logo,
 
-  actionRows,
+  actionRows = [],
 }: IStartupJobCardProps) {
   const theme = useTheme();
 
@@ -69,30 +69,35 @@ export default function StartupJobCard({
           <TruncatedDescription
             expanded={false}
             children={data.description}
-            style={{ marginTop: 0 }}
+            style={{ marginTop: 0, flexGrow: 1 }}
           />
-
-          <Typography
-            variant="button"
-            style={{
-              color:
-                dateDiff <= 3
-                  ? theme.palette.error.main
-                  : theme.palette.text.disabled,
-            }}
-          >
-            {dateDiff <= 0
-              ? 'Last day to apply'
-              : dateDiff <= 3
-              ? `${dateDiff} day${dateDiff !== 1 ? 's' : ''} left`
-              : `Until ${format(
-                  data.applicationDeadline * 1000,
-                  'd MMM yyyy'
-                )}`}
-          </Typography>
         </>
       }
-      actionRows={actionRows}
+      actionRows={[
+        {
+          primaryElement: (
+            <Typography
+              variant="button"
+              style={{
+                color:
+                  dateDiff <= 3
+                    ? theme.palette.error.main
+                    : theme.palette.text.disabled,
+              }}
+            >
+              {dateDiff <= 0
+                ? 'Last day to apply'
+                : dateDiff <= 3
+                ? `${dateDiff} day${dateDiff !== 1 ? 's' : ''} left`
+                : `Until ${format(
+                    data.applicationDeadline * 1000,
+                    'd MMM yyyy'
+                  )}`}
+            </Typography>
+          ),
+        },
+        ...actionRows,
+      ]}
     />
   );
 }
