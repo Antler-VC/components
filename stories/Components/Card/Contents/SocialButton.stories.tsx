@@ -16,6 +16,8 @@ export const SocialButton = args => (
   <>
     <Button {...args} url="#" icon="twitter" />
     <Button {...args} url="#" icon="linkedin" />
+    <Button {...args} url="#" icon="crunchbase" />
+    <Button {...args} url="#" icon="angellist" />
     <Button {...args} url="#" icon="whatsapp" />
     <Button {...args} url="#" icon="slack" />
     <Button {...args} url="#" icon="video" />

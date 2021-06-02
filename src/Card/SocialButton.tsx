@@ -13,6 +13,8 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import VideoIcon from '@material-ui/icons/PlayCircleFilled';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import SlackIcon from '../assets/Slack';
+import CrunchbaseIcon from '../assets/Crunchbase';
+import AngelListIcon from '../assets/AngelList';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -43,6 +45,12 @@ const getColor = (icon: ISocialButtonProps['icon']) => {
     case 'slack':
       return '#4A154B';
 
+    case 'crunchbase':
+      return '#0588d1';
+
+    case 'angellist':
+      return '#000';
+
     default:
       return '#282829';
   }
@@ -54,7 +62,14 @@ export interface ISocialButtonProps extends Partial<IconButtonProps> {
   /** URL to open in new tab */
   url?: string;
   /** Icon to display */
-  icon?: 'linkedin' | 'twitter' | 'video' | 'whatsapp' | 'slack';
+  icon?:
+    | 'linkedin'
+    | 'twitter'
+    | 'video'
+    | 'whatsapp'
+    | 'slack'
+    | 'crunchbase'
+    | 'angellist';
   /** Optionally show a disabled button if no URL provided */
   showDisabled?: boolean;
 }
@@ -89,6 +104,8 @@ export default function SocialButton({
       {icon === 'video' && <VideoIcon color="inherit" />}
       {icon === 'whatsapp' && <WhatsAppIcon color="inherit" />}
       {icon === 'slack' && <SlackIcon color="inherit" />}
+      {icon === 'crunchbase' && <CrunchbaseIcon color="inherit" />}
+      {icon === 'angellist' && <AngelListIcon color="inherit" />}
     </IconButton>
   );
 }
