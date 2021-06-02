@@ -5,6 +5,11 @@ export const generateStartupTheme = (color?: string) => {
   if (!color) return defaultTheme;
 
   const primary = defaultTheme.palette.augmentColor({ main: color });
+  const primaryTextColor =
+    getContrastRatio(defaultTheme.palette.background.default, primary.main) <
+    4.5
+      ? primary.dark
+      : primary.main;
 
   return generateTheme({
     palette: { primary } as any,
@@ -24,23 +29,13 @@ export const generateStartupTheme = (color?: string) => {
           },
         },
         outlinedPrimary: {
-          color:
-            getContrastRatio(
-              defaultTheme.palette.background.default,
-              primary.main
-            ) < 4.5
-              ? primary.dark
-              : primary.main,
+          color: primaryTextColor,
+          'a&:hover': { color: primaryTextColor }, // antler.co fix
           '&:hover, &$focusVisible': { borderColor: primary.main },
         },
         textPrimary: {
-          color:
-            getContrastRatio(
-              defaultTheme.palette.background.default,
-              primary.main
-            ) < 4.5
-              ? primary.dark
-              : primary.main,
+          color: primaryTextColor,
+          'a&:hover': { color: primaryTextColor }, // antler.co fix
         },
       },
     },
