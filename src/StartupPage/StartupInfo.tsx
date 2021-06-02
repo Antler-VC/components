@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import _isFunction from 'lodash/isFunction';
 
 import {
   makeStyles,
@@ -54,7 +55,12 @@ export default function StartupInfo({
     <section className={clsx(classes.grid, className)}>
       {fields.map((column, i) => {
         const columnContent = column.map(field => {
-          const value = data[field.key];
+          let value = data[field.key];
+
+          // transform the field if function provided
+          if (_isFunction(field.transformer)) value = field.transformer(value);
+
+          // remove the field if value is undefined or empty array or empty string
           if (!value || (Array.isArray(value) && value.length === 0))
             return null;
 
