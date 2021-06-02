@@ -115,9 +115,6 @@ export * from './GoIcon';
 export { default as HelpPopup } from './HelpPopup';
 export * from './HelpPopup';
 
-export { default as JobCard } from './JobCard';
-export * from './JobCard';
-
 export { default as DetailsModal } from './Modal/DetailsModal';
 export * from './Modal/DetailsModal';
 
