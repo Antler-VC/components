@@ -223,6 +223,12 @@ export * from './Theme/spacing';
 export { default as Thumbnail } from './Thumbnail';
 export * from './Thumbnail';
 
+export { default as AngelList } from './assets/AngelList';
+export * from './assets/AngelList';
+
+export { default as Crunchbase } from './assets/Crunchbase';
+export * from './assets/Crunchbase';
+
 export { default as Slack } from './assets/Slack';
 export * from './assets/Slack';
 
