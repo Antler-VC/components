@@ -8,7 +8,6 @@ import {
   Typography,
   Fade,
   Button,
-  Slide,
 } from '@material-ui/core';
 import BackIcon from '@material-ui/icons/ArrowBackIos';
 
@@ -18,6 +17,7 @@ import CardTitle from '../Card/CardTitle';
 import CtaButton from '../CtaButton';
 import StartupJobDetails from './StartupJobDetails';
 import StartupJobForm from './StartupJobForm';
+import SlideTransition from '../Modal/SlideTransition';
 
 const useStyles = makeStyles(theme =>
   createStyles({
@@ -127,11 +127,7 @@ export default function StartupJobModal({
           <Fade key={data.id}>
             <div>
               <SwitchTransition>
-                <Slide
-                  key={page}
-                  direction={page === 'details' ? 'right' : 'left'}
-                  appear={false}
-                >
+                <SlideTransition key={page} appear={false}>
                   <div>
                     {page === 'details' ? (
                       <StartupJobDetails data={data} />
@@ -139,7 +135,7 @@ export default function StartupJobModal({
                       <StartupJobForm data={data} FormProps={FormProps} />
                     )}
                   </div>
-                </Slide>
+                </SlideTransition>
               </SwitchTransition>
             </div>
           </Fade>
