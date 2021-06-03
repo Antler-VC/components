@@ -17,6 +17,7 @@ import Modal, { IModalProps } from './Modal/Modal';
 
 const useStyles = makeStyles(theme =>
   createStyles({
+    radioGroup: { marginTop: 'var(--spacing-modal-contents)' },
     buttonBase: {
       display: 'block',
       textAlign: 'left',
@@ -113,6 +114,7 @@ export default function Friction({
                     name="confirmationOptions"
                     value={confirmationOption}
                     onChange={e => setConfirmationOption(e.target.value)}
+                    className={classes.radioGroup}
                   >
                     {message!.options!.map(option => (
                       <div key={option.value}>
