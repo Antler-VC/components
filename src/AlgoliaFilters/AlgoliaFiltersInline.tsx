@@ -76,7 +76,7 @@ export default function AlgoliaFiltersInline({
         className={classes.actionRow}
       >
         <Grid item>
-          <Button onClick={clearFilters} disabled={clearable}>
+          <Button onClick={clearFilters} disabled={!clearable}>
             Clear
           </Button>
         </Grid>

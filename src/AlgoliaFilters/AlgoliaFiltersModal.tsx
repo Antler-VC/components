@@ -83,28 +83,22 @@ export default function AlgoliaFiltersModal({
         disableBackdropClick
         title={<Typography variant="overline">Filter</Typography>}
         body={<AlgoliaFiltersFields {...fieldsProps} />}
-        footer={
-          <Grid
-            container
-            spacing={2}
-            justify="space-between"
-            className={classes.actions}
-          >
-            <Grid item>
-              <Button onClick={clearFilters} disabled={clearable}>
-                Clear
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                onClick={() => applyFilters()}
-                disabled={!hasUnappliedFilters}
-              >
-                Apply Filter
-              </Button>
-            </Grid>
-          </Grid>
-        }
+        actions={{
+          primary: {
+            children: 'Apply Filters',
+            onClick: () => {
+              applyFilters();
+            },
+            closeOnClick: true,
+            disabled: !hasUnappliedFilters,
+          },
+          secondary: {
+            children: 'Clear',
+            onClick: clearFilters,
+            closeOnClick: true,
+            disabled: !clearable,
+          },
+        }}
       />
     </>
   );

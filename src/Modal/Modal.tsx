@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import _isFunction from 'lodash/isFunction';
 
 import {
   makeStyles,
@@ -93,8 +94,8 @@ export interface IModalProps extends Partial<Omit<DialogProps, 'title'>> {
   body?: React.ReactNode;
 
   actions?: {
-    primary?: Partial<ButtonProps>;
-    secondary?: Partial<ButtonProps>;
+    primary?: Partial<ButtonProps> & { closeOnClick?: boolean };
+    secondary?: Partial<ButtonProps> & { closeOnClick?: boolean };
   };
 
   hideCloseButton?: boolean;
@@ -183,13 +184,36 @@ export default function Modal({
         >
           {actions.secondary && (
             <Grid item>
-              <Button {...actions.secondary} />
+              <Button
+                {...actions.secondary}
+                onClick={
+                  actions.secondary.closeOnClick
+                    ? e => {
+                        if (_isFunction(actions.secondary!.onClick))
+                          actions.secondary!.onClick!(e);
+                        handleClose();
+                      }
+                    : actions.secondary.onClick
+                }
+              />
             </Grid>
           )}
 
           {actions.primary && (
             <Grid item>
-              <Button variant="contained" {...actions.primary} />
+              <Button
+                variant="contained"
+                {...actions.primary}
+                onClick={
+                  actions.primary.closeOnClick
+                    ? e => {
+                        if (_isFunction(actions.primary!.onClick))
+                          actions.primary!.onClick!(e);
+                        handleClose();
+                      }
+                    : actions.primary.onClick
+                }
+              />
             </Grid>
           )}
         </Grid>

@@ -181,7 +181,7 @@ export default function AlgoliaFilters({
     requestDispatch({ filters: requiredFilters ?? '', page: 0 });
     if (openModal) setOpenModal(false);
   };
-  const clearable = Object.keys(filterValues).length === 0;
+  const clearable = Object.keys(filterValues).length !== 0;
 
   const [filtersCount, setFiltersCount] = useState(0);
   useEffect(() => {

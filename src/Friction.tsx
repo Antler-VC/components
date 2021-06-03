@@ -4,7 +4,6 @@ import _find from 'lodash/find';
 import {
   makeStyles,
   createStyles,
-  DialogContentText,
   TextField,
   RadioGroup,
   ButtonBase,
@@ -175,13 +174,13 @@ export default function Friction({
                 } else {
                   confirmHandler();
                 }
-                handleClose();
               },
+              closeOnClick: true,
               disabled: disablePrimaryButton,
             },
             secondary: {
               children: (message && message.cancel) || 'Cancel',
-              onClick: handleClose,
+              closeOnClick: true,
             },
           }}
         />
