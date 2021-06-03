@@ -106,45 +106,26 @@
     "@algolia/logger-common" "4.4.0"
     "@algolia/requester-common" "4.4.0"
 
-"@antlerengineering/components@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/components/-/components-2.4.1.tgz#be00d91a8f42d6f19db26b1a3c8e44502f38a152"
-  integrity sha512-ftW/60xNn0q1zGw1d0bUzqbXoULtQSH5x408E7KcJszutGjyA3lKq+3JTm/C5sgfIkKNjnO0vO06+hYBecJNfg==
+"@antlerengineering/form-builder@^2.5.2":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-2.5.2.tgz#2d78f21e4e14251f6016985ac8c3d7949719caa7"
+  integrity sha512-tONAoj/redkWt+VrtVGeI93NOphnGkE3kNH+uv3S14Z9G+doKmRqMikHHYuKE49tQCSQQ6irg1qZZUg8mraHng==
   dependencies:
-    "@mdi/js" "^5.9.55"
-    "@react-hook/window-size" "^3.0.7"
-    "@svgr/rollup" "^5.4.0"
-    date-fns "^2.15.0"
-    dompurify "^2.0.10"
-    lodash "^4.17.15"
-    lodash-es "^4.17.15"
-    react-anchorme "^2.2.0"
-    react-copy-to-clipboard "^5.0.2"
-    react-image "^4.0.3"
-    react-player "^2.9.0"
-    react-share "^4.3.0"
-    react-virtualized "^9.22.3"
-    use-persisted-state "^0.3.0"
-
-"@antlerengineering/form-builder@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/form-builder/-/form-builder-2.2.0.tgz#d3600fe747797e78ef85a8d88899ec0e2cfd7d78"
-  integrity sha512-y2ujh/NNFcEHnk1uaIiNIwYi0zwdMFEXRdWzk/RKfX9VfZvRDnwQFWl30EJ8GF3gop45klDcCIijb9qyI4JeAA==
-  dependencies:
-    "@antlerengineering/components" "^2.4.1"
     "@antlerengineering/multiselect" "^0.9.6"
     "@date-io/date-fns" "1.x"
-    "@hookform/resolvers" "^2.3.1"
+    "@hookform/resolvers" "^2.4.0"
     "@material-ui/pickers" "^3.2.10"
     "@mdi/js" "^5.9.55"
     array-move "^3.0.1"
     date-fns "^2.16.1"
+    dompurify "^2.2.7"
     lodash "^4.17.20"
     lodash-es "^4.17.15"
     react-color "^2.19.3"
     react-dnd "^14.0.2"
     react-dnd-html5-backend "^14.0.0"
-    react-hook-form "^7.1.1"
+    react-element-scroll-hook "^1.1.0"
+    react-hook-form "^7.3.4"
     use-debounce "^3.4.3"
     yup "^0.32.9"
 
@@ -2549,10 +2530,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@hookform/resolvers@^2.3.1":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.4.0.tgz#3b454463fbb5e7a0de4da029fa34e677f32d8d8d"
-  integrity sha512-KiHc7Uwd2IJMvPTMQ9vQxfss2ulq2gRYL/HYZ90qiTs+07UgGWCikiIvE2pKjjGVltEYjq5eR8x0ITmoyEjGxQ==
+"@hookform/resolvers@^2.4.0":
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.5.2.tgz#2b1134835170fcc6c8f8eb1d0273b27cf4f14270"
+  integrity sha512-IS9Ycbezdzim5vRxytPcYVUUo8Jhtc9GR35SDXsCELwDCM63RUpjWnAaZLQnBO1XY1PMTBwEnBBBOBgGr9CzVA==
 
 "@icons/material@^0.2.4":
   version "0.2.4"
@@ -6735,6 +6716,11 @@ dompurify@^2.0.10:
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.0.10.tgz#d193f36d8148b4297a3a420b992d20eeff47a4d3"
   integrity sha512-ok1dcSztsIuVxWG6Cx0ujyDIzNclz9W9OIU0cOb0IT+VAtSLrOelZF4miUvSm1U4PoCw8D7sIOLCnCQOaVpr3w==
+
+dompurify@^2.2.7:
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.2.9.tgz#4b42e244238032d9286a0d2c87b51313581d9624"
+  integrity sha512-+9MqacuigMIZ+1+EwoEltogyWGFTJZWU3258Rupxs+2CGs4H914G9er6pZbsme/bvb5L67o2rade9n21e4RW/w==
 
 domutils@^1.5.1, domutils@^1.7.0:
   version "1.7.0"
@@ -12029,10 +12015,10 @@ react-helmet-async@^1.0.7:
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
 
-react-hook-form@^7.1.1:
-  version "7.3.4"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.3.4.tgz#6a246cea3ff8669168a56dd166b462d28aa2f076"
-  integrity sha512-xreG3NHFlbKFrN1Fs+rZUT5RN9zkx4qn0vyY+6tO1xNfhOkfgwkTYU1/PkktYsWw6GerMw16vX5CPdIZVfyB1A==
+react-hook-form@^7.3.4:
+  version "7.7.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.7.1.tgz#b0dc20c7122a8b647cad9adf0db8ee4ffb1d11e2"
+  integrity sha512-qpiMf670nrbgngH11qmpKTKa/ulTt+5JXNL7lBnF3C3jwusrw17dyyZ9J92mHFAflxwYWndKECPM85DLEnIf0A==
 
 react-image@^4.0.3:
   version "4.0.3"

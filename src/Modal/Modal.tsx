@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme =>
     },
 
     paper: {
+      cursor: 'default',
       overflowX: 'hidden',
 
       padding: 'var(--spacing-modal)',
