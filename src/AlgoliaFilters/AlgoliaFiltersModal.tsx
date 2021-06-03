@@ -6,7 +6,6 @@ import {
   createStyles,
   Button,
   Typography,
-  Grid,
 } from '@material-ui/core';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
