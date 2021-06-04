@@ -188,13 +188,17 @@ export default function DetailsModal({
       keepMounted
       fullScreen={isMobile}
       aria-labelledby="modal-title"
-      classes={{
-        root: classes.root,
-        container: classes.container,
-        paper: classes.paper,
-        paperScrollBody: classes.paperScrollBody,
-      }}
       {...props}
+      classes={{
+        ...props.classes,
+        root: clsx(classes.root, props.classes?.root),
+        container: clsx(classes.container, props.classes?.container),
+        paper: clsx(classes.paper, props.classes?.paper),
+        paperScrollBody: clsx(
+          classes.paperScrollBody,
+          props.classes?.paperScrollBody
+        ),
+      }}
     >
       <IconButton
         onClick={handleClose}

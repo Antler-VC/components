@@ -13,7 +13,7 @@ import {
 import { Button } from '@material-ui/core';
 import DownloadIcon from '@material-ui/icons/GetApp';
 
-import Modal, { IModalProps } from '../Modal/Modal';
+import DetailsModal, { IDetailsModalProps } from '../Modal/DetailsModal';
 import Thumbnail from '../Thumbnail';
 import GoIcon from '../GoIcon';
 import RenderedHtml from '../RenderedHtml';
@@ -22,6 +22,12 @@ const useStyles = makeStyles(theme =>
   createStyles({
     paperWidthMd: { maxWidth: 992 },
 
+    header: {
+      marginTop: 'calc(var(--spacing-modal-contents) * -1)',
+      display: 'flex',
+      alignItems: 'center',
+      gap: 'var(--spacing-modal-contents)',
+    },
     logo: {
       objectFit: 'contain',
       objectPosition: 'left',
@@ -51,7 +57,8 @@ const useStyles = makeStyles(theme =>
   })
 );
 
-export interface IStartupUpdateModalProps extends Omit<IModalProps, 'title'> {
+export interface IStartupUpdateModalProps
+  extends Omit<IDetailsModalProps, 'title'> {
   data: {
     logo?: { downloadURL: string }[];
     featuredImage?: { downloadURL: string }[];
@@ -63,10 +70,12 @@ export interface IStartupUpdateModalProps extends Omit<IModalProps, 'title'> {
     createdAt: number;
     attachment?: { downloadURL: string }[];
   };
+  header?: React.ReactNode;
 }
 
 export default function StartupUpdateModal({
   data,
+  header,
   ...props
 }: IStartupUpdateModalProps) {
   const classes = useStyles();
@@ -76,17 +85,20 @@ export default function StartupUpdateModal({
   if (_isEmpty(data)) return null;
 
   return (
-    <Modal
-      title={
-        data.logo?.[0]?.downloadURL && (
-          <Thumbnail
-            className={classes.logo}
-            imageUrl={data.logo?.[0]?.downloadURL}
-            size="200x200"
-            shape="square"
-            alt={data.teamName}
-          />
-        )
+    <DetailsModal
+      header={
+        <div className={classes.header}>
+          {data.logo?.[0]?.downloadURL && (
+            <Thumbnail
+              className={classes.logo}
+              imageUrl={data.logo?.[0]?.downloadURL}
+              size="200x200"
+              shape="square"
+              alt={data.teamName}
+            />
+          )}
+          {header}
+        </div>
       }
       body={
         <>
