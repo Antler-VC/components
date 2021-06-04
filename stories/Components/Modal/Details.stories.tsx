@@ -47,7 +47,11 @@ export const Details = args => {
                 {args.overline}
               </div>
             }
-            title={<span id="modal-title">{args.title}</span>}
+            title={
+              <span id="modal-title">
+                {args.title} ({index})
+              </span>
+            }
             image={{ imageUrl: args.imageSource }}
           />
         </div>
@@ -91,7 +95,11 @@ export const DetailsTabbed = args => {
                 {args.overline}
               </div>
             }
-            title={<span id="modal-title">{args.title}</span>}
+            title={
+              <span id="modal-title">
+                {args.title} ({index})
+              </span>
+            }
             image={{ imageUrl: args.imageSource }}
           />
         </div>

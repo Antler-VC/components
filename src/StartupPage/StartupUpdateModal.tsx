@@ -87,18 +87,19 @@ export default function StartupUpdateModal({
   return (
     <DetailsModal
       header={
-        <div className={classes.header}>
-          {data.logo?.[0]?.downloadURL && (
-            <Thumbnail
-              className={classes.logo}
-              imageUrl={data.logo?.[0]?.downloadURL}
-              size="200x200"
-              shape="square"
-              alt={data.teamName}
-            />
-          )}
-          {header}
-        </div>
+        header || (
+          <div className={classes.header}>
+            {data.logo?.[0]?.downloadURL && (
+              <Thumbnail
+                className={classes.logo}
+                imageUrl={data.logo?.[0]?.downloadURL}
+                size="200x200"
+                shape="square"
+                alt={data.teamName}
+              />
+            )}
+          </div>
+        )
       }
       body={
         <>

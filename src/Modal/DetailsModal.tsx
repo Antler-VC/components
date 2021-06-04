@@ -58,10 +58,11 @@ const useStyles = makeStyles(theme =>
       height: 'auto',
     },
 
-    closeButton: {
-      width: 48,
+    headerButtons: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
       margin: theme.spacing(-1.5),
-      marginLeft: 'auto',
     },
 
     navButton: {
@@ -200,40 +201,55 @@ export default function DetailsModal({
         ),
       }}
     >
-      <IconButton
-        onClick={handleClose}
-        className={classes.closeButton}
-        aria-label="Close"
-        color="secondary"
-      >
-        <CloseIcon />
-      </IconButton>
+      <div className={classes.headerButtons}>
+        {!!onPrev && (
+          <Zoom in={hasPrev}>
+            {isTablet ? (
+              <IconButton
+                onClick={hasPrev ? onPrev : undefined}
+                aria-label="Previous"
+              >
+                <ChevronLeftIcon />
+              </IconButton>
+            ) : (
+              <Fab
+                onClick={hasPrev ? onPrev : undefined}
+                color="secondary"
+                className={clsx(classes.navButton, classes.navButtonPrev)}
+                aria-label="Previous"
+              >
+                <ChevronLeftIcon />
+              </Fab>
+            )}
+          </Zoom>
+        )}
 
-      {!!onPrev && !isTablet && (
-        <Zoom in={hasPrev}>
-          <Fab
-            onClick={hasPrev ? onPrev : undefined}
-            color="secondary"
-            className={clsx(classes.navButton, classes.navButtonPrev)}
-            aria-label="Previous"
-          >
-            <ChevronLeftIcon />
-          </Fab>
-        </Zoom>
-      )}
+        {!!onNext && (
+          <Zoom in={hasNext}>
+            {isTablet ? (
+              <IconButton
+                onClick={hasNext ? onNext : undefined}
+                aria-label="Next"
+              >
+                <ChevronRightIcon />
+              </IconButton>
+            ) : (
+              <Fab
+                onClick={hasNext ? onNext : undefined}
+                color="secondary"
+                className={clsx(classes.navButton, classes.navButtonNext)}
+                aria-label="Next"
+              >
+                <ChevronRightIcon />
+              </Fab>
+            )}
+          </Zoom>
+        )}
 
-      {!!onNext && !isTablet && (
-        <Zoom in={hasNext}>
-          <Fab
-            onClick={hasNext ? onNext : undefined}
-            color="secondary"
-            className={clsx(classes.navButton, classes.navButtonNext)}
-            aria-label="Next"
-          >
-            <ChevronRightIcon />
-          </Fab>
-        </Zoom>
-      )}
+        <IconButton onClick={handleClose} aria-label="Close" color="secondary">
+          <CloseIcon />
+        </IconButton>
+      </div>
 
       {header}
 

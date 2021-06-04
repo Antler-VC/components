@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme =>
     backButton: {
       marginTop: -10,
       marginLeft: theme.spacing(-0.5),
+      [theme.breakpoints.down('xs')]: { marginTop: -5 },
     },
 
     applyButton: {
@@ -83,7 +84,10 @@ export default function StartupJobModal({
         <SwitchTransition>
           <Fade key={data.id}>
             <div
-              style={{ marginTop: 'calc(var(--spacing-modal-contents) * -1)' }}
+              style={{
+                marginTop: 'calc(var(--spacing-modal-contents) * -1)',
+                maxWidth: `calc(100% - 48px * ${page === 'form' ? 1 : 3})`, // space for next/prev nav
+              }}
             >
               <SwitchTransition>
                 <Fade key={page} appear={false}>
