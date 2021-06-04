@@ -95,13 +95,11 @@ export default function StartupUpdateModal({
   return (
     <DetailsModal
       header={
-        header ? (
-          <div className={classes.header}>{header}</div>
-        ) : (
-          <SwitchTransition>
-            <Fade key={data.teamName}>
-              <div className={classes.header}>
-                {data.logo?.[0]?.downloadURL && (
+        <SwitchTransition>
+          <Fade key={data.teamName}>
+            <div className={classes.header}>
+              {header ||
+                (data.logo?.[0]?.downloadURL && (
                   <Thumbnail
                     className={classes.logo}
                     imageUrl={data.logo?.[0]?.downloadURL}
@@ -109,11 +107,10 @@ export default function StartupUpdateModal({
                     shape="square"
                     alt={data.teamName}
                   />
-                )}
-              </div>
-            </Fade>
-          </SwitchTransition>
-        )
+                ))}
+            </div>
+          </Fade>
+        </SwitchTransition>
       }
       body={
         <SwitchTransition>
