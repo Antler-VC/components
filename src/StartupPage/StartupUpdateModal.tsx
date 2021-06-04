@@ -95,7 +95,9 @@ export default function StartupUpdateModal({
   return (
     <DetailsModal
       header={
-        header || (
+        header ? (
+          <div className={classes.header}>{header}</div>
+        ) : (
           <SwitchTransition>
             <Fade key={data.teamName}>
               <div className={classes.header}>
