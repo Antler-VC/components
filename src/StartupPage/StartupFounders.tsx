@@ -48,8 +48,8 @@ export default function StartupFounders({
         hasData={modal > -1}
         clearData={() => setModal(-1)}
         isSingle={teamMembers.length < 2}
-        onPrev={() => setModal(i => Math.abs((i - 1) % teamMembers.length))}
-        onNext={() => setModal(i => Math.abs((i + 1) % teamMembers.length))}
+        onPrev={() => setModal(i => (i === 0 ? teamMembers.length - 1 : i - 1))}
+        onNext={() => setModal(i => (i + 1) % teamMembers.length)}
       />
     </section>
   );
