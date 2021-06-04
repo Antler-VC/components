@@ -32,6 +32,7 @@ export const UpdateModal = args => {
       onClose={() => alert('CLOSE')}
       data={{
         ...args,
+        objectID: index.toString(),
         updateHeader: `${args.updateHeader} (${index})`,
         createdAt: new Date().getTime() / 1000,
         logo: [

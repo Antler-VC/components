@@ -1,12 +1,14 @@
 import React from 'react';
 import _isEmpty from 'lodash/isEmpty';
 import { format } from 'date-fns';
+import { SwitchTransition } from 'react-transition-group';
 
 import {
   makeStyles,
   createStyles,
   useTheme,
   useMediaQuery,
+  Fade,
   Typography,
   CardMedia,
 } from '@material-ui/core';
@@ -35,6 +37,10 @@ const useStyles = makeStyles(theme =>
       height: 24,
     },
 
+    body: {
+      '& > * + *': { marginTop: 'var(--spacing-modal-contents)' },
+    },
+
     headerImage: {
       objectFit: 'cover',
       width: '100%',
@@ -60,6 +66,8 @@ const useStyles = makeStyles(theme =>
 export interface IStartupUpdateModalProps
   extends Omit<IDetailsModalProps, 'title'> {
   data: {
+    objectID: string;
+
     logo?: { downloadURL: string }[];
     featuredImage?: { downloadURL: string }[];
     website?: string;
@@ -88,60 +96,69 @@ export default function StartupUpdateModal({
     <DetailsModal
       header={
         header || (
-          <div className={classes.header}>
-            {data.logo?.[0]?.downloadURL && (
-              <Thumbnail
-                className={classes.logo}
-                imageUrl={data.logo?.[0]?.downloadURL}
-                size="200x200"
-                shape="square"
-                alt={data.teamName}
-              />
-            )}
-          </div>
+          <SwitchTransition>
+            <Fade key={data.teamName}>
+              <div className={classes.header}>
+                {data.logo?.[0]?.downloadURL && (
+                  <Thumbnail
+                    className={classes.logo}
+                    imageUrl={data.logo?.[0]?.downloadURL}
+                    size="200x200"
+                    shape="square"
+                    alt={data.teamName}
+                  />
+                )}
+              </div>
+            </Fade>
+          </SwitchTransition>
         )
       }
       body={
-        <>
-          <Typography
-            variant={isMd ? 'h4' : 'h5'}
-            component="h1"
-            color="textPrimary"
-            gutterBottom
-            id="modal-title"
-          >
-            {data.updateHeader}
-          </Typography>
-          <Typography variant="overline">
-            {format(new Date(data.createdAt * 1000), 'd MMM y')}
-          </Typography>
+        <SwitchTransition>
+          <Fade key={data.objectID}>
+            <div className={classes.body}>
+              <Typography
+                variant={isMd ? 'h4' : 'h5'}
+                component="h1"
+                color="textPrimary"
+                gutterBottom
+                id="modal-title"
+              >
+                {data.updateHeader}
+              </Typography>
+              <Typography variant="overline">
+                {format(new Date(data.createdAt * 1000), 'd MMM y')}
+              </Typography>
 
-          {data.featuredImage?.[0]?.downloadURL && (
-            <CardMedia
-              image={data.featuredImage?.[0]?.downloadURL}
-              className={classes.headerImage}
-            />
-          )}
+              {data.featuredImage?.[0]?.downloadURL && (
+                <CardMedia
+                  image={data.featuredImage?.[0]?.downloadURL}
+                  className={classes.headerImage}
+                />
+              )}
 
-          {Array.isArray(data.attachment) && data.attachment[0]?.downloadURL && (
-            <Button
-              color="secondary"
-              startIcon={<DownloadIcon />}
-              endIcon={<GoIcon />}
-              component="a"
-              href={data.attachment[0].downloadURL}
-              target="_blank"
-              rel="noopener"
-            >
-              Download Attachment
-            </Button>
-          )}
+              {Array.isArray(data.attachment) &&
+                data.attachment[0]?.downloadURL && (
+                  <Button
+                    color="secondary"
+                    startIcon={<DownloadIcon />}
+                    endIcon={<GoIcon />}
+                    component="a"
+                    href={data.attachment[0].downloadURL}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    Download Attachment
+                  </Button>
+                )}
 
-          <RenderedHtml
-            html={data.updateIntroduction}
-            className={classes.description}
-          />
-        </>
+              <RenderedHtml
+                html={data.updateIntroduction}
+                className={classes.description}
+              />
+            </div>
+          </Fade>
+        </SwitchTransition>
       }
       maxWidth={isMd ? 'md' : 'sm'}
       classes={{ paperWidthMd: classes.paperWidthMd }}
