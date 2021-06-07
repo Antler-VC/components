@@ -16,7 +16,12 @@ export const generateStartupTheme = (color?: string) => {
     overrides: {
       MuiCssBaseline: {
         '@global': {
-          a: { color: primary.main },
+          a: { color: primaryTextColor },
+        },
+      },
+      MuiTypography: {
+        colorPrimary: {
+          color: primaryTextColor,
         },
       },
       MuiButton: {
