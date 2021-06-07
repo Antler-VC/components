@@ -217,6 +217,9 @@ export * from './Theme/layout';
 export { default as spacing } from './Theme/spacing';
 export * from './Theme/spacing';
 
+export { default as useCardGridCols } from './Theme/useCardGridCols';
+export * from './Theme/useCardGridCols';
+
 export { default as Thumbnail } from './Thumbnail';
 export * from './Thumbnail';
 
