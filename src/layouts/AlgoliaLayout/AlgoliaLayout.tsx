@@ -210,7 +210,9 @@ export default function AlgoliaLayout({
       <div className={classes.content}>
         {!isEmpty && (
           <ResultsHeader
-            text={`${algoliaState.response?.nbHits} results ${
+            text={`${algoliaState.response?.nbHits} result${
+              algoliaState.response?.nbHits !== 1 ? 's' : ''
+            } ${
               algoliaState.request.query
                 ? `for “${algoliaState.request.query}”`
                 : ''
