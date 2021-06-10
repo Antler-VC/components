@@ -16,8 +16,20 @@ const useStyles = makeStyles(theme =>
       position: 'relative',
       width: '100%',
 
+      '& .carousel-root': {
+        margin: '0 20px',
+        [theme.breakpoints.up('xl')]: {
+          margin: 0,
+        },
+      },
+
       '& .slider': {
         alignItems: 'center',
+      },
+
+      '& .carousel .slide iframe': {
+        width: '100%',
+        margin: 0,
       },
     },
 
@@ -30,17 +42,41 @@ const useStyles = makeStyles(theme =>
       backgroundColor: theme.palette.background.paper,
     },
     fabPrev: {
-      left: theme.spacing('xxs'),
+      left: 0,
       [theme.breakpoints.up('xl')]: {
-        left: 0,
         transform: 'translateY(-50%) translateX(-50%)',
       },
     },
     fabNext: {
-      right: theme.spacing('xxs'),
+      right: 0,
       [theme.breakpoints.up('xl')]: {
-        right: 0,
         transform: 'translateY(-50%) translateX(50%)',
+      },
+    },
+
+    playerWrapper: {
+      width: '100%',
+      height: 0,
+      paddingTop: '56.25%',
+
+      '& iframe': {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+      },
+    },
+
+    imageWrapper: {
+      width: '100%',
+      height: 0,
+      paddingTop: '75%',
+
+      '& img': {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        height: '100%',
+        objectFit: 'contain',
       },
     },
   })
@@ -65,24 +101,27 @@ export default function StartupMedia({
 
   const slides = [
     pitchVideo ? (
-      <ReactPlayer url={pitchVideo} width="100%" controls playsinline pip />
+      <div key={pitchVideo} className={classes.playerWrapper}>
+        <ReactPlayer
+          url={pitchVideo}
+          width="100%"
+          height="100%"
+          controls
+          playsinline
+          pip
+        />
+      </div>
     ) : null,
     Array.isArray(headerImage) && headerImage[0]?.downloadURL ? (
-      <img
-        key={headerImage[0].downloadURL}
-        src={headerImage[0].downloadURL}
-        alt=""
-        style={{ display: 'block' }}
-      />
+      <div key={headerImage[0].downloadURL} className={classes.imageWrapper}>
+        <img src={headerImage[0].downloadURL} alt="" />
+      </div>
     ) : null,
     ...(Array.isArray(additionalImages) && additionalImages[0]?.downloadURL
       ? additionalImages.map(img => (
-          <img
-            key={img?.downloadURL}
-            src={img?.downloadURL}
-            alt=""
-            style={{ display: 'block' }}
-          />
+          <div key={img?.downloadURL} className={classes.imageWrapper}>
+            <img src={img?.downloadURL} alt="" />
+          </div>
         ))
       : []),
   ].filter(x => x !== null) as React.ReactChild[];
@@ -122,7 +161,6 @@ export default function StartupMedia({
         showStatus={false}
         showThumbs={false}
         interval={5000}
-        dynamicHeight
         {...CarouselProps}
       >
         {slides}

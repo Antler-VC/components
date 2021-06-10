@@ -22,6 +22,9 @@ export const Media = () => (
           downloadURL:
             'https://firebasestorage.googleapis.com/v0/b/antler-vc.appspot.com/o/ANTLER.png?alt=media&token=febf7644-4c6e-4685-b49f-bdc73915b8a9',
         },
+        {
+          downloadURL: 'http://placehold.it/1000x1000',
+        },
       ]}
     />
   </CardGrid>
