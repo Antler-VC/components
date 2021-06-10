@@ -74,8 +74,8 @@ export default function StartupInfo({
                 component="ul"
                 className={classes.chipList}
               >
-                {value.map(item => (
-                  <Grid item component="li">
+                {value.map((item, i) => (
+                  <Grid item key={i} component="li">
                     <Chip label={item} />
                   </Grid>
                 ))}

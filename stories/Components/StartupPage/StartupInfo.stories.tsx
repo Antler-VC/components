@@ -11,7 +11,7 @@ export const Info = () => (
     fields={[
       [
         { label: 'Label', key: 'key' },
-        { label: 'Label 2', key: 'key' },
+        { label: 'Label 2', key: 'key2' },
       ],
       [{ label: 'List', key: 'array', variant: 'chip' }],
     ]}
