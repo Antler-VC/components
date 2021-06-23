@@ -13,21 +13,6 @@ export * from './AlgoliaFilters/AlgoliaFiltersModal';
 export { default as AlgoliaFiltersSearch } from './AlgoliaFilters/AlgoliaFiltersSearch';
 export * from './AlgoliaFilters/AlgoliaFiltersSearch';
 
-export { default as AntlerProfileCard } from './DemoDay/AntlerProfileCard';
-export * from './DemoDay/AntlerProfileCard';
-
-export { default as AntlerProfileCardSkeleton } from './DemoDay/AntlerProfileCardSkeleton';
-export * from './DemoDay/AntlerProfileCardSkeleton';
-
-export { default as EmployerLogos } from './DemoDay/EmployerLogos';
-export * from './DemoDay/EmployerLogos';
-
-export { default as ProfileModal } from './DemoDay/ProfileModal';
-export * from './DemoDay/ProfileModal';
-
-export { default as SocialButtons } from './DemoDay/SocialButtons';
-export * from './DemoDay/SocialButtons';
-
 export { default as BasicCard } from './Card/BasicCard';
 export * from './Card/BasicCard';
 
@@ -94,6 +79,27 @@ export * from './CtaButton';
 export { default as DataTable } from './DataTable';
 export * from './DataTable';
 
+export { default as AntlerProfileCard } from './DemoDay/AntlerProfileCard';
+export * from './DemoDay/AntlerProfileCard';
+
+export { default as AntlerProfileCardSkeleton } from './DemoDay/AntlerProfileCardSkeleton';
+export * from './DemoDay/AntlerProfileCardSkeleton';
+
+export { default as EmployerLogos } from './DemoDay/EmployerLogos';
+export * from './DemoDay/EmployerLogos';
+
+export { default as ProfileModal } from './DemoDay/ProfileModal';
+export * from './DemoDay/ProfileModal';
+
+export { default as SocialButtons } from './DemoDay/SocialButtons';
+export * from './DemoDay/SocialButtons';
+
+export { default as SquareDialog } from './DemoDay/SquareDialog';
+export * from './DemoDay/SquareDialog';
+
+export { default as StartupCard } from './DemoDay/StartupCard';
+export * from './DemoDay/StartupCard';
+
 export { default as Friction } from './Friction';
 export * from './Friction';
 
@@ -153,21 +159,6 @@ export * from './Share/ShareButtons';
 
 export { default as ShareDialog } from './Share/ShareDialog';
 export * from './Share/ShareDialog';
-
-export { default as SquareCard } from './SquareCard';
-export * from './SquareCard';
-
-export { default as SquareDialog } from './DemoDay/SquareDialog';
-export * from './DemoDay/SquareDialog';
-
-export { default as StartupCard } from './StartupCard/StartupCard';
-export * from './StartupCard/StartupCard';
-
-export { default as StartupCardContents } from './StartupCard/StartupCardContents';
-export * from './StartupCard/StartupCardContents';
-
-export { default as StartupCardSkeleton } from './StartupCard/StartupCardSkeleton';
-export * from './StartupCard/StartupCardSkeleton';
 
 export { default as StartupJobDetails } from './StartupJobModal/StartupJobDetails';
 export * from './StartupJobModal/StartupJobDetails';
