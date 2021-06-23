@@ -14,7 +14,7 @@ import {
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-import SquareDialog from '../SquareDialog';
+import SquareDialog from './SquareDialog';
 import EmployerLogos from './EmployerLogos';
 import SocialButtons from './SocialButtons';
 import Thumbnail from '../Thumbnail';

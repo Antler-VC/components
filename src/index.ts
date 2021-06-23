@@ -13,20 +13,20 @@ export * from './AlgoliaFilters/AlgoliaFiltersModal';
 export { default as AlgoliaFiltersSearch } from './AlgoliaFilters/AlgoliaFiltersSearch';
 export * from './AlgoliaFilters/AlgoliaFiltersSearch';
 
-export { default as AntlerProfileCard } from './AntlerProfileCard/AntlerProfileCard';
-export * from './AntlerProfileCard/AntlerProfileCard';
+export { default as AntlerProfileCard } from './DemoDay/AntlerProfileCard';
+export * from './DemoDay/AntlerProfileCard';
 
-export { default as AntlerProfileCardSkeleton } from './AntlerProfileCard/AntlerProfileCardSkeleton';
-export * from './AntlerProfileCard/AntlerProfileCardSkeleton';
+export { default as AntlerProfileCardSkeleton } from './DemoDay/AntlerProfileCardSkeleton';
+export * from './DemoDay/AntlerProfileCardSkeleton';
 
-export { default as EmployerLogos } from './AntlerProfileCard/EmployerLogos';
-export * from './AntlerProfileCard/EmployerLogos';
+export { default as EmployerLogos } from './DemoDay/EmployerLogos';
+export * from './DemoDay/EmployerLogos';
 
-export { default as ProfileModal } from './AntlerProfileCard/ProfileModal';
-export * from './AntlerProfileCard/ProfileModal';
+export { default as ProfileModal } from './DemoDay/ProfileModal';
+export * from './DemoDay/ProfileModal';
 
-export { default as SocialButtons } from './AntlerProfileCard/SocialButtons';
-export * from './AntlerProfileCard/SocialButtons';
+export { default as SocialButtons } from './DemoDay/SocialButtons';
+export * from './DemoDay/SocialButtons';
 
 export { default as BasicCard } from './Card/BasicCard';
 export * from './Card/BasicCard';
@@ -157,8 +157,8 @@ export * from './Share/ShareDialog';
 export { default as SquareCard } from './SquareCard';
 export * from './SquareCard';
 
-export { default as SquareDialog } from './SquareDialog';
-export * from './SquareDialog';
+export { default as SquareDialog } from './DemoDay/SquareDialog';
+export * from './DemoDay/SquareDialog';
 
 export { default as StartupCard } from './StartupCard/StartupCard';
 export * from './StartupCard/StartupCard';

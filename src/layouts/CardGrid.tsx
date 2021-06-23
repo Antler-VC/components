@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import { makeStyles, createStyles } from '@material-ui/core';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       width: '100%',
@@ -13,16 +13,39 @@ const useStyles = makeStyles(() =>
       columnGap: 'var(--grid-gutter)',
       rowGap: 'var(--grid-gutter)',
     },
+
+    maxCols1: {
+      [theme.breakpoints.up('sm')]: { '--num-cards': 1 },
+    },
+    maxCols2: {
+      [theme.breakpoints.up('md')]: { '--num-cards': 2 },
+    },
+    maxCols3: {
+      [theme.breakpoints.up('lg')]: { '--num-cards': 3 },
+    },
   })
 );
 
-export default function CardGrid(
-  props: React.DetailedHTMLProps<
+export interface ICardGridProps
+  extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLDivElement>,
     HTMLDivElement
-  >
-) {
+  > {
+  maxCols?: number;
+}
+
+export default function CardGrid({ maxCols, ...props }: ICardGridProps) {
   const classes = useStyles();
 
-  return <div {...props} className={clsx(classes.root, props.className)} />;
+  return (
+    <div
+      {...props}
+      className={clsx(
+        classes.root,
+        typeof maxCols === 'number' &&
+          classes[`maxCols${maxCols}` as keyof typeof classes],
+        props.className
+      )}
+    />
+  );
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import SubSectionHeader from '../ContentHeader/SubSectionHeader';
 import CardGrid from '../layouts/CardGrid';
-import ProfileModal from '../AntlerProfileCard/ProfileModal';
+import ProfileModal from '../DemoDay/ProfileModal';
 
 import StartupFounderCard, {
   IStartupFounderCardProps,

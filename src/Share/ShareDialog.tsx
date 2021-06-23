@@ -55,7 +55,11 @@ export const ShareDialog = React.forwardRef(
         </IconButton>
 
         {open && (
-          <Modal onClose={handleClose} title={heading || 'Share'}>
+          <Modal
+            onClose={handleClose}
+            title={heading || 'Share'}
+            fullScreen={false}
+          >
             {typeof window !== 'undefined' && (
               <Typography variant="body1" className={classes.link}>
                 {url || window.location.origin + window.location.pathname}

@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
-import { SlideTransitionMui } from './Modal/SlideTransition';
+import { SlideTransitionMui } from '../Modal/SlideTransition';
 
 export const useDialogStyles = makeStyles(theme =>
   createStyles({
