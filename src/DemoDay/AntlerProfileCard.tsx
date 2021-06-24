@@ -36,7 +36,10 @@ const useStyles = makeStyles(theme =>
       },
     },
 
-    name: { flexGrow: 1 },
+    name: {
+      marginTop: 'calc(var(--spacing-card) / 2)',
+      flexGrow: 1,
+    },
     socialButtons: {
       marginBottom: theme.spacing(-1.5),
       marginLeft: theme.spacing(-1.75),
