@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme =>
     },
 
     name: {
-      marginTop: 'calc(var(--spacing-card) / 2)',
+      '* + &': { marginTop: 'calc(var(--spacing-card) / 2)' },
       flexGrow: 1,
     },
     socialButtons: {
