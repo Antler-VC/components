@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import ProfileCard, { IProfileCardProps } from '../Card/ProfileCard';
 import Thumbnail from '../Thumbnail';
@@ -78,6 +79,40 @@ export default function StartupCard({
           />
         </>
       }
+    />
+  );
+}
+
+export function StartupCardSkeleton(props: Partial<IProfileCardProps>) {
+  const classes = useStyles();
+
+  return (
+    <ProfileCard
+      overline={<Skeleton width="30%" />}
+      body={
+        <>
+          <Skeleton variant="rect" className={classes.logo} />
+
+          <Typography variant="h6" component="h3" gutterBottom>
+            <Skeleton width="50%" />
+          </Typography>
+
+          <Typography variant="body2" className={classes.oneLineDescription}>
+            <Skeleton />
+            <Skeleton width="80%" />
+          </Typography>
+        </>
+      }
+      actionRows={[
+        {
+          primaryElement: (
+            <Typography variant="button">
+              <Skeleton width={80} />
+            </Typography>
+          ),
+        },
+      ]}
+      style={{ boxShadow: 'none', transition: 'none', ...props.style }}
     />
   );
 }

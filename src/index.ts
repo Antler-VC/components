@@ -82,9 +82,6 @@ export * from './DataTable';
 export { default as AntlerProfileCard } from './DemoDay/AntlerProfileCard';
 export * from './DemoDay/AntlerProfileCard';
 
-export { default as AntlerProfileCardSkeleton } from './DemoDay/AntlerProfileCardSkeleton';
-export * from './DemoDay/AntlerProfileCardSkeleton';
-
 export { default as EmployerLogos } from './DemoDay/EmployerLogos';
 export * from './DemoDay/EmployerLogos';
 

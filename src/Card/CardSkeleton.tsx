@@ -18,20 +18,24 @@ export default function CardSkeleton(props: any) {
       image={{
         elem: <Skeleton width={80} height={80} variant="rect" />,
       }}
-      body={[
-        <div style={{ marginTop: 24 }}>
+      body={
+        <>
           <Typography variant="body2">
             <Skeleton />
-          </Typography>
-          <Typography variant="body2">
             <Skeleton width="80%" />
           </Typography>
-        </div>,
-        <Typography variant="h5">
-          <Skeleton width={80} />
-        </Typography>,
-      ]}
+        </>
+      }
       {...props}
+      actionRows={[
+        {
+          primaryElement: (
+            <Typography variant="button">
+              <Skeleton width={80} />
+            </Typography>
+          ),
+        },
+      ]}
       style={{ boxShadow: 'none', transition: 'none', ...props.style }}
     />
   );

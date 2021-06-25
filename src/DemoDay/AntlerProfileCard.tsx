@@ -7,7 +7,9 @@ import {
   Typography,
   CardActionArea,
   CardActionAreaProps,
+  Grid,
 } from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 
 import BasicCard, { IBasicCardProps } from '../Card/BasicCard';
 import CardTitle from '../Card/CardTitle';
@@ -15,7 +17,7 @@ import EmployerLogos from './EmployerLogos';
 import SocialButtons from '../DemoDay/SocialButtons';
 import Thumbnail from '../Thumbnail';
 
-const useStyles = makeStyles(theme =>
+export const useStyles = makeStyles(theme =>
   createStyles({
     root: {
       '&:focus-within': { boxShadow: theme.shadows[1] },
@@ -164,6 +166,45 @@ export default function AntlerProfileCard({
           body
         )
       }
+    />
+  );
+}
+
+export function AntlerProfileCardSkeleton(props: Partial<IBasicCardProps>) {
+  const classes = useStyles();
+
+  return (
+    <BasicCard
+      {...props}
+      body={
+        <div className={classes.flex}>
+          <div className={classes.main}>
+            <Typography variant="overline">
+              <Skeleton width="30%" />
+            </Typography>
+
+            <CardTitle className={classes.name}>
+              <Skeleton width="50%" />
+              <Skeleton width="60%" />
+            </CardTitle>
+
+            <Grid container spacing={1}>
+              <Grid item>
+                <Skeleton variant="rect" width={40} height={40} />
+              </Grid>
+              <Grid item>
+                <Skeleton variant="rect" width={40} height={40} />
+              </Grid>
+              <Grid item>
+                <Skeleton variant="rect" width={40} height={40} />
+              </Grid>
+            </Grid>
+          </div>
+
+          <Skeleton variant="rect" className={classes.photo} />
+        </div>
+      }
+      style={{ boxShadow: 'none', transition: 'none', ...props.style }}
     />
   );
 }
