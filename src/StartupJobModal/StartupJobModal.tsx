@@ -12,14 +12,14 @@ import {
 import BackIcon from '@material-ui/icons/ArrowBackIos';
 
 import DetailsModal, { IDetailsModalProps } from '../Modal/DetailsModal';
-import { IFormProps } from '@antlerengineering/form-builder';
+import { IFormProps } from '@antlervc/form-builder';
 import CardTitle from '../Card/CardTitle';
 import CtaButton from '../CtaButton';
 import StartupJobDetails from './StartupJobDetails';
 import StartupJobForm from './StartupJobForm';
 import SlideTransition from '../Modal/SlideTransition';
 
-const useStyles = makeStyles(theme =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     title: { marginTop: 'var(--spacing-modal-contents)' },
 

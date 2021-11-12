@@ -3,7 +3,7 @@ import React from 'react';
 import {
   FormDialog as FormBuilderDialog,
   FieldType,
-} from '@antlerengineering/form-builder';
+} from '@antlervc/form-builder';
 
 export default {
   title: 'Antler Theme/Components/Modal/Form Dialog',
@@ -143,12 +143,12 @@ const fields = [
   },
 ];
 
-export const FormDialog = args => (
+export const FormDialog = (args) => (
   <FormBuilderDialog
     {...args}
     open
     onClose={() => alert('Check console for values')}
     fields={fields}
-    onSubmit={data => console.log(data)}
+    onSubmit={(data) => console.log(data)}
   />
 );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Form, IFormProps, FieldType } from '@antlerengineering/form-builder';
+import { Form, IFormProps, FieldType } from '@antlervc/form-builder';
 
 import { generateId } from '../utils';
 import { IStartupJobModalProps } from './StartupJobModal';
