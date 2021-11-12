@@ -43,7 +43,7 @@ export default function VideoModal({
     <ReactPlayer url={url} playing controls width="100%" height="100%" />
   );
 
-  if (url.includes('loom.com'))
+  if (url.includes('loom.com') || url.includes('app.vaam.io'))
     player = (
       <iframe
         src={url.replace('/share/', '/embed/')}
