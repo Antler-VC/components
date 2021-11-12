@@ -106,17 +106,12 @@
     "@algolia/logger-common" "4.4.0"
     "@algolia/requester-common" "4.4.0"
 
-"@antlerengineering/multiselect@^0.9.6":
-  version "0.9.6"
-  resolved "https://registry.yarnpkg.com/@antlerengineering/multiselect/-/multiselect-0.9.6.tgz#229a18c4a2aea3dd0b98070760439c9dfc03a6f3"
-  integrity sha512-pRcX385UiDDtQ7TrzbyTQWHDXs/ZP7dZ8vS7IRAfklxoGwSMwURfmWGvcI5CVwEhUO6gGPq4IzY8a9iQc04DyA==
-
 "@antlervc/form-builder@^2.5.2":
-  version "2.4.15"
-  resolved "https://registry.yarnpkg.com/@antlervc/form-builder/-/form-builder-2.4.15.tgz#85660de4ea2b7c55986909e32ad6d03a0a5d1851"
-  integrity sha512-o1uAd6JiebsRlf8/WBIrrmDzGN9p5j1PMDqBhYz9l+oddzdFWsmS6cIKf1OUIISvmdCXUs/UW12FabGHkzdTeQ==
+  version "2.4.18"
+  resolved "https://registry.yarnpkg.com/@antlervc/form-builder/-/form-builder-2.4.18.tgz#41acd0a53ef5f87a6ae03d6eaacdc9a4c28d117e"
+  integrity sha512-LMH9EvtJHPfZDVpdmWEPfPx23brWfm0ZhlIUr6yR0SQVhyssVhP9FvjbQ2E+A316ei8tCHDKhA5aK1G7yERyAQ==
   dependencies:
-    "@antlerengineering/multiselect" "^0.9.6"
+    "@antlervc/multiselect" "^0.9.6"
     "@date-io/date-fns" "1.x"
     "@hookform/resolvers" "^2.4.0"
     "@material-ui/pickers" "^3.2.10"
@@ -133,6 +128,11 @@
     react-hook-form "^7.3.4"
     use-debounce "^3.4.3"
     yup "^0.32.9"
+
+"@antlervc/multiselect@^0.9.6":
+  version "0.9.9"
+  resolved "https://registry.yarnpkg.com/@antlervc/multiselect/-/multiselect-0.9.9.tgz#49e23ed841284cbfc18a14c02546369aab2dc111"
+  integrity sha512-wZW2K0xAge6VoNFTRXc8PPA7euIuqS9OegMzQ3bqb6sVn4aRqSlCIAUrJV+4YrmAIKs5wLEbN5Rl45+0/bMMeQ==
 
 "@babel/code-frame@7.10.4", "@babel/code-frame@^7.10.4":
   version "7.10.4"

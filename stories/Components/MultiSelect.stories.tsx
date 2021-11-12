@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import MultiSelect from '@antlerengineering/multiselect';
+import MultiSelect from '@antlervc/multiselect';
 
 export default {
   title: 'Antler Theme/Components/Multi Select',

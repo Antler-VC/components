@@ -10,7 +10,7 @@ import AlgoliaFiltersModal from './AlgoliaFiltersModal';
 import AlgoliaFiltersInline from './AlgoliaFiltersInline';
 
 import { useTheme, useMediaQuery } from '@material-ui/core';
-import { MultiSelectProps } from '@antlerengineering/multiselect';
+import { MultiSelectProps } from '@antlervc/multiselect';
 
 const NUMERIC_OPERATORS = ['<', '<=', '=', '!=', '>=', '>'];
 /**

@@ -12,7 +12,7 @@ import {
   ListItemSecondaryAction,
   Typography,
 } from '@material-ui/core';
-import MultiSelect from '@antlerengineering/multiselect';
+import MultiSelect from '@antlervc/multiselect';
 
 const useStyles = makeStyles(theme =>
   createStyles({
